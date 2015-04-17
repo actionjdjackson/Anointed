@@ -13,6 +13,30 @@
 		E21B45931AE04E8F007F10C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21B45921AE04E8F007F10C5 /* Images.xcassets */; };
 		E21B45961AE04E8F007F10C5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21B45941AE04E8F007F10C5 /* MainMenu.xib */; };
 		E21B45A21AE04E8F007F10C5 /* AnointedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45A11AE04E8F007F10C5 /* AnointedTests.swift */; };
+		E21B45AC1AE04ECC007F10C5 /* BackgroundMusicA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E21B45AB1AE04ECC007F10C5 /* BackgroundMusicA.mp3 */; };
+		E21B45BF1AE04EF6007F10C5 /* BibleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45AD1AE04EF6007F10C5 /* BibleEvent.swift */; };
+		E21B45C01AE04EF6007F10C5 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45AE1AE04EF6007F10C5 /* Building.swift */; };
+		E21B45C11AE04EF6007F10C5 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45AF1AE04EF6007F10C5 /* City.swift */; };
+		E21B45C21AE04EF6007F10C5 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B01AE04EF6007F10C5 /* Conversation.swift */; };
+		E21B45C31AE04EF6007F10C5 /* GameCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B11AE04EF6007F10C5 /* GameCharacter.swift */; };
+		E21B45C41AE04EF6007F10C5 /* GameWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B21AE04EF6007F10C5 /* GameWorld.swift */; };
+		E21B45C51AE04EF6007F10C5 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B31AE04EF6007F10C5 /* Global.swift */; };
+		E21B45C61AE04EF6007F10C5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B41AE04EF6007F10C5 /* Item.swift */; };
+		E21B45C71AE04EF6007F10C5 /* Knowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B51AE04EF6007F10C5 /* Knowledge.swift */; };
+		E21B45C81AE04EF6007F10C5 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B61AE04EF6007F10C5 /* Location.swift */; };
+		E21B45C91AE04EF6007F10C5 /* NaturalGift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B71AE04EF6007F10C5 /* NaturalGift.swift */; };
+		E21B45CA1AE04EF6007F10C5 /* NonPlayingCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B81AE04EF6007F10C5 /* NonPlayingCharacter.swift */; };
+		E21B45CB1AE04EF6007F10C5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B91AE04EF6007F10C5 /* Room.swift */; };
+		E21B45CC1AE04EF6007F10C5 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45BA1AE04EF6007F10C5 /* Skill.swift */; };
+		E21B45CD1AE04EF6007F10C5 /* SpiritualGift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45BB1AE04EF6007F10C5 /* SpiritualGift.swift */; };
+		E21B45CE1AE04EF6007F10C5 /* Understanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45BC1AE04EF6007F10C5 /* Understanding.swift */; };
+		E21B45CF1AE04EF6007F10C5 /* Wisdom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */; };
+		E21B45D01AE04EF6007F10C5 /* WorldMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45BE1AE04EF6007F10C5 /* WorldMap.swift */; };
+		E2522A891AE05C9E00EDD89A /* TanakhENG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A881AE05C9E00EDD89A /* TanakhENG.txt */; };
+		E2522A8B1AE0631900EDD89A /* Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2522A8A1AE0631900EDD89A /* Scroll.swift */; };
+		E2522A8D1AE06B4D00EDD89A /* Psalm139.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8C1AE06B4D00EDD89A /* Psalm139.txt */; };
+		E2522A8F1AE06DBE00EDD89A /* Psalm139ENG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */; };
+		E2522A911AE07ABA00EDD89A /* GridSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2522A901AE07ABA00EDD89A /* GridSquare.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +60,30 @@
 		E21B459B1AE04E8F007F10C5 /* AnointedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnointedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21B45A01AE04E8F007F10C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21B45A11AE04E8F007F10C5 /* AnointedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnointedTests.swift; sourceTree = "<group>"; };
+		E21B45AB1AE04ECC007F10C5 /* BackgroundMusicA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusicA.mp3; sourceTree = "<group>"; };
+		E21B45AD1AE04EF6007F10C5 /* BibleEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleEvent.swift; sourceTree = "<group>"; };
+		E21B45AE1AE04EF6007F10C5 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
+		E21B45AF1AE04EF6007F10C5 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		E21B45B01AE04EF6007F10C5 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		E21B45B11AE04EF6007F10C5 /* GameCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCharacter.swift; sourceTree = "<group>"; };
+		E21B45B21AE04EF6007F10C5 /* GameWorld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWorld.swift; sourceTree = "<group>"; };
+		E21B45B31AE04EF6007F10C5 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		E21B45B41AE04EF6007F10C5 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		E21B45B51AE04EF6007F10C5 /* Knowledge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Knowledge.swift; sourceTree = "<group>"; };
+		E21B45B61AE04EF6007F10C5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		E21B45B71AE04EF6007F10C5 /* NaturalGift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaturalGift.swift; sourceTree = "<group>"; };
+		E21B45B81AE04EF6007F10C5 /* NonPlayingCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonPlayingCharacter.swift; sourceTree = "<group>"; };
+		E21B45B91AE04EF6007F10C5 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		E21B45BA1AE04EF6007F10C5 /* Skill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		E21B45BB1AE04EF6007F10C5 /* SpiritualGift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpiritualGift.swift; sourceTree = "<group>"; };
+		E21B45BC1AE04EF6007F10C5 /* Understanding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Understanding.swift; sourceTree = "<group>"; };
+		E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wisdom.swift; sourceTree = "<group>"; };
+		E21B45BE1AE04EF6007F10C5 /* WorldMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldMap.swift; sourceTree = "<group>"; };
+		E2522A881AE05C9E00EDD89A /* TanakhENG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TanakhENG.txt; sourceTree = "<group>"; };
+		E2522A8A1AE0631900EDD89A /* Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scroll.swift; sourceTree = "<group>"; };
+		E2522A8C1AE06B4D00EDD89A /* Psalm139.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Psalm139.txt; sourceTree = "<group>"; };
+		E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Psalm139ENG.txt; sourceTree = "<group>"; };
+		E2522A901AE07ABA00EDD89A /* GridSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridSquare.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +125,33 @@
 		E21B45891AE04E8F007F10C5 /* Anointed */ = {
 			isa = PBXGroup;
 			children = (
-				E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */,
-				E21B458E1AE04E8F007F10C5 /* GameScene.swift */,
+				E21B45AB1AE04ECC007F10C5 /* BackgroundMusicA.mp3 */,
 				E21B45901AE04E8F007F10C5 /* GameScene.sks */,
+				E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */,
+				E21B45AD1AE04EF6007F10C5 /* BibleEvent.swift */,
+				E21B45AE1AE04EF6007F10C5 /* Building.swift */,
+				E21B45AF1AE04EF6007F10C5 /* City.swift */,
+				E21B45B01AE04EF6007F10C5 /* Conversation.swift */,
+				E21B45B11AE04EF6007F10C5 /* GameCharacter.swift */,
+				E21B458E1AE04E8F007F10C5 /* GameScene.swift */,
+				E21B45B21AE04EF6007F10C5 /* GameWorld.swift */,
+				E21B45B31AE04EF6007F10C5 /* Global.swift */,
+				E2522A901AE07ABA00EDD89A /* GridSquare.swift */,
+				E21B45B41AE04EF6007F10C5 /* Item.swift */,
+				E21B45B51AE04EF6007F10C5 /* Knowledge.swift */,
+				E21B45B61AE04EF6007F10C5 /* Location.swift */,
+				E21B45B71AE04EF6007F10C5 /* NaturalGift.swift */,
+				E21B45B81AE04EF6007F10C5 /* NonPlayingCharacter.swift */,
+				E21B45B91AE04EF6007F10C5 /* Room.swift */,
+				E2522A8A1AE0631900EDD89A /* Scroll.swift */,
+				E21B45BA1AE04EF6007F10C5 /* Skill.swift */,
+				E21B45BB1AE04EF6007F10C5 /* SpiritualGift.swift */,
+				E21B45BC1AE04EF6007F10C5 /* Understanding.swift */,
+				E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */,
+				E21B45BE1AE04EF6007F10C5 /* WorldMap.swift */,
+				E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */,
+				E2522A8C1AE06B4D00EDD89A /* Psalm139.txt */,
+				E2522A881AE05C9E00EDD89A /* TanakhENG.txt */,
 				E21B45921AE04E8F007F10C5 /* Images.xcassets */,
 				E21B45941AE04E8F007F10C5 /* MainMenu.xib */,
 				E21B458A1AE04E8F007F10C5 /* Supporting Files */,
@@ -192,6 +264,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2522A8F1AE06DBE00EDD89A /* Psalm139ENG.txt in Resources */,
+				E21B45AC1AE04ECC007F10C5 /* BackgroundMusicA.mp3 in Resources */,
+				E2522A891AE05C9E00EDD89A /* TanakhENG.txt in Resources */,
+				E2522A8D1AE06B4D00EDD89A /* Psalm139.txt in Resources */,
 				E21B45911AE04E8F007F10C5 /* GameScene.sks in Resources */,
 				E21B45931AE04E8F007F10C5 /* Images.xcassets in Resources */,
 				E21B45961AE04E8F007F10C5 /* MainMenu.xib in Resources */,
@@ -212,8 +288,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E21B45C61AE04EF6007F10C5 /* Item.swift in Sources */,
+				E21B45C21AE04EF6007F10C5 /* Conversation.swift in Sources */,
+				E21B45CA1AE04EF6007F10C5 /* NonPlayingCharacter.swift in Sources */,
+				E21B45C31AE04EF6007F10C5 /* GameCharacter.swift in Sources */,
+				E21B45C91AE04EF6007F10C5 /* NaturalGift.swift in Sources */,
+				E21B45CC1AE04EF6007F10C5 /* Skill.swift in Sources */,
 				E21B458F1AE04E8F007F10C5 /* GameScene.swift in Sources */,
+				E21B45D01AE04EF6007F10C5 /* WorldMap.swift in Sources */,
+				E21B45C11AE04EF6007F10C5 /* City.swift in Sources */,
+				E21B45C71AE04EF6007F10C5 /* Knowledge.swift in Sources */,
+				E21B45C41AE04EF6007F10C5 /* GameWorld.swift in Sources */,
+				E2522A8B1AE0631900EDD89A /* Scroll.swift in Sources */,
 				E21B458D1AE04E8F007F10C5 /* AppDelegate.swift in Sources */,
+				E21B45CD1AE04EF6007F10C5 /* SpiritualGift.swift in Sources */,
+				E21B45BF1AE04EF6007F10C5 /* BibleEvent.swift in Sources */,
+				E21B45C01AE04EF6007F10C5 /* Building.swift in Sources */,
+				E21B45CF1AE04EF6007F10C5 /* Wisdom.swift in Sources */,
+				E21B45CE1AE04EF6007F10C5 /* Understanding.swift in Sources */,
+				E2522A911AE07ABA00EDD89A /* GridSquare.swift in Sources */,
+				E21B45C81AE04EF6007F10C5 /* Location.swift in Sources */,
+				E21B45C51AE04EF6007F10C5 /* Global.swift in Sources */,
+				E21B45CB1AE04EF6007F10C5 /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +500,7 @@
 				E21B45A71AE04E8F007F10C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E21B45A81AE04E8F007F10C5 /* Build configuration list for PBXNativeTarget "AnointedTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +509,7 @@
 				E21B45AA1AE04E8F007F10C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
