@@ -44,7 +44,8 @@ class GameScene: SKScene {
     let dateLabel = SKLabelNode(fontNamed:"Courier New")
     let bibleEventTitle = SKLabelNode(fontNamed:"Chalkduster")
     let bibleEventDescription = SKLabelNode(fontNamed:"Chalkduster")
-    var GAME_SPEED = 1.0
+    var GAME_SPEED = 0.5
+    var PREV_GAME_SPEED = 0.5
     var PAUSED = false
     
     override func didMoveToView(view: SKView) {
@@ -97,6 +98,17 @@ class GameScene: SKScene {
         menuTitle.fontSize = 24
         menuTitle.position = CGPoint(x: 0, y: CGRectGetMaxY(theOpenMenu.frame)/2 - 128)
         theOpenMenu.addChild(menuTitle)
+        
+        if theMenu == "INVENTORY" {
+            var inventoryItems = SKLabelNode(fontNamed: "Arial")
+            inventoryItems.text = " "
+            inventoryItems.fontSize = 16
+            inventoryItems.position = CGPoint(x: 0, y: CGRectGetMaxY(theOpenMenu.frame)/2 - 256)
+            if theGame.player.inventory.count > 0 {
+                inventoryItems.text = theGame.player.inventory[0].title
+            }
+            theOpenMenu.addChild(inventoryItems)
+        }
     }
     
     override func mouseDown(theEvent: NSEvent) {
@@ -161,19 +173,98 @@ class GameScene: SKScene {
     
     override func keyDown(theEvent: NSEvent) {
         
+    }
+    
+    override func keyUp(theEvent: NSEvent) {
+        
         let key = theEvent.keyCode
+        
         if key == 49 && PAUSED == false {
+            PREV_GAME_SPEED = GAME_SPEED
             GAME_SPEED = 0.0
             PAUSED = true
         } else if key == 49 && PAUSED == true {
-            GAME_SPEED = 1.0
+            GAME_SPEED = PREV_GAME_SPEED
             PAUSED = false
-        } else if key == 24 {
-            GAME_SPEED = 10.0
         } else if key == 27 {
-            GAME_SPEED = 0.01
+            GAME_SPEED /= 2.0
+        } else if key == 24 {
+            GAME_SPEED *= 2.0
+        } else if key == 89 {
+            theGame.playerSprite.texture = SKTexture(imageNamed: "characterUPPERLEFT")
+            var moveUpperLeft = SKAction.moveByX(-64, y: 32, duration: 0.125)
+            theGame.playerSprite.runAction(moveUpperLeft)
+            theGame.player.currentGridLocation.x += 1
+            println(theGame.player.currentGridLocation)
+            pickUpItems(theGame.player.currentGridLocation)
+        } else if key == 91 {
+            theGame.playerSprite.texture = SKTexture(imageNamed: "characterUP")
+            var moveUp = SKAction.moveByX(0, y: 64, duration: 0.125)
+            theGame.playerSprite.runAction(moveUp)
+            theGame.player.currentGridLocation.x += 1
+            theGame.player.currentGridLocation.y += 1
+            println(theGame.player.currentGridLocation)
+            pickUpItems(theGame.player.currentGridLocation)
+        } else if key == 92 {
+            theGame.playerSprite.texture = SKTexture(imageNamed: "characterUPPERRIGHT")
+            var moveUpperRight = SKAction.moveByX(64, y: 32, duration: 0.125)
+            theGame.playerSprite.runAction(moveUpperRight)
+            theGame.player.currentGridLocation.y += 1
+            println(theGame.player.currentGridLocation)
+            pickUpItems(theGame.player.currentGridLocation)
+        } else if key == 86 {
+            theGame.playerSprite.texture = SKTexture(imageNamed: "characterLEFT")
+            var moveLeft = SKAction.moveByX(-128, y: 0, duration: 0.125)
+            theGame.playerSprite.runAction(moveLeft)
+            theGame.player.currentGridLocation.y -= 1
+            theGame.player.currentGridLocation.x += 1
+            println(theGame.player.currentGridLocation)
+            pickUpItems(theGame.player.currentGridLocation)
+        } else if key == 87 {
+            theGame.playerSprite.texture = SKTexture(imageNamed: "characterSEATED")
+        } else if key == 88 {
+            theGame.playerSprite.texture = SKTexture(imageNamed: "characterRIGHT")
+            var moveRight = SKAction.moveByX(128, y: 0, duration: 0.125)
+            theGame.playerSprite.runAction(moveRight)
+            theGame.player.currentGridLocation.y += 1
+            theGame.player.currentGridLocation.x -= 1
+            println(theGame.player.currentGridLocation)
+            pickUpItems(theGame.player.currentGridLocation)
+        } else if key == 83 {
+            theGame.playerSprite.texture = SKTexture(imageNamed: "characterLOWERLEFT")
+            var moveLowerLeft = SKAction.moveByX(-64, y: -32, duration: 0.125)
+            theGame.playerSprite.runAction(moveLowerLeft)
+            theGame.player.currentGridLocation.y -= 1
+            println(theGame.player.currentGridLocation)
+            pickUpItems(theGame.player.currentGridLocation)
+        } else if key == 84 {
+            theGame.playerSprite.texture = SKTexture(imageNamed: "characterDOWN")
+            var moveDown = SKAction.moveByX(0, y: -64, duration: 0.125)
+            theGame.playerSprite.runAction(moveDown)
+            theGame.player.currentGridLocation.y -= 1
+            theGame.player.currentGridLocation.x += 1
+            println(theGame.player.currentGridLocation)
+            pickUpItems(theGame.player.currentGridLocation)
+        } else if key == 85 {
+            theGame.playerSprite.texture = SKTexture(imageNamed: "characterLOWERRIGHT")
+            var moveLowerRight = SKAction.moveByX(64, y: -32, duration: 0.125)
+            theGame.playerSprite.runAction(moveLowerRight)
+            theGame.player.currentGridLocation.x -= 1
+            println(theGame.player.currentGridLocation)
+            pickUpItems(theGame.player.currentGridLocation)
         } else {
             println(key)
+        }
+        
+    }
+    
+    func pickUpItems(pt: CGPoint) {
+        var x = Int(pt.x)
+        var y = Int(pt.y)
+        if theGame.currentLocation.grid[x][y].contents.count > 0 {
+            println("Found an item!")
+            theGame.player.inventory.append(theGame.currentLocation.grid[x][y].contents[0])
+            theGame.currentLocation.grid[x][y].contents[0].removeFromParent()
         }
         
     }
@@ -201,52 +292,58 @@ class GameScene: SKScene {
     
     func createLocation() {
         
-        for x in 0...15 {
-            for y in 0...11 {
-                var square = SKSpriteNode(imageNamed:theGame.currentLocation.grid[x][y].texture)
-                square.position = twoDToIso(CGPoint(x: x*64 + 512, y: y*64 - 128))
+        for x in 0...theGame.currentLocation.grid.count-1 {
+            for y in 0...theGame.currentLocation.grid[0].count-1 {
+                var xx = theGame.currentLocation.grid.count-x-1
+                var yy = theGame.currentLocation.grid[0].count-y-1
+                var square = SKSpriteNode(imageNamed:theGame.currentLocation.grid[xx][yy].texture)
+                square.position = twoDToIso(CGPoint(x: xx*64 + 512, y: yy*64 - 128))
                 self.addChild(square)
-                if theGame.currentLocation.grid[x][y].contents.count > 0 {
-                    var item = SKSpriteNode(imageNamed: theGame.currentLocation.grid[x][y].contents[0].spriteName)
-                    item.position = twoDToIso(CGPoint(x: x*64 + 512, y: y*64 - 128))
-                    self.addChild(item)
+                if theGame.currentLocation.grid[xx][yy].contents.count > 0 {
+                    theGame.currentLocation.grid[xx][yy].contents[0].position = twoDToIso(CGPoint(x: xx*64 + 512, y: yy*64 - 128))
+                    self.addChild(theGame.currentLocation.grid[xx][yy].contents[0])
                 }
             }
         }
+        theGame.playerSprite.position = twoDToIso(CGPoint(x: theGame.player.currentGridLocation.x*64 + 512 + 32, y: theGame.player.currentGridLocation.y*64 + 32 - 128))
+        self.addChild(theGame.playerSprite)
+        
+        dateLabel.fontSize = 14
+        dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:64+14)
+        self.addChild(dateLabel)
+        
+        bibleEventTitle.text = " "
+        bibleEventTitle.fontSize = 18
+        bibleEventTitle.position = CGPoint(x:CGRectGetMidX(self.frame), y:512)
+        self.addChild(bibleEventTitle)
+        
+        bibleEventDescription.text = " "
+        bibleEventDescription.fontSize = 12
+        bibleEventDescription.position = CGPoint(x:CGRectGetMidX(self.frame), y:256+128)
+        self.addChild(bibleEventDescription)
         
     }
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
-        dateLabel.removeFromParent()
         dateLabel.text = formatter.stringFromDate(theGame.gameDate)
-        dateLabel.fontSize = 14
-        dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:256)
-        self.addChild(dateLabel)
         
-        if theGame.bibleEvents[theGame.nextEvent].date.isEqualToDate( theGame.gameDate ) {
-            
-            bibleEventTitle.removeFromParent()
+        if theGame.bibleEvents.count == theGame.nextEvent {
+            exit(0)
+        }
+        
+        if theGame.bibleEvents[theGame.nextEvent].date.laterDate(theGame.gameDate) == theGame.gameDate {
+
             bibleEventTitle.text = theGame.bibleEvents[theGame.nextEvent].title
-            bibleEventTitle.fontSize = 18
-            bibleEventTitle.position = CGPoint(x:CGRectGetMidX(self.frame), y:512)
-            self.addChild(bibleEventTitle)
-            
-            bibleEventDescription.removeFromParent()
             bibleEventDescription.text = theGame.bibleEvents[theGame.nextEvent].description
-            bibleEventDescription.fontSize = 12
-            bibleEventDescription.position = CGPoint(x:CGRectGetMidX(self.frame), y:256+128)
-            self.addChild(bibleEventDescription)
             
             theGame.nextEvent++
-            
-            if theGame.bibleEvents.count <= theGame.nextEvent {
-                EXIT_SUCCESS
-            }
-            
+        
         }
+        
         theGame.gameDate = theGame.gameDate.dateByAddingTimeInterval(GAME_SPEED)
+        
     }
     
 }

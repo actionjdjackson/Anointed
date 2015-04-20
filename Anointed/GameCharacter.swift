@@ -61,7 +61,7 @@ class GameCharacter {
         strength = 10
         dexterity = 10
         experience = age * 1000
-        languagesKnown = ["Hebrew", "Aramaic", "Greek"]
+        languagesKnown = ["Hebrew", "Aramaic", "Greek", "Latin"]
         currentGridLocation = CGPoint(x: 5, y: 5)
         
     }

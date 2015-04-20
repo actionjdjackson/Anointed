@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SpriteKit
 
 class GameWorld {
     
@@ -14,26 +15,24 @@ class GameWorld {
     var cities: [City]
     var nextEvent: Int
     var gameDate: NSDate
-    var birthOfJesus: NSDate
     var currentCity: City
     var currentLocation: Location
     var player: GameCharacter
+    var playerSprite = SKSpriteNode(imageNamed: "characterDOWN")
     
     init() {
         
         player = GameCharacter()
         
         let hebrewCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierHebrew)
-        let birthOfJesusDateComponents = NSDateComponents()
-        //birthOfJesusDateComponents.timeZone = NSTimeZone(name: "Central Time (US & Canada)")
-        birthOfJesusDateComponents.year = 3755
-        birthOfJesusDateComponents.month = HebrewMonths.TISHRI
-        birthOfJesusDateComponents.day = 15
-        birthOfJesusDateComponents.hour = 21
-        birthOfJesusDateComponents.minute = 0
-        birthOfJesusDateComponents.second = 0
-        birthOfJesus = hebrewCalendar!.dateFromComponents(birthOfJesusDateComponents)!
-        gameDate = birthOfJesus
+        let gameDateComponents = NSDateComponents()
+        gameDateComponents.year = 3755
+        gameDateComponents.month = HebrewMonths.TISHRI
+        gameDateComponents.day = 15
+        gameDateComponents.hour = 8
+        gameDateComponents.minute = 0
+        gameDateComponents.second = 0
+        gameDate = hebrewCalendar!.dateFromComponents(gameDateComponents)!
         
         var nilRoom = Room()
         var nilBuilding = Building(r: [[nilRoom]])

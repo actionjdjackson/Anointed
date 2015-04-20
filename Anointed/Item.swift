@@ -9,10 +9,10 @@
 import Foundation
 import SpriteKit
 
-class Item {
+class Item : SKSpriteNode {
     
     let title: String
-    let description: String
+    let descr: String
     let inventorySizeX: Int
     let inventorySizeY: Int
     let spriteName: String
@@ -20,11 +20,18 @@ class Item {
     init( ttl: String, desc: String, sx: Int, sy: Int, iconName: String ) {
         
         title = ttl
-        description = desc
+        descr = desc
         inventorySizeX = sx
         inventorySizeY = sy
         spriteName = iconName
         
+        let texture = SKTexture(imageNamed: spriteName)
+        super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
+        
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
