@@ -18,7 +18,6 @@ class GameWorld {
     var currentCity: City
     var currentLocation: Location
     var player: GameCharacter
-    var playerSprite = SKSpriteNode(imageNamed: "characterDOWN")
     
     init() {
         

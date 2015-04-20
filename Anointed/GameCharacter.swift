@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import SpriteKit
 
-class GameCharacter {
+class GameCharacter : SKSpriteNode {
     
-    var name: String
+    var firstName: String
     var from: String
     var birthplace: String
     var romanCitizen: Bool
@@ -36,9 +37,9 @@ class GameCharacter {
     var languagesKnown: [String]
     var currentGridLocation: CGPoint
     
-    
     init() {
-        name = "Jesus"
+        
+        firstName = "Jesus"
         from = "Nazareth"
         birthplace = "Bethlehem"
         romanCitizen = false
@@ -64,6 +65,13 @@ class GameCharacter {
         languagesKnown = ["Hebrew", "Aramaic", "Greek", "Latin"]
         currentGridLocation = CGPoint(x: 5, y: 5)
         
+        let texture = SKTexture(imageNamed: "characterDOWN")
+        super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
+        
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

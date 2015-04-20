@@ -190,65 +190,77 @@ class GameScene: SKScene {
             GAME_SPEED /= 2.0
         } else if key == 24 {
             GAME_SPEED *= 2.0
+        } else if key == 34 {
+            if menuUp == "INVENTORY" {
+                clearMenu()
+            } else {
+                openMenu("INVENTORY")
+            }
+        } else if key == 35 {
+            if menuUp == "PARTY" {
+                clearMenu()
+            } else {
+                openMenu("PARTY")
+            }
         } else if key == 89 {
-            theGame.playerSprite.texture = SKTexture(imageNamed: "characterUPPERLEFT")
+            theGame.player.texture = SKTexture(imageNamed: "characterUPPERLEFT")
             var moveUpperLeft = SKAction.moveByX(-64, y: 32, duration: 0.125)
-            theGame.playerSprite.runAction(moveUpperLeft)
+            theGame.player.runAction(moveUpperLeft)
             theGame.player.currentGridLocation.x += 1
             println(theGame.player.currentGridLocation)
             pickUpItems(theGame.player.currentGridLocation)
         } else if key == 91 {
-            theGame.playerSprite.texture = SKTexture(imageNamed: "characterUP")
+            theGame.player.texture = SKTexture(imageNamed: "characterUP")
             var moveUp = SKAction.moveByX(0, y: 64, duration: 0.125)
-            theGame.playerSprite.runAction(moveUp)
+            theGame.player.runAction(moveUp)
             theGame.player.currentGridLocation.x += 1
             theGame.player.currentGridLocation.y += 1
             println(theGame.player.currentGridLocation)
             pickUpItems(theGame.player.currentGridLocation)
         } else if key == 92 {
-            theGame.playerSprite.texture = SKTexture(imageNamed: "characterUPPERRIGHT")
+            theGame.player.texture = SKTexture(imageNamed: "characterUPPERRIGHT")
             var moveUpperRight = SKAction.moveByX(64, y: 32, duration: 0.125)
-            theGame.playerSprite.runAction(moveUpperRight)
+            theGame.player.runAction(moveUpperRight)
             theGame.player.currentGridLocation.y += 1
             println(theGame.player.currentGridLocation)
             pickUpItems(theGame.player.currentGridLocation)
         } else if key == 86 {
-            theGame.playerSprite.texture = SKTexture(imageNamed: "characterLEFT")
+            theGame.player.texture = SKTexture(imageNamed: "characterLEFT")
             var moveLeft = SKAction.moveByX(-128, y: 0, duration: 0.125)
-            theGame.playerSprite.runAction(moveLeft)
+            theGame.player.runAction(moveLeft)
             theGame.player.currentGridLocation.y -= 1
             theGame.player.currentGridLocation.x += 1
             println(theGame.player.currentGridLocation)
             pickUpItems(theGame.player.currentGridLocation)
         } else if key == 87 {
-            theGame.playerSprite.texture = SKTexture(imageNamed: "characterSEATED")
+            theGame.player.texture = SKTexture(imageNamed: "characterSEATED")
         } else if key == 88 {
-            theGame.playerSprite.texture = SKTexture(imageNamed: "characterRIGHT")
+            theGame.player.texture = SKTexture(imageNamed: "characterRIGHT")
             var moveRight = SKAction.moveByX(128, y: 0, duration: 0.125)
-            theGame.playerSprite.runAction(moveRight)
+            theGame.player.runAction(moveRight)
             theGame.player.currentGridLocation.y += 1
             theGame.player.currentGridLocation.x -= 1
             println(theGame.player.currentGridLocation)
             pickUpItems(theGame.player.currentGridLocation)
         } else if key == 83 {
-            theGame.playerSprite.texture = SKTexture(imageNamed: "characterLOWERLEFT")
+            theGame.player.texture = SKTexture(imageNamed: "characterLOWERLEFT")
             var moveLowerLeft = SKAction.moveByX(-64, y: -32, duration: 0.125)
-            theGame.playerSprite.runAction(moveLowerLeft)
+            theGame.player.runAction(moveLowerLeft)
             theGame.player.currentGridLocation.y -= 1
             println(theGame.player.currentGridLocation)
             pickUpItems(theGame.player.currentGridLocation)
         } else if key == 84 {
-            theGame.playerSprite.texture = SKTexture(imageNamed: "characterDOWN")
+            theGame.player.texture = SKTexture(imageNamed: "characterDOWN")
             var moveDown = SKAction.moveByX(0, y: -64, duration: 0.125)
-            theGame.playerSprite.runAction(moveDown)
+            theGame.player.runAction(moveDown)
             theGame.player.currentGridLocation.y -= 1
-            theGame.player.currentGridLocation.x += 1
+            theGame.player.currentGridLocation.x -= 1
             println(theGame.player.currentGridLocation)
             pickUpItems(theGame.player.currentGridLocation)
         } else if key == 85 {
-            theGame.playerSprite.texture = SKTexture(imageNamed: "characterLOWERRIGHT")
+            theGame.player.texture = SKTexture(imageNamed: "characterLOWERRIGHT")
             var moveLowerRight = SKAction.moveByX(64, y: -32, duration: 0.125)
-            theGame.playerSprite.runAction(moveLowerRight)
+            theGame.player.runAction(moveLowerRight)
             theGame.player.currentGridLocation.x -= 1
             println(theGame.player.currentGridLocation)
             pickUpItems(theGame.player.currentGridLocation)
@@ -265,6 +277,7 @@ class GameScene: SKScene {
             println("Found an item!")
             theGame.player.inventory.append(theGame.currentLocation.grid[x][y].contents[0])
             theGame.currentLocation.grid[x][y].contents[0].removeFromParent()
+            theGame.currentLocation.grid[x][y].contents.removeAtIndex(0)
         }
         
     }
@@ -305,8 +318,9 @@ class GameScene: SKScene {
                 }
             }
         }
-        theGame.playerSprite.position = twoDToIso(CGPoint(x: theGame.player.currentGridLocation.x*64 + 512 + 32, y: theGame.player.currentGridLocation.y*64 + 32 - 128))
-        self.addChild(theGame.playerSprite)
+        
+        theGame.player.position = twoDToIso(CGPoint(x: theGame.player.currentGridLocation.x*64 + 512 + 32, y: theGame.player.currentGridLocation.y*64 + 32 - 128))
+        self.addChild(theGame.player)
         
         dateLabel.fontSize = 14
         dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:64+14)
