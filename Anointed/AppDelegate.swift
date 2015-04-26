@@ -42,7 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
             
-            self.skView!.presentScene(scene)
+            self.skView!.presentScene(scene)    //show me the game!
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             //self.skView!.ignoresSiblingOrder = true   //commented out because the tiles didn't fit together right
