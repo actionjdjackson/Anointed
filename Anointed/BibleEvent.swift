@@ -8,6 +8,7 @@
 
 import Foundation
 
+/* DEFINES A BIBLE EVENT WITH A DATE & TIME, TITLE, DESCRIPTION (MAIN TEXT), CITY, LOCATION, BUILDING, AND ROOM */
 class BibleEvent {
     
     var title: String
@@ -28,7 +29,6 @@ class BibleEvent {
         dateComponents.hour = hr
         dateComponents.minute = min
         dateComponents.second = sec
-        //dateComponents.timeZone = NSTimeZone(name: "Central Time (US & Canada)")
         date = hebrewCalendar!.dateFromComponents(dateComponents)!
 
         title = ttl
@@ -37,6 +37,7 @@ class BibleEvent {
         location = l
         building = b
         room = r
+        
     }
     
 }

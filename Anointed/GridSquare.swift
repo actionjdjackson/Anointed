@@ -8,6 +8,7 @@
 
 import Foundation
 
+/* DEFINES A GRID SQUARE - WITH A TEXTURE AND A CONTENTS ARRAY */
 class GridSquare {
     
     var texture: String

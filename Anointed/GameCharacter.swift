@@ -9,6 +9,7 @@
 import Foundation
 import SpriteKit
 
+/* DEFINES A PLAYER IN THE GAME (A GAME CHARACTER) */
 class GameCharacter : SKSpriteNode {
     
     var firstName: String
@@ -37,6 +38,7 @@ class GameCharacter : SKSpriteNode {
     var languagesKnown: [String]
     var currentGridLocation: CGPoint
     
+    /* FOR NOW, JUST DEFAULT TO JESUS AND DEFINE THINGS AS WE NEED TO FOR DEBUGGING. CHARS WILL BE DEFINABLE/CREATABLE LATER IN GAME DEV - ***IN PROGRESS*** */
     init() {
         
         firstName = "Jesus"
@@ -65,8 +67,8 @@ class GameCharacter : SKSpriteNode {
         languagesKnown = ["Hebrew", "Aramaic", "Greek", "Latin"]
         currentGridLocation = CGPoint(x: 5, y: 5)
         
-        let texture = SKTexture(imageNamed: "characterDOWN")
-        super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
+        let texture = SKTexture(imageNamed: "characterDOWN")    //make a texture w/ the downward-facing character image
+        super.init(texture: texture, color: SKColor.clearColor(), size: texture.size()) //defines tex, bgcolor, and size
         
     }
 

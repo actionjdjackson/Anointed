@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import SpriteKit
+
+/* ALLOWS FOR EASY ENTERING OF HEBREW MONTHS THROUGHOUT THE APPLICATION */
 
 struct HebrewMonths {
     static let NISSAN = 7

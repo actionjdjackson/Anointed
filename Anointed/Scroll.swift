@@ -8,6 +8,7 @@
 
 import Foundation
 
+/* DEFINES A SCROLL OBJECT, WITH 3 DIFFERENT SIZES, TEXT FILE SOURCE, LANGUAGE, TITLE, AND DESCRIPTION */
 class Scroll: Item {
     
     init( ttl: String, desc: String, textFile: String, lang: String, scrollSize: Int ) {
@@ -19,7 +20,7 @@ class Scroll: Item {
         } else if scrollSize >= 3 {
             super.init(ttl: ttl, desc: desc, sx: 2, sy: 2, iconName: "LargeScroll")
         } else {
-            super.init(ttl: ttl, desc: desc, sx: 1, sy: 1, iconName: "SmallScroll")
+            super.init(ttl: ttl, desc: desc, sx: 1, sy: 1, iconName: "SmallScroll") //DEFAULTS TO SMALL SCROLL IMAGE/SIZE
         }
         
         let path = NSBundle.mainBundle().pathForResource(textFile, ofType: "txt")
@@ -28,6 +29,7 @@ class Scroll: Item {
         
     }
 
+    /* REQUIRED BY APPLE FOR ANYTHING INHERITING FROM SKSpriteNode */
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
