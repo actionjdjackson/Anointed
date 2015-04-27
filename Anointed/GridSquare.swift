@@ -13,11 +13,13 @@ class GridSquare {
     
     var texture: String
     var contents: [Item]
+    var extraObject: String
     
-    init( tex: String, has: [Item] ) {
+    init( tex: String, hasItems: [Item], obj: String ) {
         
         texture = tex
-        contents = has
+        contents = hasItems
+        extraObject = obj
         
     }
     

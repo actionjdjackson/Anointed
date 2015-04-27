@@ -263,19 +263,19 @@ class GameScene: SKScene {
             } else {
                 openMenu("SKILLS")
             }
-            /* CHARACTER MOVEMENT & STATE CHANGE (SITTING, ETC.) CODE HERE */
-        } else if key == 89 {   //'7' NUM PAD PRESSED
+        /* CHARACTER MOVEMENT & STATE CHANGE (SITTING, ETC.) CODE HERE */
+        } else if key == 89 {   //'7' NUM PAD PRESSED - MOVING INTO UPPER LEFT SQUARE
             theGame.player.texture = SKTexture(imageNamed: "characterUPPERLEFT")    //displays char moving up-left
-            if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count { //if in bounds
+            if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" { //if in bounds and no collision
                 let moveUpperLeft = SKAction.moveByX(-64, y: 32, duration: 0.125)   //move gradually to new location
                 theGame.player.runAction(moveUpperLeft) //runs the action defined above
                 theGame.player.currentGridLocation.x += 1   //sets grid location (corresponding to matrix, not spritekit location)
                 println(theGame.player.currentGridLocation) //display coords in console
                 pickUpItems(theGame.player.currentGridLocation) //pick up any items in-square automatically
             }
-        } else if key == 91 {   //'8' NUM PAD PRESSED - everything else is the same idea as above
+        } else if key == 91 {   //'8' NUM PAD PRESSED - everything else is the same idea as above, just look at [imageNamed: "characterXXXX"] for movement direction
             theGame.player.texture = SKTexture(imageNamed: "characterUP")
-            if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count {
+            if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" {
                 let moveUp = SKAction.moveByX(0, y: 64, duration: 0.125)
                 theGame.player.runAction(moveUp)
                 theGame.player.currentGridLocation.x += 1
@@ -285,7 +285,7 @@ class GameScene: SKScene {
             }
         } else if key == 92 {   //'9' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterUPPERRIGHT")
-            if Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count {
+            if Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x)].extraObject == "" {
                 let moveUpperRight = SKAction.moveByX(64, y: 32, duration: 0.125)
                 theGame.player.runAction(moveUpperRight)
                 theGame.player.currentGridLocation.y += 1
@@ -294,7 +294,7 @@ class GameScene: SKScene {
             }
         } else if key == 86 {   //'4' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLEFT")
-            if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && Int(theGame.player.currentGridLocation.y - 1) >= 0 {
+            if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" {
                 let moveLeft = SKAction.moveByX(-128, y: 0, duration: 0.125)
                 theGame.player.runAction(moveLeft)
                 theGame.player.currentGridLocation.y -= 1
@@ -306,7 +306,7 @@ class GameScene: SKScene {
             theGame.player.texture = SKTexture(imageNamed: "characterSEATED") //make character sit for center key
         } else if key == 88 {   //'6' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterRIGHT")
-            if Int(theGame.player.currentGridLocation.x - 1) >= 0 && Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count {
+            if Int(theGame.player.currentGridLocation.x - 1) >= 0 && Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
                 let moveRight = SKAction.moveByX(128, y: 0, duration: 0.125)
                 theGame.player.runAction(moveRight)
                 theGame.player.currentGridLocation.y += 1
@@ -316,7 +316,7 @@ class GameScene: SKScene {
             }
         } else if key == 83 {   //'1' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLOWERLEFT")
-            if Int(theGame.player.currentGridLocation.y - 1) >= 0 {
+            if Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x)].extraObject == "" {
                 let moveLowerLeft = SKAction.moveByX(-64, y: -32, duration: 0.125)
                 theGame.player.runAction(moveLowerLeft)
                 theGame.player.currentGridLocation.y -= 1
@@ -325,7 +325,7 @@ class GameScene: SKScene {
             }
         } else if key == 84 {   //'2' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterDOWN")
-            if Int(theGame.player.currentGridLocation.x - 1) >= 0 && Int(theGame.player.currentGridLocation.y - 1) >= 0 {
+            if Int(theGame.player.currentGridLocation.x - 1) >= 0 && Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
                 let moveDown = SKAction.moveByX(0, y: -64, duration: 0.125)
                 theGame.player.runAction(moveDown)
                 theGame.player.currentGridLocation.y -= 1
@@ -335,7 +335,7 @@ class GameScene: SKScene {
             }
         } else if key == 85 {   //'3' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLOWERRIGHT")
-            if Int(theGame.player.currentGridLocation.x - 1) >= 0 {
+            if Int(theGame.player.currentGridLocation.x - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
                 let moveLowerRight = SKAction.moveByX(64, y: -32, duration: 0.125)
                 theGame.player.runAction(moveLowerRight)
                 theGame.player.currentGridLocation.x -= 1
@@ -343,7 +343,7 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation)
             }
         } else {
-            println(key)    //FOR DEBUGGING, PRINT ANY KEY CODE NOT YET CODED
+            println(key)    //FOR DEBUGGING, PRINT ANY KEY CODE NOT YET CODED FOR
         }
         
     }
@@ -395,15 +395,28 @@ class GameScene: SKScene {
                 var square = SKSpriteNode(imageNamed:theGame.currentLocation.grid[xx][yy].texture)  //grabs the tex
                 square.position = twoDToIso(CGPoint(x: xx*64, y: yy*64))    //converts to iso coords
                 world.addChild(square)  //adds to the world
-                if theGame.currentLocation.grid[xx][yy].contents.count > 0 {    //if there's something else to draw
+                if theGame.currentLocation.grid[xx][yy].contents.count > 0 {    //if there's an item to draw
                     theGame.currentLocation.grid[xx][yy].contents[0].position = CGPoint(x: 0, y: 0)  //puts it in the center of the iso square
                     square.addChild(theGame.currentLocation.grid[xx][yy].contents[0])    //adds to the square
                 }
             }
         }
         
+        /* draw player before objects for correct layering */
         theGame.player.position = twoDToIso(CGPoint(x: theGame.player.currentGridLocation.x*64 + 32, y: theGame.player.currentGridLocation.y*64 + 32))  //sets the player's position as the correct grid location
         world.addChild(theGame.player)  //add the player to the world
+        
+        for x in 0...theGame.currentLocation.grid.count-1 {     //iterating through the x coords of the loc. grid
+            for y in 0...theGame.currentLocation.grid[0].count-1 {  //iterating through the y coords of the loc. grid
+                var xx = theGame.currentLocation.grid.count-x-1 //converts x to reverse order for drawing prettiness
+                var yy = theGame.currentLocation.grid[0].count-y-1  //same for y
+                if theGame.currentLocation.grid[xx][yy].extraObject != "" {     //if there's an extra object to draw in this square
+                    var object = SKSpriteNode(imageNamed: theGame.currentLocation.grid[xx][yy].extraObject) //create the object as a sprite node based on its name stored in extraObject data member
+                    object.position = CGPoint(x: twoDToIso(CGPoint(x: xx*64, y: yy*64)).x, y: twoDToIso(CGPoint(x: xx*64, y: yy*64)).y + object.size.height - 32)     //position puts bottom of sprite 32px above baseline for grid square
+                    world.addChild(object) //adds to the square
+                }
+            }
+        }
         
         dateLabel.fontSize = 14 //set date label font size
         dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:64+14 - 768 / 2)    //puts the date/time at bottom center of the screen, just above the button bar
@@ -440,7 +453,7 @@ class GameScene: SKScene {
         
         }
         
-        theGame.gameDate = theGame.gameDate.dateByAddingTimeInterval(GAME_SPEED)    //increase game time by game speed amount, so 1.0 would be 60 sec game time per 1 sec real time, 2.0 would be 120 sec game time per 1 sec real time, 0.5 would be 30 sec per 1 sec game time, etc. etc.
+        theGame.gameDate = theGame.gameDate.dateByAddingTimeInterval(GAME_SPEED)    //increase game time by game speed amount, so 1.0 would be 60 sec game time per 1 sec real time, 2.0 would be 120 sec game time per 1 sec real time, 0.5 would be 30 sec game time per 1 sec real time, etc. etc.
         
     }
     
