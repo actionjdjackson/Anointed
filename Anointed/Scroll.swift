@@ -11,7 +11,17 @@ import Foundation
 /* DEFINES A SCROLL OBJECT, WITH 3 DIFFERENT SIZES, TEXT FILE SOURCE, LANGUAGE, TITLE, AND DESCRIPTION */
 class Scroll: Item {
     
+    let text: String
+    let ENGtext: String
+    let language: String
+    
     init( ttl: String, desc: String, textFile: String, lang: String, scrollSize: Int ) {
+        
+        var path = NSBundle.mainBundle().pathForResource(textFile, ofType: "txt")!
+        text = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)!
+        path = NSBundle.mainBundle().pathForResource(textFile + "ENG", ofType: "txt")!
+        ENGtext = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)!
+        language = lang
         
         if scrollSize == 1 {
             super.init(ttl: ttl, desc: desc, sx: 1, sy: 1, iconName: "SmallScroll")
@@ -22,10 +32,6 @@ class Scroll: Item {
         } else {
             super.init(ttl: ttl, desc: desc, sx: 1, sy: 1, iconName: "SmallScroll") //DEFAULTS TO SMALL SCROLL IMAGE/SIZE
         }
-        
-        let path = NSBundle.mainBundle().pathForResource(textFile, ofType: "txt")
-        let text = String(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil)!
-        let language = lang
         
     }
 

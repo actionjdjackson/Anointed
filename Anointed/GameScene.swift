@@ -9,6 +9,9 @@
 import SpriteKit
 import AVFoundation
 
+var bibleEventTitle = SKLabelNode(fontNamed:"Chalkduster")
+var bibleEventDescription = MultiLineLabel(text: "Placeholder text blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah Lorem ipsum dolor setia imet raggi dieassm ilitia", fontName: "Chalkduster", fontsize: 12, wrap: 1024 - 64)
+
 var backgroundMusicPlayer: AVAudioPlayer!
 
 func playBackgroundMusic(filename: String) {    //sets up an audio player to play background music
@@ -42,14 +45,13 @@ class GameScene: SKScene {
     let hebrew = NSCalendar(calendarIdentifier: NSCalendarIdentifierHebrew) //defines hebrew calendar
     let formatter = NSDateFormatter()   //sets up a date formatter for displaying hebrew dates
     let dateLabel = SKLabelNode(fontNamed:"Courier New")    //creates date label with font Courier New (fixed width)
-    let bibleEventTitle = SKLabelNode(fontNamed:"Chalkduster")  //creates Bible Event title text w/ font Chalkduster
-    let bibleEventDescription = SKLabelNode(fontNamed:"Chalkduster")    //same thing, but for description of Bible E.
     var GAME_SPEED = 1.0    //default game speed is 60 game seconds per real second
     var PREV_GAME_SPEED = 1.0   //this is used for when pausing the game, and going back to previous game speed
     var PAUSED = false  //obviously, the game doesn't start out paused
-    var world = SKNode() //sers up the world node
+    var world = SKNode() //sets up the world node
     
     /* INITIALIZATION */
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -77,7 +79,7 @@ class GameScene: SKScene {
     func centerOnNode( node: SKNode ) {
         
         let cameraPositionInScene = node.scene?.convertPoint(node.position, fromNode: node.parent!) //convert point
-        node.parent!.position = CGPointMake(node.parent!.position.x - cameraPositionInScene!.x,                                       node.parent!.position.y - cameraPositionInScene!.y)   //translate to give parent node correct position
+        node.parent!.position = CGPointMake(node.parent!.position.x - cameraPositionInScene!.x, node.parent!.position.y - cameraPositionInScene!.y)   //translate to give parent node correct position
         
     }
     
@@ -205,18 +207,54 @@ class GameScene: SKScene {
         
     }
     
+    /* HANDLES TOGGLING PAUSING AND UNPAUSING THE GAME */
+    func pauseUnPause() {
+        
+        if PAUSED == false {    //if the game is currently running
+            PREV_GAME_SPEED = GAME_SPEED    //store game speed for when unpaused
+            GAME_SPEED = 0.0    //game speed set to zero, which is pause mode
+            PAUSED = true   //keep track that we're paused
+            println("PAUSED")
+        } else {    //if the game is paused
+            bibleEventTitle.removeFromParent()  //remove the bible event title
+            bibleEventDescription.removeFromParent()    //remove the bible event text
+            GAME_SPEED = PREV_GAME_SPEED    //restore game speed from before
+            PAUSED = false  //no longer paused
+            println("UNPAUSED")
+        }
+        
+    }
+    
+    /* PAUSES ONLY */
+    func pause() {
+        
+        if PAUSED == false {
+            PREV_GAME_SPEED = GAME_SPEED
+        }
+        GAME_SPEED = 0.0
+        PAUSED = true
+        println("PAUSED")
+        
+    }
+    
+    /* UNPAUSES ONLY */
+    func unpause() {
+        
+        bibleEventTitle.removeFromParent()  //remove the bible event title
+        bibleEventDescription.removeFromParent()    //remove the bible event text
+        GAME_SPEED = PREV_GAME_SPEED
+        PAUSED = false
+        println("UNPAUSED")
+        
+    }
+    
     /* HANDLES ALL KEYPRESSES */
     override func keyUp(theEvent: NSEvent) {
         
         let key = theEvent.keyCode  //grab the key code of the key pressed
         
-        if key == 49 && PAUSED == false {   //SPACEBAR IS PRESSED, PAUSE GAME
-            PREV_GAME_SPEED = GAME_SPEED    //store game speed for when unpaused
-            GAME_SPEED = 0.0    //game speed set to zero, which is pause mode
-            PAUSED = true   //keep track that we're paused
-        } else if key == 49 && PAUSED == true { //SPACEBAR IS PRESSED, UNPAUSE GAME BECAUSE IT'S ALREADY PAUSED
-            GAME_SPEED = PREV_GAME_SPEED    //restore game speed from before
-            PAUSED = false  //no longer paused
+        if key == 49 { //SPACEBAR IS PRESSED, PAUSE/UNPAUSE GAME
+            pauseUnPause()
         } else if key == 27 {   //MINUS KEY PRESSED
             GAME_SPEED /= 2.0   //divide game speed in half
         } else if key == 24 {   //PLUS KEY PRESSED
@@ -264,86 +302,111 @@ class GameScene: SKScene {
                 openMenu("SKILLS")
             }
         /* CHARACTER MOVEMENT & STATE CHANGE (SITTING, ETC.) CODE HERE */
-        } else if key == 89 {   //'7' NUM PAD PRESSED - MOVING INTO UPPER LEFT SQUARE
+        } else if key == 89 && !PAUSED {   //'7' NUM PAD PRESSED - MOVING INTO UPPER LEFT SQUARE
             theGame.player.texture = SKTexture(imageNamed: "characterUPPERLEFT")    //displays char moving up-left
             if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" { //if in bounds and no collision
                 let moveUpperLeft = SKAction.moveByX(-64, y: 32, duration: 0.125)   //move gradually to new location
                 theGame.player.runAction(moveUpperLeft) //runs the action defined above
                 theGame.player.currentGridLocation.x += 1   //sets grid location (corresponding to matrix, not spritekit location)
-                println(theGame.player.currentGridLocation) //display coords in console
                 pickUpItems(theGame.player.currentGridLocation) //pick up any items in-square automatically
+                orderCorrectly()    //change the Z order of the player depending on objects around them
             }
-        } else if key == 91 {   //'8' NUM PAD PRESSED - everything else is the same idea as above, just look at [imageNamed: "characterXXXX"] for movement direction
+        } else if key == 91 && !PAUSED {   //'8' NUM PAD PRESSED - everything else is the same idea as above, just look at [imageNamed: "characterXXXX"] for movement direction
             theGame.player.texture = SKTexture(imageNamed: "characterUP")
             if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" {
                 let moveUp = SKAction.moveByX(0, y: 64, duration: 0.125)
                 theGame.player.runAction(moveUp)
                 theGame.player.currentGridLocation.x += 1
                 theGame.player.currentGridLocation.y += 1
-                println(theGame.player.currentGridLocation)
                 pickUpItems(theGame.player.currentGridLocation)
+                orderCorrectly()
             }
-        } else if key == 92 {   //'9' NUM PAD PRESSED
+        } else if key == 92 && !PAUSED {   //'9' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterUPPERRIGHT")
             if Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x)].extraObject == "" {
                 let moveUpperRight = SKAction.moveByX(64, y: 32, duration: 0.125)
                 theGame.player.runAction(moveUpperRight)
                 theGame.player.currentGridLocation.y += 1
-                println(theGame.player.currentGridLocation)
                 pickUpItems(theGame.player.currentGridLocation)
+                orderCorrectly()
             }
-        } else if key == 86 {   //'4' NUM PAD PRESSED
+        } else if key == 86 && !PAUSED {   //'4' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLEFT")
             if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" {
                 let moveLeft = SKAction.moveByX(-128, y: 0, duration: 0.125)
                 theGame.player.runAction(moveLeft)
                 theGame.player.currentGridLocation.y -= 1
                 theGame.player.currentGridLocation.x += 1
-                println(theGame.player.currentGridLocation)
                 pickUpItems(theGame.player.currentGridLocation)
+                orderCorrectly()
             }
-        } else if key == 87 {   //'5' NUM PAD PRESSED
+        } else if key == 87 && !PAUSED {   //'5' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterSEATED") //make character sit for center key
-        } else if key == 88 {   //'6' NUM PAD PRESSED
+        } else if key == 88 && !PAUSED {   //'6' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterRIGHT")
             if Int(theGame.player.currentGridLocation.x - 1) >= 0 && Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
                 let moveRight = SKAction.moveByX(128, y: 0, duration: 0.125)
                 theGame.player.runAction(moveRight)
                 theGame.player.currentGridLocation.y += 1
                 theGame.player.currentGridLocation.x -= 1
-                println(theGame.player.currentGridLocation)
                 pickUpItems(theGame.player.currentGridLocation)
+                orderCorrectly()
             }
-        } else if key == 83 {   //'1' NUM PAD PRESSED
+        } else if key == 83 && !PAUSED {   //'1' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLOWERLEFT")
             if Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x)].extraObject == "" {
                 let moveLowerLeft = SKAction.moveByX(-64, y: -32, duration: 0.125)
                 theGame.player.runAction(moveLowerLeft)
                 theGame.player.currentGridLocation.y -= 1
-                println(theGame.player.currentGridLocation)
                 pickUpItems(theGame.player.currentGridLocation)
+                orderCorrectly()
             }
-        } else if key == 84 {   //'2' NUM PAD PRESSED
+        } else if key == 84 && !PAUSED {   //'2' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterDOWN")
             if Int(theGame.player.currentGridLocation.x - 1) >= 0 && Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
                 let moveDown = SKAction.moveByX(0, y: -64, duration: 0.125)
                 theGame.player.runAction(moveDown)
                 theGame.player.currentGridLocation.y -= 1
                 theGame.player.currentGridLocation.x -= 1
-                println(theGame.player.currentGridLocation)
                 pickUpItems(theGame.player.currentGridLocation)
+                orderCorrectly()
             }
-        } else if key == 85 {   //'3' NUM PAD PRESSED
+        } else if key == 85 && !PAUSED {   //'3' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLOWERRIGHT")
             if Int(theGame.player.currentGridLocation.x - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
                 let moveLowerRight = SKAction.moveByX(64, y: -32, duration: 0.125)
                 theGame.player.runAction(moveLowerRight)
                 theGame.player.currentGridLocation.x -= 1
-                println(theGame.player.currentGridLocation)
                 pickUpItems(theGame.player.currentGridLocation)
+                orderCorrectly()
             }
         } else {
             println(key)    //FOR DEBUGGING, PRINT ANY KEY CODE NOT YET CODED FOR
+        }
+        
+    }
+    
+    /* CHANGES THE Z POSITION OF THE CHARACTER TO KEEP THEM IN FRONT OF OR BEHIND OTHER OBJECTS LIKE TREES DEPENDING ON THEIR LOCATION */
+    func orderCorrectly() {
+        
+        var xcoord = Int(theGame.player.currentGridLocation.x + 1)  //looking at the square just above the player
+        var ycoord = Int(theGame.player.currentGridLocation.y + 1)  //  "     "   "   "     "     "     "   "
+        if xcoord >= 0 && xcoord < theGame.currentLocation.grid[0].count && ycoord >= 0 && ycoord < theGame.currentLocation.grid.count {
+            if theGame.currentLocation.grid[ycoord][xcoord].extraObject != "" || theGame.currentLocation.grid[ycoord-1][xcoord].extraObject != "" || theGame.currentLocation.grid[ycoord][xcoord-1].extraObject != "" {     //check that square and the two adjacent squares (L and R) for objects
+                theGame.player.zPosition = 1    //player should be drawn in front of the object
+            } else {
+                theGame.player.zPosition = 0    //otherwise player should be drawn behind the object
+            }
+        }
+        
+        xcoord = Int(theGame.player.currentGridLocation.x - 1)  //looking at square just below the player
+        ycoord = Int(theGame.player.currentGridLocation.y - 1)  //  "       "   "   "       "   "   "
+        if xcoord >= 0 && xcoord < theGame.currentLocation.grid[0].count && ycoord >= 0 && ycoord < theGame.currentLocation.grid.count {
+            if theGame.currentLocation.grid[ycoord][xcoord].extraObject != "" || theGame.currentLocation.grid[ycoord+1][xcoord].extraObject != "" || theGame.currentLocation.grid[ycoord][xcoord+1].extraObject != "" {     //check that square and two adjacent squares (L and R) for objects
+                theGame.player.zPosition = 0    //player should be drawn behind the object
+            } else {
+                theGame.player.zPosition = 1    //otherwise player should be drawn in front of object
+            }
         }
         
     }
@@ -353,7 +416,7 @@ class GameScene: SKScene {
         var x = Int(pt.x)   //make the CGPoint into two integer coordinates for the grid
         var y = Int(pt.y)   //as above
         if theGame.currentLocation.grid[y][x].contents.count > 0 {  //if there's something to pick up
-            println("Found an item!")   //FOR DEBUGGING, PRINT THAT WE'VE FOUND AN ITEM
+            //println("Found an item!")   //FOR DEBUGGING, PRINT THAT WE'VE FOUND AN ITEM
             theGame.player.inventory.append(theGame.currentLocation.grid[y][x].contents[0]) //add to player inventory
             theGame.currentLocation.grid[y][x].contents[0].removeFromParent()   //remove from the scene
             theGame.currentLocation.grid[y][x].contents.removeAtIndex(0)    //remove from the grid square entirely
@@ -378,8 +441,9 @@ class GameScene: SKScene {
     }
     
     /* GOOD FOR MOUSE CLICKS GOING FROM ISO VIEW ON THE SCENE INTO A GRID SQUARE 2D COORD I.E. WHERE DID I CLICK? */
-    func getTileCoordinates(pt: CGPoint, tileHeight: CGFloat) -> CGPoint {
+    func getTileCoordinates(pt: CGPoint) -> CGPoint {
         var tempPt = CGPoint(x: 0, y: 0)
+        var tileHeight = CGFloat(64.0)
         tempPt.x = floor(pt.x / tileHeight)
         tempPt.y = floor(pt.y / tileHeight)
         return(tempPt)
@@ -394,6 +458,7 @@ class GameScene: SKScene {
                 var yy = theGame.currentLocation.grid[0].count-y-1  //same for y
                 var square = SKSpriteNode(imageNamed:theGame.currentLocation.grid[xx][yy].texture)  //grabs the tex
                 square.position = twoDToIso(CGPoint(x: xx*64, y: yy*64))    //converts to iso coords
+                square.zPosition = 0
                 world.addChild(square)  //adds to the world
                 if theGame.currentLocation.grid[xx][yy].contents.count > 0 {    //if there's an item to draw
                     theGame.currentLocation.grid[xx][yy].contents[0].position = CGPoint(x: 0, y: 0)  //puts it in the center of the iso square
@@ -404,6 +469,7 @@ class GameScene: SKScene {
         
         /* draw player before objects for correct layering */
         theGame.player.position = twoDToIso(CGPoint(x: theGame.player.currentGridLocation.x*64 + 32, y: theGame.player.currentGridLocation.y*64 + 32))  //sets the player's position as the correct grid location
+        theGame.player.zPosition = 0
         world.addChild(theGame.player)  //add the player to the world
         
         for x in 0...theGame.currentLocation.grid.count-1 {     //iterating through the x coords of the loc. grid
@@ -412,7 +478,8 @@ class GameScene: SKScene {
                 var yy = theGame.currentLocation.grid[0].count-y-1  //same for y
                 if theGame.currentLocation.grid[xx][yy].extraObject != "" {     //if there's an extra object to draw in this square
                     var object = SKSpriteNode(imageNamed: theGame.currentLocation.grid[xx][yy].extraObject) //create the object as a sprite node based on its name stored in extraObject data member
-                    object.position = CGPoint(x: twoDToIso(CGPoint(x: xx*64, y: yy*64)).x, y: twoDToIso(CGPoint(x: xx*64, y: yy*64)).y + object.size.height - 32)     //position puts bottom of sprite 32px above baseline for grid square
+                    var pos = twoDToIso(CGPoint(x: xx*64, y: yy*64))
+                    object.position = CGPoint(x: pos.x, y: pos.y + object.size.height / 2 - 32)     //position puts bottom of sprite 32px above baseline for grid square
                     world.addChild(object) //adds to the square
                 }
             }
@@ -422,19 +489,10 @@ class GameScene: SKScene {
         dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:64+14 - 768 / 2)    //puts the date/time at bottom center of the screen, just above the button bar
         self.addChild(dateLabel)    //adds the date label to the scene (not the world, so it stays in place like the banner
         
-        bibleEventTitle.text = " "  //at first, there's no Bible Event so make a blank label
-        bibleEventTitle.fontSize = 18   //set the font size to be bigger than the main text of the Bible Event
-        bibleEventTitle.position = CGPoint(x:CGRectGetMidX(self.frame), y:512 - 768 / 2)    //put it in the center
-        self.addChild(bibleEventTitle)  //add it to the scene (not the world, so it stays in place like the banner)
-        
-        bibleEventDescription.text = " "    //same as above
-        bibleEventDescription.fontSize = 12 //smaller font for main text
-        bibleEventDescription.position = CGPoint(x:CGRectGetMidX(self.frame), y:256+128 - 768 / 2)  //just below the title
-        self.addChild(bibleEventDescription)    //add to scene, not world, as above describes
-        
     }
     
     /* EVERY FRAME DO THIS (60 times/sec) */
+    var timeSpentReadingMarker : CFTimeInterval = 0.0
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
@@ -445,12 +503,29 @@ class GameScene: SKScene {
         }
         
         if theGame.bibleEvents[theGame.nextEvent].date.laterDate(theGame.gameDate) == theGame.gameDate {    //if we've hit or slightly passed a Bible Event...
-
+            
+            timeSpentReadingMarker = currentTime    //mark the current time to test how long the text has been up
+            pause()  //pause the game
+            
+            bibleEventTitle = SKLabelNode(fontNamed:"Chalkduster")  //creates Bible Event title text w/ font Chalkduster
             bibleEventTitle.text = theGame.bibleEvents[theGame.nextEvent].title //set the title
-            bibleEventDescription.text = theGame.bibleEvents[theGame.nextEvent].description //set the main text (desc.)
+            bibleEventTitle.fontSize = 18   //set the font size to be bigger than the main text of the Bible Event
+            bibleEventTitle.position = CGPoint(x:CGRectGetMidX(self.frame), y:512 - 768 / 2)    //put it in the center
+            self.addChild(bibleEventTitle)  //add it to the scene (not the world, so it stays in place like the banner)
+            
+            bibleEventDescription = MultiLineLabel(text: theGame.bibleEvents[theGame.nextEvent].description, fontName: "Chalkduster", fontsize: 12, wrap: 1024)  //set the main text (description)
+            bibleEventDescription.position = CGPoint(x:CGRectGetMidX(self.frame), y:512 - 64 - 768 / 2)  //just below the title
+            self.addChild(bibleEventDescription)
             
             theGame.nextEvent++ //get ready for next Bible Event
         
+        }
+        
+        var dist = currentTime.distanceTo(Double(timeSpentReadingMarker))   //difference in time between current time and time marker for how long text has been up
+        if dist < -15 && dist > (-15 - (1 / 60.0)) && theGame.nextEvent > 0 {   //if we've hit 15 seconds and this is not the first run
+            bibleEventTitle.removeFromParent()  //remove the title
+            bibleEventDescription.removeFromParent()    //remove the text
+            unpause()  //unpause the game
         }
         
         theGame.gameDate = theGame.gameDate.dateByAddingTimeInterval(GAME_SPEED)    //increase game time by game speed amount, so 1.0 would be 60 sec game time per 1 sec real time, 2.0 would be 120 sec game time per 1 sec real time, 0.5 would be 30 sec game time per 1 sec real time, etc. etc.

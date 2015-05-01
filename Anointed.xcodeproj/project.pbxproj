@@ -38,6 +38,7 @@
 		E2522A8F1AE06DBE00EDD89A /* Psalm139ENG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */; };
 		E2522A911AE07ABA00EDD89A /* GridSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2522A901AE07ABA00EDD89A /* GridSquare.swift */; };
 		E2D52D611AEC88900008879C /* MultiLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D52D601AEC88900008879C /* MultiLineLabel.swift */; };
+		E2D52D631AEDE7670008879C /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D52D621AEDE7670008879C /* Animal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Psalm139ENG.txt; sourceTree = "<group>"; };
 		E2522A901AE07ABA00EDD89A /* GridSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridSquare.swift; sourceTree = "<group>"; };
 		E2D52D601AEC88900008879C /* MultiLineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineLabel.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		E2D52D621AEDE7670008879C /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				E21B45AB1AE04ECC007F10C5 /* BackgroundMusicA.mp3 */,
-				E2D52D601AEC88900008879C /* MultiLineLabel.swift */,
 				E21B45901AE04E8F007F10C5 /* GameScene.sks */,
+				E2D52D621AEDE7670008879C /* Animal.swift */,
 				E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */,
 				E21B45AD1AE04EF6007F10C5 /* BibleEvent.swift */,
 				E21B45AE1AE04EF6007F10C5 /* Building.swift */,
@@ -143,6 +145,7 @@
 				E21B45B41AE04EF6007F10C5 /* Item.swift */,
 				E21B45B51AE04EF6007F10C5 /* Knowledge.swift */,
 				E21B45B61AE04EF6007F10C5 /* Location.swift */,
+				E2D52D601AEC88900008879C /* MultiLineLabel.swift */,
 				E21B45B71AE04EF6007F10C5 /* NaturalGift.swift */,
 				E21B45B81AE04EF6007F10C5 /* NonPlayingCharacter.swift */,
 				E21B45B91AE04EF6007F10C5 /* Room.swift */,
@@ -152,8 +155,8 @@
 				E21B45BC1AE04EF6007F10C5 /* Understanding.swift */,
 				E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */,
 				E21B45BE1AE04EF6007F10C5 /* WorldMap.swift */,
-				E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */,
 				E2522A8C1AE06B4D00EDD89A /* Psalm139.txt */,
+				E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */,
 				E2522A881AE05C9E00EDD89A /* TanakhENG.txt */,
 				E21B45921AE04E8F007F10C5 /* Images.xcassets */,
 				E21B45941AE04E8F007F10C5 /* MainMenu.xib */,
@@ -308,6 +311,7 @@
 				E21B45BF1AE04EF6007F10C5 /* BibleEvent.swift in Sources */,
 				E21B45C01AE04EF6007F10C5 /* Building.swift in Sources */,
 				E21B45CF1AE04EF6007F10C5 /* Wisdom.swift in Sources */,
+				E2D52D631AEDE7670008879C /* Animal.swift in Sources */,
 				E21B45CE1AE04EF6007F10C5 /* Understanding.swift in Sources */,
 				E2D52D611AEC88900008879C /* MultiLineLabel.swift in Sources */,
 				E2522A911AE07ABA00EDD89A /* GridSquare.swift in Sources */,
