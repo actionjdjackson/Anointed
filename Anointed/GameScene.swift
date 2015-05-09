@@ -13,18 +13,17 @@ var bibleEventTitle = SKLabelNode(fontNamed:"Chalkduster")
 var bibleEventDescription = MultiLineLabel(text: "Placeholder text blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah Lorem ipsum dolor setia imet raggi dieassm ilitia", fontName: "Chalkduster", fontsize: 12, wrap: 1024 - 64)
 
 var backgroundMusicPlayer: AVAudioPlayer!
+var soundPlayer: AVAudioPlayer!
 
 func playBackgroundMusic(filename: String) {    //sets up an audio player to play background music
-    let url = NSBundle.mainBundle().URLForResource(
-        filename, withExtension: nil)
+    let url = NSBundle.mainBundle().URLForResource(filename, withExtension: nil)
     if (url == nil) {
         println("Could not find file: \(filename)")
         return
     }
     
     var error: NSError? = nil
-    backgroundMusicPlayer =
-        AVAudioPlayer(contentsOfURL: url, error: &error)
+    backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: url, error: &error)
     if backgroundMusicPlayer == nil {
         println("Could not create audio player: \(error!)")
         return
@@ -33,6 +32,25 @@ func playBackgroundMusic(filename: String) {    //sets up an audio player to pla
     backgroundMusicPlayer.numberOfLoops = -1    //loop continuously
     backgroundMusicPlayer.prepareToPlay()   //load into memory
     backgroundMusicPlayer.play()    //play song
+}
+
+func playSound(filename: String) {    //sets up an audio player to play sound effects
+    let url = NSBundle.mainBundle().URLForResource(filename, withExtension: nil)
+    if (url == nil) {
+        println("Could not find file: \(filename)")
+        return
+    }
+    
+    var error: NSError? = nil
+    soundPlayer = AVAudioPlayer(contentsOfURL: url, error: &error)
+    if soundPlayer == nil {
+        println("Could not create audio player: \(error!)")
+        return
+    }
+    
+    soundPlayer.numberOfLoops = 0   //play once
+    soundPlayer.prepareToPlay() //load into memory
+    soundPlayer.play()  //play sound
 }
 
 class GameScene: SKScene {
@@ -55,8 +73,6 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
-        playBackgroundMusic("BackgroundMusicA.mp3") //immediately start background music
-        
         formatter.calendar = hebrew     //using the Hebrew calendar
         formatter.dateStyle = .FullStyle    //full date
         formatter.timeStyle = .MediumStyle  //basic timestamp
@@ -67,6 +83,8 @@ class GameScene: SKScene {
         createLocation()    //creates the current location in spritekit
         
         setupLowerBanner()  //creates the game function buttons and experience bars on a lower banner
+        
+        playBackgroundMusic("BackgroundMusicA.mp3") //start background music
         
     }
     
@@ -381,7 +399,7 @@ class GameScene: SKScene {
                 orderCorrectly()
             }
         } else {
-            println(key)    //FOR DEBUGGING, PRINT ANY KEY CODE NOT YET CODED FOR
+            println(key)    //FOR DEBUGGING, PRINT ANY KEY CODE NOT YET USED
         }
         
     }
@@ -458,7 +476,7 @@ class GameScene: SKScene {
                 var yy = theGame.currentLocation.grid[0].count-y-1  //same for y
                 var square = SKSpriteNode(imageNamed:theGame.currentLocation.grid[xx][yy].texture)  //grabs the tex
                 square.position = twoDToIso(CGPoint(x: xx*64, y: yy*64))    //converts to iso coords
-                square.zPosition = 0
+                square.zPosition = 0    //draw square underneath player and extra objects
                 world.addChild(square)  //adds to the world
                 if theGame.currentLocation.grid[xx][yy].contents.count > 0 {    //if there's an item to draw
                     theGame.currentLocation.grid[xx][yy].contents[0].position = CGPoint(x: 0, y: 0)  //puts it in the center of the iso square
@@ -479,7 +497,8 @@ class GameScene: SKScene {
                 if theGame.currentLocation.grid[xx][yy].extraObject != "" {     //if there's an extra object to draw in this square
                     var object = SKSpriteNode(imageNamed: theGame.currentLocation.grid[xx][yy].extraObject) //create the object as a sprite node based on its name stored in extraObject data member
                     var pos = twoDToIso(CGPoint(x: xx*64, y: yy*64))
-                    object.position = CGPoint(x: pos.x, y: pos.y + object.size.height / 2 - 32)     //position puts bottom of sprite 32px above baseline for grid square
+                    object.position = CGPoint(x: pos.x, y: pos.y + object.size.height / 2)     //position puts bottom of sprite at baseline for grid square
+                    object.zPosition = 0.5  //draw the extra objects in front of the squares but behind the player when player is in front of the object on the grid
                     world.addChild(object) //adds to the square
                 }
             }
@@ -515,7 +534,7 @@ class GameScene: SKScene {
             
             bibleEventDescription = MultiLineLabel(text: theGame.bibleEvents[theGame.nextEvent].description, fontName: "Chalkduster", fontsize: 12, wrap: 1024)  //set the main text (description)
             bibleEventDescription.position = CGPoint(x:CGRectGetMidX(self.frame), y:512 - 64 - 768 / 2)  //just below the title
-            self.addChild(bibleEventDescription)
+            self.addChild(bibleEventDescription)    //add it to the scene
             
             theGame.nextEvent++ //get ready for next Bible Event
         
@@ -524,7 +543,7 @@ class GameScene: SKScene {
         var dist = currentTime.distanceTo(Double(timeSpentReadingMarker))   //difference in time between current time and time marker for how long text has been up
         if dist < -15 && dist > (-15 - (1 / 60.0)) && theGame.nextEvent > 0 {   //if we've hit 15 seconds and this is not the first run
             bibleEventTitle.removeFromParent()  //remove the title
-            bibleEventDescription.removeFromParent()    //remove the text
+            bibleEventDescription.removeFromParent()    //remove the description text
             unpause()  //unpause the game
         }
         

@@ -10,9 +10,13 @@ import Foundation
 
 class Room {
     
-    init() {
+    let grid : [[GridSquare]]
+    let title : String
+    
+    init( ttl: String, gridSquares: [[GridSquare]] ) {
         
-        
+        title = ttl
+        grid = gridSquares
         
     }
     

@@ -10,11 +10,15 @@ import Foundation
 
 class Knowledge {
     
+    let title : String
+    let description : String
+    let scripture : String
+    
     init(ttl: String, desc: String, scrip: String) {
         
-        let title = ttl
-        let description = desc
-        let scripture = scrip
+        title = ttl
+        description = desc
+        scripture = scrip
         
     }
     

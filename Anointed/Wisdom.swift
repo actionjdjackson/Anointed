@@ -10,12 +10,19 @@ import Foundation
 
 class Wisdom {
     
-    init( understandingElements: [Understanding], knowledgeElements: [Knowledge], ttl: String, desc: String) {
+    let understandings : [Understanding]
+    let knowledge : [Knowledge]
+    let title : String
+    let description : String
+    let scripture : String
+    
+    init( understandingElements: [Understanding], knowledgeElements: [Knowledge], ttl: String, desc: String, scrip: String) {
         
-        let understandings = understandingElements
-        let knowledge = knowledgeElements
-        let title = ttl
-        let description = desc
+        understandings = understandingElements
+        knowledge = knowledgeElements
+        title = ttl
+        description = desc
+        scripture = scrip
         
     }
     

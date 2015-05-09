@@ -38,19 +38,19 @@ class GameCharacter : SKSpriteNode {
     var languagesKnown: [String]
     var currentGridLocation: CGPoint
     
-    /* FOR NOW, JUST DEFAULT TO JESUS AND DEFINE THINGS AS WE NEED TO FOR DEBUGGING. CHARS WILL BE DEFINABLE/CREATABLE LATER IN GAME DEV - ***IN PROGRESS*** */
+    /* FOR NOW, JUST DEFAULT TO ME AND DEFINE THINGS AS WE NEED TO FOR DEBUGGING. CHARS WILL BE DEFINABLE/CREATABLE LATER IN GAME DEV - ***IN PROGRESS*** */
     init() {
         
-        firstName = "Jesus"
-        from = "Nazareth"
-        birthplace = "Bethlehem"
-        romanCitizen = false
+        firstName = "Jacob"
+        from = "Madison, WI"
+        birthplace = "Madison, WI"
+        romanCitizen = true
         age = 30
-        occupation = "Carpenter"
+        occupation = "Computer Programmer"
         baptized = true
         physicalHealth = 100
-        isMessiah = true
-        isDisciple = false
+        isMessiah = false
+        isDisciple = true
         inventory = []
         inventorySize = 2
         spiritualGifts = []

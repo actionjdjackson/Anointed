@@ -10,12 +10,17 @@ import Foundation
 
 class Understanding {
     
+    let knowledge : [Knowledge]
+    let title : String
+    let description : String
+    let scripture : String
+    
     init( knowledgeElements: [Knowledge], ttl: String, desc: String, scrip: String ) {
         
-        let knowledge = knowledgeElements
-        let title = ttl
-        let description = desc
-        let scripture = scrip
+        knowledge = knowledgeElements
+        title = ttl
+        description = desc
+        scripture = scrip
         
     }
     

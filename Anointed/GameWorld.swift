@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-/* THE GAME WORLD CLASS KEEPS TRACK OF ALL THE CITIES, LOCATIONS, BUILDINGS, ROOMS, THE PLAYER (GAME CHARACTER), THE IN-GAME DATE AND TIME, AND ALL BIBLE EVENTS. IT WILL CONTAIN ALL "LEVEL" DATA AS DEFINED IN TEXT FILES OR JUST HARD-CODED INTO THIS FILE, DEPENDING ON WETHER OR NOT I WANT TO MAKE A LEVEL EDITOR, WHICH I PROBABLY WILL ***IN PROGRESS*** */
+/* THE GAME WORLD CLASS KEEPS TRACK OF ALL THE CITIES, LOCATIONS, BUILDINGS, ROOMS, THE PLAYER (GAME CHARACTER), THE IN-GAME DATE AND TIME, AND ALL BIBLE EVENTS. IT WILL CONTAIN ALL "LEVEL" DATA AS DEFINED IN TEXT FILES OR JUST HARD-CODED INTO THIS FILE, DEPENDING ON WETHER OR NOT I WANT TO MAKE A LEVEL EDITOR, WHICH I PROBABLY WILL. ***IN PROGRESS*** */
 class GameWorld {
     
     var bibleEvents: [BibleEvent]
@@ -19,8 +19,27 @@ class GameWorld {
     var currentCity: City
     var currentLocation: Location
     var player: GameCharacter
+    var knowledgeBase: [Knowledge]
+    var understandingBase: [Understanding]
+    var wisdomBase: [Wisdom]
     
     init() {
+        
+        /* set up the knowledge base of the game (knowledge, wisdom, and understanding) */
+        let godsOmnipotence = Knowledge(ttl: "God is Omnipotent", desc: "God can do anything. He made me, He can do whatever He wants, whenever He wants.", scrip: "Psalm 139")
+        let godsOmnipresence = Knowledge(ttl: "God is Omnipresent", desc: "God is everywhere. You cannot escape Him, no matter where you go.", scrip: "Psalm 139:7-12")
+        let godsOmniscience = Knowledge(ttl: "God is Omniscient", desc: "God knows everything. He knows your thoughts, your heart, and everything about you.", scrip: "Psalm 139:1-4")
+        let yahwehIsGod = Knowledge(ttl: "God's Name is Yahweh", desc: "God's name is Yahweh, which means I AM THAT I AM.", scrip: "Exodus 3:14")
+        
+        knowledgeBase = [godsOmnipotence, godsOmnipresence, godsOmniscience, yahwehIsGod]
+        
+        let iShouldFearGod = Understanding(knowledgeElements: [godsOmnipotence, godsOmnipresence, godsOmniscience], ttl: "I should fear God", desc: "Because God is omnipotent, omnipresent, and omniscient, I should fear Him.", scrip: "Psalm 139:23-24")
+        
+        understandingBase = [iShouldFearGod]
+        
+        let fearOfTheLord = Wisdom(understandingElements: [iShouldFearGod], knowledgeElements: [yahwehIsGod], ttl: "The Fear of Yahweh", desc: "Because I know who God is (Yahweh) and that I should fear Him, I choose to fear Him. This is the beginning of wisdom.", scrip: "Proverbs 9:10")
+        
+        wisdomBase = [fearOfTheLord]
         
         player = GameCharacter()    //set up a default character
         
@@ -36,8 +55,8 @@ class GameWorld {
         gameDate = hebrewCalendar!.dateFromComponents(gameDateComponents)!
         
         //sets up nil room and nil building as empty objects for placeholders
-        var nilRoom = Room()
-        var nilBuilding = Building(r: [[nilRoom]])
+        var nilRoom = Room(ttl: "Default Nil Room", gridSquares: [[]])
+        var nilBuilding = Building(ttl: "Default Nil Building", r: [[]])
         
         //makes all the items in the game
         var psalm139Scroll = Scroll(ttl: "Psalm 139 Scroll", desc: "A copy of the 139th Psalm, in Hebrew, originally written by King David. In fairly good condition, and fully readable. Must know how to read Hebrew to use this scroll.", textFile: "Psalm139", lang: "Hebrew", scrollSize: 1)
@@ -56,16 +75,16 @@ class GameWorld {
         var tempGrid = [[grassWithPsalm139Scroll, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyBrickSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, grassWithTree, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, grassWithStonePillars, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyBrickSquare, emptyBrickSquare, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[grassWithOtherTree, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyBrickSquare, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, grassWithOtherTree, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[grassWithGrassyRock, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, grassWithAnotherTree, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare]]
         
         /* SETS UP JERUSALEM'S LOCATIONS AND BUILDINGS AND ROOMS ***UNDER CONSTRUCTION*** */
-        var TheAltar = Room()
-        var TheTemple = Building(r: [[TheAltar]])
+        var TheAltar = Room(ttl: "The Altar", gridSquares: [[]])
+        var TheTemple = Building(ttl: "The Temple", r: [[TheAltar]])
         var SouthofTemple = Location(n:"The South Entrance to the Temple", d:"The glorious Jewish Temple, the Home of Yahweh, God of Israel", g:[[]])
         var Jerusalem = City(locations: [[SouthofTemple]])
         
         /* SETS UP BETHELEHEM'S LOCATIONS AND BUILDINGS AND ROOMS ***UNDER CONSTRUCTION***  */
         var CaveStable = Location(n:"Cave Stable", d:"A small stable inside a cave, near an Inn", g:tempGrid) //uses temporary grid defined above as the "Cave Stable" location where Jesus is born
         var ShepherdsFields = Location(n:"The Shepherds' Fields", d:"The fields just outside Bethelehem, where shepherds kept their flocks by night", g:[[]])
-        var BethlehemSynagogueMainRoom = Room()
-        var BethlehemSynagogue = Building(r:[[BethlehemSynagogueMainRoom]])
+        var BethlehemSynagogueMainRoom = Room(ttl: "Bethlehem Synagogue Main Room", gridSquares: [[]])
+        var BethlehemSynagogue = Building(ttl: "Bethlehem Synagogue", r:[[BethlehemSynagogueMainRoom]])
         var BethlehemSquare = Location(n:"Bethlehem Town Square", d:"Bethlehem Town Square", g:[[]])
         var Bethlehem = City(locations: [[CaveStable, ShepherdsFields, BethlehemSquare]])
         

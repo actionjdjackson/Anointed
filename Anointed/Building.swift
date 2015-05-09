@@ -11,9 +11,11 @@ import Foundation
 class Building {
     
     var rooms:[[Room]]
+    let title : String
     
-    init( r:[[Room]] ) {
+    init( ttl: String, r:[[Room]] ) {
         
+        title = ttl
         rooms = r
         
     }

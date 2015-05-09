@@ -35,6 +35,20 @@ class Scroll: Item {
         
     }
 
+    func studyScroll(chap: Int, verseStart: Int, verseEnd: Int) {
+        
+        if spriteName == "SmallScroll" {
+            
+            //do single chapter scroll
+            
+        } else {
+            
+            //do multi-chapter scroll
+            
+        }
+        
+    }
+    
     /* REQUIRED BY APPLE FOR ANYTHING INHERITING FROM SKSpriteNode */
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
