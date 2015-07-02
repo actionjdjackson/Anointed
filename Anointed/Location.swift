@@ -14,12 +14,14 @@ class Location {
     var name:String
     var description:String
     var grid:[[GridSquare]]
+    var animals:[Animal]
     
-    init( n:String, d:String, g:[[GridSquare]]) {
+    init( n:String, d:String, g:[[GridSquare]], a:[Animal]) {
         
         name = n
         description = d
         grid = g
+        animals = a
         
     }
     

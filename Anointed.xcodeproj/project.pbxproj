@@ -13,7 +13,6 @@
 		E21B45931AE04E8F007F10C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21B45921AE04E8F007F10C5 /* Images.xcassets */; };
 		E21B45961AE04E8F007F10C5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21B45941AE04E8F007F10C5 /* MainMenu.xib */; };
 		E21B45A21AE04E8F007F10C5 /* AnointedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45A11AE04E8F007F10C5 /* AnointedTests.swift */; };
-		E21B45AC1AE04ECC007F10C5 /* BackgroundMusicA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E21B45AB1AE04ECC007F10C5 /* BackgroundMusicA.mp3 */; };
 		E21B45BF1AE04EF6007F10C5 /* BibleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45AD1AE04EF6007F10C5 /* BibleEvent.swift */; };
 		E21B45C01AE04EF6007F10C5 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45AE1AE04EF6007F10C5 /* Building.swift */; };
 		E21B45C11AE04EF6007F10C5 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45AF1AE04EF6007F10C5 /* City.swift */; };
@@ -32,6 +31,7 @@
 		E21B45CE1AE04EF6007F10C5 /* Understanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45BC1AE04EF6007F10C5 /* Understanding.swift */; };
 		E21B45CF1AE04EF6007F10C5 /* Wisdom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */; };
 		E21B45D01AE04EF6007F10C5 /* WorldMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45BE1AE04EF6007F10C5 /* WorldMap.swift */; };
+		E22424081B03E399002BE6EB /* BackgroundMusicA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */; };
 		E2522A891AE05C9E00EDD89A /* TanakhENG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A881AE05C9E00EDD89A /* TanakhENG.txt */; };
 		E2522A8B1AE0631900EDD89A /* Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2522A8A1AE0631900EDD89A /* Scroll.swift */; };
 		E2522A8D1AE06B4D00EDD89A /* Psalm139.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8C1AE06B4D00EDD89A /* Psalm139.txt */; };
@@ -62,7 +62,6 @@
 		E21B459B1AE04E8F007F10C5 /* AnointedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnointedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21B45A01AE04E8F007F10C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21B45A11AE04E8F007F10C5 /* AnointedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnointedTests.swift; sourceTree = "<group>"; };
-		E21B45AB1AE04ECC007F10C5 /* BackgroundMusicA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusicA.mp3; sourceTree = "<group>"; };
 		E21B45AD1AE04EF6007F10C5 /* BibleEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleEvent.swift; sourceTree = "<group>"; };
 		E21B45AE1AE04EF6007F10C5 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		E21B45AF1AE04EF6007F10C5 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		E21B45BC1AE04EF6007F10C5 /* Understanding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Understanding.swift; sourceTree = "<group>"; };
 		E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wisdom.swift; sourceTree = "<group>"; };
 		E21B45BE1AE04EF6007F10C5 /* WorldMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldMap.swift; sourceTree = "<group>"; };
+		E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusicA.mp3; sourceTree = "<group>"; };
 		E2522A881AE05C9E00EDD89A /* TanakhENG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TanakhENG.txt; sourceTree = "<group>"; };
 		E2522A8A1AE0631900EDD89A /* Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scroll.swift; sourceTree = "<group>"; };
 		E2522A8C1AE06B4D00EDD89A /* Psalm139.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Psalm139.txt; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		E21B45891AE04E8F007F10C5 /* Anointed */ = {
 			isa = PBXGroup;
 			children = (
-				E21B45AB1AE04ECC007F10C5 /* BackgroundMusicA.mp3 */,
+				E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */,
 				E21B45901AE04E8F007F10C5 /* GameScene.sks */,
 				E2D52D621AEDE7670008879C /* Animal.swift */,
 				E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */,
@@ -271,8 +271,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2522A8F1AE06DBE00EDD89A /* Psalm139ENG.txt in Resources */,
-				E21B45AC1AE04ECC007F10C5 /* BackgroundMusicA.mp3 in Resources */,
 				E2522A891AE05C9E00EDD89A /* TanakhENG.txt in Resources */,
+				E22424081B03E399002BE6EB /* BackgroundMusicA.mp3 in Resources */,
 				E2522A8D1AE06B4D00EDD89A /* Psalm139.txt in Resources */,
 				E21B45911AE04E8F007F10C5 /* GameScene.sks in Resources */,
 				E21B45931AE04E8F007F10C5 /* Images.xcassets in Resources */,

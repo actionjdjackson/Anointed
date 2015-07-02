@@ -106,9 +106,11 @@ class GameScene: SKScene {
         lowerBanner.removeFromParent()  //just in case we're re-setting-up, remove the current banner
         lowerBanner = SKSpriteNode(imageNamed:"LowerBannerBASE")    //define the lowerBanner as basic button bar with nothing selected
         lowerBanner.position = CGPoint(x:-112, y:-768/2 + 32)   //put the button bar at correct location
+        lowerBanner.zPosition = 2.0
         self.addChild(lowerBanner)  //add the banner to the current scene
         experienceBars.removeFromParent()   //just in case we're re-setting-up, remove the current exp bars
         experienceBars.position = CGPoint(x:400, y:-768/2 + 32) //put experience bars at the correct location
+        experienceBars.zPosition = 2.0
         self.addChild(experienceBars)   //add the experience bars (to the right of the button bar, as above)
     }
     
@@ -136,6 +138,7 @@ class GameScene: SKScene {
         theOpenMenu.removeFromParent()  //remove any previous menu
         theOpenMenu = SKSpriteNode(imageNamed: theMenu + "menu")    //sets up the menu image
         theOpenMenu.position = CGPoint(x: CGRectGetMidX(self.frame), y: -32 + 8)    //places image just above the button bar, and centered on the scene's frame
+        theOpenMenu.zPosition = 2.0
         self.addChild(theOpenMenu)  //displays the menu
         var menuTitle = SKLabelNode(fontNamed: "Zapfino")   //sets up a label for the menu title
         menuTitle.text = theMenu.lowercaseString.capitalizedString  //makes the menu Thisway instead of THISWAY
@@ -313,14 +316,14 @@ class GameScene: SKScene {
             } else {
                 openMenu("TRAVEL")
             }
-        } else if key == 1 {    //'S'
+        } else if key == 37 {    //'L'
             if menuUp == "SKILLS" {
                 clearMenu()
             } else {
                 openMenu("SKILLS")
             }
         /* CHARACTER MOVEMENT & STATE CHANGE (SITTING, ETC.) CODE HERE */
-        } else if key == 89 && !PAUSED {   //'7' NUM PAD PRESSED - MOVING INTO UPPER LEFT SQUARE
+        } else if ( key == 89 || key == 12 ) && !PAUSED {   //'7' NUM PAD PRESSED - MOVING INTO UPPER LEFT SQUARE
             theGame.player.texture = SKTexture(imageNamed: "characterUPPERLEFT")    //displays char moving up-left
             if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" { //if in bounds and no collision
                 let moveUpperLeft = SKAction.moveByX(-64, y: 32, duration: 0.125)   //move gradually to new location
@@ -329,7 +332,7 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation) //pick up any items in-square automatically
                 orderCorrectly()    //change the Z order of the player depending on objects around them
             }
-        } else if key == 91 && !PAUSED {   //'8' NUM PAD PRESSED - everything else is the same idea as above, just look at [imageNamed: "characterXXXX"] for movement direction
+        } else if ( key == 91 || key == 13 ) && !PAUSED {   //'8' NUM PAD PRESSED - everything else is the same idea as above, just look at [imageNamed: "characterXXXX"] for movement direction
             theGame.player.texture = SKTexture(imageNamed: "characterUP")
             if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" {
                 let moveUp = SKAction.moveByX(0, y: 64, duration: 0.125)
@@ -339,7 +342,7 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation)
                 orderCorrectly()
             }
-        } else if key == 92 && !PAUSED {   //'9' NUM PAD PRESSED
+        } else if ( key == 92 || key == 14 ) && !PAUSED {   //'9' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterUPPERRIGHT")
             if Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x)].extraObject == "" {
                 let moveUpperRight = SKAction.moveByX(64, y: 32, duration: 0.125)
@@ -348,7 +351,7 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation)
                 orderCorrectly()
             }
-        } else if key == 86 && !PAUSED {   //'4' NUM PAD PRESSED
+        } else if ( key == 86 || key == 0 ) && !PAUSED {   //'4' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLEFT")
             if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" {
                 let moveLeft = SKAction.moveByX(-128, y: 0, duration: 0.125)
@@ -358,9 +361,9 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation)
                 orderCorrectly()
             }
-        } else if key == 87 && !PAUSED {   //'5' NUM PAD PRESSED
+        } else if ( key == 87 || key == 1 ) && !PAUSED {   //'5' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterSEATED") //make character sit for center key
-        } else if key == 88 && !PAUSED {   //'6' NUM PAD PRESSED
+        } else if ( key == 88 || key == 2 ) && !PAUSED {   //'6' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterRIGHT")
             if Int(theGame.player.currentGridLocation.x - 1) >= 0 && Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
                 let moveRight = SKAction.moveByX(128, y: 0, duration: 0.125)
@@ -370,7 +373,7 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation)
                 orderCorrectly()
             }
-        } else if key == 83 && !PAUSED {   //'1' NUM PAD PRESSED
+        } else if ( key == 83 || key == 6 ) && !PAUSED {   //'1' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLOWERLEFT")
             if Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x)].extraObject == "" {
                 let moveLowerLeft = SKAction.moveByX(-64, y: -32, duration: 0.125)
@@ -379,7 +382,7 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation)
                 orderCorrectly()
             }
-        } else if key == 84 && !PAUSED {   //'2' NUM PAD PRESSED
+        } else if ( key == 84 || key == 7 ) && !PAUSED {   //'2' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterDOWN")
             if Int(theGame.player.currentGridLocation.x - 1) >= 0 && Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
                 let moveDown = SKAction.moveByX(0, y: -64, duration: 0.125)
@@ -389,7 +392,7 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation)
                 orderCorrectly()
             }
-        } else if key == 85 && !PAUSED {   //'3' NUM PAD PRESSED
+        } else if ( key == 85 || key == 8 ) && !PAUSED {   //'3' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLOWERRIGHT")
             if Int(theGame.player.currentGridLocation.x - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
                 let moveLowerRight = SKAction.moveByX(64, y: -32, duration: 0.125)
@@ -504,18 +507,24 @@ class GameScene: SKScene {
             }
         }
         
+        for x in 0...theGame.currentLocation.animals.count-1 {
+            
+            var animal = theGame.currentLocation.animals[x]
+            var pos = twoDToIso(CGPoint(x: (random() % (theGame.currentLocation.grid.count-1))*64, y: (random() % (theGame.currentLocation.grid[0].count-1))*64))
+            animal.position = CGPoint(x: pos.x, y: pos.y + animal.size.height / 2)
+            world.addChild(animal)
+            
+        }
+        
         dateLabel.fontSize = 14 //set date label font size
         dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:64+14 - 768 / 2)    //puts the date/time at bottom center of the screen, just above the button bar
         self.addChild(dateLabel)    //adds the date label to the scene (not the world, so it stays in place like the banner
         
     }
     
-    /* EVERY FRAME DO THIS (60 times/sec) */
     var timeSpentReadingMarker : CFTimeInterval = 0.0
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
-        
-        dateLabel.text = formatter.stringFromDate(theGame.gameDate) //grabs the date & time and puts it in the dateLabel
+    
+    func updateBibleEvents( time: CFTimeInterval ) {
         
         if theGame.bibleEvents.count == theGame.nextEvent { //if the Bible has no more events to describe...
             exit(0) //exit the game completely
@@ -523,7 +532,7 @@ class GameScene: SKScene {
         
         if theGame.bibleEvents[theGame.nextEvent].date.laterDate(theGame.gameDate) == theGame.gameDate {    //if we've hit or slightly passed a Bible Event...
             
-            timeSpentReadingMarker = currentTime    //mark the current time to test how long the text has been up
+            timeSpentReadingMarker = time    //mark the current time to test how long the text has been up
             pause()  //pause the game
             
             bibleEventTitle = SKLabelNode(fontNamed:"Chalkduster")  //creates Bible Event title text w/ font Chalkduster
@@ -537,15 +546,27 @@ class GameScene: SKScene {
             self.addChild(bibleEventDescription)    //add it to the scene
             
             theGame.nextEvent++ //get ready for next Bible Event
-        
+            
         }
         
-        var dist = currentTime.distanceTo(Double(timeSpentReadingMarker))   //difference in time between current time and time marker for how long text has been up
+        var dist = time.distanceTo(Double(timeSpentReadingMarker))   //difference in time between current time and time marker for how long text has been up
         if dist < -15 && dist > (-15 - (1 / 60.0)) && theGame.nextEvent > 0 {   //if we've hit 15 seconds and this is not the first run
             bibleEventTitle.removeFromParent()  //remove the title
             bibleEventDescription.removeFromParent()    //remove the description text
             unpause()  //unpause the game
         }
+        
+    }
+    
+    /* EVERY FRAME DO THIS (60 times/sec) */
+    override func update(currentTime: CFTimeInterval) {
+        /* Called before each frame is rendered */
+        
+        theGame.currentLocation.animals[0].updateAI(currentTime)
+        
+        dateLabel.text = formatter.stringFromDate(theGame.gameDate) //grabs the date & time and puts it in the dateLabel
+        
+        updateBibleEvents( currentTime )
         
         theGame.gameDate = theGame.gameDate.dateByAddingTimeInterval(GAME_SPEED)    //increase game time by game speed amount, so 1.0 would be 60 sec game time per 1 sec real time, 2.0 would be 120 sec game time per 1 sec real time, 0.5 would be 30 sec game time per 1 sec real time, etc. etc.
         

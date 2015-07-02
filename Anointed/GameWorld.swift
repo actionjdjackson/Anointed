@@ -77,15 +77,16 @@ class GameWorld {
         /* SETS UP JERUSALEM'S LOCATIONS AND BUILDINGS AND ROOMS ***UNDER CONSTRUCTION*** */
         var TheAltar = Room(ttl: "The Altar", gridSquares: [[]])
         var TheTemple = Building(ttl: "The Temple", r: [[TheAltar]])
-        var SouthofTemple = Location(n:"The South Entrance to the Temple", d:"The glorious Jewish Temple, the Home of Yahweh, God of Israel", g:[[]])
+        var SouthofTemple = Location(n:"The South Entrance to the Temple", d:"The glorious Jewish Temple, the Home of Yahweh, God of Israel", g:[[]], a:[])
         var Jerusalem = City(locations: [[SouthofTemple]])
         
         /* SETS UP BETHELEHEM'S LOCATIONS AND BUILDINGS AND ROOMS ***UNDER CONSTRUCTION***  */
-        var CaveStable = Location(n:"Cave Stable", d:"A small stable inside a cave, near an Inn", g:tempGrid) //uses temporary grid defined above as the "Cave Stable" location where Jesus is born
-        var ShepherdsFields = Location(n:"The Shepherds' Fields", d:"The fields just outside Bethelehem, where shepherds kept their flocks by night", g:[[]])
+        var sheep1 = Animal(name: "Sheep", desc: "A White Sheep", sheetName: "whiteSheep")
+        var CaveStable = Location(n:"Cave Stable", d:"A small stable inside a cave, near an Inn", g:tempGrid, a:[sheep1]) //uses temporary grid defined above as the "Cave Stable" location where Jesus is born
+        var ShepherdsFields = Location(n:"The Shepherds' Fields", d:"The fields just outside Bethelehem, where shepherds kept their flocks by night", g:[[]], a:[])
         var BethlehemSynagogueMainRoom = Room(ttl: "Bethlehem Synagogue Main Room", gridSquares: [[]])
         var BethlehemSynagogue = Building(ttl: "Bethlehem Synagogue", r:[[BethlehemSynagogueMainRoom]])
-        var BethlehemSquare = Location(n:"Bethlehem Town Square", d:"Bethlehem Town Square", g:[[]])
+        var BethlehemSquare = Location(n:"Bethlehem Town Square", d:"Bethlehem Town Square", g:[[]], a:[])
         var Bethlehem = City(locations: [[CaveStable, ShepherdsFields, BethlehemSquare]])
         
         /* SETS THE CURRENT CITY AND LOCATION WHERE THE GAME STARTS */
