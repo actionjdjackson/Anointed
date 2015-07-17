@@ -7,12 +7,41 @@
 //
 
 import Foundation
+import SpriteKit
 
 class Skill {
     
-    init() {
+    public let title : String
+    let desc : String
+    var user : GameCharacter
+    var sprite : String
+    public var level : Int
+    
+    init( skillName : String, skillDesc : String, skillUser : GameCharacter, skillSprite : String ) {
         
+        title = skillName
+        desc = skillDesc
+        user = skillUser
+        sprite = skillSprite
+        level = 1
         
+    }
+    
+    internal func use() {
+        
+        //override for each skill
+        
+    }
+    
+    internal func useOnNPC( npc: NonPlayingCharacter ) {
+        
+        //override for each skill
+        
+    }
+    
+    internal func useOnAnimal( animal : Animal ) {
+        
+        //override for each skill
         
     }
     

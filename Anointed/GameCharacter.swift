@@ -20,7 +20,6 @@ class GameCharacter : SKSpriteNode {
     var occupation: String
     var baptized: Bool
     var physicalHealth: Int
-    var isMessiah: Bool
     var isDisciple: Bool
     var inventory: [Item]
     var inventorySize: Int
@@ -49,10 +48,9 @@ class GameCharacter : SKSpriteNode {
         occupation = "Computer Programmer"
         baptized = true
         physicalHealth = 100
-        isMessiah = false
         isDisciple = true
         inventory = []
-        inventorySize = 2
+        inventorySize = 12
         spiritualGifts = []
         naturalGifts = []
         skills = []
@@ -70,6 +68,35 @@ class GameCharacter : SKSpriteNode {
         let texture = SKTexture(imageNamed: "characterDOWN")    //make a texture w/ the downward-facing character image
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size()) //defines tex, bgcolor, and size
         
+    }
+    
+    func howManyInInventory(itemName: String) -> Int {
+        
+        var num : Int
+        num = 0
+        
+        if inventory.count > 0 {
+            for index in 0...inventory.count-1 {
+                if(inventory[index].title == itemName) {
+                    num++
+                }
+            }
+        }
+        
+        return num
+        
+    }
+    
+    func grabFromInventory(itemName: String) -> Bool {
+        if inventory.count > 0 {
+            for index in 0...inventory.count-1 {
+                if(inventory[index].title == itemName) {
+                    inventory.removeAtIndex(index)
+                    return true
+                }
+            }
+        }
+        return false
     }
 
     required init?(coder aDecoder: NSCoder) {

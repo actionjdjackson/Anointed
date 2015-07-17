@@ -48,7 +48,7 @@ func playSound(filename: String) {    //sets up an audio player to play sound ef
         return
     }
     
-    soundPlayer.numberOfLoops = 0   //play once
+    soundPlayer.numberOfLoops = 0   //play conce
     soundPlayer.prepareToPlay() //load into memory
     soundPlayer.play()  //play sound
 }
@@ -67,6 +67,11 @@ class GameScene: SKScene {
     var PREV_GAME_SPEED = 1.0   //this is used for when pausing the game, and going back to previous game speed
     var PAUSED = false  //obviously, the game doesn't start out paused
     var world = SKNode() //sets up the world node
+    var progBarFrame : SKSpriteNode = SKSpriteNode(imageNamed: "progressBarFrame")
+    var progBar : SKSpriteNode = SKSpriteNode(imageNamed: "progressBar")
+    var progBarCaption : SKLabelNode = SKLabelNode(text: "")
+    var progBarTime : Double = 0.0
+    var progBarDuration : Double = 0.0
     
     /* INITIALIZATION */
     
@@ -112,6 +117,11 @@ class GameScene: SKScene {
         experienceBars.position = CGPoint(x:400, y:-768/2 + 32) //put experience bars at the correct location
         experienceBars.zPosition = 2.0
         self.addChild(experienceBars)   //add the experience bars (to the right of the button bar, as above)
+        var skillBox = SKSpriteNode(imageNamed: theGame.player.skills[0].sprite)
+        skillBox.removeFromParent()
+        skillBox.position = CGPoint(x: -16, y: -768/2 + 32 + 16)
+        skillBox.zPosition = 2.0
+        self.addChild(skillBox)
     }
     
     /* RESETS THE LOWER BANNER TO NOTHING SELECTED OR HIGHLIGHTED */
@@ -156,6 +166,18 @@ class GameScene: SKScene {
                 inventoryItems.text = theGame.player.inventory[0].title //grab the title of the first item
             }
             theOpenMenu.addChild(inventoryItems)    //add the label with that title to the menu (this needs expansion to include additional inventory items as well as images for them)
+        }
+        
+        /* SPECIAL INSTRUCTIONS FOR SKILLS MENU - ***INCOMPLETE*** */
+        if theMenu ==  "SKILLS" { //if we're working with the skills menu
+            var skillsDisplayed = SKLabelNode(fontNamed: "Arial")   //sets up a label for the skills
+            skillsDisplayed.text = " "  //initially, it's blank
+            skillsDisplayed.fontSize = 16   //sets font size
+            skillsDisplayed.position = CGPoint(x: 0, y: CGRectGetMaxY(theOpenMenu.frame)/2 + 32)    //arbitrary location, centered
+            if theGame.player.skills.count > 0 {    //if there's any skills in the player's skill tree
+                skillsDisplayed.text = theGame.player.skills[0].title   //grab the title of the first item
+            }
+            theOpenMenu.addChild(skillsDisplayed)   //add the label with that title to the menu (needs to include icons and add'l skills
         }
         
         /* NEED TO WRITE CODE FOR OTHER MENUS' SPECIAL INSTRUCTIONS */
@@ -212,6 +234,9 @@ class GameScene: SKScene {
                 } else {
                     openMenu("SKILLS")
                 }
+            } else if location.x >= -32 && location.x <= 0 {
+                theGame.player.skills[0].use()
+                makeProgressBarFor(60.0 * 60.0 * (10.0 - log(Double(theGame.player.skills[0].level) * 1.0)), caption: theGame.player.skills[0].title)
             } else {
                 clearMenu()
             }
@@ -558,9 +583,53 @@ class GameScene: SKScene {
         
     }
     
+    func makeProgressBarFor( time: Double, caption: String) {
+        
+        progBarCaption = SKLabelNode(text: caption)
+        progBarCaption.zPosition = 5.0
+        progBarCaption.position = CGPointZero
+        progBarCaption.fontSize = 14
+        progBarFrame.position = CGPointZero
+        progBarFrame.zPosition = 3.0
+        progBar.position = CGPointZero
+        progBar.zPosition = 4.0
+        progBarDuration = time
+        progBar.size = CGSizeMake(256, progBar.size.height)
+        //progBar.anchorPoint = CGPoint(x: 0.0, y: 16)
+        self.addChild(progBarFrame)
+        self.addChild(progBarCaption)
+        self.addChild(progBar)
+        
+    }
+    
+    func updateProgressBar( deltaTime : Double ) {
+        
+        if progBarDuration != 0.0 {
+            progBarTime += deltaTime
+            progBar.size = CGSizeMake( CGFloat( ( CGFloat(progBarTime) / CGFloat(progBarDuration) ) * 256.0 ), progBar.size.height )
+        }
+        if progBarTime >= progBarDuration {
+            removeProgressBar()
+        }
+        
+    }
+    
+    func removeProgressBar() {
+        
+        progBarFrame.removeFromParent()
+        progBar.removeFromParent()
+        progBarCaption.removeFromParent()
+        progBarTime = 0.0
+        progBarDuration = 0.0
+        progBarCaption = SKLabelNode(text: "")
+        
+    }
+    
     /* EVERY FRAME DO THIS (60 times/sec) */
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        
+        updateProgressBar( GAME_SPEED )
         
         theGame.currentLocation.animals[0].updateAI(currentTime)
         

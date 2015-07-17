@@ -37,6 +37,7 @@
 		E2522A8D1AE06B4D00EDD89A /* Psalm139.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8C1AE06B4D00EDD89A /* Psalm139.txt */; };
 		E2522A8F1AE06DBE00EDD89A /* Psalm139ENG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */; };
 		E2522A911AE07ABA00EDD89A /* GridSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2522A901AE07ABA00EDD89A /* GridSquare.swift */; };
+		E28C4A511B4D7FC4001CD4A7 /* Tentmaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */; };
 		E2D52D611AEC88900008879C /* MultiLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D52D601AEC88900008879C /* MultiLineLabel.swift */; };
 		E2D52D631AEDE7670008879C /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D52D621AEDE7670008879C /* Animal.swift */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		E2522A8C1AE06B4D00EDD89A /* Psalm139.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Psalm139.txt; sourceTree = "<group>"; };
 		E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Psalm139ENG.txt; sourceTree = "<group>"; };
 		E2522A901AE07ABA00EDD89A /* GridSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridSquare.swift; sourceTree = "<group>"; };
+		E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tentmaking.swift; sourceTree = "<group>"; };
 		E2D52D601AEC88900008879C /* MultiLineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineLabel.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		E2D52D621AEDE7670008879C /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +153,7 @@
 				E21B45B91AE04EF6007F10C5 /* Room.swift */,
 				E2522A8A1AE0631900EDD89A /* Scroll.swift */,
 				E21B45BA1AE04EF6007F10C5 /* Skill.swift */,
+				E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */,
 				E21B45BB1AE04EF6007F10C5 /* SpiritualGift.swift */,
 				E21B45BC1AE04EF6007F10C5 /* Understanding.swift */,
 				E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */,
@@ -312,6 +315,7 @@
 				E21B45C01AE04EF6007F10C5 /* Building.swift in Sources */,
 				E21B45CF1AE04EF6007F10C5 /* Wisdom.swift in Sources */,
 				E2D52D631AEDE7670008879C /* Animal.swift in Sources */,
+				E28C4A511B4D7FC4001CD4A7 /* Tentmaking.swift in Sources */,
 				E21B45CE1AE04EF6007F10C5 /* Understanding.swift in Sources */,
 				E2D52D611AEC88900008879C /* MultiLineLabel.swift in Sources */,
 				E2522A911AE07ABA00EDD89A /* GridSquare.swift in Sources */,
