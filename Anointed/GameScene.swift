@@ -72,6 +72,31 @@ class GameScene: SKScene {
     var progBarCaption : SKLabelNode = SKLabelNode(text: "")
     var progBarTime : Double = 0.0
     var progBarDuration : Double = 0.0
+    var skillInUse : Int = -1
+    
+    let CENTER_OF_SCREEN_X = CGFloat(0.5)
+    let CENTER_OF_SCREEN_Y = CGFloat(0.5)
+    let LOWER_BANNER_X = CGFloat(-112)
+    let LOWER_BANNER_Y = CGFloat(-768/2 + 32)
+    let LOWER_BANNER_Z = CGFloat(2.0)
+    let EXPERIENCE_BARS_X = CGFloat(400)
+    let EXPERIENCE_BARS_Y = CGFloat(-768/2 + 32)
+    let EXPERIENCE_BARS_Z = CGFloat(2.0)
+    let OPEN_MENU_Y = CGFloat(-32 + 8)
+    let OPEN_MENU_Z = CGFloat(2.0)
+    let MENU_TITLE_FONT_SIZE = CGFloat(24)
+    let MENU_TITLE_X = CGFloat(0.0)
+    let MENU_TITLE_Y = CGFloat(CGRectGetMaxY(SKSpriteNode(imageNamed:"INVENTORYmenu").frame) / 2.0 + 128 - 32)
+    let SKILLS_BAR_BASE_X = CGFloat(-16)
+    let SKILLS_BAR_BASE_Y = CGFloat(-768/2 + 32 + 16)
+    let SKILLS_BAR_BASE_Z = CGFloat(2.0)
+    let SKILL_POSITION_BASE_X = CGFloat(96.0 - CGFloat(SKSpriteNode(imageNamed:"INVENTORYmenu").frame.width) / 2.0)
+    let SKILL_POSITION_BASE_Y = CGFloat(SKSpriteNode(imageNamed:"INVENTORYmenu").frame.height) / 2.0 - 518.0
+    let SKILL_ICON_SIZE = CGFloat(32.0)
+    let INVENTORY_ITEM_BASE_X = CGFloat(88 - 234)
+    let INVENTORY_ITEM_BASE_Y = CGFloat(100)
+    let INVENTORY_ITEM_SIZE = CGFloat(32.0)
+    
     
     /* INITIALIZATION */
     
@@ -83,7 +108,7 @@ class GameScene: SKScene {
         formatter.timeStyle = .MediumStyle  //basic timestamp
         
         self.addChild(world)    //world node is added to the scene immediately
-        self.anchorPoint = CGPointMake(0.5, 0.5)    //anchor the screen on center
+        self.anchorPoint = CGPoint(x: CENTER_OF_SCREEN_X, y: CENTER_OF_SCREEN_Y) //anchor the screen on center
         
         createLocation()    //creates the current location in spritekit
         
@@ -106,21 +131,22 @@ class GameScene: SKScene {
         
     }
     
-    /* CREATES THE LOWER BANNER WITH GAME BUTTONS AND EXPERIENCE BARS */
+    /* CREATES THE LOWER BANNER WITH GAME BUTTONS, SKILLS, AND EXPERIENCE BARS */
     func setupLowerBanner() {
         lowerBanner.removeFromParent()  //just in case we're re-setting-up, remove the current banner
         lowerBanner = SKSpriteNode(imageNamed:"LowerBannerBASE")    //define the lowerBanner as basic button bar with nothing selected
-        lowerBanner.position = CGPoint(x:-112, y:-768/2 + 32)   //put the button bar at correct location
-        lowerBanner.zPosition = 2.0
+        lowerBanner.position = CGPoint( x: LOWER_BANNER_X, y: LOWER_BANNER_Y )   //put the button bar at correct location
+        lowerBanner.zPosition = LOWER_BANNER_Z
         self.addChild(lowerBanner)  //add the banner to the current scene
         experienceBars.removeFromParent()   //just in case we're re-setting-up, remove the current exp bars
-        experienceBars.position = CGPoint(x:400, y:-768/2 + 32) //put experience bars at the correct location
-        experienceBars.zPosition = 2.0
+        experienceBars.position = CGPoint(x: EXPERIENCE_BARS_X, y: EXPERIENCE_BARS_Y) //put experience bars at the correct location
+        experienceBars.zPosition = EXPERIENCE_BARS_Z
         self.addChild(experienceBars)   //add the experience bars (to the right of the button bar, as above)
+        
         var skillBox = SKSpriteNode(imageNamed: theGame.player.skills[0].sprite)
         skillBox.removeFromParent()
-        skillBox.position = CGPoint(x: -16, y: -768/2 + 32 + 16)
-        skillBox.zPosition = 2.0
+        skillBox.position = CGPoint(x: SKILLS_BAR_BASE_X, y: SKILLS_BAR_BASE_Y)
+        skillBox.zPosition = SKILLS_BAR_BASE_Z
         self.addChild(skillBox)
     }
     
@@ -147,37 +173,35 @@ class GameScene: SKScene {
         menuUp = theMenu    //keeping track of what menu is open currently
         theOpenMenu.removeFromParent()  //remove any previous menu
         theOpenMenu = SKSpriteNode(imageNamed: theMenu + "menu")    //sets up the menu image
-        theOpenMenu.position = CGPoint(x: CGRectGetMidX(self.frame), y: -32 + 8)    //places image just above the button bar, and centered on the scene's frame
-        theOpenMenu.zPosition = 2.0
+        theOpenMenu.position = CGPoint( x: CGRectGetMidX(self.frame), y: CGFloat(OPEN_MENU_Y) ) //places it just above the button bar, and centered on the scene's frame
+        theOpenMenu.zPosition = OPEN_MENU_Z
         self.addChild(theOpenMenu)  //displays the menu
         var menuTitle = SKLabelNode(fontNamed: "Zapfino")   //sets up a label for the menu title
         menuTitle.text = theMenu.lowercaseString.capitalizedString  //makes the menu Thisway instead of THISWAY
-        menuTitle.fontSize = 24 //sets the font size
-        menuTitle.position = CGPoint(x: 0, y: CGRectGetMaxY(theOpenMenu.frame)/2 + 128 - 32)    //positions at top center of menu
+        menuTitle.fontSize = MENU_TITLE_FONT_SIZE //sets the font size
+        menuTitle.position = CGPoint(x: MENU_TITLE_X, y: MENU_TITLE_Y)    //positions at top center of menu
         theOpenMenu.addChild(menuTitle) //displays the label as a child of the current menu
         
         /* SPECIAL INSTRUCTIONS FOR INVENTORY MENU - ***INCOMPLETE*** */
         if theMenu == "INVENTORY" { //if we're working with the inventory menu
-            var inventoryItems = SKLabelNode(fontNamed: "Arial")    //sets up a label for the inventory items
-            inventoryItems.text = " "   //initially, it's blank
-            inventoryItems.fontSize = 16    //sets font size
-            inventoryItems.position = CGPoint(x: 0, y: CGRectGetMaxY(theOpenMenu.frame)/2 + 32) //arbitrary location
-            if theGame.player.inventory.count > 0 { //if there's anything in the player's inventory
-                inventoryItems.text = theGame.player.inventory[0].title //grab the title of the first item
+            if theGame.player.inventory.count > 0 {
+                for n in 0...theGame.player.inventory.count-1   { //if there's anything in the player's inventory
+                    var item = SKSpriteNode(imageNamed: theGame.player.inventory[n].spriteName) //grab the title of the first item
+                    item.position = CGPoint( x: INVENTORY_ITEM_BASE_X + CGFloat(n) * INVENTORY_ITEM_SIZE, y: INVENTORY_ITEM_BASE_Y)
+                    theOpenMenu.addChild(item)
+                }
             }
-            theOpenMenu.addChild(inventoryItems)    //add the label with that title to the menu (this needs expansion to include additional inventory items as well as images for them)
         }
         
         /* SPECIAL INSTRUCTIONS FOR SKILLS MENU - ***INCOMPLETE*** */
         if theMenu ==  "SKILLS" { //if we're working with the skills menu
-            var skillsDisplayed = SKLabelNode(fontNamed: "Arial")   //sets up a label for the skills
-            skillsDisplayed.text = " "  //initially, it's blank
-            skillsDisplayed.fontSize = 16   //sets font size
-            skillsDisplayed.position = CGPoint(x: 0, y: CGRectGetMaxY(theOpenMenu.frame)/2 + 32)    //arbitrary location, centered
-            if theGame.player.skills.count > 0 {    //if there's any skills in the player's skill tree
-                skillsDisplayed.text = theGame.player.skills[0].title   //grab the title of the first item
+            if theGame.player.skills.count > 0 {
+                for n in 0...theGame.player.skills.count-1 {
+                    var skill = theGame.player.skills[n]
+                    skill.position = CGPoint(x: SKILL_POSITION_BASE_X + CGFloat(n) * SKILL_ICON_SIZE, y: SKILL_POSITION_BASE_Y)
+                    theOpenMenu.addChild(skill)
+                }
             }
-            theOpenMenu.addChild(skillsDisplayed)   //add the label with that title to the menu (needs to include icons and add'l skills
         }
         
         /* NEED TO WRITE CODE FOR OTHER MENUS' SPECIAL INSTRUCTIONS */
@@ -235,15 +259,17 @@ class GameScene: SKScene {
                     openMenu("SKILLS")
                 }
             } else if location.x >= -32 && location.x <= 0 {
-                theGame.player.skills[0].use()
-                makeProgressBarFor(60.0 * 60.0 * (10.0 - log(Double(theGame.player.skills[0].level) * 1.0)), caption: theGame.player.skills[0].title)
+                if theGame.player.skills[0].canUse() {
+                    makeProgressBarFor( 60.0 * 60.0 * (theGame.player.skills[0].hoursToComplete - log(Double(theGame.player.skills[0].level) * 1.0)), caption: theGame.player.skills[0].title )
+                    skillInUse = 0
+                }
             } else {
                 clearMenu()
             }
         } else { /* Has the user clicked OUTSIDE the lower banner? */
-            resetLowerBanner()  //clear all button highlights
-            theOpenMenu.removeFromParent()  //remove any open menu
-            menuUp = "NONE" //set menuUp to "NONE" - everything is cleared
+            //resetLowerBanner()  //clear all button highlights
+            //theOpenMenu.removeFromParent()  //remove any open menu
+            //menuUp = "NONE" //set menuUp to "NONE" - everything is cleared
         }
         
     }
@@ -564,10 +590,12 @@ class GameScene: SKScene {
             bibleEventTitle.text = theGame.bibleEvents[theGame.nextEvent].title //set the title
             bibleEventTitle.fontSize = 18   //set the font size to be bigger than the main text of the Bible Event
             bibleEventTitle.position = CGPoint(x:CGRectGetMidX(self.frame), y:512 - 768 / 2)    //put it in the center
+            bibleEventTitle.zPosition = 10.0
             self.addChild(bibleEventTitle)  //add it to the scene (not the world, so it stays in place like the banner)
             
             bibleEventDescription = MultiLineLabel(text: theGame.bibleEvents[theGame.nextEvent].description, fontName: "Chalkduster", fontsize: 12, wrap: 1024)  //set the main text (description)
             bibleEventDescription.position = CGPoint(x:CGRectGetMidX(self.frame), y:512 - 64 - 768 / 2)  //just below the title
+            bibleEventDescription.zPosition = 10.0
             self.addChild(bibleEventDescription)    //add it to the scene
             
             theGame.nextEvent++ //get ready for next Bible Event
@@ -575,7 +603,7 @@ class GameScene: SKScene {
         }
         
         var dist = time.distanceTo(Double(timeSpentReadingMarker))   //difference in time between current time and time marker for how long text has been up
-        if dist < -15 && dist > (-15 - (1 / 60.0)) && theGame.nextEvent > 0 {   //if we've hit 15 seconds and this is not the first run
+        if dist < -30 && dist > (-30 - (1 / 60.0)) && theGame.nextEvent > 0 {   //if we've hit 15 seconds and this is not the first run
             bibleEventTitle.removeFromParent()  //remove the title
             bibleEventDescription.removeFromParent()    //remove the description text
             unpause()  //unpause the game
@@ -594,8 +622,7 @@ class GameScene: SKScene {
         progBar.position = CGPointZero
         progBar.zPosition = 4.0
         progBarDuration = time
-        progBar.size = CGSizeMake(256, progBar.size.height)
-        //progBar.anchorPoint = CGPoint(x: 0.0, y: 16)
+        progBar.size = CGSizeMake(0, progBar.size.height)
         self.addChild(progBarFrame)
         self.addChild(progBarCaption)
         self.addChild(progBar)
@@ -608,7 +635,7 @@ class GameScene: SKScene {
             progBarTime += deltaTime
             progBar.size = CGSizeMake( CGFloat( ( CGFloat(progBarTime) / CGFloat(progBarDuration) ) * 256.0 ), progBar.size.height )
         }
-        if progBarTime >= progBarDuration {
+        if progBarTime >= progBarDuration && progBarDuration != 0.0 {
             removeProgressBar()
         }
         
@@ -622,6 +649,8 @@ class GameScene: SKScene {
         progBarTime = 0.0
         progBarDuration = 0.0
         progBarCaption = SKLabelNode(text: "")
+        theGame.player.skills[skillInUse].use()
+        skillInUse = -1
         
     }
     

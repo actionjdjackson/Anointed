@@ -24,7 +24,6 @@ class GameCharacter : SKSpriteNode {
     var inventory: [Item]
     var inventorySize: Int
     var spiritualGifts: [SpiritualGift]
-    var naturalGifts: [NaturalGift]
     var skills: [Skill]
     var knowledge: [Knowledge]
     var wisdom: [Wisdom]
@@ -52,7 +51,6 @@ class GameCharacter : SKSpriteNode {
         inventory = []
         inventorySize = 12
         spiritualGifts = []
-        naturalGifts = []
         skills = []
         knowledge = []
         wisdom = []

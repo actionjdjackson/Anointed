@@ -23,7 +23,6 @@
 		E21B45C61AE04EF6007F10C5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B41AE04EF6007F10C5 /* Item.swift */; };
 		E21B45C71AE04EF6007F10C5 /* Knowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B51AE04EF6007F10C5 /* Knowledge.swift */; };
 		E21B45C81AE04EF6007F10C5 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B61AE04EF6007F10C5 /* Location.swift */; };
-		E21B45C91AE04EF6007F10C5 /* NaturalGift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B71AE04EF6007F10C5 /* NaturalGift.swift */; };
 		E21B45CA1AE04EF6007F10C5 /* NonPlayingCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B81AE04EF6007F10C5 /* NonPlayingCharacter.swift */; };
 		E21B45CB1AE04EF6007F10C5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45B91AE04EF6007F10C5 /* Room.swift */; };
 		E21B45CC1AE04EF6007F10C5 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45BA1AE04EF6007F10C5 /* Skill.swift */; };
@@ -37,9 +36,11 @@
 		E2522A8D1AE06B4D00EDD89A /* Psalm139.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8C1AE06B4D00EDD89A /* Psalm139.txt */; };
 		E2522A8F1AE06DBE00EDD89A /* Psalm139ENG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */; };
 		E2522A911AE07ABA00EDD89A /* GridSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2522A901AE07ABA00EDD89A /* GridSquare.swift */; };
+		E2643B9F1B5DD9FC006C280C /* ToolTipSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */; };
 		E28C4A511B4D7FC4001CD4A7 /* Tentmaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */; };
 		E2D52D611AEC88900008879C /* MultiLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D52D601AEC88900008879C /* MultiLineLabel.swift */; };
 		E2D52D631AEDE7670008879C /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D52D621AEDE7670008879C /* Animal.swift */; };
+		E2F5473B1B5D2C43004F96D0 /* Winemaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5473A1B5D2C43004F96D0 /* Winemaking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +74,6 @@
 		E21B45B41AE04EF6007F10C5 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E21B45B51AE04EF6007F10C5 /* Knowledge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Knowledge.swift; sourceTree = "<group>"; };
 		E21B45B61AE04EF6007F10C5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		E21B45B71AE04EF6007F10C5 /* NaturalGift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaturalGift.swift; sourceTree = "<group>"; };
 		E21B45B81AE04EF6007F10C5 /* NonPlayingCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonPlayingCharacter.swift; sourceTree = "<group>"; };
 		E21B45B91AE04EF6007F10C5 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		E21B45BA1AE04EF6007F10C5 /* Skill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
@@ -87,9 +87,11 @@
 		E2522A8C1AE06B4D00EDD89A /* Psalm139.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Psalm139.txt; sourceTree = "<group>"; };
 		E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Psalm139ENG.txt; sourceTree = "<group>"; };
 		E2522A901AE07ABA00EDD89A /* GridSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridSquare.swift; sourceTree = "<group>"; };
+		E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolTipSpriteNode.swift; sourceTree = "<group>"; };
 		E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tentmaking.swift; sourceTree = "<group>"; };
 		E2D52D601AEC88900008879C /* MultiLineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineLabel.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		E2D52D621AEDE7670008879C /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		E2F5473A1B5D2C43004F96D0 /* Winemaking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Winemaking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				E21B45B01AE04EF6007F10C5 /* Conversation.swift */,
 				E21B45B11AE04EF6007F10C5 /* GameCharacter.swift */,
 				E21B458E1AE04E8F007F10C5 /* GameScene.swift */,
+				E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */,
 				E21B45B21AE04EF6007F10C5 /* GameWorld.swift */,
 				E21B45B31AE04EF6007F10C5 /* Global.swift */,
 				E2522A901AE07ABA00EDD89A /* GridSquare.swift */,
@@ -148,12 +151,12 @@
 				E21B45B51AE04EF6007F10C5 /* Knowledge.swift */,
 				E21B45B61AE04EF6007F10C5 /* Location.swift */,
 				E2D52D601AEC88900008879C /* MultiLineLabel.swift */,
-				E21B45B71AE04EF6007F10C5 /* NaturalGift.swift */,
 				E21B45B81AE04EF6007F10C5 /* NonPlayingCharacter.swift */,
 				E21B45B91AE04EF6007F10C5 /* Room.swift */,
 				E2522A8A1AE0631900EDD89A /* Scroll.swift */,
 				E21B45BA1AE04EF6007F10C5 /* Skill.swift */,
 				E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */,
+				E2F5473A1B5D2C43004F96D0 /* Winemaking.swift */,
 				E21B45BB1AE04EF6007F10C5 /* SpiritualGift.swift */,
 				E21B45BC1AE04EF6007F10C5 /* Understanding.swift */,
 				E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */,
@@ -297,11 +300,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2643B9F1B5DD9FC006C280C /* ToolTipSpriteNode.swift in Sources */,
+				E2F5473B1B5D2C43004F96D0 /* Winemaking.swift in Sources */,
 				E21B45C61AE04EF6007F10C5 /* Item.swift in Sources */,
 				E21B45C21AE04EF6007F10C5 /* Conversation.swift in Sources */,
 				E21B45CA1AE04EF6007F10C5 /* NonPlayingCharacter.swift in Sources */,
 				E21B45C31AE04EF6007F10C5 /* GameCharacter.swift in Sources */,
-				E21B45C91AE04EF6007F10C5 /* NaturalGift.swift in Sources */,
 				E21B45CC1AE04EF6007F10C5 /* Skill.swift in Sources */,
 				E21B458F1AE04E8F007F10C5 /* GameScene.swift in Sources */,
 				E21B45D01AE04EF6007F10C5 /* WorldMap.swift in Sources */,

@@ -23,6 +23,7 @@ class GameWorld {
     var understandingBase: [Understanding]
     var wisdomBase: [Wisdom]
     var skillTree: [[Skill]]
+    var miraclesTree: [Skill]
     
     init() {
         
@@ -44,11 +45,24 @@ class GameWorld {
         
         player = GameCharacter()    //set up a default character
         
-        var tentmakingSkill : Tentmaking
+        /* CREATE & ADD SKILLS & GIFTS */
+        var tentmakingSkill : Tentmaking    //create tentmaking skill
         tentmakingSkill = Tentmaking(user: player)
-        player.skills.append(tentmakingSkill)
         
+        player.skills.append(tentmakingSkill)   //player (for now) has the tentmaking skill
+        
+        var winemakingSkill : Winemaking    //create winemaking skill (will be a subset of miracles gift)
+        winemakingSkill = Winemaking(user: player)
+        
+        var miraclesGift : SpiritualGift    //create miracles gift
+        miraclesGift = SpiritualGift(giftName: "The Gift of Miracles", giftDesc: "A spritual gift that allows the player miraculous powers to alter nature, provide signs and wonders for unbelievers, and support the faith and confidence of believers.", giftUser: player, giftSprite: "miracles", giftSkills: [winemakingSkill])
+        
+        player.spiritualGifts.append(miraclesGift)  //player (for now) has the gift of miracles
+        
+        /* CREATE SKILL TREES */
         skillTree = [[tentmakingSkill]]
+        miraclesTree = [winemakingSkill]
+        
         
         /* set up the initial game date as the day of Jesus' birth, at around 8 am */
         let hebrewCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierHebrew)

@@ -12,7 +12,11 @@ import Foundation
 class Tentmaking : Skill {
     
     init( user : GameCharacter ) {
-        super.init( skillName: "Tentmaking", skillDesc: "Allows you to make tents, using one unit of cloth, one unit of cord, and one unit of wood.", skillUser: user, skillSprite : "tent")
+        super.init( skillName: "Tentmaking", skillDesc: "Allows you to make tents, using one unit of cloth, one unit of cord, and one unit of wood.", skillUser: user, skillSprite : "tent", baseTimeToComplete : 10.0 )
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func use() {
@@ -38,6 +42,20 @@ class Tentmaking : Skill {
             
         }
     
+    }
+    
+    override func canUse() -> Bool {
+        
+        if user.howManyInInventory("Cloth") > 0 && user.howManyInInventory("Cord") > 0 && user.howManyInInventory("Wood") > 0 {
+         
+            return true
+            
+        } else {
+            
+            return false
+            
+        }
+        
     }
 
 }
