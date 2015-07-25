@@ -32,6 +32,9 @@ class Tentmaking : Skill {
             user.inventory.append(newTent)
             //level up tentmaking skill
             level++
+            self.toolTipSN.itemInfoA = "Level " + String( level )
+            self.toolTipSN.itemInfoB = "Time to Complete: "
+            self.toolTipSN.itemInfoB += String(Int(self.hoursToComplete - log(Double(self.level) * 1.0))) + "hrs"
             //report to console
             println("Made a basic cloth tent.")
             println("Tentmaking +1")

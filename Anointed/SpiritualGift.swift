@@ -10,12 +10,12 @@ import Foundation
 
 class SpiritualGift {
     
-    public let title : String
-    public let desc : String
+    let title : String
+    let desc : String
     var user : GameCharacter
     var sprite : String
-    public var level : Int
-    public var subSkills : [Skill]
+    var level : Int
+    var subSkills : [Skill]
     
     init( giftName : String, giftDesc : String, giftUser : GameCharacter, giftSprite : String, giftSkills : [Skill] ) {
         

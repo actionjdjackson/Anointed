@@ -81,16 +81,45 @@ class GameWorld {
         
         //makes all the items in the game
         var psalm139Scroll = Scroll(ttl: "Psalm 139 Scroll", desc: "A copy of the 139th Psalm, in Hebrew, originally written by King David. In fairly good condition, and fully readable. Must know how to read Hebrew to use this scroll.", textFile: "Psalm139", lang: "Hebrew", scrollSize: 1)
-        var wood = Item(ttl: "Wood", desc: "1 Unit of Wood", sx: 1, sy: 1, iconName: "wood")
-        var cord = Item(ttl: "Cord", desc: "1 Unit of Cord", sx: 1, sy: 1, iconName: "cord")
-        var cloth = Item(ttl: "Cloth", desc: "1 Unit of Cloth", sx: 1, sy: 1, iconName: "cloth")
+        var wood1 = Item(ttl: "Wood", desc: "1 Unit of Wood", sx: 1, sy: 1, iconName: "wood")
+        var cord1 = Item(ttl: "Cord", desc: "1 Unit of Cord", sx: 1, sy: 1, iconName: "cord")
+        var cloth1 = Item(ttl: "Cloth", desc: "1 Unit of Cloth", sx: 1, sy: 1, iconName: "cloth")
+        
+        var wood2 = Item(ttl: "Wood", desc: "1 Unit of Wood", sx: 1, sy: 1, iconName: "wood")
+        var cord2 = Item(ttl: "Cord", desc: "1 Unit of Cord", sx: 1, sy: 1, iconName: "cord")
+        var cloth2 = Item(ttl: "Cloth", desc: "1 Unit of Cloth", sx: 1, sy: 1, iconName: "cloth")
+        
+        var wood3 = Item(ttl: "Wood", desc: "1 Unit of Wood", sx: 1, sy: 1, iconName: "wood")
+        var cord3 = Item(ttl: "Cord", desc: "1 Unit of Cord", sx: 1, sy: 1, iconName: "cord")
+        var cloth3 = Item(ttl: "Cloth", desc: "1 Unit of Cloth", sx: 1, sy: 1, iconName: "cloth")
+        
+        var wood4 = Item(ttl: "Wood", desc: "1 Unit of Wood", sx: 1, sy: 1, iconName: "wood")
+        var cord4 = Item(ttl: "Cord", desc: "1 Unit of Cord", sx: 1, sy: 1, iconName: "cord")
+        var cloth4 = Item(ttl: "Cloth", desc: "1 Unit of Cloth", sx: 1, sy: 1, iconName: "cloth")
+        
+        var wood5 = Item(ttl: "Wood", desc: "1 Unit of Wood", sx: 1, sy: 1, iconName: "wood")
+        var cord5 = Item(ttl: "Cord", desc: "1 Unit of Cord", sx: 1, sy: 1, iconName: "cord")
+        var cloth5 = Item(ttl: "Cloth", desc: "1 Unit of Cloth", sx: 1, sy: 1, iconName: "cloth")
+        
+        player.inventory.append(wood2)
+        player.inventory.append(cord2)
+        player.inventory.append(cloth2)
+        player.inventory.append(wood3)
+        player.inventory.append(cord3)
+        player.inventory.append(cloth3)
+        player.inventory.append(wood4)
+        player.inventory.append(cord4)
+        player.inventory.append(cloth4)
+        player.inventory.append(wood5)
+        player.inventory.append(cord5)
+        player.inventory.append(cloth5)
         
         //defines the different types of grid squares
         var emptyGrassSquare = GridSquare(tex: "grass", hasItems: [], obj: "")
         var emptyBrickSquare = GridSquare(tex: "brick", hasItems: [], obj: "")
-        var grassWithWood = GridSquare(tex: "grass", hasItems: [wood], obj: "")
-        var grassWithCord = GridSquare(tex: "grass", hasItems: [cord], obj: "")
-        var grassWithCloth = GridSquare(tex: "grass", hasItems: [cloth], obj: "")
+        var grassWithWood = GridSquare(tex: "grass", hasItems: [wood1], obj: "")
+        var grassWithCord = GridSquare(tex: "grass", hasItems: [cord1], obj: "")
+        var grassWithCloth = GridSquare(tex: "grass", hasItems: [cloth1], obj: "")
         var grassWithPsalm139Scroll = GridSquare(tex: "grass", hasItems: [psalm139Scroll], obj: "")
         var grassWithTree = GridSquare(tex: "grass", hasItems: [], obj: "tree")
         var grassWithOtherTree = GridSquare(tex: "grass", hasItems: [], obj: "tree2")
@@ -126,10 +155,10 @@ class GameWorld {
         
         /* ALL BIBLE EVENTS ARE RECORDED HERE, COMING FROM THE CLASB NLT TRANSLATION, WITH A LOT OF GUESSING */
         bibleEvents = [
-            BibleEvent(yr: 3755, mo: HebrewMonths.TISHRI, dy: 15, hr: 21, min: 0, sec: 0, ttl: "Jesus Is Born in Bethlehem", desc: "At that time the Roman emperor, Augustus, decreed that a census should be taken throughout the Roman Empire. (This was the first census taken when Quirinius was governor of Syria.) All returned to their own ancestral towns to register for this census. And because Joseph was a descendant of King David, he had to go to Bethlehem in Judea, David’s ancient home. He traveled there from the village of Nazareth in Galilee. He took with him Mary, his fiancée, who was now obviously pregnant. And while they were there, the time came for her baby to be born. She gave birth to her first child, a son. She wrapped him snugly in strips of cloth and laid him in a manger, because there was no lodging available for them.", c: Bethlehem, l: CaveStable, b: nilBuilding, r: nilRoom),
-            BibleEvent(yr: 3755, mo: HebrewMonths.TISHRI, dy: 15, hr: 21, min: 30, sec: 0, ttl: "Shepherds Visit Jesus", desc: "That night there were shepherds staying in the fields nearby, guarding their flocks of sheep. Suddenly, an angel of the Lord appeared among them, and the radiance of the Lord’s glory surrounded them. They were terrified, but the angel reassured them. “Don’t be afraid!” he said. “I bring you good news that will bring great joy to all people. The Savior—yes, the Messiah, the Lord—has been born today in Bethlehem, the city of David! And you will recognize him by this sign: You will find a baby wrapped snugly in strips of cloth, lying in a manger.” Suddenly, the angel was joined by a vast host of others—the armies of heaven—praising God and saying, “Glory to God in highest heaven, and peace on earth to those with whom God is pleased.” When the angels had returned to heaven, the shepherds said to each other, “Let’s go to Bethlehem! Let’s see this thing that has happened, which the Lord has told us about.” They hurried to the village and found Mary and Joseph. And there was the baby, lying in the manger. After seeing him, the shepherds told everyone what had happened and what the angel had said to them about this child. All who heard the shepherds’ story were astonished, but Mary kept all these things in her heart and thought about them often. The shepherds went back to their flocks, glorifying and praising God for all they had heard and seen. It was just as the angel had told them.", c: Bethlehem, l: ShepherdsFields, b: nilBuilding, r: nilRoom),
-            BibleEvent(yr: 3755, mo: HebrewMonths.TISHRI, dy: 23, hr: 8, min: 0, sec: 0, ttl: "Jesus is Circumcised", desc: "Eight days later, when the baby was circumcised, he was named Jesus, the name given him by the angel even before he was conceived.", c: Bethlehem, l: BethlehemSquare, b: BethlehemSynagogue, r: BethlehemSynagogueMainRoom),
-            BibleEvent(yr: 3755, mo: HebrewMonths.CHESHVAN, dy: 25, hr: 8, min: 0, sec: 0, ttl: "Mary and Joseph Bring Jesus to the Temple", desc: "Then it was time for their purification offering, as required by the law of Moses after the birth of a child; so his parents took him to Jerusalem to present him to the Lord. The law of the Lord says, “If a woman’s first child is a boy, he must be dedicated to the Lord.” So they offered the sacrifice required in the law of the Lord—“either a pair of turtledoves or two young pigeons.”", c: Jerusalem, l: SouthofTemple, b: TheTemple, r: TheAltar)
+            BibleEvent(yr: 3755, mo: HebrewMonths.TISHRI, dy: 15, hr: 21, min: 0, sec: 0, ttl: "Jesus Is Born in Bethlehem", desc: "At that time the Roman emperor, Augustus, decreed that a census should be taken throughout the Roman Empire. (This was the first census taken when Quirinius was governor of Syria.) All returned to their own ancestral towns to register for this census. And because Joseph was a descendant of King David, he had to go to Bethlehem in Judea, David’s ancient home. He traveled there from the village of Nazareth in Galilee. He took with him Mary, his fiancée, who was now obviously pregnant. And while they were there, the time came for her baby to be born. She gave birth to her first child, a son. She wrapped him snugly in strips of cloth and laid him in a manger, because there was no lodging available for them.", audioFile: "Luke2;1-7.mp3", c: Bethlehem, l: CaveStable, b: nilBuilding, r: nilRoom),
+            BibleEvent(yr: 3755, mo: HebrewMonths.TISHRI, dy: 15, hr: 21, min: 30, sec: 0, ttl: "Shepherds Visit Jesus", desc: "That night there were shepherds staying in the fields nearby, guarding their flocks of sheep. Suddenly, an angel of the Lord appeared among them, and the radiance of the Lord’s glory surrounded them. They were terrified, but the angel reassured them. “Don’t be afraid!” he said. “I bring you good news that will bring great joy to all people. The Savior—yes, the Messiah, the Lord—has been born today in Bethlehem, the city of David! And you will recognize him by this sign: You will find a baby wrapped snugly in strips of cloth, lying in a manger.” Suddenly, the angel was joined by a vast host of others—the armies of heaven—praising God and saying, “Glory to God in highest heaven, and peace on earth to those with whom God is pleased.” When the angels had returned to heaven, the shepherds said to each other, “Let’s go to Bethlehem! Let’s see this thing that has happened, which the Lord has told us about.” They hurried to the village and found Mary and Joseph. And there was the baby, lying in the manger. After seeing him, the shepherds told everyone what had happened and what the angel had said to them about this child. All who heard the shepherds’ story were astonished, but Mary kept all these things in her heart and thought about them often. The shepherds went back to their flocks, glorifying and praising God for all they had heard and seen. It was just as the angel had told them.", audioFile: "Luke2;8-20.mp3", c: Bethlehem, l: ShepherdsFields, b: nilBuilding, r: nilRoom),
+            BibleEvent(yr: 3755, mo: HebrewMonths.TISHRI, dy: 23, hr: 8, min: 0, sec: 0, ttl: "Jesus is Circumcised", desc: "Eight days later, when the baby was circumcised, he was named Jesus, the name given him by the angel even before he was conceived.", audioFile: "Luke2;21.mp3", c: Bethlehem, l: BethlehemSquare, b: BethlehemSynagogue, r: BethlehemSynagogueMainRoom),
+            BibleEvent(yr: 3755, mo: HebrewMonths.CHESHVAN, dy: 25, hr: 8, min: 0, sec: 0, ttl: "Mary and Joseph Bring Jesus to the Temple", desc: "Then it was time for their purification offering, as required by the law of Moses after the birth of a child; so his parents took him to Jerusalem to present him to the Lord. The law of the Lord says, “If a woman’s first child is a boy, he must be dedicated to the Lord.” So they offered the sacrifice required in the law of the Lord—“either a pair of turtledoves or two young pigeons.”", audioFile: "Luke2;22-24.mp3", c: Jerusalem, l: SouthofTemple, b: TheTemple, r: TheAltar)
                         ]
         nextEvent = 0   //start with first BibleEvent
         

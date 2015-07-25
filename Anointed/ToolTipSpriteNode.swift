@@ -12,8 +12,13 @@ import SpriteKit
 
 class ToolTipSpriteNode : SKSpriteNode {
     
-    init( tex : SKTexture ) {
+    var itemInfoA : String
+    var itemInfoB : String
+    
+    init( tex : SKTexture, infoA: String, infoB: String ) {
         
+        itemInfoA = infoA
+        itemInfoB = infoB
         super.init(texture: tex, color: SKColor.clearColor(), size: tex.size())
         self.userInteractionEnabled = true
         
@@ -24,15 +29,13 @@ class ToolTipSpriteNode : SKSpriteNode {
     }
     
     override func mouseDown( theEvent: NSEvent ) {
-        
-        println("Clicked a skill")
+    
         self.size = texture!.size()
         
     }
     
     override func mouseUp( theEvent : NSEvent ) {
-        
-        println("Unclicked a skill")
+
         self.size = CGSize( width: 0, height: 0 )
         
     }

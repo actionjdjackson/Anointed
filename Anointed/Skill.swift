@@ -13,14 +13,14 @@ class Skill : SKSpriteNode {
     
     let TOOLTIP_SIZE : CGSize = CGSize( width: 128, height: 128 )
     let ZERO_SIZE : CGSize = CGSize( width: 0, height: 0 )
-    public let title : String
+    let title : String
     let desc : String
     var user : GameCharacter
     var sprite : String
-    public var toolTip : String
-    public var level : Int
-    public var hoursToComplete : Double
-    public var toolTipSN : ToolTipSpriteNode
+    var toolTip : String
+    var level : Int
+    var hoursToComplete : Double
+    var toolTipSN : ToolTipSpriteNode
     
     init( skillName : String, skillDesc : String, skillUser : GameCharacter, skillSprite : String, baseTimeToComplete : Double ) {
         
@@ -32,7 +32,10 @@ class Skill : SKSpriteNode {
         level = 1
         hoursToComplete = baseTimeToComplete
         let texture = SKTexture(imageNamed: sprite)
-        toolTipSN = ToolTipSpriteNode(tex: SKTexture(imageNamed: toolTip))
+        toolTipSN = ToolTipSpriteNode(tex: SKTexture(imageNamed: toolTip), infoA: "Level " + String( level ), infoB: "Time to Complete: ? hrs" )
+        toolTipSN.itemInfoA = "Level " + String( level )
+        toolTipSN.itemInfoB = "Time to Complete: "
+        toolTipSN.itemInfoB += String(Int(self.hoursToComplete - log(Double(self.level) * 1.0))) + " hrs"
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
         toolTipSN.position = CGPointZero
         toolTipSN.zPosition = 2.0
@@ -73,14 +76,25 @@ class Skill : SKSpriteNode {
     
     override func mouseDown( theEvent: NSEvent ) {
         
-        println("Clicked a skill")
+        var infoLabelA = SKLabelNode(text: toolTipSN.itemInfoA)
+        var infoLabelB = SKLabelNode(text: toolTipSN.itemInfoB)
+        infoLabelA.fontColor = SKColor.whiteColor()
+        infoLabelB.fontColor = SKColor.whiteColor()
+        infoLabelA.fontSize = 12
+        infoLabelB.fontSize = 10
+        infoLabelA.fontName = "Arial"
+        infoLabelB.fontName = "Arial"
+        infoLabelA.position = CGPoint(x: 0, y: -32)
+        infoLabelB.position = CGPoint(x: 0, y: -48)
+        toolTipSN.addChild(infoLabelA)
+        toolTipSN.addChild(infoLabelB)
         toolTipSN.size = TOOLTIP_SIZE
         
     }
     
     override func mouseUp( theEvent : NSEvent ) {
-        
-        println("Unclicked a skill")
+    
+        toolTipSN.removeAllChildren()
         toolTipSN.size = ZERO_SIZE
         
     }

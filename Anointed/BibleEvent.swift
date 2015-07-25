@@ -18,8 +18,9 @@ class BibleEvent {
     var building: Building
     var room: Room
     var date: NSDate
+    var soundFile : String
     
-    init( yr:Int, mo:Int, dy:Int, hr:Int, min:Int, sec:Int, ttl:String, desc:String, c:City, l:Location, b:Building, r:Room ) {
+    init( yr:Int, mo:Int, dy:Int, hr:Int, min:Int, sec:Int, ttl:String, desc:String, audioFile: String, c:City, l:Location, b:Building, r:Room ) {
         
         let hebrewCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierHebrew)
         let dateComponents = NSDateComponents()
@@ -33,6 +34,7 @@ class BibleEvent {
 
         title = ttl
         description = desc
+        soundFile = audioFile
         city = c
         location = l
         building = b

@@ -48,7 +48,7 @@ func playSound(filename: String) {    //sets up an audio player to play sound ef
         return
     }
     
-    soundPlayer.numberOfLoops = 0   //play conce
+    soundPlayer.numberOfLoops = 0   //play once
     soundPlayer.prepareToPlay() //load into memory
     soundPlayer.play()  //play sound
 }
@@ -96,7 +96,50 @@ class GameScene: SKScene {
     let INVENTORY_ITEM_BASE_X = CGFloat(88 - 234)
     let INVENTORY_ITEM_BASE_Y = CGFloat(100)
     let INVENTORY_ITEM_SIZE = CGFloat(32.0)
+    let INVENTORY_GRID_WIDTH = 10
+    let INVENTORY_GRID_HEIGHT = 12
+    let SKILLS_GRID_WIDTH = 10
+    let SKILLS_GRID_HEIGHT = 2
+    let LOWER_BANNER_TOP_EDGE = CGFloat(64 - 768 / 2)
+    let PARTY_BUTTON_EDGE = CGFloat(85 - 1024 / 2)
+    let NOTES_BUTTON_EDGE = CGFloat(85 + 64 - 1024 / 2)
+    let KNOWLEDGE_BUTTON_EDGE = CGFloat(85 + 128 - 1024 / 2)
+    let PRAYER_BUTTON_EDGE = CGFloat(85 + 128 + 64 - 10 - 1024 / 2)
+    let TRAVEL_BUTTON_EDGE = CGFloat(85 + 256 - 10 - 1024 / 2)
+    let INVENTORY_BUTTON_EDGE = CGFloat(85 + 256 + 64 - 10 - 1024 / 2)
+    let SKILLS_BUTTON_EDGE = CGFloat(85 + 256 + 128 - 10 - 1024 / 2)
+    let SKILLS_BAR_EDGE = CGFloat(-32)
+    let TIMESTAMP_OFFSET_Y = CGFloat(64 + 14 - 768 / 2)
+    let TIMESTAMP_FONT_SIZE = CGFloat(14)
     
+    let SPACEBAR = UInt16(49)
+    let MINUS = UInt16(27)
+    let PLUS = UInt16(24)
+    let I = UInt16(34)
+    let P = UInt16(35)
+    let N = UInt16(45)
+    let K = UInt16(40)
+    let R = UInt16(15)
+    let T = UInt16(17)
+    let L = UInt16(37)
+    let NUMPAD7 = UInt16(89)
+    let NUMPAD8 = UInt16(91)
+    let NUMPAD9 = UInt16(92)
+    let NUMPAD4 = UInt16(86)
+    let NUMPAD5 = UInt16(87)
+    let NUMPAD6 = UInt16(88)
+    let NUMPAD1 = UInt16(83)
+    let NUMPAD2 = UInt16(84)
+    let NUMPAD3 = UInt16(85)
+    let Q = UInt16(12)
+    let W = UInt16(13)
+    let E = UInt16(14)
+    let A = UInt16(0)
+    let S = UInt16(1)
+    let D = UInt16(2)
+    let Z = UInt16(6)
+    let X = UInt16(7)
+    let C = UInt16(8)
     
     /* INITIALIZATION */
     
@@ -187,7 +230,10 @@ class GameScene: SKScene {
             if theGame.player.inventory.count > 0 {
                 for n in 0...theGame.player.inventory.count-1   { //if there's anything in the player's inventory
                     var item = SKSpriteNode(imageNamed: theGame.player.inventory[n].spriteName) //grab the title of the first item
-                    item.position = CGPoint( x: INVENTORY_ITEM_BASE_X + CGFloat(n) * INVENTORY_ITEM_SIZE, y: INVENTORY_ITEM_BASE_Y)
+                    item.position = CGPoint( x: INVENTORY_ITEM_BASE_X + CGFloat(n % INVENTORY_GRID_WIDTH) * INVENTORY_ITEM_SIZE, y: INVENTORY_ITEM_BASE_Y - CGFloat(Int(n / INVENTORY_GRID_WIDTH)) * INVENTORY_ITEM_SIZE)
+                    if n > INVENTORY_GRID_WIDTH * INVENTORY_GRID_HEIGHT {
+                        fatalError("TOO MANY ITEMS IN INVENTORY. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
+                    }
                     theOpenMenu.addChild(item)
                 }
             }
@@ -198,7 +244,10 @@ class GameScene: SKScene {
             if theGame.player.skills.count > 0 {
                 for n in 0...theGame.player.skills.count-1 {
                     var skill = theGame.player.skills[n]
-                    skill.position = CGPoint(x: SKILL_POSITION_BASE_X + CGFloat(n) * SKILL_ICON_SIZE, y: SKILL_POSITION_BASE_Y)
+                    skill.position = CGPoint(x: SKILL_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILL_POSITION_BASE_Y - CGFloat(Int(n / SKILLS_GRID_WIDTH)) * SKILL_ICON_SIZE)
+                    if n > SKILLS_GRID_WIDTH * SKILLS_GRID_HEIGHT {
+                        fatalError("TOO MANY SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
+                    }
                     theOpenMenu.addChild(skill)
                 }
             }
@@ -215,53 +264,58 @@ class GameScene: SKScene {
         let location = theEvent.locationInNode(self)    //grabs the location where the user has clicked
         
         /* Has the user clicked a menu button on the lower banner? */
-        if location.y <= 64 - 768 / 2 {
-            if location.x <= 85 - 1024 / 2 {    //if they clicked the party button...
+        if location.y <= LOWER_BANNER_TOP_EDGE {
+            if location.x <= PARTY_BUTTON_EDGE {    //if they clicked the party button...
                 if menuUp == "PARTY" {  //if it's already up,
                     clearMenu() // clear it
                 } else {    // otherwise,
                     openMenu("PARTY")   //open the party menu
                 }
-            } else if location.x <= 85 + 64 - 1024 / 2 {    //same thing here and for all menu button clicks
+            } else if location.x <= NOTES_BUTTON_EDGE {    //same thing here and for all menu button clicks
                 if menuUp == "NOTES" {
                     clearMenu()
                 } else {
                     openMenu("NOTES")
                 }
-            } else if location.x <= 85 + 128 - 1024 / 2 {
+            } else if location.x <= KNOWLEDGE_BUTTON_EDGE {
                 if menuUp == "KNOWLEDGE" {
                     clearMenu()
                 } else {
                     openMenu("KNOWLEDGE")
                 }
-            } else if location.x <= 85 + 128 + 64 - 10 - 1024 / 2 {
+            } else if location.x <= PRAYER_BUTTON_EDGE {
                 if menuUp == "PRAYER" {
                     clearMenu()
                 } else {
                     openMenu("PRAYER")
                 }
-            } else if location.x <= 85 + 256 - 10 - 1024 / 2 {
+            } else if location.x <= TRAVEL_BUTTON_EDGE {
                 if menuUp == "TRAVEL" {
                     clearMenu()
                 } else {
                     openMenu("TRAVEL")
                 }
-            } else if location.x <= 85 + 256 + 64 - 10 - 1024 / 2 {
+            } else if location.x <= INVENTORY_BUTTON_EDGE {
                 if menuUp == "INVENTORY" {
                     clearMenu()
                 } else {
                     openMenu("INVENTORY")
                 }
-            } else if location.x <= 85 + 256 + 128 - 10 - 1024 / 2 {
+            } else if location.x <= SKILLS_BUTTON_EDGE {
                 if menuUp == "SKILLS" {
                     clearMenu()
                 } else {
                     openMenu("SKILLS")
                 }
-            } else if location.x >= -32 && location.x <= 0 {
-                if theGame.player.skills[0].canUse() {
-                    makeProgressBarFor( 60.0 * 60.0 * (theGame.player.skills[0].hoursToComplete - log(Double(theGame.player.skills[0].level) * 1.0)), caption: theGame.player.skills[0].title )
-                    skillInUse = 0
+            } else if location.x >= SKILLS_BAR_EDGE && theGame.player.skills.count > 0 {
+                for n in 0...theGame.player.skills.count-1 {
+                    var skillNo = Int((location.x+32) / 32)
+                    if skillNo < 0 { skillNo = 0 }
+                    if skillNo > theGame.player.skills.count-1 { return }
+                    if theGame.player.skills[skillNo].canUse() {
+                        makeProgressBarFor( 60.0 * 60.0 * (theGame.player.skills[0].hoursToComplete - log(Double(theGame.player.skills[0].level) * 1.0)), caption: theGame.player.skills[0].title )
+                        skillInUse = 0
+                    }
                 }
             } else {
                 clearMenu()
@@ -286,13 +340,11 @@ class GameScene: SKScene {
             PREV_GAME_SPEED = GAME_SPEED    //store game speed for when unpaused
             GAME_SPEED = 0.0    //game speed set to zero, which is pause mode
             PAUSED = true   //keep track that we're paused
-            println("PAUSED")
         } else {    //if the game is paused
             bibleEventTitle.removeFromParent()  //remove the bible event title
             bibleEventDescription.removeFromParent()    //remove the bible event text
             GAME_SPEED = PREV_GAME_SPEED    //restore game speed from before
             PAUSED = false  //no longer paused
-            println("UNPAUSED")
         }
         
     }
@@ -305,7 +357,6 @@ class GameScene: SKScene {
         }
         GAME_SPEED = 0.0
         PAUSED = true
-        println("PAUSED")
         
     }
     
@@ -316,7 +367,6 @@ class GameScene: SKScene {
         bibleEventDescription.removeFromParent()    //remove the bible event text
         GAME_SPEED = PREV_GAME_SPEED
         PAUSED = false
-        println("UNPAUSED")
         
     }
     
@@ -325,56 +375,57 @@ class GameScene: SKScene {
         
         let key = theEvent.keyCode  //grab the key code of the key pressed
         
-        if key == 49 { //SPACEBAR IS PRESSED, PAUSE/UNPAUSE GAME
+        if key == SPACEBAR { //SPACEBAR IS PRESSED, PAUSE/UNPAUSE GAME
             pauseUnPause()
-        } else if key == 27 {   //MINUS KEY PRESSED
+        } else if key == MINUS {   //MINUS KEY PRESSED
             GAME_SPEED /= 2.0   //divide game speed in half
-        } else if key == 24 {   //PLUS KEY PRESSED
+        } else if key == PLUS {   //PLUS KEY PRESSED
             GAME_SPEED *= 2.0   //multiply game speed by two
-        } else if key == 34 {   //'I' KEY IS PRESSED
+        } else if key == I {   //'I' KEY IS PRESSED
             if menuUp == "INVENTORY" {  //pretty self explanatory, shows the menu corresponding to the key pressed
                 clearMenu()
             } else {
                 openMenu("INVENTORY")
             }
-        } else if key == 35 {   //'P' KEY PRESSED
+        } else if key == P {   //'P' KEY PRESSED
             if menuUp == "PARTY" {
                 clearMenu()
             } else {
                 openMenu("PARTY")
             }
-        } else if key == 45 {   //'N' KEY
+        } else if key == N {   //'N' KEY
             if menuUp == "NOTES" {
                 clearMenu()
             } else {
                 openMenu("NOTES")
             }
-        } else if key == 40 {   //'K'
+        } else if key == K {   //'K'
             if menuUp == "KNOWLEDGE" {
                 clearMenu()
             } else {
                 openMenu("KNOWLEDGE")
             }
-        } else if key == 15 {   //'P'
+        } else if key == R {   //'R'
             if menuUp == "PRAYER" {
                 clearMenu()
             } else {
                 openMenu("PRAYER")
             }
-        } else if key == 17 {   //'T'
+        } else if key == T {   //'T'
             if menuUp == "TRAVEL" {
                 clearMenu()
             } else {
                 openMenu("TRAVEL")
             }
-        } else if key == 37 {    //'L'
+        } else if key == L {    //'L'
             if menuUp == "SKILLS" {
                 clearMenu()
             } else {
                 openMenu("SKILLS")
             }
+            
         /* CHARACTER MOVEMENT & STATE CHANGE (SITTING, ETC.) CODE HERE */
-        } else if ( key == 89 || key == 12 ) && !PAUSED {   //'7' NUM PAD PRESSED - MOVING INTO UPPER LEFT SQUARE
+        } else if ( key == NUMPAD7 || key == Q ) && !PAUSED {   //'7' NUM PAD PRESSED - MOVING INTO UPPER LEFT SQUARE
             theGame.player.texture = SKTexture(imageNamed: "characterUPPERLEFT")    //displays char moving up-left
             if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" { //if in bounds and no collision
                 let moveUpperLeft = SKAction.moveByX(-64, y: 32, duration: 0.125)   //move gradually to new location
@@ -383,7 +434,7 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation) //pick up any items in-square automatically
                 orderCorrectly()    //change the Z order of the player depending on objects around them
             }
-        } else if ( key == 91 || key == 13 ) && !PAUSED {   //'8' NUM PAD PRESSED - everything else is the same idea as above, just look at [imageNamed: "characterXXXX"] for movement direction
+        } else if ( key == NUMPAD8 || key == W ) && !PAUSED {   //'8' NUM PAD PRESSED - everything else is the same idea as above, just look at [imageNamed:"characterXXXX"] for movement direction
             theGame.player.texture = SKTexture(imageNamed: "characterUP")
             if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" {
                 let moveUp = SKAction.moveByX(0, y: 64, duration: 0.125)
@@ -393,7 +444,7 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation)
                 orderCorrectly()
             }
-        } else if ( key == 92 || key == 14 ) && !PAUSED {   //'9' NUM PAD PRESSED
+        } else if ( key == NUMPAD9 || key == E ) && !PAUSED {   //'9' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterUPPERRIGHT")
             if Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x)].extraObject == "" {
                 let moveUpperRight = SKAction.moveByX(64, y: 32, duration: 0.125)
@@ -402,7 +453,7 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation)
                 orderCorrectly()
             }
-        } else if ( key == 86 || key == 0 ) && !PAUSED {   //'4' NUM PAD PRESSED
+        } else if ( key == NUMPAD4 || key == A ) && !PAUSED {   //'4' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLEFT")
             if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" {
                 let moveLeft = SKAction.moveByX(-128, y: 0, duration: 0.125)
@@ -412,9 +463,9 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation)
                 orderCorrectly()
             }
-        } else if ( key == 87 || key == 1 ) && !PAUSED {   //'5' NUM PAD PRESSED
+        } else if ( key == NUMPAD5 || key == S ) && !PAUSED {   //'5' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterSEATED") //make character sit for center key
-        } else if ( key == 88 || key == 2 ) && !PAUSED {   //'6' NUM PAD PRESSED
+        } else if ( key == NUMPAD6 || key == D ) && !PAUSED {   //'6' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterRIGHT")
             if Int(theGame.player.currentGridLocation.x - 1) >= 0 && Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
                 let moveRight = SKAction.moveByX(128, y: 0, duration: 0.125)
@@ -424,7 +475,7 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation)
                 orderCorrectly()
             }
-        } else if ( key == 83 || key == 6 ) && !PAUSED {   //'1' NUM PAD PRESSED
+        } else if ( key == NUMPAD1 || key == Z ) && !PAUSED {   //'1' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLOWERLEFT")
             if Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x)].extraObject == "" {
                 let moveLowerLeft = SKAction.moveByX(-64, y: -32, duration: 0.125)
@@ -433,7 +484,7 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation)
                 orderCorrectly()
             }
-        } else if ( key == 84 || key == 7 ) && !PAUSED {   //'2' NUM PAD PRESSED
+        } else if ( key == NUMPAD2 || key == X ) && !PAUSED {   //'2' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterDOWN")
             if Int(theGame.player.currentGridLocation.x - 1) >= 0 && Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
                 let moveDown = SKAction.moveByX(0, y: -64, duration: 0.125)
@@ -443,7 +494,7 @@ class GameScene: SKScene {
                 pickUpItems(theGame.player.currentGridLocation)
                 orderCorrectly()
             }
-        } else if ( key == 85 || key == 8 ) && !PAUSED {   //'3' NUM PAD PRESSED
+        } else if ( key == NUMPAD3 || key == C ) && !PAUSED {   //'3' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLOWERRIGHT")
             if Int(theGame.player.currentGridLocation.x - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
                 let moveLowerRight = SKAction.moveByX(64, y: -32, duration: 0.125)
@@ -488,7 +539,6 @@ class GameScene: SKScene {
         var x = Int(pt.x)   //make the CGPoint into two integer coordinates for the grid
         var y = Int(pt.y)   //as above
         if theGame.currentLocation.grid[y][x].contents.count > 0 {  //if there's something to pick up
-            //println("Found an item!")   //FOR DEBUGGING, PRINT THAT WE'VE FOUND AN ITEM
             theGame.player.inventory.append(theGame.currentLocation.grid[y][x].contents[0]) //add to player inventory
             theGame.currentLocation.grid[y][x].contents[0].removeFromParent()   //remove from the scene
             theGame.currentLocation.grid[y][x].contents.removeAtIndex(0)    //remove from the grid square entirely
@@ -529,7 +579,7 @@ class GameScene: SKScene {
                 var xx = theGame.currentLocation.grid.count-x-1 //converts x to reverse order for drawing prettiness
                 var yy = theGame.currentLocation.grid[0].count-y-1  //same for y
                 var square = SKSpriteNode(imageNamed:theGame.currentLocation.grid[xx][yy].texture)  //grabs the tex
-                square.position = twoDToIso(CGPoint(x: xx*64, y: yy*64))    //converts to iso coords
+                square.position = twoDToIso(CGPoint(x: xx * 64, y: yy * 64))    //converts to iso coords
                 square.zPosition = 0    //draw square underneath player and extra objects
                 world.addChild(square)  //adds to the world
                 if theGame.currentLocation.grid[xx][yy].contents.count > 0 {    //if there's an item to draw
@@ -540,7 +590,7 @@ class GameScene: SKScene {
         }
         
         /* draw player before objects for correct layering */
-        theGame.player.position = twoDToIso(CGPoint(x: theGame.player.currentGridLocation.x*64 + 32, y: theGame.player.currentGridLocation.y*64 + 32))  //sets the player's position as the correct grid location
+        theGame.player.position = twoDToIso(CGPoint(x: theGame.player.currentGridLocation.x * 64 + 32, y: theGame.player.currentGridLocation.y * 64 + 32))  //sets the player's position as the correct grid location
         theGame.player.zPosition = 0
         world.addChild(theGame.player)  //add the player to the world
         
@@ -550,7 +600,7 @@ class GameScene: SKScene {
                 var yy = theGame.currentLocation.grid[0].count-y-1  //same for y
                 if theGame.currentLocation.grid[xx][yy].extraObject != "" {     //if there's an extra object to draw in this square
                     var object = SKSpriteNode(imageNamed: theGame.currentLocation.grid[xx][yy].extraObject) //create the object as a sprite node based on its name stored in extraObject data member
-                    var pos = twoDToIso(CGPoint(x: xx*64, y: yy*64))
+                    var pos = twoDToIso(CGPoint(x: xx * 64, y: yy * 64))
                     object.position = CGPoint(x: pos.x, y: pos.y + object.size.height / 2)     //position puts bottom of sprite at baseline for grid square
                     object.zPosition = 0.5  //draw the extra objects in front of the squares but behind the player when player is in front of the object on the grid
                     world.addChild(object) //adds to the square
@@ -561,14 +611,14 @@ class GameScene: SKScene {
         for x in 0...theGame.currentLocation.animals.count-1 {
             
             var animal = theGame.currentLocation.animals[x]
-            var pos = twoDToIso(CGPoint(x: (random() % (theGame.currentLocation.grid.count-1))*64, y: (random() % (theGame.currentLocation.grid[0].count-1))*64))
+            var pos = twoDToIso(CGPoint(x: (random() % (theGame.currentLocation.grid.count-1)) * 64, y: (random() % (theGame.currentLocation.grid[0].count-1)) * 64))
             animal.position = CGPoint(x: pos.x, y: pos.y + animal.size.height / 2)
             world.addChild(animal)
             
         }
         
-        dateLabel.fontSize = 14 //set date label font size
-        dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:64+14 - 768 / 2)    //puts the date/time at bottom center of the screen, just above the button bar
+        dateLabel.fontSize = TIMESTAMP_FONT_SIZE //set date label font size
+        dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y: TIMESTAMP_OFFSET_Y)    //puts the date/time at bottom center of the screen, just above the button bar
         self.addChild(dateLabel)    //adds the date label to the scene (not the world, so it stays in place like the banner
         
     }
@@ -583,32 +633,10 @@ class GameScene: SKScene {
         
         if theGame.bibleEvents[theGame.nextEvent].date.laterDate(theGame.gameDate) == theGame.gameDate {    //if we've hit or slightly passed a Bible Event...
             
-            timeSpentReadingMarker = time    //mark the current time to test how long the text has been up
-            pause()  //pause the game
-            
-            bibleEventTitle = SKLabelNode(fontNamed:"Chalkduster")  //creates Bible Event title text w/ font Chalkduster
-            bibleEventTitle.text = theGame.bibleEvents[theGame.nextEvent].title //set the title
-            bibleEventTitle.fontSize = 18   //set the font size to be bigger than the main text of the Bible Event
-            bibleEventTitle.position = CGPoint(x:CGRectGetMidX(self.frame), y:512 - 768 / 2)    //put it in the center
-            bibleEventTitle.zPosition = 10.0
-            self.addChild(bibleEventTitle)  //add it to the scene (not the world, so it stays in place like the banner)
-            
-            bibleEventDescription = MultiLineLabel(text: theGame.bibleEvents[theGame.nextEvent].description, fontName: "Chalkduster", fontsize: 12, wrap: 1024)  //set the main text (description)
-            bibleEventDescription.position = CGPoint(x:CGRectGetMidX(self.frame), y:512 - 64 - 768 / 2)  //just below the title
-            bibleEventDescription.zPosition = 10.0
-            self.addChild(bibleEventDescription)    //add it to the scene
-            
-            theGame.nextEvent++ //get ready for next Bible Event
+            playSound(theGame.bibleEvents[theGame.nextEvent].soundFile)
+            theGame.nextEvent++
             
         }
-        
-        var dist = time.distanceTo(Double(timeSpentReadingMarker))   //difference in time between current time and time marker for how long text has been up
-        if dist < -30 && dist > (-30 - (1 / 60.0)) && theGame.nextEvent > 0 {   //if we've hit 15 seconds and this is not the first run
-            bibleEventTitle.removeFromParent()  //remove the title
-            bibleEventDescription.removeFromParent()    //remove the description text
-            unpause()  //unpause the game
-        }
-        
     }
     
     func makeProgressBarFor( time: Double, caption: String) {

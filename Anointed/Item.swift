@@ -16,7 +16,7 @@ class Item : SKSpriteNode {
     let descr: String   //description
     let inventorySizeX: Int //dimensions in inventory screen
     let inventorySizeY: Int //""
-    public let spriteName: String  //image name for item icon
+    let spriteName: String  //image name for item icon
     
     init( ttl: String, desc: String, sx: Int, sy: Int, iconName: String ) {
         
