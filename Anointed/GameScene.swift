@@ -73,6 +73,7 @@ class GameScene: SKScene {
     var progBarTime : Double = 0.0
     var progBarDuration : Double = 0.0
     var skillInUse : Int = -1
+    var giftSkills : [Skill] = []
     
     let CENTER_OF_SCREEN_X = CGFloat(0.5)
     let CENTER_OF_SCREEN_Y = CGFloat(0.5)
@@ -92,6 +93,9 @@ class GameScene: SKScene {
     let SKILLS_BAR_BASE_Z = CGFloat(2.0)
     let SKILL_POSITION_BASE_X = CGFloat(96.0 - CGFloat(SKSpriteNode(imageNamed:"INVENTORYmenu").frame.width) / 2.0)
     let SKILL_POSITION_BASE_Y = CGFloat(SKSpriteNode(imageNamed:"INVENTORYmenu").frame.height) / 2.0 - 518.0
+    let GIFT_POSITION_BASE_Y = CGFloat(SKSpriteNode(imageNamed:"INVENTORYmenu").frame.height) / 2.0 - 128.0 - 48.0
+    let GIFT_POSITION_BASE_X = CGFloat(96.0 - CGFloat(SKSpriteNode(imageNamed:"INVENTORYmenu").frame.width) / 2.0) - 2.0
+    let GIFT_SKILLS_GRID_HEIGHT = 9
     let SKILL_ICON_SIZE = CGFloat(32.0)
     let INVENTORY_ITEM_BASE_X = CGFloat(88 - 234)
     let INVENTORY_ITEM_BASE_Y = CGFloat(100)
@@ -110,7 +114,11 @@ class GameScene: SKScene {
     let SKILLS_BUTTON_EDGE = CGFloat(85 + 256 + 128 - 10 - 1024 / 2)
     let SKILLS_BAR_EDGE = CGFloat(-32)
     let TIMESTAMP_OFFSET_Y = CGFloat(64 + 14 - 768 / 2)
+    let TIMESTAMP_OFFSET_Z = CGFloat(100.0)
     let TIMESTAMP_FONT_SIZE = CGFloat(14)
+    let PROG_BAR_WIDTH = CGFloat(256.0)
+    let PLAYER_MOVE_TIME = 0.125
+    let SECONDS_IN_ONE_HOUR = 60.0 * 60.0
     
     let SPACEBAR = UInt16(49)
     let MINUS = UInt16(27)
@@ -186,11 +194,49 @@ class GameScene: SKScene {
         experienceBars.zPosition = EXPERIENCE_BARS_Z
         self.addChild(experienceBars)   //add the experience bars (to the right of the button bar, as above)
         
-        var skillBox = SKSpriteNode(imageNamed: theGame.player.skills[0].sprite)
-        skillBox.removeFromParent()
-        skillBox.position = CGPoint(x: SKILLS_BAR_BASE_X, y: SKILLS_BAR_BASE_Y)
-        skillBox.zPosition = SKILLS_BAR_BASE_Z
-        self.addChild(skillBox)
+        
+        if theGame.player.skills.count > 0 {
+            for n in 0...theGame.player.skills.count-1 {
+                var skill = SKSpriteNode(imageNamed: theGame.player.skills[n].sprite)
+                skill.position = CGPoint(x: SKILLS_BAR_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILLS_BAR_BASE_Y)
+                skill.zPosition = SKILLS_BAR_BASE_Z
+                if n >= SKILLS_GRID_WIDTH {
+                    fatalError("TOO MANY SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
+                }
+                theOpenMenu.addChild(skill)
+            }
+        }
+        
+        grabGiftSkills()
+        
+        if giftSkills.count > 0 {
+            for n in 0...giftSkills.count-1 {
+                var skill = SKSpriteNode(imageNamed: giftSkills[n].sprite)
+                skill.position = CGPoint(x: SKILLS_BAR_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILLS_BAR_BASE_Y - 48)
+                skill.zPosition = SKILLS_BAR_BASE_Z
+                if n >= SKILLS_GRID_WIDTH {
+                    fatalError("TOO MANY SPIRITUAL GIFT SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
+                }
+                theOpenMenu.addChild(skill)
+            }
+        }
+    
+    }
+    
+    /* GRABS ALL GIFT SKILLS AND PUTS THEM INTO AN ARRAY STORED IN THE SCENE FOR EASY ACCESS **/
+    func grabGiftSkills() {
+        
+        giftSkills = []
+        if theGame.player.spiritualGifts.count > 0 {
+            for n in 0...theGame.player.spiritualGifts.count-1 {
+                if theGame.player.spiritualGifts[n].subSkills.count > 0 {
+                    for m in 0...theGame.player.spiritualGifts[n].subSkills.count-1 {
+                        giftSkills.append(theGame.player.spiritualGifts[n].subSkills[m])
+                    }
+                }
+            }
+        }
+        
     }
     
     /* RESETS THE LOWER BANNER TO NOTHING SELECTED OR HIGHLIGHTED */
@@ -245,10 +291,28 @@ class GameScene: SKScene {
                 for n in 0...theGame.player.skills.count-1 {
                     var skill = theGame.player.skills[n]
                     skill.position = CGPoint(x: SKILL_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILL_POSITION_BASE_Y - CGFloat(Int(n / SKILLS_GRID_WIDTH)) * SKILL_ICON_SIZE)
-                    if n > SKILLS_GRID_WIDTH * SKILLS_GRID_HEIGHT {
+                    if n >= SKILLS_GRID_WIDTH * SKILLS_GRID_HEIGHT {
                         fatalError("TOO MANY SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
                     }
                     theOpenMenu.addChild(skill)
+                }
+            }
+            if theGame.player.spiritualGifts.count > 0 {
+                for n in 0...theGame.player.spiritualGifts.count-1 {
+                    var gift = theGame.player.spiritualGifts[n]
+                    gift.position = CGPoint(x: GIFT_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: GIFT_POSITION_BASE_Y - CGFloat(Int(n / SKILLS_GRID_WIDTH)) * SKILL_ICON_SIZE)
+                    theOpenMenu.addChild(gift)
+                    if n >= SKILLS_GRID_WIDTH {
+                        fatalError("TOO MANY GIFTS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
+                    }
+                    for m in 0...gift.subSkills.count-1 {
+                        var skill = gift.subSkills[m]
+                        skill.position = CGPoint(x: GIFT_POSITION_BASE_X + CGFloat(Int(m / SKILLS_GRID_HEIGHT)) * SKILL_ICON_SIZE, y: GIFT_POSITION_BASE_Y - CGFloat((m + 1) % GIFT_SKILLS_GRID_HEIGHT) * SKILL_ICON_SIZE)
+                        if m >= GIFT_SKILLS_GRID_HEIGHT {
+                            fatalError("TOO MANY GIFT SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON")
+                        }
+                        theOpenMenu.addChild(skill)
+                    }
                 }
             }
         }
@@ -307,14 +371,24 @@ class GameScene: SKScene {
                 } else {
                     openMenu("SKILLS")
                 }
-            } else if location.x >= SKILLS_BAR_EDGE && theGame.player.skills.count > 0 {
-                for n in 0...theGame.player.skills.count-1 {
-                    var skillNo = Int((location.x+32) / 32)
-                    if skillNo < 0 { skillNo = 0 }
-                    if skillNo > theGame.player.skills.count-1 { return }
-                    if theGame.player.skills[skillNo].canUse() {
-                        makeProgressBarFor( 60.0 * 60.0 * (theGame.player.skills[0].hoursToComplete - log(Double(theGame.player.skills[0].level) * 1.0)), caption: theGame.player.skills[0].title )
-                        skillInUse = 0
+            } else if location.x >= SKILLS_BAR_EDGE && theGame.player.skills.count > 0 && location.y >= SKILLS_BAR_BASE_Y - 16 {    //if we're beyond the skills bar edge and the player has at least 1 skill
+                var skillNo = Int((location.x+32) / 32) //
+                if skillNo < 0 { skillNo = 0 }
+                if skillNo > theGame.player.skills.count-1 { return }
+                if theGame.player.skills[skillNo].canUse() {
+                    if skillInUse < 0 {
+                        makeProgressBarFor( SECONDS_IN_ONE_HOUR * (theGame.player.skills[skillNo].hoursToComplete - log(Double(theGame.player.skills[0].level) * 1.0)), caption: theGame.player.skills[0].title )
+                        skillInUse = skillNo
+                    }
+                }
+            } else if location.x >= SKILLS_BAR_EDGE && giftSkills.count > 0 && location.y >= SKILLS_BAR_BASE_Y - 48 && location.y <= SKILLS_BAR_BASE_Y - 16 {
+                var skillNo = Int((location.x+32) / 32) //
+                if skillNo < 0 { skillNo = 0 }
+                if skillNo > theGame.player.skills.count-1 { return }
+                if giftSkills[skillNo].canUse() {
+                    if skillInUse < 0 {
+                        makeProgressBarFor( SECONDS_IN_ONE_HOUR * (giftSkills[skillNo].hoursToComplete - log(Double(giftSkills[skillNo].level) * 1.0)), caption: giftSkills[skillNo].title )
+                        skillInUse = skillNo
                     }
                 }
             } else {
@@ -428,7 +502,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD7 || key == Q ) && !PAUSED {   //'7' NUM PAD PRESSED - MOVING INTO UPPER LEFT SQUARE
             theGame.player.texture = SKTexture(imageNamed: "characterUPPERLEFT")    //displays char moving up-left
             if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" { //if in bounds and no collision
-                let moveUpperLeft = SKAction.moveByX(-64, y: 32, duration: 0.125)   //move gradually to new location
+                let moveUpperLeft = SKAction.moveByX(-64, y: 32, duration: PLAYER_MOVE_TIME)   //move gradually to new location
                 theGame.player.runAction(moveUpperLeft) //runs the action defined above
                 theGame.player.currentGridLocation.x += 1   //sets grid location (corresponding to matrix, not spritekit location)
                 pickUpItems(theGame.player.currentGridLocation) //pick up any items in-square automatically
@@ -437,7 +511,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD8 || key == W ) && !PAUSED {   //'8' NUM PAD PRESSED - everything else is the same idea as above, just look at [imageNamed:"characterXXXX"] for movement direction
             theGame.player.texture = SKTexture(imageNamed: "characterUP")
             if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" {
-                let moveUp = SKAction.moveByX(0, y: 64, duration: 0.125)
+                let moveUp = SKAction.moveByX(0, y: 64, duration: PLAYER_MOVE_TIME)
                 theGame.player.runAction(moveUp)
                 theGame.player.currentGridLocation.x += 1
                 theGame.player.currentGridLocation.y += 1
@@ -447,7 +521,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD9 || key == E ) && !PAUSED {   //'9' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterUPPERRIGHT")
             if Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x)].extraObject == "" {
-                let moveUpperRight = SKAction.moveByX(64, y: 32, duration: 0.125)
+                let moveUpperRight = SKAction.moveByX(64, y: 32, duration: PLAYER_MOVE_TIME)
                 theGame.player.runAction(moveUpperRight)
                 theGame.player.currentGridLocation.y += 1
                 pickUpItems(theGame.player.currentGridLocation)
@@ -456,7 +530,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD4 || key == A ) && !PAUSED {   //'4' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLEFT")
             if Int(theGame.player.currentGridLocation.x + 1) < theGame.currentLocation.grid[0].count && Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x + 1)].extraObject == "" {
-                let moveLeft = SKAction.moveByX(-128, y: 0, duration: 0.125)
+                let moveLeft = SKAction.moveByX(-128, y: 0, duration: PLAYER_MOVE_TIME)
                 theGame.player.runAction(moveLeft)
                 theGame.player.currentGridLocation.y -= 1
                 theGame.player.currentGridLocation.x += 1
@@ -468,7 +542,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD6 || key == D ) && !PAUSED {   //'6' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterRIGHT")
             if Int(theGame.player.currentGridLocation.x - 1) >= 0 && Int(theGame.player.currentGridLocation.y + 1) < theGame.currentLocation.grid.count && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y + 1)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
-                let moveRight = SKAction.moveByX(128, y: 0, duration: 0.125)
+                let moveRight = SKAction.moveByX(128, y: 0, duration: PLAYER_MOVE_TIME)
                 theGame.player.runAction(moveRight)
                 theGame.player.currentGridLocation.y += 1
                 theGame.player.currentGridLocation.x -= 1
@@ -478,7 +552,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD1 || key == Z ) && !PAUSED {   //'1' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLOWERLEFT")
             if Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x)].extraObject == "" {
-                let moveLowerLeft = SKAction.moveByX(-64, y: -32, duration: 0.125)
+                let moveLowerLeft = SKAction.moveByX(-64, y: -32, duration: PLAYER_MOVE_TIME)
                 theGame.player.runAction(moveLowerLeft)
                 theGame.player.currentGridLocation.y -= 1
                 pickUpItems(theGame.player.currentGridLocation)
@@ -487,7 +561,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD2 || key == X ) && !PAUSED {   //'2' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterDOWN")
             if Int(theGame.player.currentGridLocation.x - 1) >= 0 && Int(theGame.player.currentGridLocation.y - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y - 1)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
-                let moveDown = SKAction.moveByX(0, y: -64, duration: 0.125)
+                let moveDown = SKAction.moveByX(0, y: -64, duration: PLAYER_MOVE_TIME)
                 theGame.player.runAction(moveDown)
                 theGame.player.currentGridLocation.y -= 1
                 theGame.player.currentGridLocation.x -= 1
@@ -497,7 +571,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD3 || key == C ) && !PAUSED {   //'3' NUM PAD PRESSED
             theGame.player.texture = SKTexture(imageNamed: "characterLOWERRIGHT")
             if Int(theGame.player.currentGridLocation.x - 1) >= 0 && theGame.currentLocation.grid[Int(theGame.player.currentGridLocation.y)][Int(theGame.player.currentGridLocation.x - 1)].extraObject == "" {
-                let moveLowerRight = SKAction.moveByX(64, y: -32, duration: 0.125)
+                let moveLowerRight = SKAction.moveByX(64, y: -32, duration: PLAYER_MOVE_TIME)
                 theGame.player.runAction(moveLowerRight)
                 theGame.player.currentGridLocation.x -= 1
                 pickUpItems(theGame.player.currentGridLocation)
@@ -619,6 +693,7 @@ class GameScene: SKScene {
         
         dateLabel.fontSize = TIMESTAMP_FONT_SIZE //set date label font size
         dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y: TIMESTAMP_OFFSET_Y)    //puts the date/time at bottom center of the screen, just above the button bar
+        dateLabel.zPosition = TIMESTAMP_OFFSET_Z
         self.addChild(dateLabel)    //adds the date label to the scene (not the world, so it stays in place like the banner
         
     }
@@ -661,7 +736,7 @@ class GameScene: SKScene {
         
         if progBarDuration != 0.0 {
             progBarTime += deltaTime
-            progBar.size = CGSizeMake( CGFloat( ( CGFloat(progBarTime) / CGFloat(progBarDuration) ) * 256.0 ), progBar.size.height )
+            progBar.size = CGSizeMake( CGFloat( ( CGFloat(progBarTime) / CGFloat(progBarDuration) ) * PROG_BAR_WIDTH ), progBar.size.height )
         }
         if progBarTime >= progBarDuration && progBarDuration != 0.0 {
             removeProgressBar()

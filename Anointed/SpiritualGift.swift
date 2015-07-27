@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import SpriteKit
 
-class SpiritualGift {
+class SpiritualGift : SKSpriteNode {
     
     let title : String
     let desc : String
@@ -25,7 +26,13 @@ class SpiritualGift {
         sprite = giftSprite
         level = 1
         subSkills = giftSkills
+        var texture : SKTexture = SKTexture(imageNamed: sprite)
+        super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
         
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
