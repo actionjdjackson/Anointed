@@ -12,7 +12,6 @@ import SpriteKit
 class Skill : SKSpriteNode {
     
     let TOOLTIP_SIZE : CGSize = CGSize( width: 128, height: 128 )
-    let ZERO_SIZE : CGSize = CGSize( width: 0, height: 0 )
     let title : String
     let desc : String
     var user : GameCharacter
@@ -39,7 +38,7 @@ class Skill : SKSpriteNode {
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
         toolTipSN.position = CGPointZero
         toolTipSN.zPosition = 2.0
-        toolTipSN.size = ZERO_SIZE
+        toolTipSN.size = CGSize.zeroSize
         self.addChild( toolTipSN )
         self.userInteractionEnabled = true
         
@@ -95,7 +94,7 @@ class Skill : SKSpriteNode {
     override func mouseUp( theEvent : NSEvent ) {
     
         toolTipSN.removeAllChildren()
-        toolTipSN.size = ZERO_SIZE
+        toolTipSN.size = CGSize.zeroSize
         
     }
     

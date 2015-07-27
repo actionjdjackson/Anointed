@@ -9,52 +9,10 @@
 import SpriteKit
 import AVFoundation
 
-var bibleEventTitle = SKLabelNode(fontNamed:"Chalkduster")
-var bibleEventDescription = MultiLineLabel(text: "Placeholder text blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah Lorem ipsum dolor setia imet raggi dieassm ilitia", fontName: "Chalkduster", fontsize: 12, wrap: 1024 - 64)
-
-var backgroundMusicPlayer: AVAudioPlayer!
-var soundPlayer: AVAudioPlayer!
-
-func playBackgroundMusic(filename: String) {    //sets up an audio player to play background music
-    let url = NSBundle.mainBundle().URLForResource(filename, withExtension: nil)
-    if (url == nil) {
-        println("Could not find file: \(filename)")
-        return
-    }
-    
-    var error: NSError? = nil
-    backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: url, error: &error)
-    if backgroundMusicPlayer == nil {
-        println("Could not create audio player: \(error!)")
-        return
-    }
-    
-    backgroundMusicPlayer.numberOfLoops = -1    //loop continuously
-    backgroundMusicPlayer.prepareToPlay()   //load into memory
-    backgroundMusicPlayer.play()    //play song
-}
-
-func playSound(filename: String) {    //sets up an audio player to play sound effects
-    let url = NSBundle.mainBundle().URLForResource(filename, withExtension: nil)
-    if (url == nil) {
-        println("Could not find file: \(filename)")
-        return
-    }
-    
-    var error: NSError? = nil
-    soundPlayer = AVAudioPlayer(contentsOfURL: url, error: &error)
-    if soundPlayer == nil {
-        println("Could not create audio player: \(error!)")
-        return
-    }
-    
-    soundPlayer.numberOfLoops = 0   //play once
-    soundPlayer.prepareToPlay() //load into memory
-    soundPlayer.play()  //play sound
-}
-
 class GameScene: SKScene {
     
+    var bibleEventTitle = SKLabelNode(fontNamed:"Chalkduster")
+    var bibleEventDescription = MultiLineLabel(text: "Placeholder text blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah Lorem ipsum dolor setia imet raggi dieassm ilitia", fontName: "Chalkduster", fontsize: 12, wrap: 1024 - 64)
     var lowerBanner = SKSpriteNode(imageNamed:"LowerBannerBASE")    //load button bar into memory
     var experienceBars = SKSpriteNode(imageNamed:"ExperienceBarsBASE")  //load experience bar into memory
     var theOpenMenu = SKSpriteNode(imageNamed:"INVENTORYmenu")  //load inventory menu as default menu to open
@@ -203,7 +161,7 @@ class GameScene: SKScene {
                 if n >= SKILLS_GRID_WIDTH {
                     fatalError("TOO MANY SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
                 }
-                theOpenMenu.addChild(skill)
+                self.addChild(skill)
             }
         }
         
@@ -212,12 +170,12 @@ class GameScene: SKScene {
         if giftSkills.count > 0 {
             for n in 0...giftSkills.count-1 {
                 var skill = SKSpriteNode(imageNamed: giftSkills[n].sprite)
-                skill.position = CGPoint(x: SKILLS_BAR_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILLS_BAR_BASE_Y - 48)
+                skill.position = CGPoint(x: SKILLS_BAR_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILLS_BAR_BASE_Y - 32)
                 skill.zPosition = SKILLS_BAR_BASE_Z
                 if n >= SKILLS_GRID_WIDTH {
                     fatalError("TOO MANY SPIRITUAL GIFT SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
                 }
-                theOpenMenu.addChild(skill)
+                self.addChild(skill)
             }
         }
     
@@ -275,9 +233,9 @@ class GameScene: SKScene {
         if theMenu == "INVENTORY" { //if we're working with the inventory menu
             if theGame.player.inventory.count > 0 {
                 for n in 0...theGame.player.inventory.count-1   { //if there's anything in the player's inventory
-                    var item = SKSpriteNode(imageNamed: theGame.player.inventory[n].spriteName) //grab the title of the first item
+                    var item = theGame.player.inventory[n]
                     item.position = CGPoint( x: INVENTORY_ITEM_BASE_X + CGFloat(n % INVENTORY_GRID_WIDTH) * INVENTORY_ITEM_SIZE, y: INVENTORY_ITEM_BASE_Y - CGFloat(Int(n / INVENTORY_GRID_WIDTH)) * INVENTORY_ITEM_SIZE)
-                    if n > INVENTORY_GRID_WIDTH * INVENTORY_GRID_HEIGHT {
+                    if n >= INVENTORY_GRID_WIDTH * INVENTORY_GRID_HEIGHT {
                         fatalError("TOO MANY ITEMS IN INVENTORY. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
                     }
                     theOpenMenu.addChild(item)
@@ -395,9 +353,9 @@ class GameScene: SKScene {
                 clearMenu()
             }
         } else { /* Has the user clicked OUTSIDE the lower banner? */
-            //resetLowerBanner()  //clear all button highlights
-            //theOpenMenu.removeFromParent()  //remove any open menu
-            //menuUp = "NONE" //set menuUp to "NONE" - everything is cleared
+            resetLowerBanner()  //clear all button highlights
+            theOpenMenu.removeFromParent()  //remove any open menu
+            menuUp = "NONE" //set menuUp to "NONE" - everything is cleared
         }
         
     }
@@ -773,4 +731,45 @@ class GameScene: SKScene {
         
     }
     
+}
+
+var backgroundMusicPlayer: AVAudioPlayer!
+var soundPlayer: AVAudioPlayer!
+
+func playBackgroundMusic(filename: String) {    //sets up an audio player to play background music
+    let url = NSBundle.mainBundle().URLForResource(filename, withExtension: nil)
+    if (url == nil) {
+        println("Could not find file: \(filename)")
+        return
+    }
+    
+    var error: NSError? = nil
+    backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: url, error: &error)
+    if backgroundMusicPlayer == nil {
+        println("Could not create audio player: \(error!)")
+        return
+    }
+    
+    backgroundMusicPlayer.numberOfLoops = -1    //loop continuously
+    backgroundMusicPlayer.prepareToPlay()   //load into memory
+    backgroundMusicPlayer.play()    //play song
+}
+
+func playSound(filename: String) {    //sets up an audio player to play sound effects
+    let url = NSBundle.mainBundle().URLForResource(filename, withExtension: nil)
+    if (url == nil) {
+        println("Could not find file: \(filename)")
+        return
+    }
+    
+    var error: NSError? = nil
+    soundPlayer = AVAudioPlayer(contentsOfURL: url, error: &error)
+    if soundPlayer == nil {
+        println("Could not create audio player: \(error!)")
+        return
+    }
+    
+    soundPlayer.numberOfLoops = 0   //play once
+    soundPlayer.prepareToPlay() //load into memory
+    soundPlayer.play()  //play sound
 }

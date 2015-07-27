@@ -25,7 +25,7 @@ class Winemaking : Skill {
             
             //make a tent
             user.grabFromInventory("Water")
-            var newWineskin = Item(ttl: "Wineskin", desc: "A wineskin filled with wine", sx: 1, sy: 1, iconName: "wineskin")
+            var newWineskin = Item(ttl: "Wineskin", desc: "A wineskin filled with wine", sx: 1, sy: 1, spriteName: "wineskin")
             user.inventory.append(newWineskin)
             //level up tentmaking skill
             level++

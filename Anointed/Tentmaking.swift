@@ -28,7 +28,7 @@ class Tentmaking : Skill {
             user.grabFromInventory("Cloth")
             user.grabFromInventory("Cord")
             user.grabFromInventory("Wood")
-            var newTent = Item(ttl: "Tent", desc: "A basic cloth tent.", sx: 1, sy: 1, iconName: "tent")
+            var newTent = Item(ttl: "Tent", desc: "A basic cloth tent.", sx: 1, sy: 1, spriteName: "tent")
             user.inventory.append(newTent)
             //level up tentmaking skill
             level++

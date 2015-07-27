@@ -24,20 +24,20 @@ class Scroll: Item {
         language = lang
         
         if scrollSize == 1 {
-            super.init(ttl: ttl, desc: desc, sx: 1, sy: 1, iconName: "SmallScroll")
+            super.init(ttl: ttl, desc: desc, sx: 1, sy: 1, spriteName: "SmallScroll")
         } else if scrollSize == 2 {
-            super.init(ttl: ttl, desc: desc, sx: 2, sy: 1, iconName: "MediumScroll")
+            super.init(ttl: ttl, desc: desc, sx: 2, sy: 1, spriteName: "MediumScroll")
         } else if scrollSize >= 3 {
-            super.init(ttl: ttl, desc: desc, sx: 2, sy: 2, iconName: "LargeScroll")
+            super.init(ttl: ttl, desc: desc, sx: 2, sy: 2, spriteName: "LargeScroll")
         } else {
-            super.init(ttl: ttl, desc: desc, sx: 1, sy: 1, iconName: "SmallScroll") //DEFAULTS TO SMALL SCROLL IMAGE/SIZE
+            super.init(ttl: ttl, desc: desc, sx: 1, sy: 1, spriteName: "SmallScroll") //DEFAULTS TO SMALL SCROLL IMAGE/SIZE
         }
         
     }
 
     func studyScroll(chap: Int, verseStart: Int, verseEnd: Int) {
         
-        if spriteName == "SmallScroll" {
+        if sprite == "SmallScroll" {
             
             //do single chapter scroll
             
