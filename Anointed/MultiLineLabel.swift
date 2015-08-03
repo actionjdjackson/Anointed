@@ -25,10 +25,11 @@ class MultiLineLabel : SKNode {
         
         super.init()
         
-        var fullLength = CGFloat(count(fullText)) * fontSize
-        var strLengthPerLine = Int(ceil(CGFloat(wrapWidth) / fontSize))
-        var nLines = Int(ceil(fullLength / CGFloat(wrapWidth)))
+        var fullLength = CGFloat(count(fullText)) * fontSize    //calculates approximate pixel length of text (as one long line)
+        var strLengthPerLine = Int(ceil(CGFloat(wrapWidth) / fontSize)) //calculates pixel length of each line based on wrapWidth
+        var nLines = Int(ceil(fullLength / CGFloat(wrapWidth))) //calculates number of lines to use
         
+        /* CUTS UP TEXT AND CREATES A MULTI-LINE LABEL. CURRENTLY HAS LOTS OF ISSUES WITH CUTTING IN THE MIDDLE OF WORDS, SHOULD FIX OR REPLACE */
         for i in 0...nLines-2 {
             var tempLabel = SKLabelNode(fontNamed: font)
             tempLabel.fontSize = fontSize

@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E20309391B6FAF4D00BF658F /* PersonalProphecy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309381B6FAF4D00BF658F /* PersonalProphecy.swift */; };
+		E203093B1B6FB0A500BF658F /* WordOfKnowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E203093A1B6FB0A500BF658F /* WordOfKnowledge.swift */; };
+		E203093D1B6FB1EB00BF658F /* WordOfWisdom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E203093C1B6FB1EB00BF658F /* WordOfWisdom.swift */; };
+		E203093F1B6FB25D00BF658F /* Assurance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E203093E1B6FB25D00BF658F /* Assurance.swift */; };
+		E20309411B6FB5C300BF658F /* OriginDiscernment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309401B6FB5C200BF658F /* OriginDiscernment.swift */; };
+		E20309431B6FB77300BF658F /* PrayerInTheSpirit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309421B6FB77300BF658F /* PrayerInTheSpirit.swift */; };
+		E20309451B6FB86100BF658F /* Interpretation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309441B6FB86100BF658F /* Interpretation.swift */; };
+		E20309471B6FBED300BF658F /* PersonalEncouragement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309461B6FBED300BF658F /* PersonalEncouragement.swift */; };
+		E20309491B6FC01D00BF658F /* Servanthood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309481B6FC01D00BF658F /* Servanthood.swift */; };
+		E203094B1B6FC0E300BF658F /* OneOnOneTeaching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E203094A1B6FC0E300BF658F /* OneOnOneTeaching.swift */; };
+		E203094D1B6FC1B400BF658F /* CheerfulGiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = E203094C1B6FC1B400BF658F /* CheerfulGiving.swift */; };
+		E203094F1B6FC29400BF658F /* PartyLeadership.swift in Sources */ = {isa = PBXBuildFile; fileRef = E203094E1B6FC29400BF658F /* PartyLeadership.swift */; };
+		E20309511B6FC43400BF658F /* FeedingThePoor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309501B6FC43400BF658F /* FeedingThePoor.swift */; };
+		E20309531B6FC56700BF658F /* Celibate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309521B6FC56700BF658F /* Celibate.swift */; };
+		E20309551B6FC69D00BF658F /* Hospitality.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309541B6FC69D00BF658F /* Hospitality.swift */; };
+		E20309571B6FC82A00BF658F /* Missionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309561B6FC82A00BF658F /* Missionary.swift */; };
+		E211865E1B697CE2005E9AA3 /* PhysicalHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E211865D1B697CE2005E9AA3 /* PhysicalHealing.swift */; };
 		E21B458D1AE04E8F007F10C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */; };
 		E21B458F1AE04E8F007F10C5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B458E1AE04E8F007F10C5 /* GameScene.swift */; };
 		E21B45911AE04E8F007F10C5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E21B45901AE04E8F007F10C5 /* GameScene.sks */; };
@@ -54,6 +71,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E20309381B6FAF4D00BF658F /* PersonalProphecy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalProphecy.swift; sourceTree = "<group>"; };
+		E203093A1B6FB0A500BF658F /* WordOfKnowledge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordOfKnowledge.swift; sourceTree = "<group>"; };
+		E203093C1B6FB1EB00BF658F /* WordOfWisdom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordOfWisdom.swift; sourceTree = "<group>"; };
+		E203093E1B6FB25D00BF658F /* Assurance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assurance.swift; sourceTree = "<group>"; };
+		E20309401B6FB5C200BF658F /* OriginDiscernment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OriginDiscernment.swift; sourceTree = "<group>"; };
+		E20309421B6FB77300BF658F /* PrayerInTheSpirit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerInTheSpirit.swift; sourceTree = "<group>"; };
+		E20309441B6FB86100BF658F /* Interpretation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpretation.swift; sourceTree = "<group>"; };
+		E20309461B6FBED300BF658F /* PersonalEncouragement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalEncouragement.swift; sourceTree = "<group>"; };
+		E20309481B6FC01D00BF658F /* Servanthood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Servanthood.swift; sourceTree = "<group>"; };
+		E203094A1B6FC0E300BF658F /* OneOnOneTeaching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOnOneTeaching.swift; sourceTree = "<group>"; };
+		E203094C1B6FC1B400BF658F /* CheerfulGiving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheerfulGiving.swift; sourceTree = "<group>"; };
+		E203094E1B6FC29400BF658F /* PartyLeadership.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyLeadership.swift; sourceTree = "<group>"; };
+		E20309501B6FC43400BF658F /* FeedingThePoor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingThePoor.swift; sourceTree = "<group>"; };
+		E20309521B6FC56700BF658F /* Celibate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Celibate.swift; sourceTree = "<group>"; };
+		E20309541B6FC69D00BF658F /* Hospitality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hospitality.swift; sourceTree = "<group>"; };
+		E20309561B6FC82A00BF658F /* Missionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Missionary.swift; sourceTree = "<group>"; };
+		E211865D1B697CE2005E9AA3 /* PhysicalHealing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicalHealing.swift; sourceTree = "<group>"; };
 		E21B45871AE04E8F007F10C5 /* Anointed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anointed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21B458B1AE04E8F007F10C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,40 +167,57 @@
 		E21B45891AE04E8F007F10C5 /* Anointed */ = {
 			isa = PBXGroup;
 			children = (
-				E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */,
-				E21B45901AE04E8F007F10C5 /* GameScene.sks */,
 				E2D52D621AEDE7670008879C /* Animal.swift */,
 				E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */,
+				E203093E1B6FB25D00BF658F /* Assurance.swift */,
+				E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */,
 				E21B45AD1AE04EF6007F10C5 /* BibleEvent.swift */,
 				E21B45AE1AE04EF6007F10C5 /* Building.swift */,
+				E20309521B6FC56700BF658F /* Celibate.swift */,
+				E203094C1B6FC1B400BF658F /* CheerfulGiving.swift */,
 				E21B45AF1AE04EF6007F10C5 /* City.swift */,
 				E21B45B01AE04EF6007F10C5 /* Conversation.swift */,
+				E20309501B6FC43400BF658F /* FeedingThePoor.swift */,
 				E21B45B11AE04EF6007F10C5 /* GameCharacter.swift */,
+				E21B45901AE04E8F007F10C5 /* GameScene.sks */,
 				E21B458E1AE04E8F007F10C5 /* GameScene.swift */,
-				E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */,
 				E21B45B21AE04EF6007F10C5 /* GameWorld.swift */,
 				E21B45B31AE04EF6007F10C5 /* Global.swift */,
 				E2522A901AE07ABA00EDD89A /* GridSquare.swift */,
+				E20309541B6FC69D00BF658F /* Hospitality.swift */,
+				E21B45921AE04E8F007F10C5 /* Images.xcassets */,
+				E20309441B6FB86100BF658F /* Interpretation.swift */,
 				E21B45B41AE04EF6007F10C5 /* Item.swift */,
 				E21B45B51AE04EF6007F10C5 /* Knowledge.swift */,
 				E21B45B61AE04EF6007F10C5 /* Location.swift */,
+				E21B45941AE04E8F007F10C5 /* MainMenu.xib */,
+				E20309561B6FC82A00BF658F /* Missionary.swift */,
 				E2D52D601AEC88900008879C /* MultiLineLabel.swift */,
 				E21B45B81AE04EF6007F10C5 /* NonPlayingCharacter.swift */,
-				E21B45B91AE04EF6007F10C5 /* Room.swift */,
-				E2522A8A1AE0631900EDD89A /* Scroll.swift */,
-				E21B45BA1AE04EF6007F10C5 /* Skill.swift */,
-				E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */,
-				E2F5473A1B5D2C43004F96D0 /* Winemaking.swift */,
-				E21B45BB1AE04EF6007F10C5 /* SpiritualGift.swift */,
-				E21B45BC1AE04EF6007F10C5 /* Understanding.swift */,
-				E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */,
-				E21B45BE1AE04EF6007F10C5 /* WorldMap.swift */,
+				E203094A1B6FC0E300BF658F /* OneOnOneTeaching.swift */,
+				E20309401B6FB5C200BF658F /* OriginDiscernment.swift */,
+				E203094E1B6FC29400BF658F /* PartyLeadership.swift */,
+				E20309461B6FBED300BF658F /* PersonalEncouragement.swift */,
+				E20309381B6FAF4D00BF658F /* PersonalProphecy.swift */,
+				E211865D1B697CE2005E9AA3 /* PhysicalHealing.swift */,
+				E20309421B6FB77300BF658F /* PrayerInTheSpirit.swift */,
 				E2522A8C1AE06B4D00EDD89A /* Psalm139.txt */,
 				E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */,
-				E2522A881AE05C9E00EDD89A /* TanakhENG.txt */,
-				E21B45921AE04E8F007F10C5 /* Images.xcassets */,
-				E21B45941AE04E8F007F10C5 /* MainMenu.xib */,
+				E21B45B91AE04EF6007F10C5 /* Room.swift */,
+				E2522A8A1AE0631900EDD89A /* Scroll.swift */,
+				E20309481B6FC01D00BF658F /* Servanthood.swift */,
+				E21B45BA1AE04EF6007F10C5 /* Skill.swift */,
+				E21B45BB1AE04EF6007F10C5 /* SpiritualGift.swift */,
 				E21B458A1AE04E8F007F10C5 /* Supporting Files */,
+				E2522A881AE05C9E00EDD89A /* TanakhENG.txt */,
+				E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */,
+				E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */,
+				E21B45BC1AE04EF6007F10C5 /* Understanding.swift */,
+				E2F5473A1B5D2C43004F96D0 /* Winemaking.swift */,
+				E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */,
+				E203093A1B6FB0A500BF658F /* WordOfKnowledge.swift */,
+				E203093C1B6FB1EB00BF658F /* WordOfWisdom.swift */,
+				E21B45BE1AE04EF6007F10C5 /* WorldMap.swift */,
 			);
 			path = Anointed;
 			sourceTree = "<group>";
@@ -300,31 +351,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E203093B1B6FB0A500BF658F /* WordOfKnowledge.swift in Sources */,
+				E20309431B6FB77300BF658F /* PrayerInTheSpirit.swift in Sources */,
 				E2643B9F1B5DD9FC006C280C /* ToolTipSpriteNode.swift in Sources */,
 				E2F5473B1B5D2C43004F96D0 /* Winemaking.swift in Sources */,
 				E21B45C61AE04EF6007F10C5 /* Item.swift in Sources */,
+				E20309491B6FC01D00BF658F /* Servanthood.swift in Sources */,
 				E21B45C21AE04EF6007F10C5 /* Conversation.swift in Sources */,
 				E21B45CA1AE04EF6007F10C5 /* NonPlayingCharacter.swift in Sources */,
 				E21B45C31AE04EF6007F10C5 /* GameCharacter.swift in Sources */,
 				E21B45CC1AE04EF6007F10C5 /* Skill.swift in Sources */,
+				E20309411B6FB5C300BF658F /* OriginDiscernment.swift in Sources */,
+				E20309571B6FC82A00BF658F /* Missionary.swift in Sources */,
 				E21B458F1AE04E8F007F10C5 /* GameScene.swift in Sources */,
 				E21B45D01AE04EF6007F10C5 /* WorldMap.swift in Sources */,
 				E21B45C11AE04EF6007F10C5 /* City.swift in Sources */,
+				E203093F1B6FB25D00BF658F /* Assurance.swift in Sources */,
 				E21B45C71AE04EF6007F10C5 /* Knowledge.swift in Sources */,
 				E21B45C41AE04EF6007F10C5 /* GameWorld.swift in Sources */,
+				E203093D1B6FB1EB00BF658F /* WordOfWisdom.swift in Sources */,
 				E2522A8B1AE0631900EDD89A /* Scroll.swift in Sources */,
+				E20309471B6FBED300BF658F /* PersonalEncouragement.swift in Sources */,
 				E21B458D1AE04E8F007F10C5 /* AppDelegate.swift in Sources */,
+				E203094D1B6FC1B400BF658F /* CheerfulGiving.swift in Sources */,
+				E20309451B6FB86100BF658F /* Interpretation.swift in Sources */,
 				E21B45CD1AE04EF6007F10C5 /* SpiritualGift.swift in Sources */,
+				E20309391B6FAF4D00BF658F /* PersonalProphecy.swift in Sources */,
+				E20309531B6FC56700BF658F /* Celibate.swift in Sources */,
+				E203094B1B6FC0E300BF658F /* OneOnOneTeaching.swift in Sources */,
+				E203094F1B6FC29400BF658F /* PartyLeadership.swift in Sources */,
 				E21B45BF1AE04EF6007F10C5 /* BibleEvent.swift in Sources */,
 				E21B45C01AE04EF6007F10C5 /* Building.swift in Sources */,
+				E211865E1B697CE2005E9AA3 /* PhysicalHealing.swift in Sources */,
 				E21B45CF1AE04EF6007F10C5 /* Wisdom.swift in Sources */,
 				E2D52D631AEDE7670008879C /* Animal.swift in Sources */,
 				E28C4A511B4D7FC4001CD4A7 /* Tentmaking.swift in Sources */,
 				E21B45CE1AE04EF6007F10C5 /* Understanding.swift in Sources */,
+				E20309511B6FC43400BF658F /* FeedingThePoor.swift in Sources */,
 				E2D52D611AEC88900008879C /* MultiLineLabel.swift in Sources */,
 				E2522A911AE07ABA00EDD89A /* GridSquare.swift in Sources */,
 				E21B45C81AE04EF6007F10C5 /* Location.swift in Sources */,
 				E21B45C51AE04EF6007F10C5 /* Global.swift in Sources */,
+				E20309551B6FC69D00BF658F /* Hospitality.swift in Sources */,
 				E21B45CB1AE04EF6007F10C5 /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

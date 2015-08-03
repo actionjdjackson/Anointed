@@ -12,22 +12,39 @@ import SpriteKit
 /* THE GAME WORLD CLASS KEEPS TRACK OF ALL THE CITIES, LOCATIONS, BUILDINGS, ROOMS, THE PLAYER (GAME CHARACTER), THE IN-GAME DATE AND TIME, AND ALL BIBLE EVENTS. IT WILL CONTAIN ALL "LEVEL" DATA AS DEFINED IN TEXT FILES OR JUST HARD-CODED INTO THIS FILE, DEPENDING ON WETHER OR NOT I WANT TO MAKE A LEVEL EDITOR, WHICH I PROBABLY WILL. ***IN PROGRESS*** */
 class GameWorld {
     
-    var bibleEvents: [BibleEvent]
-    var cities: [City]
-    var nextEvent: Int
-    var gameDate: NSDate
-    var currentCity: City
-    var currentLocation: Location
-    var player: GameCharacter
-    var knowledgeBase: [Knowledge]
-    var understandingBase: [Understanding]
-    var wisdomBase: [Wisdom]
+    var bibleEvents : [BibleEvent]
+    var cities : [City]
+    var nextEvent : Int
+    var gameDate : NSDate
+    var currentCity : City
+    var currentLocation : Location
+    var player : GameCharacter
+    var knowledgeBase : [Knowledge]
+    var understandingBase : [Understanding]
+    var wisdomBase : [Wisdom]
     var skillTree: [[Skill]]
     var miraclesTree: [Skill]
+    var healingTree: [Skill]
+    var wisdomTree : [Skill]
+    var knowledgeTree : [Skill]
+    var faithTree : [Skill]
+    var discernmentTree : [Skill]
+    var tonguesTree : [Skill]
+    var interpretationTree : [Skill]
+    var encouragementTree : [Skill]
+    var serviceTree : [Skill]
+    var teachingTree : [Skill]
+    var givingTree : [Skill]
+    var leadershipTree : [Skill]
+    var mercyTree : [Skill]
+    var celibacyTree : [Skill]
+    var hospitalityTree : [Skill]
+    var missionaryTree : [Skill]
     
     init() {
         
-        /* set up the knowledge base of the game (knowledge, wisdom, and understanding) */
+        /* SET UP THE KNOWLEDGE BASE OF THE GAME (knowledge, wisdom, and understanding) */
+        
         let godsOmnipotence = Knowledge(ttl: "God is Omnipotent", desc: "God can do anything. He made me, He can do whatever He wants, whenever He wants.", scrip: "Psalm 139")
         let godsOmnipresence = Knowledge(ttl: "God is Omnipresent", desc: "God is everywhere. You cannot escape Him, no matter where you go.", scrip: "Psalm 139:7-12")
         let godsOmniscience = Knowledge(ttl: "God is Omniscient", desc: "God knows everything. He knows your thoughts, your heart, and everything about you.", scrip: "Psalm 139:1-4")
@@ -43,28 +60,113 @@ class GameWorld {
         
         wisdomBase = [fearOfTheLord]
         
+        /* SET UP THE PLAYER CHARACTER */
+        
         player = GameCharacter()    //set up a default character
         
+        
         /* CREATE & ADD SKILLS & GIFTS */
+        
+        /* MAKE SKILLS */
         var tentmakingSkill : Tentmaking    //create tentmaking skill
         tentmakingSkill = Tentmaking(user: player)
         
+        /* GIVE SOME SKILLS TO PLAYER */
         player.skills.append(tentmakingSkill)   //player (for now) has the tentmaking skill
         
+        
+        /* MAKE GIFT SUBSKILLS */
         var winemakingSkill : Winemaking    //create winemaking skill (will be a subset of miracles gift)
         winemakingSkill = Winemaking(user: player)
+        var physicalHealingSkill : PhysicalHealing //create physical healing skill (will be a subset of healings gift)
+        physicalHealingSkill = PhysicalHealing(user: player)
+        var personalProphecySkill : PersonalProphecy    // etc. etc. etc.
+        personalProphecySkill = PersonalProphecy(user: player)
+        var wordOfKnowledgeSkill : WordOfKnowledge
+        wordOfKnowledgeSkill = WordOfKnowledge(user: player)
+        var wordOfWisdomSkill : WordOfWisdom
+        wordOfWisdomSkill = WordOfWisdom(user: player)
+        var assuranceSkill : Assurance
+        assuranceSkill = Assurance(user: player)
+        var originDiscernmentSkill : OriginDiscernment
+        originDiscernmentSkill = OriginDiscernment(user: player)
+        var prayerInTheSpiritSkill : PrayerInTheSpirit
+        prayerInTheSpiritSkill = PrayerInTheSpirit(user: player)
+        var interpretationSkill : Interpretation
+        interpretationSkill = Interpretation(user: player)
+        var personalEncouragementSkill : PersonalEncouragement
+        personalEncouragementSkill = PersonalEncouragement(user: player)
+        var servanthoodSkill : Servanthood
+        servanthoodSkill = Servanthood(user: player)
+        var oneOnOneTeachingSkill : OneOnOneTeaching
+        oneOnOneTeachingSkill = OneOnOneTeaching(user: player)
+        var cheerfulGivingSkill : CheerfulGiving
+        cheerfulGivingSkill = CheerfulGiving(user: player)
+        var partyLeadershipSkill : PartyLeadership
+        partyLeadershipSkill = PartyLeadership(user: player)
+        var feedingThePoorSkill : FeedingThePoor
+        feedingThePoorSkill = FeedingThePoor(user: player)
+        var celibateSkill : Celibate
+        celibateSkill = Celibate(user: player)
+        var hospitalitySkill : Hospitality
+        hospitalitySkill = Hospitality(user: player)
+        var missionarySkill : Missionary
+        missionarySkill = Missionary(user: player)
         
-        var miraclesGift : SpiritualGift    //create miracles gift
-        miraclesGift = SpiritualGift(giftName: "The Gift of Miracles", giftDesc: "A spritual gift that allows the player miraculous powers to alter nature, provide signs and wonders for unbelievers, and support the faith and confidence of believers.", giftUser: player, giftSprite: "miracles", giftSkills: [winemakingSkill])
+        /* MAKE ALL THE GIFTS */
+        var miraclesGift = SpiritualGift(giftName: "The Gift of Miracles", giftDesc: "A spritual gift that allows the player miraculous powers to alter nature, provide signs and wonders for unbelievers, and support the faith and confidence of believers.", giftUser: player, giftSprite: "miracles", giftSkills: [winemakingSkill])
+        var prophecyGift = SpiritualGift(giftName: "The Gift of Prophecy", giftDesc: "A spiritual gift that allows the player to speak a message from God, including the ability to predict future events", giftUser: player, giftSprite: "prophecy", giftSkills: [personalProphecySkill])
+        var healingsGift = SpiritualGift(giftName: "The Gifts of Healings", giftDesc: "A set of spiritual gifts for spiritual, emotional, mental, and physical healing of others or self", giftUser: player, giftSprite: "healings", giftSkills: [physicalHealingSkill])
+        var wisdomGift = SpiritualGift(giftName: "The Gift of the Word of Wisdom", giftDesc: "A spiritual gift that allows the player to give a special message of wisdom into a person's life or situation", giftUser: player, giftSprite: "wordOfWisdom", giftSkills: [wordOfWisdomSkill])
+        var knowledgeGift = SpiritualGift(giftName: "The Gift of the Word of Knowledge", giftDesc: "A spiritual gift that allows the player to give a special message of knowledge into a person's life for situation", giftUser: player, giftSprite: "wordOfKnowledge", giftSkills: [wordOfKnowledgeSkill])
+        var faithGift = SpiritualGift(giftName: "The Gift of Faith", giftDesc: "Gives the player great faith to carry out big things for God in the church, and comfort other believers & carry them", giftUser: player, giftSprite: "faith", giftSkills: [assuranceSkill])
+        var discernmentGift = SpiritualGift(giftName: "The Gift of the Discerning of Spirits", giftDesc: "A spiritual gift that allows the player to discern wether a message, person, or spiritual being is from God or from Satan", giftUser: player, giftSprite: "discernment", giftSkills: [originDiscernmentSkill])
+        var tonguesGift = SpiritualGift(giftName: "The Gift of Tongues", giftDesc: "Allows the player to speak in other languages he or she has never learned. Includes angelic or heavenly languages as well", giftUser: player, giftSprite: "tongues", giftSkills: [prayerInTheSpiritSkill])
+        var interpretationGift = SpiritualGift(giftName: "The Gift of the Interpretation of Tongues", giftDesc: "Allows the player to interpret a language he or she has never learned. Used in conjunction with the gift of tongues in other believers", giftUser: player, giftSprite: "interpretation", giftSkills: [interpretationSkill])
+        var encouragementGift = SpiritualGift(giftName: "The Gift of Encouragement", giftDesc: "A spiritual gift that allows the player to build up (encourage) another believer in their faith, increasing their resistance to temptation and their HG experience points.", giftUser: player, giftSprite: "encouragement", giftSkills: [personalEncouragementSkill])
+        var serviceGift = SpiritualGift(giftName: "The Gift of Service", giftDesc: "A spiritual gift that gives the player an aptitude for serving others in various ways.", giftUser: player, giftSprite: "service", giftSkills: [servanthoodSkill])
+        var teachingGift = SpiritualGift(giftName: "The Gift of Teaching", giftDesc: "A spiritual gift that gives the player a special ability to teach others.", giftUser: player, giftSprite: "teaching", giftSkills: [oneOnOneTeachingSkill])
+        var givingGift = SpiritualGift(giftName: "The Gift of Giving", giftDesc: "A spritual gift that allows the player to have a knack for giving to others generously and appropriately according to their needs or wants.", giftUser: player, giftSprite: "giving", giftSkills: [cheerfulGivingSkill])
+        var leadershipGift = SpiritualGift(giftName: "The Gift of Leadership", giftDesc: "A spiritual gift allowing the player to lead with zeal and diligence, and people naturally follow them.", giftUser: player, giftSprite: "leadership", giftSkills: [partyLeadershipSkill])
+        var mercyGift = SpiritualGift(giftName: "The Gift of Mercy", giftDesc: "A spiritual gift giving the player the ability to do acts of mercy, to help others in need with cheerfulness.", giftUser: player, giftSprite: "mercy", giftSkills: [feedingThePoorSkill])
+        var celibacyGift = SpiritualGift(giftName: "The Gift of Celibacy", giftDesc: "A gift that allows the player to remain unmarried and sexually abstinent that he or she may focus more deeply on serving God and others.", giftUser: player, giftSprite: "celibacy", giftSkills: [celibateSkill])
+        var hospitalityGift = SpiritualGift(giftName: "The Gift of Hospitality:", giftDesc: "A gift that allows the player to invite people into his or her home for food, entertainment, and conversation, oftentimes leading to an opportunity to share the gospel.", giftUser: player, giftSprite: "hospitality", giftSkills: [hospitalitySkill])
+        var missionaryGift = SpiritualGift(giftName: "The Missionary Gift", giftDesc: "A gift giving the player special abilities in traveling abroad to spread the Gospel and further the Kingdom of God", giftUser: player, giftSprite: "missionary", giftSkills: [missionarySkill])
         
-        player.spiritualGifts.append(miraclesGift)  //player (for now) has the gift of miracles
+        /* GIVE SOME GIFTS TO THE PLAYER */
+        player.spiritualGifts.append(miraclesGift)
+        player.spiritualGifts.append(prophecyGift)
+        player.spiritualGifts.append(healingsGift)
+        player.spiritualGifts.append(wisdomGift)
+        player.spiritualGifts.append(knowledgeGift)
+        player.spiritualGifts.append(faithGift)
+        player.spiritualGifts.append(discernmentGift)
+        player.spiritualGifts.append(tonguesGift)
+        player.spiritualGifts.append(interpretationGift)
+        player.spiritualGifts.append(encouragementGift)
         
         /* CREATE SKILL TREES */
         skillTree = [[tentmakingSkill]]
         miraclesTree = [winemakingSkill]
+        healingTree = [physicalHealingSkill]
+        wisdomTree = [wordOfWisdomSkill]
+        knowledgeTree = [wordOfKnowledgeSkill]
+        faithTree = [assuranceSkill]
+        discernmentTree = [originDiscernmentSkill]
+        tonguesTree = [prayerInTheSpiritSkill]
+        interpretationTree = [interpretationSkill]
+        encouragementTree = [personalEncouragementSkill]
+        serviceTree = [servanthoodSkill]
+        teachingTree = [oneOnOneTeachingSkill]
+        givingTree = [cheerfulGivingSkill]
+        leadershipTree = [partyLeadershipSkill]
+        mercyTree = [feedingThePoorSkill]
+        celibacyTree = [celibateSkill]
+        hospitalityTree = [hospitalitySkill]
+        missionaryTree = [missionarySkill]
         
         
-        /* set up the initial game date as the day of Jesus' birth, at around 8 am */
+        /* set up the initial game date as the probable day of Jesus' birth, at around 8 am */
         let hebrewCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierHebrew)
         let gameDateComponents = NSDateComponents()
         gameDateComponents.year = 3755
@@ -103,6 +205,9 @@ class GameWorld {
         
         var cloth6 = Item(ttl: "Cloth", desc: "1 Unit of Cloth", sx: 1, sy: 1, spriteName: "cloth")
         
+        var water = Item(ttl: "Water", desc: "A skin filled with water", sx: 1, sy: 1, spriteName: "waterskin")
+        
+        //gives player lots of inventory items for making tents
         player.inventory.append(wood2)
         player.inventory.append(cord2)
         player.inventory.append(cloth2)
@@ -115,6 +220,7 @@ class GameWorld {
         player.inventory.append(wood5)
         player.inventory.append(cord5)
         player.inventory.append(cloth5)
+        player.inventory.append(water)
         
         //defines the different types of grid squares
         var emptyGrassSquare = GridSquare(tex: "grass", hasItems: [], obj: "")
@@ -133,19 +239,26 @@ class GameWorld {
         /* THIS IS A TEMPORARY GRID OF ISO SQUARES FOR DEBUGGING ONLY */
         var tempGrid = [[grassWithPsalm139Scroll, emptyGrassSquare, grassWithCloth2, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, grassWithWood, emptyBrickSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, grassWithTree, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, grassWithStonePillars, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyBrickSquare, emptyBrickSquare, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[grassWithOtherTree, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyBrickSquare, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyBrickSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, grassWithCord],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, grassWithOtherTree, emptyGrassSquare, emptyGrassSquare, grassWithCloth],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[grassWithGrassyRock, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, grassWithAnotherTree, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare],[emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare, emptyGrassSquare]]
         
+        /* SETS UP ALL NPCS */
+        var Timothy = NonPlayingCharacter()
+        
         /* SETS UP JERUSALEM'S LOCATIONS AND BUILDINGS AND ROOMS ***UNDER CONSTRUCTION*** */
         var TheAltar = Room(ttl: "The Altar", gridSquares: [[]])
         var TheTemple = Building(ttl: "The Temple", r: [[TheAltar]])
-        var SouthofTemple = Location(n:"The South Entrance to the Temple", d:"The glorious Jewish Temple, the Home of Yahweh, God of Israel", g:[[]], a:[])
+        var SouthofTemple = Location(n:"The South Entrance to the Temple", d:"The glorious Jewish Temple, the Home of Yahweh, God of Israel", g:[[]], a:[], npc:[])
         var Jerusalem = City(locations: [[SouthofTemple]])
         
         /* SETS UP BETHELEHEM'S LOCATIONS AND BUILDINGS AND ROOMS ***UNDER CONSTRUCTION***  */
         var sheep1 = Animal(name: "Sheep", desc: "A White Sheep", sheetName: "whiteSheep")
-        var CaveStable = Location(n:"Cave Stable", d:"A small stable inside a cave, near an Inn", g:tempGrid, a:[sheep1]) //uses temporary grid defined above as the "Cave Stable" location where Jesus is born
-        var ShepherdsFields = Location(n:"The Shepherds' Fields", d:"The fields just outside Bethelehem, where shepherds kept their flocks by night", g:[[]], a:[])
+        var sheep2 = Animal(name: "Sheep", desc: "A White Sheep", sheetName: "whiteSheep")
+        var sheep3 = Animal(name: "Sheep", desc: "A White Sheep", sheetName: "whiteSheep")
+        var sheep4 = Animal(name: "Sheep", desc: "A White Sheep", sheetName: "whiteSheep")
+        var sheep5 = Animal(name: "Sheep", desc: "A White Sheep", sheetName: "whiteSheep")
+        var CaveStable = Location(n:"Cave Stable", d:"A small stable inside a cave, near an Inn", g:tempGrid, a:[sheep1, sheep2, sheep3, sheep4, sheep5], npc:[Timothy]) //uses temporary grid defined above as the "Cave Stable" location where Jesus is born
+        var ShepherdsFields = Location(n:"The Shepherds' Fields", d:"The fields just outside Bethelehem, where shepherds kept their flocks by night", g:[[]], a:[], npc:[])
         var BethlehemSynagogueMainRoom = Room(ttl: "Bethlehem Synagogue Main Room", gridSquares: [[]])
         var BethlehemSynagogue = Building(ttl: "Bethlehem Synagogue", r:[[BethlehemSynagogueMainRoom]])
-        var BethlehemSquare = Location(n:"Bethlehem Town Square", d:"Bethlehem Town Square", g:[[]], a:[])
+        var BethlehemSquare = Location(n:"Bethlehem Town Square", d:"Bethlehem Town Square", g:[[]], a:[], npc:[])
         var Bethlehem = City(locations: [[CaveStable, ShepherdsFields, BethlehemSquare]])
         
         /* SETS THE CURRENT CITY AND LOCATION WHERE THE GAME STARTS */

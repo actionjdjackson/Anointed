@@ -11,17 +11,19 @@ import Foundation
 
 class Location {
     
-    var name:String
-    var description:String
-    var grid:[[GridSquare]]
-    var animals:[Animal]
+    var name : String
+    var description : String
+    var grid : [[GridSquare]]
+    var animals : [Animal]
+    var people : [NonPlayingCharacter]
     
-    init( n:String, d:String, g:[[GridSquare]], a:[Animal]) {
+    init( n:String, d:String, g:[[GridSquare]], a:[Animal], npc:[NonPlayingCharacter]) {
         
         name = n
         description = d
         grid = g
         animals = a
+        people = npc
         
     }
     

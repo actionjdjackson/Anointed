@@ -20,7 +20,7 @@ class ToolTipSpriteNode : SKSpriteNode {
         itemInfoA = infoA
         itemInfoB = infoB
         super.init(texture: tex, color: SKColor.clearColor(), size: tex.size())
-        self.userInteractionEnabled = true
+        //self.userInteractionEnabled = true
         
     }
 
@@ -28,7 +28,7 @@ class ToolTipSpriteNode : SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func mouseDown( theEvent: NSEvent ) {
+    /*override func mouseDown( theEvent: NSEvent ) {
     
         self.size = texture!.size()
         
@@ -38,6 +38,6 @@ class ToolTipSpriteNode : SKSpriteNode {
 
         self.size = CGSize( width: 0, height: 0 )
         
-    }
+    }*/
     
 }

@@ -40,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         /* Pick a size for the scene */
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .AspectFit
             
             self.skView!.presentScene(scene)    //show me the game!
             
@@ -50,6 +50,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             /* FOR TESTING AND DEBUGGING - THIS SHOWS FPS AND NODE COUNT IN THE LOWER RIGHT OF THE SCREEN */
             self.skView!.showsFPS = true
             self.skView!.showsNodeCount = true
+            
+            window.toggleFullScreen(self)
         }
     }
     

@@ -8,9 +8,11 @@
 
 import SpriteKit
 import AVFoundation
+import CoreFoundation
 
 class GameScene: SKScene {
     
+    /* VARIABLES AND CONSTANTS USED IN SCENE */
     var bibleEventTitle = SKLabelNode(fontNamed:"Chalkduster")
     var bibleEventDescription = MultiLineLabel(text: "Placeholder text blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah Lorem ipsum dolor setia imet raggi dieassm ilitia", fontName: "Chalkduster", fontsize: 12, wrap: 1024 - 64)
     var lowerBanner = SKSpriteNode(imageNamed:"LowerBannerBASE")    //load button bar into memory
@@ -25,14 +27,15 @@ class GameScene: SKScene {
     var PREV_GAME_SPEED = 1.0   //this is used for when pausing the game, and going back to previous game speed
     var PAUSED = false  //obviously, the game doesn't start out paused
     var world = SKNode() //sets up the world node
-    var progBarFrame : SKSpriteNode = SKSpriteNode(imageNamed: "progressBarFrame")
-    var progBar : SKSpriteNode = SKSpriteNode(imageNamed: "progressBar")
-    var progBarCaption : SKLabelNode = SKLabelNode(text: "")
-    var progBarTime : Double = 0.0
-    var progBarDuration : Double = 0.0
-    var skillInUse : Int = -1
-    var giftSkills : [Skill] = []
+    var progBarFrame : SKSpriteNode = SKSpriteNode(imageNamed: "progressBarFrame")  //progress bar frame
+    var progBar : SKSpriteNode = SKSpriteNode(imageNamed: "progressBar")    //progress bar
+    var progBarCaption : SKLabelNode = SKLabelNode(text: "")    //empty progress bar caption
+    var progBarTime : Double = 0.0  //initially, progbar has no time value
+    var progBarDuration : Double = 0.0  //initially, progbar has no duration value
+    var skillInUse : Int = -1   //no skill in use initially
+    var giftSkills : [Skill] = []   //giftSkills array set to empty array
     
+    /* POSITIONAL/SIZE CONSTANTS USED IN DRAWING, ETC. */
     let CENTER_OF_SCREEN_X = CGFloat(0.5)
     let CENTER_OF_SCREEN_Y = CGFloat(0.5)
     let LOWER_BANNER_X = CGFloat(-112)
@@ -41,7 +44,7 @@ class GameScene: SKScene {
     let EXPERIENCE_BARS_X = CGFloat(400)
     let EXPERIENCE_BARS_Y = CGFloat(-768/2 + 32)
     let EXPERIENCE_BARS_Z = CGFloat(2.0)
-    let OPEN_MENU_Y = CGFloat(-32 + 8)
+    let OPEN_MENU_Y = CGFloat(-32 + 12)
     let OPEN_MENU_Z = CGFloat(2.0)
     let MENU_TITLE_FONT_SIZE = CGFloat(24)
     let MENU_TITLE_X = CGFloat(0.0)
@@ -78,6 +81,7 @@ class GameScene: SKScene {
     let PLAYER_MOVE_TIME = 0.125
     let SECONDS_IN_ONE_HOUR = 60.0 * 60.0
     
+    /* KEYPRESS CONSTANTS */
     let SPACEBAR = UInt16(49)
     let MINUS = UInt16(27)
     let PLUS = UInt16(24)
@@ -108,9 +112,10 @@ class GameScene: SKScene {
     let C = UInt16(8)
     
     /* INITIALIZATION */
-    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
+        srandom(UInt32(CFAbsoluteTimeGetCurrent()))
         
         formatter.calendar = hebrew     //using the Hebrew calendar
         formatter.dateStyle = .FullStyle    //full date
@@ -153,29 +158,29 @@ class GameScene: SKScene {
         self.addChild(experienceBars)   //add the experience bars (to the right of the button bar, as above)
         
         
-        if theGame.player.skills.count > 0 {
-            for n in 0...theGame.player.skills.count-1 {
-                var skill = SKSpriteNode(imageNamed: theGame.player.skills[n].sprite)
-                skill.position = CGPoint(x: SKILLS_BAR_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILLS_BAR_BASE_Y)
-                skill.zPosition = SKILLS_BAR_BASE_Z
-                if n >= SKILLS_GRID_WIDTH {
-                    fatalError("TOO MANY SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
+        if theGame.player.skills.count > 0 {    //if the player has any skills
+            for n in 0...theGame.player.skills.count-1 {    //iterate through all skills
+                if n >= SKILLS_GRID_WIDTH { //if the player has too many skills
+                    fatalError("TOO MANY SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")   //exit with error
                 }
-                self.addChild(skill)
+                var skill = SKSpriteNode(imageNamed: theGame.player.skills[n].sprite)   //grab the sprite for the current skill
+                skill.position = CGPoint(x: SKILLS_BAR_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILLS_BAR_BASE_Y) //position in quickbar
+                skill.zPosition = SKILLS_BAR_BASE_Z //set Z position for drawing on top of grid
+                self.addChild(skill)    //add skill to scene
             }
         }
         
-        grabGiftSkills()
+        grabGiftSkills()    //populate the giftSkills array (for convenience)
         
-        if giftSkills.count > 0 {
-            for n in 0...giftSkills.count-1 {
-                var skill = SKSpriteNode(imageNamed: giftSkills[n].sprite)
-                skill.position = CGPoint(x: SKILLS_BAR_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILLS_BAR_BASE_Y - 32)
-                skill.zPosition = SKILLS_BAR_BASE_Z
-                if n >= SKILLS_GRID_WIDTH {
-                    fatalError("TOO MANY SPIRITUAL GIFT SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
+        if giftSkills.count > 0 {   //if there are any spiritual gift subskills
+            for n in 0...giftSkills.count-1 {   //iterate through all subskills
+                if n >= SKILLS_GRID_WIDTH { //if there are too many subskills
+                    fatalError("TOO MANY SPIRITUAL GIFT SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")    //exit with error
                 }
-                self.addChild(skill)
+                var skill = SKSpriteNode(imageNamed: giftSkills[n].sprite)  //grab the sprite for the current subskill
+                skill.position = CGPoint(x: SKILLS_BAR_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILLS_BAR_BASE_Y - 32)    //position in quickbar
+                skill.zPosition = SKILLS_BAR_BASE_Z //set Z position for drawing on top of grid
+                self.addChild(skill)    //add subskill to scene
             }
         }
     
@@ -184,12 +189,12 @@ class GameScene: SKScene {
     /* GRABS ALL GIFT SKILLS AND PUTS THEM INTO AN ARRAY STORED IN THE SCENE FOR EASY ACCESS **/
     func grabGiftSkills() {
         
-        giftSkills = []
-        if theGame.player.spiritualGifts.count > 0 {
-            for n in 0...theGame.player.spiritualGifts.count-1 {
-                if theGame.player.spiritualGifts[n].subSkills.count > 0 {
-                    for m in 0...theGame.player.spiritualGifts[n].subSkills.count-1 {
-                        giftSkills.append(theGame.player.spiritualGifts[n].subSkills[m])
+        giftSkills = [] //initialize giftSkills to empty array
+        if theGame.player.spiritualGifts.count > 0 {    //if the player has any spiritual gifts
+            for n in 0...theGame.player.spiritualGifts.count-1 {    //iterate through all spiritual gifts
+                if theGame.player.spiritualGifts[n].subSkills.count > 0 {   //if there are subskills
+                    for m in 0...theGame.player.spiritualGifts[n].subSkills.count-1 {   //iterate through all subskills
+                        giftSkills.append(theGame.player.spiritualGifts[n].subSkills[m])    //add subskill to giftSKills array
                     }
                 }
             }
@@ -220,7 +225,7 @@ class GameScene: SKScene {
         menuUp = theMenu    //keeping track of what menu is open currently
         theOpenMenu.removeFromParent()  //remove any previous menu
         theOpenMenu = SKSpriteNode(imageNamed: theMenu + "menu")    //sets up the menu image
-        theOpenMenu.position = CGPoint( x: CGRectGetMidX(self.frame), y: CGFloat(OPEN_MENU_Y) ) //places it just above the button bar, and centered on the scene's frame
+        theOpenMenu.position = CGPoint( x: CGRectGetMidX(self.frame), y: OPEN_MENU_Y ) //places it just above the button bar, and centered on the scene's frame
         theOpenMenu.zPosition = OPEN_MENU_Z
         self.addChild(theOpenMenu)  //displays the menu
         var menuTitle = SKLabelNode(fontNamed: "Zapfino")   //sets up a label for the menu title
@@ -230,46 +235,52 @@ class GameScene: SKScene {
         theOpenMenu.addChild(menuTitle) //displays the label as a child of the current menu
         
         /* SPECIAL INSTRUCTIONS FOR INVENTORY MENU - ***INCOMPLETE*** */
+        
         if theMenu == "INVENTORY" { //if we're working with the inventory menu
-            if theGame.player.inventory.count > 0 {
-                for n in 0...theGame.player.inventory.count-1   { //if there's anything in the player's inventory
-                    var item = theGame.player.inventory[n]
-                    item.position = CGPoint( x: INVENTORY_ITEM_BASE_X + CGFloat(n % INVENTORY_GRID_WIDTH) * INVENTORY_ITEM_SIZE, y: INVENTORY_ITEM_BASE_Y - CGFloat(Int(n / INVENTORY_GRID_WIDTH)) * INVENTORY_ITEM_SIZE)
-                    if n >= INVENTORY_GRID_WIDTH * INVENTORY_GRID_HEIGHT {
-                        fatalError("TOO MANY ITEMS IN INVENTORY. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
+            if theGame.player.inventory.count > 0 { //if the player has any inventory items
+                for n in 0...theGame.player.inventory.count-1   { //iterate through all inventory items
+                    if n >= INVENTORY_GRID_WIDTH * INVENTORY_GRID_HEIGHT {  //if the player has too many items in the inventory
+                        fatalError("TOO MANY ITEMS IN INVENTORY. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")   //exit with error
                     }
-                    theOpenMenu.addChild(item)
+                    var item = theGame.player.inventory[n]  //grab an item
+                    item.position = CGPoint( x: INVENTORY_ITEM_BASE_X + CGFloat(n % INVENTORY_GRID_WIDTH) * INVENTORY_ITEM_SIZE, y: INVENTORY_ITEM_BASE_Y - CGFloat(Int(n / INVENTORY_GRID_WIDTH)) * INVENTORY_ITEM_SIZE )  //position appropriately in the inventory grid
+                    theOpenMenu.addChild(item)  //add item to the menu
                 }
             }
         }
         
         /* SPECIAL INSTRUCTIONS FOR SKILLS MENU - ***INCOMPLETE*** */
+        
         if theMenu ==  "SKILLS" { //if we're working with the skills menu
-            if theGame.player.skills.count > 0 {
-                for n in 0...theGame.player.skills.count-1 {
-                    var skill = theGame.player.skills[n]
-                    skill.position = CGPoint(x: SKILL_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILL_POSITION_BASE_Y - CGFloat(Int(n / SKILLS_GRID_WIDTH)) * SKILL_ICON_SIZE)
-                    if n >= SKILLS_GRID_WIDTH * SKILLS_GRID_HEIGHT {
-                        fatalError("TOO MANY SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
+            if theGame.player.skills.count > 0 {    //if the player has any skills
+                for n in 0...theGame.player.skills.count-1 {    //iterate through all skills
+                    if n >= SKILLS_GRID_WIDTH * SKILLS_GRID_HEIGHT {    //if the player has too many skills to display on the skills menu
+                        fatalError("TOO MANY SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")   //exit with error
                     }
-                    theOpenMenu.addChild(skill)
+                    var skill = theGame.player.skills[n]    //grab a skill
+                    skill.position = CGPoint(x: SKILL_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILL_POSITION_BASE_Y - CGFloat(Int(n / SKILLS_GRID_WIDTH)) * SKILL_ICON_SIZE) //position skill on bottom (natural skills) row
+                    theOpenMenu.addChild(skill) //add skill to the menu
                 }
             }
-            if theGame.player.spiritualGifts.count > 0 {
-                for n in 0...theGame.player.spiritualGifts.count-1 {
-                    var gift = theGame.player.spiritualGifts[n]
-                    gift.position = CGPoint(x: GIFT_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: GIFT_POSITION_BASE_Y - CGFloat(Int(n / SKILLS_GRID_WIDTH)) * SKILL_ICON_SIZE)
-                    theOpenMenu.addChild(gift)
-                    if n >= SKILLS_GRID_WIDTH {
-                        fatalError("TOO MANY GIFTS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")
+            if theGame.player.spiritualGifts.count > 0 {    //if the player has any spiritual gifts
+                for n in 0...theGame.player.spiritualGifts.count-1 {    //iterate through all gifts
+                    if n >= SKILLS_GRID_WIDTH { //if the player has too many spiritual gifts
+                        fatalError("TOO MANY GIFTS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")    //exit with error
                     }
-                    for m in 0...gift.subSkills.count-1 {
-                        var skill = gift.subSkills[m]
-                        skill.position = CGPoint(x: GIFT_POSITION_BASE_X + CGFloat(Int(m / SKILLS_GRID_HEIGHT)) * SKILL_ICON_SIZE, y: GIFT_POSITION_BASE_Y - CGFloat((m + 1) % GIFT_SKILLS_GRID_HEIGHT) * SKILL_ICON_SIZE)
-                        if m >= GIFT_SKILLS_GRID_HEIGHT {
-                            fatalError("TOO MANY GIFT SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON")
+                    var gift = theGame.player.spiritualGifts[n] //grab a gift
+                    gift.position = CGPoint(x: GIFT_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: GIFT_POSITION_BASE_Y - CGFloat(Int(n / SKILLS_GRID_WIDTH)) * SKILL_ICON_SIZE)    //position gift on top (spiritual gifts) row
+                    theOpenMenu.addChild(gift)  //add gift to the menu
+                    
+                    if gift.subSkills.count > 0 {   //if the gift has subskills
+                        for m in 0...gift.subSkills.count-1 {   //iterate through all subskills
+                            if m >= GIFT_SKILLS_GRID_HEIGHT {   //if the player has too many gift skills for this spiritual gift
+                                fatalError("TOO MANY GIFT SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON")   //exit with error
+                            }
+                            var skill = gift.subSkills[m]   //grab a subskill
+                            skill.position = CGPoint(x: GIFT_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: GIFT_POSITION_BASE_Y - CGFloat((m + 1) % GIFT_SKILLS_GRID_HEIGHT) * SKILL_ICON_SIZE)    //position below the corresponding spiritual gift, in sequence to bottom of column
+                            
+                            theOpenMenu.addChild(skill) //add subskill to the menu
                         }
-                        theOpenMenu.addChild(skill)
                     }
                 }
             }
@@ -329,28 +340,30 @@ class GameScene: SKScene {
                 } else {
                     openMenu("SKILLS")
                 }
+                /* DETECTS CLICKS ON THE SKILLS BAR FOR REGULAR SKILLS */
             } else if location.x >= SKILLS_BAR_EDGE && theGame.player.skills.count > 0 && location.y >= SKILLS_BAR_BASE_Y - 16 {    //if we're beyond the skills bar edge and the player has at least 1 skill
-                var skillNo = Int((location.x+32) / 32) //
-                if skillNo < 0 { skillNo = 0 }
-                if skillNo > theGame.player.skills.count-1 { return }
-                if theGame.player.skills[skillNo].canUse() {
-                    if skillInUse < 0 {
-                        makeProgressBarFor( SECONDS_IN_ONE_HOUR * (theGame.player.skills[skillNo].hoursToComplete - log(Double(theGame.player.skills[0].level) * 1.0)), caption: theGame.player.skills[0].title )
-                        skillInUse = skillNo
+                var skillNo = Int((location.x+32) / 32) //calculate skill # based on mouse click x location
+                if skillNo < 0 { skillNo = 0 }  //if the skill is negative, make it the first skill (0)
+                if skillNo > theGame.player.skills.count-1 { return }   //if we're out of bounds when considering available skills, just return
+                if theGame.player.skills[skillNo].canUse() {    //if the skill is usable right now
+                    if skillInUse < 0 { //and if skill in use is nothing (-1 typically) [if we're not currently working on another skill function]
+                        makeProgressBarFor( SECONDS_IN_ONE_HOUR * ((10.0 - log(Double(theGame.player.skills[0].level))) * theGame.player.skills[skillNo].hoursToComplete / 10.0), caption: theGame.player.skills[skillNo].title )   //make a progress bar with a duration based on a negative logarithmic curve from initial "hoursToComplete" value on down to a lower and lower number, so the higher your level in this skill, the less time it will take to complete the skill function
+                        skillInUse = skillNo    //set skill in use to the clicked skill
                     }
                 }
-            } else if location.x >= SKILLS_BAR_EDGE && giftSkills.count > 0 && location.y >= SKILLS_BAR_BASE_Y - 48 && location.y <= SKILLS_BAR_BASE_Y - 16 {
-                var skillNo = Int((location.x+32) / 32) //
-                if skillNo < 0 { skillNo = 0 }
-                if skillNo > theGame.player.skills.count-1 { return }
-                if giftSkills[skillNo].canUse() {
-                    if skillInUse < 0 {
-                        makeProgressBarFor( SECONDS_IN_ONE_HOUR * (giftSkills[skillNo].hoursToComplete - log(Double(giftSkills[skillNo].level) * 1.0)), caption: giftSkills[skillNo].title )
-                        skillInUse = skillNo
+                /* DETECTS CLICKS ON THE SKILLS BAR FOR SPIRITUAL GIFT SKILLS */
+            } else if location.x >= SKILLS_BAR_EDGE && giftSkills.count > 0 && location.y >= SKILLS_BAR_BASE_Y - 48 && location.y <= SKILLS_BAR_BASE_Y - 16 {   //if we've clicked a skill in the spiritual gifts skill bar (the bottom row)
+                var skillNo = Int((location.x+32) / 32) //calculate skill # based on mouse click x location
+                if skillNo < 0 { skillNo = 0 }  //if it's negative, make it the first skill (0)
+                if skillNo > giftSkills.count-1 { return }  //if we're out of bounds when considering available gift skills, just return
+                if giftSkills[skillNo].canUse() {   //if the skill is usable right now
+                    if skillInUse < 0 { //and if skill in use is nothing (-1 typically) [if we're not currently working on another skill function]
+                        makeProgressBarFor( SECONDS_IN_ONE_HOUR * ((10.0 - log(Double(giftSkills[skillNo].level))) * giftSkills[skillNo].hoursToComplete / 10.0), caption: giftSkills[skillNo].title )//make a progress bar with a duration based on a negative logarithmic curve from initial "hoursToComplete" value on down to a lower and lower number, so the higher your level in this skill, the less time it will take to complete the skill function
+                        skillInUse = skillNo + 10   //set skill in use to the clicked skill (plus 10 because it's the bottom row)
                     }
                 }
-            } else {
-                clearMenu()
+            } else {    //if we've clicked anywhere that's not part of the active UI
+                clearMenu() //clear open menu
             }
         } else { /* Has the user clicked OUTSIDE the lower banner? */
             resetLowerBanner()  //clear all button highlights
@@ -384,11 +397,11 @@ class GameScene: SKScene {
     /* PAUSES ONLY */
     func pause() {
         
-        if PAUSED == false {
-            PREV_GAME_SPEED = GAME_SPEED
+        if PAUSED == false {    //if not already paused
+            PREV_GAME_SPEED = GAME_SPEED    //record previous game speed
         }
-        GAME_SPEED = 0.0
-        PAUSED = true
+        GAME_SPEED = 0.0    //set game speed to zero (pause game)
+        PAUSED = true   //we are now paused
         
     }
     
@@ -640,15 +653,47 @@ class GameScene: SKScene {
             }
         }
         
-        for x in 0...theGame.currentLocation.animals.count-1 {
+        /* create animals at random locations around the grid */
+        if theGame.currentLocation.animals.count > 0 {  //if there's any animals in the current location
+            for n in 0...theGame.currentLocation.animals.count-1 {  //interate through all animals
             
-            var animal = theGame.currentLocation.animals[x]
-            var pos = twoDToIso(CGPoint(x: (random() % (theGame.currentLocation.grid.count-1)) * 64, y: (random() % (theGame.currentLocation.grid[0].count-1)) * 64))
-            animal.position = CGPoint(x: pos.x, y: pos.y + animal.size.height / 2)
-            world.addChild(animal)
+                var animal = theGame.currentLocation.animals[n] //grab an animal
+                var randomx = 0 //init randomx
+                var randomy = 0 //init randomy
+                do {    //loop through a random number generator until an open spot on the grid is available
+                    randomx = random() % (theGame.currentLocation.grid.count-1) //random x location
+                    randomy = random() % (theGame.currentLocation.grid[0].count-1)  //random y location
+                } while theGame.currentLocation.grid[randomx][randomy].extraObject != ""    //keep looping until space is open
+                
+                var randPos = CGPoint(x: randomx * 64, y: randomy * 64) //make a random point with values randomx and randomy
+                var pos = twoDToIso( randPos )  //convert to ISO
+                animal.position = CGPoint(x: pos.x, y: pos.y + animal.size.height / 2) //position the animal appropriately
+                world.addChild(animal)  //add animal to the scene
             
+            }
         }
         
+        /* places NPCs at random locations around the grid */
+        if theGame.currentLocation.people.count > 0 {   //if there's any NPCs in the current location
+            for n in 0...theGame.currentLocation.people.count-1 {   //iterate through all NPCs
+            
+                var person = theGame.currentLocation.people[n]  //grab a person
+                var randomx = 0 //init randomx
+                var randomy = 0 //init randomy
+                do {    //loop through a random number generator until an open spot on the grid is available
+                    randomx = random() % (theGame.currentLocation.grid.count-1) //random x location
+                    randomy = random() % (theGame.currentLocation.grid[0].count-1)  //random y location
+                } while theGame.currentLocation.grid[randomx][randomy].extraObject != ""    //keep looping until space is open
+            
+                var randPos = CGPoint(x: randomx * 64, y: randomy * 64) //make a random point with values randomx and randomy
+                var pos = twoDToIso( randPos )  //convert to ISO
+                person.position = CGPoint(x: pos.x, y: pos.y + person.size.height / 2)  //position the NPC appropriately
+                world.addChild(person)  //add NPC to the scene
+            
+            }
+        }
+        
+        /* set up the date label and add it to the scene */
         dateLabel.fontSize = TIMESTAMP_FONT_SIZE //set date label font size
         dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y: TIMESTAMP_OFFSET_Y)    //puts the date/time at bottom center of the screen, just above the button bar
         dateLabel.zPosition = TIMESTAMP_OFFSET_Z
@@ -656,6 +701,7 @@ class GameScene: SKScene {
         
     }
     
+    /* CHECKS FOR BIBLE EVENTS AND READS SCRIPTURE TO THE PLAYER AS THE EVENTS OCCUR */
     var timeSpentReadingMarker : CFTimeInterval = 0.0
     
     func updateBibleEvents( time: CFTimeInterval ) {
@@ -666,52 +712,99 @@ class GameScene: SKScene {
         
         if theGame.bibleEvents[theGame.nextEvent].date.laterDate(theGame.gameDate) == theGame.gameDate {    //if we've hit or slightly passed a Bible Event...
             
-            playSound(theGame.bibleEvents[theGame.nextEvent].soundFile)
-            theGame.nextEvent++
+            playSound(theGame.bibleEvents[theGame.nextEvent].soundFile) //play audio bible clip
+            theGame.nextEvent++ //increment bible events
             
         }
     }
     
+    /* MAKES A PROGRESS BAR FOR SKILLS OR GIFTS IN PROGRESS */
     func makeProgressBarFor( time: Double, caption: String) {
         
-        progBarCaption = SKLabelNode(text: caption)
-        progBarCaption.zPosition = 5.0
-        progBarCaption.position = CGPointZero
-        progBarCaption.fontSize = 14
-        progBarFrame.position = CGPointZero
-        progBarFrame.zPosition = 3.0
-        progBar.position = CGPointZero
-        progBar.zPosition = 4.0
-        progBarDuration = time
-        progBar.size = CGSizeMake(0, progBar.size.height)
-        self.addChild(progBarFrame)
-        self.addChild(progBarCaption)
-        self.addChild(progBar)
+        progBarCaption = SKLabelNode(text: caption) //make caption
+        progBarCaption.zPosition = 5.0  //put the caption in front of the frame and prog bar
+        progBarCaption.position = CGPointZero   //center the caption
+        progBarCaption.fontSize = 14    //font size
+        progBarCaption.fontName = "Arial Bold"  //font
+        progBarFrame.position = CGPointZero //center the frame
+        progBarFrame.zPosition = 3.0    //put the frame in back
+        progBar.position = CGPointZero  //center the progbar
+        progBar.zPosition = 4.0 //place the progbar between the frame and the caption
+        progBarDuration = time  //set the duration to the time given when makeProgressBarFor was called
+        progBar.size = CGSizeMake(0, progBar.size.height)   //make the progbar invisible for starters (zero width)
+        self.addChild(progBarFrame) //add frame to scene
+        self.addChild(progBarCaption)   //add caption to scene
+        self.addChild(progBar)  //add progbar to scene
         
     }
     
+    /* UPDATES THE CURRENT PROGRESS BAR LEVEL */
     func updateProgressBar( deltaTime : Double ) {
         
-        if progBarDuration != 0.0 {
-            progBarTime += deltaTime
-            progBar.size = CGSizeMake( CGFloat( ( CGFloat(progBarTime) / CGFloat(progBarDuration) ) * PROG_BAR_WIDTH ), progBar.size.height )
+        if progBarDuration > 0.0 { //if the progress bar is active (has a duration greater than zero)
+            progBarTime += deltaTime    //increment the progressbar's value by deltaTime
+            progBar.size = CGSizeMake( CGFloat( ( CGFloat(progBarTime) / CGFloat(progBarDuration) ) * PROG_BAR_WIDTH ), progBar.size.height )   //redraw bar to reflect the change in time value
         }
-        if progBarTime >= progBarDuration && progBarDuration != 0.0 {
-            removeProgressBar()
+        if progBarTime >= progBarDuration && progBarDuration != 0.0 {   //if we've reached the end of the progressbar
+            removeProgressBar() //remove progress bar (& activate skill)
         }
         
     }
     
+    /* REMOVES THE PROGRESS BAR FROM THE SCENE, ACTIVATES THE SKILL OR GIFT BEING WAITED FOR */
     func removeProgressBar() {
         
-        progBarFrame.removeFromParent()
-        progBar.removeFromParent()
-        progBarCaption.removeFromParent()
-        progBarTime = 0.0
-        progBarDuration = 0.0
-        progBarCaption = SKLabelNode(text: "")
-        theGame.player.skills[skillInUse].use()
-        skillInUse = -1
+        progBarFrame.removeFromParent() //remove the frame
+        progBar.removeFromParent()  //remove the bar
+        progBarCaption.removeFromParent()   //remove the caption
+        progBarTime = 0.0   //reset time position
+        progBarDuration = 0.0   //reset duration
+        progBarCaption = SKLabelNode(text: "")  //reset caption
+        if skillInUse >= 10 {   //if we're using a spiritual gift skill
+            var useWithoutTarget = true //initially, we assume we'll be using the gift without a target
+            if theGame.currentLocation.people.count > 0 {   //if there's NPCs in the current location
+                for n in 0...theGame.currentLocation.people.count-1 {   //interate through all NPCs
+                    if theGame.currentLocation.people[n].selected == true { //if an NPC is selected
+                        giftSkills[skillInUse-10].useOnNPC(theGame.currentLocation.people[n])   //perform the skill function on the NPC
+                        useWithoutTarget = false    //now we don't want to use the gift without a target
+                    }
+                }
+            }
+            if theGame.currentLocation.animals.count > 0 {  //if there's animals in the current location
+                for n in 0...theGame.currentLocation.animals.count-1 {  //iterate through all animals
+                    if theGame.currentLocation.animals[n].selected == true {    //if an animal is selected
+                        giftSkills[skillInUse-10].useOnAnimal(theGame.currentLocation.animals[n])   //perform the skill function on the animal
+                        useWithoutTarget = false    //we don't want to use the gift without a target
+                    }
+                }
+            }
+            if useWithoutTarget == true {   //if there were no selections (targets)
+                giftSkills[skillInUse-10].use() //use the gift without a target (usually this means performing the skill function on yourself)
+            }
+        } else {    //if we're using a natural skill
+            var useWithoutTarget = true //initially, we assume we'll be using the gift without a target
+            if theGame.currentLocation.people.count > 0 {   //if there's NPCs in the current location
+                for n in 0...theGame.currentLocation.people.count-1 {   //iterate through all NPCs
+                    if theGame.currentLocation.people[n].selected == true { //if an NPC is selected
+                        theGame.player.skills[skillInUse].useOnNPC(theGame.currentLocation.people[n])   //perform the skill function on the NPC
+                        useWithoutTarget = false    //now we don't want to use the gift without a target
+                    }
+                }
+            }
+            if theGame.currentLocation.animals.count > 0 {  //if there's animals in the current location
+                for n in 0...theGame.currentLocation.animals.count-1 {  // iterate through all aninmals
+                    if theGame.currentLocation.animals[n].selected == true {    //if an animal is selected
+                        theGame.player.skills[skillInUse].useOnAnimal(theGame.currentLocation.animals[n])   //perform the skill function on the animal
+                        useWithoutTarget = false    //we dofn't want to use the gift without a target
+                    }
+                }
+            }
+            if useWithoutTarget == true {   //if there were no selections (targets)
+                theGame.player.skills[skillInUse].use() //use the skill without a target (usually this means performing the skill function on yourself)
+            }
+        }
+        
+        skillInUse = -1 //reset skill number holder to nothing (-1)
         
     }
     
@@ -719,9 +812,11 @@ class GameScene: SKScene {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
-        updateProgressBar( GAME_SPEED )
+        updateProgressBar( GAME_SPEED ) //update the progressbar at speed GAME_SPEED
         
-        theGame.currentLocation.animals[0].updateAI(currentTime)
+        for n in 0...theGame.currentLocation.animals.count-1 {  //for each animal
+            theGame.currentLocation.animals[n].updateAI(currentTime)    //update the AI
+        }
         
         dateLabel.text = formatter.stringFromDate(theGame.gameDate) //grabs the date & time and puts it in the dateLabel
         
@@ -733,6 +828,7 @@ class GameScene: SKScene {
     
 }
 
+/* SET UP AND PLAY BACKGROUND MUSIC */
 var backgroundMusicPlayer: AVAudioPlayer!
 var soundPlayer: AVAudioPlayer!
 
@@ -755,7 +851,8 @@ func playBackgroundMusic(filename: String) {    //sets up an audio player to pla
     backgroundMusicPlayer.play()    //play song
 }
 
-func playSound(filename: String) {    //sets up an audio player to play sound effects
+/* SET UP AND PLAY A GIVEN SOUND */
+func playSound(filename: String) {    //sets up an audio player to play sound effects and scripture readings
     let url = NSBundle.mainBundle().URLForResource(filename, withExtension: nil)
     if (url == nil) {
         println("Could not find file: \(filename)")
