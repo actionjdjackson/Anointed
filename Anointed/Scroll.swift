@@ -14,14 +14,16 @@ class Scroll: Item {
     
     let text: String
     let ENGtext: String
+    let ENGaudio : String
     let language: String
     
     init( ttl: String, desc: String, textFile: String, lang: String, scrollSize: Int ) {
         
-        var path = NSBundle.mainBundle().pathForResource(textFile, ofType: "txt")!  //grabs text file path for this scroll
+        var path = NSBundle.mainBundle().pathForResource(textFile + lang, ofType: "txt")!  //grabs text file path for this scroll
         text = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)!    //grab the text and put in string "text"
         path = NSBundle.mainBundle().pathForResource(textFile + "ENG", ofType: "txt")!  //grabs text file with added "ENG" for english translation
         ENGtext = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)! //grab the text of the english translation and put in string "ENGtext"
+        ENGaudio = textFile + "ENG" + ".mp3"
         language = lang //set language of scroll
         
         if scrollSize == 1 {
@@ -36,6 +38,12 @@ class Scroll: Item {
         
     }
 
+    override func mouseDragged(theEvent: NSEvent) {
+        
+        //GAH!
+        
+    }
+    
     /* WHEN SCROLL IS OPENED FOR STUDYING... */
     func studyScroll(chap: Int, verseStart: Int, verseEnd: Int) {
         

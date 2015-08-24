@@ -27,6 +27,16 @@ extension SKNode {
     }
 }
 
+extension SKView {
+    
+    override public func rightMouseDown(theEvent: NSEvent) {
+    
+        self.scene!.rightMouseDown( theEvent )
+    
+    }
+    
+}
+
 /* DOES ALL THE FANCY MAC APP STUFF */
 @NSApplicationMain
 
@@ -37,6 +47,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var skView: SKView!
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        
+        window.toggleFullScreen(self)
         /* Pick a size for the scene */
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             /* Set the scale mode to scale to fit the window */
@@ -51,7 +63,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.skView!.showsFPS = true
             self.skView!.showsNodeCount = true
             
-            window.toggleFullScreen(self)
         }
     }
     

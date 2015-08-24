@@ -39,7 +39,7 @@ class Item : SKSpriteNode {
         self.userInteractionEnabled = true  //allow clicks and such on item
         
     }
-
+    
     /* HANDLES MOUSE CLICK ON ITEM */
     override func mouseDown( theEvent: NSEvent ) {
         

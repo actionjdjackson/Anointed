@@ -37,6 +37,7 @@ class GameCharacter : SKSpriteNode {
     var currentGridLocation: CGPoint
     
     /* FOR NOW, JUST DEFAULT TO ME AND DEFINE THINGS AS WE NEED TO FOR DEBUGGING. CHARS WILL BE DEFINABLE/CREATABLE LATER IN GAME DEV - ***IN PROGRESS*** */
+    
     init() {
         
         firstName = "Jacob"

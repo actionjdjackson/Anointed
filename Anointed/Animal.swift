@@ -21,6 +21,8 @@ class Animal : SKSpriteNode {
     var sprites : [[SKTexture]] //texture array
     var selected : Bool = false //initially not selected
     var physicalHealth : Int = 100  //starts with full health
+    var boundsArray : [Int]
+    var gridLocation : CGPoint
     
     /* CONSTANTS */
     let WALK_TIME = NSTimeInterval(1.0) //how long the walk sequence lasts
@@ -33,12 +35,15 @@ class Animal : SKSpriteNode {
     let SPRITE_SIZE_Y = CGFloat(32)
     let SELECTION_OUTLINE_SIZE = CGFloat(2.0)   //size of the line for drawing the selection halo
     let SELECTION_OUTLINE_GLOW_SIZE = CGFloat(5.0)  //size of the glow for drawing the selection halo
+    let SELECTION_CORNER_RADIUS = CGFloat(10)
     
-    init( name: String, desc: String, sheetName: String ) {
+    init( name: String, desc: String, sheetName: String, gridLoc : CGPoint, bounds: [Int] ) {
         
         animalName = name
         descript = desc
         spriteSheetName = sheetName
+        gridLocation = gridLoc
+        boundsArray = bounds
         
         let spriteSheet = SKTexture(imageNamed: spriteSheetName)    //grab spritesheet
         let w = spriteSheet.size().width    //width of spritesheet
@@ -71,13 +76,13 @@ class Animal : SKSpriteNode {
             self.removeAllChildren()    //remove halo
             selected = false    //now no longer selected
         } else {    //if it is not already selected
-            selected = true //it is now selected
             var outlineBox : SKShapeNode    //create new halo shapenode
-            outlineBox = SKShapeNode(rectOfSize: self.texture!.size(), cornerRadius: 10)    //make a rounded rectangle of size equal to animal sprite size
+            outlineBox = SKShapeNode(rectOfSize: self.texture!.size(), cornerRadius: SELECTION_CORNER_RADIUS)    //make a rounded rectangle of size equal to animal sprite size
             outlineBox.lineWidth = SELECTION_OUTLINE_SIZE   //set the line width
             outlineBox.strokeColor = SKColor.whiteColor()   //set the color to white
             outlineBox.glowWidth = SELECTION_OUTLINE_GLOW_SIZE  //set the glow width
             self.addChild(outlineBox)   //add the halo to the animal
+            selected = true //it is now selected
         }
         
     }
@@ -121,72 +126,96 @@ class Animal : SKSpriteNode {
     /* handles moving up */
     func moveUP() {
         
-        self.texture = sprites[0][0]    //face the appropriate direction
-        var walkFrames = [SKTexture]()  //create new working walk frames variable
-        walkFrames.append(sprites[0][0])    //grab the sprites for walking up
-        walkFrames.append(sprites[0][1])
-        walkFrames.append(sprites[0][2])
-        walkFrames.append(sprites[0][0])
-        walkFrames.append(sprites[0][1])
-        walkFrames.append(sprites[0][2])
-        let walk = SKAction.animateWithTextures(walkFrames, timePerFrame: NSTimeInterval(WALK_TIME / Double(walkFrames.count))) //make a new walk animation
-        let moveUp = SKAction.moveByX( ZERO, y: ONE_SQUARE_UP, duration: WALK_TIME) //make a new movement animation
-        self.runAction(walk)    //run walk cycle animation
-        self.runAction(moveUp)  //run movement animation
+        if Int(gridLocation.x + 1) >= Int(boundsArray[0]) || Int(gridLocation.y + 1) >= Int(boundsArray[1]) {
+            //do nothing
+        } else {
+            gridLocation.y += 1
+            gridLocation.x += 1
+            self.texture = sprites[0][0]    //face the appropriate direction
+            var walkFrames = [SKTexture]()  //create new working walk frames variable
+            walkFrames.append(sprites[0][0])    //grab the sprites for walking up
+            walkFrames.append(sprites[0][1])
+            walkFrames.append(sprites[0][2])
+            walkFrames.append(sprites[0][0])
+            walkFrames.append(sprites[0][1])
+            walkFrames.append(sprites[0][2])
+            let walk = SKAction.animateWithTextures(walkFrames, timePerFrame: NSTimeInterval(WALK_TIME / Double(walkFrames.count))) //make a new walk animation
+            let moveUp = SKAction.moveByX( ZERO, y: ONE_SQUARE_UP, duration: WALK_TIME) //make a new movement animation
+            self.runAction(walk)    //run walk cycle animation
+            self.runAction(moveUp)  //run movement animation
+        }
         
     }
     
     /* handles moving right - same steps taken as in moveUP() */
     func moveRT() {
         
-        self.texture = sprites[1][0]
-        var walkFrames = [SKTexture]()
-        walkFrames.append(sprites[1][0])
-        walkFrames.append(sprites[1][1])
-        walkFrames.append(sprites[1][2])
-        walkFrames.append(sprites[1][0])
-        walkFrames.append(sprites[1][1])
-        walkFrames.append(sprites[1][2])
-        let walk = SKAction.animateWithTextures(walkFrames, timePerFrame: NSTimeInterval(WALK_TIME / Double(walkFrames.count)))
-        let moveRt = SKAction.moveByX( ONE_SQUARE_RT, y: ZERO, duration: WALK_TIME)
-        self.runAction(walk)
-        self.runAction(moveRt)
+        if Int(gridLocation.x - 1) < 0 || Int(gridLocation.y + 1) >= Int(boundsArray[1]) {
+            //do nothing
+        } else {
+            gridLocation.y += 1
+            gridLocation.x -= 1
+            self.texture = sprites[1][0]
+            var walkFrames = [SKTexture]()
+            walkFrames.append(sprites[1][0])
+            walkFrames.append(sprites[1][1])
+            walkFrames.append(sprites[1][2])
+            walkFrames.append(sprites[1][0])
+            walkFrames.append(sprites[1][1])
+            walkFrames.append(sprites[1][2])
+            let walk = SKAction.animateWithTextures(walkFrames, timePerFrame: NSTimeInterval(WALK_TIME / Double(walkFrames.count)))
+            let moveRt = SKAction.moveByX( ONE_SQUARE_RT, y: ZERO, duration: WALK_TIME)
+            self.runAction(walk)
+            self.runAction(moveRt)
+        }
         
     }
     
     /* handles moving left - same steps taken as in moveUP() */
     func moveLT() {
         
-        self.texture = sprites[2][0]
-        var walkFrames = [SKTexture]()
-        walkFrames.append(sprites[2][0])
-        walkFrames.append(sprites[2][1])
-        walkFrames.append(sprites[2][2])
-        walkFrames.append(sprites[2][0])
-        walkFrames.append(sprites[2][1])
-        walkFrames.append(sprites[2][2])
-        let walk = SKAction.animateWithTextures(walkFrames, timePerFrame: NSTimeInterval(WALK_TIME / Double(walkFrames.count)))
-        let moveLt = SKAction.moveByX( ONE_SQUARE_LT, y: ZERO, duration: WALK_TIME)
-        self.runAction(walk)
-        self.runAction(moveLt)
-        
+        if Int(gridLocation.x + 1) >= Int(boundsArray[0]) || Int(gridLocation.y - 1) < 0 {
+            //do nothing
+        } else {
+            gridLocation.y -= 1
+            gridLocation.x += 1
+            self.texture = sprites[2][0]
+            var walkFrames = [SKTexture]()
+            walkFrames.append(sprites[2][0])
+            walkFrames.append(sprites[2][1])
+            walkFrames.append(sprites[2][2])
+            walkFrames.append(sprites[2][0])
+            walkFrames.append(sprites[2][1])
+            walkFrames.append(sprites[2][2])
+            let walk = SKAction.animateWithTextures(walkFrames, timePerFrame: NSTimeInterval(WALK_TIME / Double(walkFrames.count)))
+            let moveLt = SKAction.moveByX( ONE_SQUARE_LT, y: ZERO, duration: WALK_TIME)
+            self.runAction(walk)
+            self.runAction(moveLt)
+        }
+    
     }
     
     /* handles moving down - same steps taken as in moveUP() */
     func moveDN() {
         
-        self.texture = sprites[3][0]
-        var walkFrames = [SKTexture]()
-        walkFrames.append(sprites[3][0])
-        walkFrames.append(sprites[3][1])
-        walkFrames.append(sprites[3][2])
-        walkFrames.append(sprites[3][0])
-        walkFrames.append(sprites[3][1])
-        walkFrames.append(sprites[3][2])
-        let walk = SKAction.animateWithTextures(walkFrames, timePerFrame: NSTimeInterval(WALK_TIME / Double(walkFrames.count)))
-        let moveDn = SKAction.moveByX( ZERO, y: ONE_SQUARE_DN, duration: WALK_TIME)
-        self.runAction(walk)
-        self.runAction(moveDn)
+        if Int(gridLocation.x - 1) < 0 || Int(gridLocation.y - 1) < 0 {
+            //do nothing
+        } else {
+            gridLocation.y -= 1
+            gridLocation.x -= 1
+            self.texture = sprites[3][0]
+            var walkFrames = [SKTexture]()
+            walkFrames.append(sprites[3][0])
+            walkFrames.append(sprites[3][1])
+            walkFrames.append(sprites[3][2])
+            walkFrames.append(sprites[3][0])
+            walkFrames.append(sprites[3][1])
+            walkFrames.append(sprites[3][2])
+            let walk = SKAction.animateWithTextures(walkFrames, timePerFrame: NSTimeInterval(WALK_TIME / Double(walkFrames.count)))
+            let moveDn = SKAction.moveByX( ZERO, y: ONE_SQUARE_DN, duration: WALK_TIME)
+            self.runAction(walk)
+            self.runAction(moveDn)
+        }
         
     }
 
