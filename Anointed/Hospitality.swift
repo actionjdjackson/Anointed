@@ -22,7 +22,7 @@ class Hospitality : Skill {
     /* USE HOSPITALITY SKILL ON NPC */
     override func useOnNPC(npc: NonPlayingCharacter) {
         //give food
-        println("Inviting them over for dinner...")
+        print("Inviting them over for dinner...")
         //level up
         level++
         //update tooltip info
@@ -30,8 +30,8 @@ class Hospitality : Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
         //report to console
-        println("Was hospitable")
-        println("Hospitality +1")
+        print("Was hospitable")
+        print("Hospitality +1")
     }
     
     /* CAN WE USE THIS SKILL RIGHT NOW? */

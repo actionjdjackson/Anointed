@@ -30,7 +30,7 @@ class Tentmaking : Skill {
             user.grabFromInventory("Cloth")
             user.grabFromInventory("Cord")
             user.grabFromInventory("Wood")
-            var newTent = Item(ttl: "Tent", desc: "A basic cloth tent.", sx: 1, sy: 1, spriteName: "tent")
+            let newTent = Item(ttl: "Tent", desc: "A basic cloth tent.", sx: 1, sy: 1, spriteName: "tent")
             user.inventory.append(newTent)
             //level up tentmaking skill
             level++
@@ -39,12 +39,12 @@ class Tentmaking : Skill {
             self.toolTipSN.itemInfoB = "Time to Complete: "
             self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round(self.hoursToComplete - log(Double(self.level) * 1.0))) + "hrs"
             //report to console
-            println("Made a basic cloth tent.")
-            println("Tentmaking +1")
+            print("Made a basic cloth tent.")
+            print("Tentmaking +1")
             
         } else {    //if we don't have enough raw materials,
             
-            println("Not enough resources to make a tent. Sorry.")  //print to console no can do
+            print("Not enough resources to make a tent. Sorry.")  //print to console no can do
             
         }
     
@@ -60,7 +60,7 @@ class Tentmaking : Skill {
             user.grabFromInventory("Cloth")
             user.grabFromInventory("Cord")
             user.grabFromInventory("Wood")
-            var newTent = Item(ttl: "Tent", desc: "A basic cloth tent.", sx: 1, sy: 1, spriteName: "tent")
+            let newTent = Item(ttl: "Tent", desc: "A basic cloth tent.", sx: 1, sy: 1, spriteName: "tent")
             npc.inventory.append(newTent)
             //level up tentmaking skill
             level++
@@ -69,12 +69,12 @@ class Tentmaking : Skill {
             self.toolTipSN.itemInfoB = "Time to Complete: "
             self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round(self.hoursToComplete - log(Double(self.level) * 1.0))) + "hrs"
             //report to console
-            println("Made a basic cloth tent.")
-            println("Tentmaking +1")
+            print("Made a basic cloth tent.")
+            print("Tentmaking +1")
             
         } else {    //if we don't have enough raw materials,
             
-            println("Not enough resources to make a tent. Sorry.")  //print to console no can do
+            print("Not enough resources to make a tent. Sorry.")  //print to console no can do
             
         }
         
@@ -89,7 +89,7 @@ class Tentmaking : Skill {
             
         } else {    //otherwise,
             
-            return false    //we cant
+            return false    //we can't
             
         }
         

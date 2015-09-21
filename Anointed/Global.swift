@@ -25,3 +25,20 @@ struct HebrewMonths {
     static let ADAR = 6
     //static let ADAR_B = 13
 }
+
+struct UNIVERSE {
+    
+    static let theGame = GameWorld()
+    
+}
+
+struct FILE_OPERATIONS {
+
+    static func getTextFromFile( filename : String ) -> String {
+    
+        let path = NSBundle.mainBundle().pathForResource( filename, ofType: "txt" )!    //grab the path of the text file
+        return try! String(contentsOfFile: path, encoding: NSUTF8StringEncoding)    //grab the text and put into string and return
+    
+    }
+    
+}

@@ -22,7 +22,7 @@ class PrayerInTheSpirit : Skill {
     /* USE PRAYER IN THE SPIRIT SKILL ON NPC */
     override func use() {
         //prophesy
-        println("Praying in the spirit...")
+        print("Praying in the spirit...")
         //level up
         level++
         //update tooltip info
@@ -30,8 +30,8 @@ class PrayerInTheSpirit : Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
         //report to console
-        println("Prayed in the Spirit")
-        println("Prayer in the Spirit +1")
+        print("Prayed in the Spirit")
+        print("Prayer in the Spirit +1")
     }
     
     /* CAN WE USE THIS SKILL RIGHT NOW? */

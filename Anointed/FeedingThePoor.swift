@@ -22,7 +22,7 @@ class FeedingThePoor : Skill {
     /* USE CHEERFUL GIVING SKILL ON NPC */
     override func useOnNPC(npc: NonPlayingCharacter) {
         //give food
-        println("Feeding the poor...")
+        print("Feeding the poor...")
         //level up
         level++
         //update tooltip info
@@ -30,8 +30,8 @@ class FeedingThePoor : Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
         //report to console
-        println("Fed NPC")
-        println("Feeding the Poor +1")
+        print("Fed NPC")
+        print("Feeding the Poor +1")
     }
     
     /* CAN WE USE THIS SKILL RIGHT NOW? */

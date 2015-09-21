@@ -40,7 +40,7 @@ class Skill : SKSpriteNode {
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size()) //init spritenode superclass with grabbed texture
         toolTipSN.position = CGPointZero    //center on skill
         toolTipSN.zPosition = 2.0   //set z position of tooltip to draw on top of skill
-        toolTipSN.size = CGSize.zeroSize    //initially hide tooltip
+        toolTipSN.size = CGSize.zero    //initially hide tooltip
         self.addChild( toolTipSN )  //add tooltip to skill
         self.userInteractionEnabled = true  //detects mouse clicks, etc.
         
@@ -84,8 +84,8 @@ class Skill : SKSpriteNode {
     /* HANDLES MOUSE CLICK, DISPLAYS TOOLTIP WHILE MOUSE IS HELD DOWN */
     override func mouseDown( theEvent: NSEvent ) {
         
-        var infoLabelA = SKLabelNode(text: toolTipSN.itemInfoA) //creates a label node with text for info A
-        var infoLabelB = SKLabelNode(text: toolTipSN.itemInfoB) //same for info B
+        let infoLabelA = SKLabelNode(text: toolTipSN.itemInfoA) //creates a label node with text for info A
+        let infoLabelB = SKLabelNode(text: toolTipSN.itemInfoB) //same for info B
         infoLabelA.fontColor = SKColor.whiteColor() //set text color to white
         infoLabelB.fontColor = SKColor.whiteColor() //same for info B
         infoLabelA.fontSize = 12    //set label A font size (bigger)
@@ -104,7 +104,7 @@ class Skill : SKSpriteNode {
     override func mouseUp( theEvent : NSEvent ) {
     
         toolTipSN.removeAllChildren()   //remove all labels
-        toolTipSN.size = CGSize.zeroSize    //hide tooltip (zero size)
+        toolTipSN.size = CGSize.zero    //hide tooltip (zero size)
         
     }
     

@@ -1,5 +1,5 @@
 //
-//  Button.swift
+//  ShowImageButton.swift
 //  Anointed
 //
 //  Created by Jacob Jackson on 8/3/15.
@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Button : SKSpriteNode {
+class ShowImageButton : SKSpriteNode {
     
     var imageToShow : SKSpriteNode
     
@@ -27,7 +27,7 @@ class Button : SKSpriteNode {
     
     override func mouseDown(theEvent: NSEvent) {
         
-        imageToShow.position = CGPoint.zeroPoint
+        imageToShow.position = CGPoint.zero
         self.addChild(imageToShow)
         
     }

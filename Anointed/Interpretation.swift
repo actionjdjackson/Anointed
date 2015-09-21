@@ -10,7 +10,7 @@ import Foundation
 
 class Interpretation : Skill {
     
-    /* SET UP PERSONAL PROPHECY SKILL */
+    /* SET UP INTERPRETATION OF TONGUES SKILL */
     init( user : GameCharacter ) {
         super.init( skillName: "Interpretation", skillDesc: "Allows you to interpret tongues spoken by another character.", skillUser: user, skillSprite : "interpretation", baseTimeToComplete : 1, passv: false )
     }
@@ -22,7 +22,7 @@ class Interpretation : Skill {
     /* USE INTERPRETATION SKILL ON NPC */
     override func useOnNPC(npc: NonPlayingCharacter) {
         //interpretation
-        println("Interpreting...")
+        print("Interpreting...")
         //level up
         level++
         //update tooltip info
@@ -30,8 +30,8 @@ class Interpretation : Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
         //report to console
-        println("Interpreted message from NPC")
-        println("Interpretation +1")
+        print("Interpreted message from NPC")
+        print("Interpretation +1")
     }
     
     /* CAN WE USE THIS SKILL RIGHT NOW? */

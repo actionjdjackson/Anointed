@@ -27,7 +27,7 @@ class Winemaking : Skill {
             
             //make into wine
             user.grabFromInventory("Water")
-            var newWineskin = Item(ttl: "Wineskin", desc: "A wineskin filled with wine", sx: 1, sy: 1, spriteName: "wineskin")
+            let newWineskin = Item(ttl: "Wineskin", desc: "A wineskin filled with wine", sx: 1, sy: 1, spriteName: "wineskin")
             user.inventory.append(newWineskin)
             //level up
             level++
@@ -36,12 +36,12 @@ class Winemaking : Skill {
             self.toolTipSN.itemInfoB = "Time to Complete: "
             self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
             //report to console
-            println("Made some miraculous, great-tasting wine!")
-            println("Winemaking +1")
+            print("Made some miraculous, great-tasting wine!")
+            print("Winemaking +1")
             
         } else {    //if we don't
             
-            println("Not enough resources to make wine. Sorry.")    //it's a no-go
+            print("Not enough resources to make wine. Sorry.")    //it's a no-go
             
         }
         
@@ -54,7 +54,7 @@ class Winemaking : Skill {
             
             //make a tent
             user.grabFromInventory("Water")
-            var newWineskin = Item(ttl: "Wineskin", desc: "A wineskin filled with wine", sx: 1, sy: 1, spriteName: "wineskin")
+            let newWineskin = Item(ttl: "Wineskin", desc: "A wineskin filled with wine", sx: 1, sy: 1, spriteName: "wineskin")
             npc.inventory.append(newWineskin)
             //level up
             level++
@@ -63,12 +63,12 @@ class Winemaking : Skill {
             self.toolTipSN.itemInfoB = "Time to Complete: "
             self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
             //report to console
-            println("Made some miraculous, great-tasting wine!")
-            println("Winemaking +1")
+            print("Made some miraculous, great-tasting wine!")
+            print("Winemaking +1")
             
         } else {    //if we don't
             
-            println("Not enough resources to make wine. Sorry.")    //it's a no-go
+            print("Not enough resources to make wine. Sorry.")    //it's a no-go
             
         }
     }
@@ -82,7 +82,7 @@ class Winemaking : Skill {
             
         } else {    //if we don't,
             
-            println("Not enough resources to make wine. Sorry.")
+            print("Not enough resources to make wine. Sorry.")
             return false    //we can't use the skill
             
         }

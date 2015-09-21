@@ -22,7 +22,7 @@ class PersonalProphecy : Skill {
     /* USE PERSONAL PROPHECY SKILL ON NPC */
     override func useOnNPC(npc: NonPlayingCharacter) {
         //prophesy
-        println("Prophesying...")
+        print("Prophesying...")
         //level up
         level++
         //update tooltip info
@@ -30,8 +30,8 @@ class PersonalProphecy : Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
         //report to console
-        println("Gave personal prophecy to npc")
-        println("Personal Prophecy +1")
+        print("Gave personal prophecy to npc")
+        print("Personal Prophecy +1")
     }
     
     /* CAN WE USE THIS SKILL RIGHT NOW? */

@@ -16,11 +16,11 @@ class Conversation {
     var itemsToBeTraded : [String: Item]
     var informationToBeShared: [String: String]
     
-    init( knowl: [String: Knowledge], underst: [String: Understanding], wisd: [String: Wisdom], items: [String: Item], info: [String: String]) {
+    init( knowledge: [String : Knowledge], understanding: [String : Understanding], wisdom: [String : Wisdom], items: [String : Item], info: [String : String]) {
         
-        knowledgeToBeShared = knowl
-        understandingToBeShared = underst
-        wisdomToBeShared = wisd
+        knowledgeToBeShared = knowledge
+        understandingToBeShared = understanding
+        wisdomToBeShared = wisdom
         itemsToBeTraded = items
         informationToBeShared = info
         

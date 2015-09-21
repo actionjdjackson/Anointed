@@ -21,6 +21,11 @@ class NonPlayingCharacter : GameCharacter {
         
         conversation = convo    //stores the conversation
         super.init( )   //super initializer
+        if conversation.itemsToBeTraded.count > 0 {
+            for (question, item) in conversation.itemsToBeTraded {
+                inventory.append(item)
+            }
+        }
         self.userInteractionEnabled = true  //detect mouse clicks, etc.
         
     }
@@ -50,21 +55,65 @@ class NonPlayingCharacter : GameCharacter {
     }
     
     /* HANDLES RIGHT MOUSE CLICKS ON NPC */
-    func rightClick() {
+    override func rightMouseDown(theEvent: NSEvent) {
         
         if talking == false {   //if we're not already in a conversation
+            
             talking = true  //we are now
+            
             var i = 0   //how many questions have we gone through
+            
             for (question, answer) in conversation.informationToBeShared {  //iterate through all informational conversation pieces
-                var menuItem = MenuItem(theText: question)  //put a menu up on top of the NPC with the text of the question
+                let menuItem = MenuItem(theText: question)  //put a menu up on top of the NPC with the text of the question
                 menuItem.position.y = CGFloat(i * -32)  //put it below any previous questions
                 menuItem.name = question    //names the menu item after the question it refers to
                 self.addChild(menuItem) //add to NPC, and thus, to the scene
-                i++ //iterate the question counter
+                i++ //increment the question counter
             }
+            
+            for (question, item) in conversation.itemsToBeTraded {  //iterate through all items to be traded
+                let menuItem = MenuItem(theText: question)  //put a menu up on top of the NPC with the text of the trade question
+                menuItem.position.y = CGFloat(i * -32)  //put it below any previous questions
+                menuItem.name = question    //names the menu item after the question it refers to
+                self.addChild(menuItem) //add to NPC, and thus, to the scene
+                i++ //increment the question counter
+            }
+            
+            for (question, knowledge) in conversation.knowledgeToBeShared { //iterate through all knowledge to be shared
+                let menuItem = MenuItem(theText: question)  //put a menu up on top of the NPC with the text of the knowledge question
+                menuItem.position.y = CGFloat(i * -32)  //put it below any previous questions
+                menuItem.name = question    //names the menu item after the question it refers to
+                self.addChild(menuItem) //add to NPC, and thus, to the scene
+                i++ //increment the question counter
+            }
+            
+            for (question, understanding) in conversation.understandingToBeShared { //same as above, but for understanding
+                let menuItem = MenuItem(theText: question)
+                menuItem.position.y = CGFloat(i * -32)
+                menuItem.name = question
+                self.addChild(menuItem)
+                i++
+            }
+            
+            for (question, wisdom) in conversation.wisdomToBeShared {   //same as above, but for wisdom
+                let menuItem = MenuItem(theText: question)
+                menuItem.position.y = CGFloat(i * -32)
+                menuItem.name = question
+                self.addChild(menuItem)
+                i++
+            }
+            
+            let menuItem = MenuItem(theText: "Bye!")    //add a bye menu item
+            menuItem.position.y = CGFloat(i * -32)  //put it below any previous questions
+            menuItem.name = "END_CONVERSATION"  //name it "END_CONVERSATION" for later use in identifying the button as the conversation-ender
+            self.addChild(menuItem) //add to NPC, and thus, to the scene
+            i++ //increment the question counter
+            
         } else {    //if we're already in a conversation
+            
             self.removeAllChildren()    //remove conversation elements (and everything else, like the selection outline)
             talking = false //we are no longer talking
+            
         }
         
     }

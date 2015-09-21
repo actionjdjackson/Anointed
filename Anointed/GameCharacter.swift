@@ -50,7 +50,7 @@ class GameCharacter : SKSpriteNode {
         physicalHealth = 100
         isDisciple = true
         inventory = []
-        inventorySize = 12
+        inventorySize = 120
         spiritualGifts = []
         skills = []
         knowledge = []

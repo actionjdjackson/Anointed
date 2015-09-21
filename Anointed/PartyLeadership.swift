@@ -22,7 +22,7 @@ class PartyLeadership : Skill {
     /* USE PARTY LEADERSHIP SKILL ON NPC */
     override func useOnNPC(npc: NonPlayingCharacter) {
         //give
-        println("Leading/Organizing...")
+        print("Leading/Organizing...")
         //level up
         level++
         //update tooltip info
@@ -30,8 +30,8 @@ class PartyLeadership : Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
         //report to console
-        println("NPC is now a part of your party.")
-        println("Party Leadership +1")
+        print("NPC is now a part of your party.")
+        print("Party Leadership +1")
     }
     
     /* CAN WE USE THIS SKILL RIGHT NOW? */

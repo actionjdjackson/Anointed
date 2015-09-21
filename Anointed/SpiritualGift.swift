@@ -33,7 +33,7 @@ class SpiritualGift : SKSpriteNode {
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size()) //calls superclass init with grabbed texture
         toolTipSN.position = CGPointZero    //center tooltip on spiritual gift
         toolTipSN.zPosition = 2.0   //set z position to draw in front of spiritual gift
-        toolTipSN.size = CGSize.zeroSize    //hide initially (zero size)
+        toolTipSN.size = CGSize.zero    //hide initially (zero size)
         self.addChild( toolTipSN )  //add tooltip to spiritual gift
         self.userInteractionEnabled = true  //detect mouseclicks, etc.
         
@@ -42,8 +42,8 @@ class SpiritualGift : SKSpriteNode {
     /* HANDLES MOUSE CLICK, DISPLAYS TOOLTIP WHILE MOUSE IS HELD DOWN */
     override func mouseDown( theEvent: NSEvent ) {
         
-        var infoLabelA = SKLabelNode(text: toolTipSN.itemInfoA) //creates a label node with text for info A
-        var infoLabelB = SKLabelNode(text: toolTipSN.itemInfoB) //same for info B
+        let infoLabelA = SKLabelNode(text: toolTipSN.itemInfoA) //creates a label node with text for info A
+        let infoLabelB = SKLabelNode(text: toolTipSN.itemInfoB) //same for info B
         infoLabelA.fontColor = SKColor.whiteColor() //set text color to white
         infoLabelB.fontColor = SKColor.whiteColor() //same for info B
         infoLabelA.fontSize = 12    //set label A font size
@@ -62,7 +62,7 @@ class SpiritualGift : SKSpriteNode {
     override func mouseUp( theEvent : NSEvent ) {
         
         toolTipSN.removeAllChildren()   //remove all labels
-        toolTipSN.size = CGSize.zeroSize    //hide tooltip (zero size)
+        toolTipSN.size = CGSize.zero    //hide tooltip (zero size)
         
     }
     

@@ -24,7 +24,7 @@
 		E20309551B6FC69D00BF658F /* Hospitality.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309541B6FC69D00BF658F /* Hospitality.swift */; };
 		E20309571B6FC82A00BF658F /* Missionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309561B6FC82A00BF658F /* Missionary.swift */; };
 		E211865E1B697CE2005E9AA3 /* PhysicalHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E211865D1B697CE2005E9AA3 /* PhysicalHealing.swift */; };
-		E21325D01B7048AB00B1304F /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21325CF1B7048AB00B1304F /* Button.swift */; };
+		E21325D01B7048AB00B1304F /* ShowImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21325CF1B7048AB00B1304F /* ShowImageButton.swift */; };
 		E21B458D1AE04E8F007F10C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */; };
 		E21B458F1AE04E8F007F10C5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B458E1AE04E8F007F10C5 /* GameScene.swift */; };
 		E21B45911AE04E8F007F10C5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E21B45901AE04E8F007F10C5 /* GameScene.sks */; };
@@ -49,15 +49,17 @@
 		E21B45CF1AE04EF6007F10C5 /* Wisdom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */; };
 		E21B45D01AE04EF6007F10C5 /* WorldMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B45BE1AE04EF6007F10C5 /* WorldMap.swift */; };
 		E22424081B03E399002BE6EB /* BackgroundMusicA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */; };
+		E24EA3271BAC92E000716B5D /* PlaySoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EA3261BAC92E000716B5D /* PlaySoundButton.swift */; };
 		E2522A891AE05C9E00EDD89A /* TanakhENG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A881AE05C9E00EDD89A /* TanakhENG.txt */; };
 		E2522A8B1AE0631900EDD89A /* Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2522A8A1AE0631900EDD89A /* Scroll.swift */; };
-		E2522A8D1AE06B4D00EDD89A /* Psalm139Hebrew.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8C1AE06B4D00EDD89A /* Psalm139Hebrew.txt */; };
-		E2522A8F1AE06DBE00EDD89A /* Psalm139ENG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */; };
+		E2522A8D1AE06B4D00EDD89A /* Psalm 139Hebrew.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8C1AE06B4D00EDD89A /* Psalm 139Hebrew.txt */; };
+		E2522A8F1AE06DBE00EDD89A /* Psalm 139ENG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8E1AE06DBE00EDD89A /* Psalm 139ENG.txt */; };
 		E2522A911AE07ABA00EDD89A /* GridSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2522A901AE07ABA00EDD89A /* GridSquare.swift */; };
 		E2643B9F1B5DD9FC006C280C /* ToolTipSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */; };
-		E2790D4F1B8117A900702F50 /* Psalm139ENG.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E2790D4E1B8117A900702F50 /* Psalm139ENG.mp3 */; };
+		E2790D4F1B8117A900702F50 /* Psalm 139ENG.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */; };
 		E28C4A511B4D7FC4001CD4A7 /* Tentmaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */; };
-		E2BE7A621B88274300A57242 /* Psalm139Hebrew.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E2BE7A611B88274300A57242 /* Psalm139Hebrew.mp3 */; };
+		E29307D51BAE61B9009F8B6A /* StudySectionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29307D41BAE61B9009F8B6A /* StudySectionLabel.swift */; };
+		E2BE7A621B88274300A57242 /* Psalm 139Hebrew.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E2BE7A611B88274300A57242 /* Psalm 139Hebrew.mp3 */; };
 		E2BE7A641B8A615D00A57242 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BE7A631B8A615D00A57242 /* MenuItem.swift */; };
 		E2BE7A6A1B8AA68A00A57242 /* HoverText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BE7A691B8AA68A00A57242 /* HoverText.swift */; };
 		E2D52D611AEC88900008879C /* SKMultiLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D52D601AEC88900008879C /* SKMultiLineLabel.swift */; };
@@ -93,7 +95,7 @@
 		E20309541B6FC69D00BF658F /* Hospitality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hospitality.swift; sourceTree = "<group>"; };
 		E20309561B6FC82A00BF658F /* Missionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Missionary.swift; sourceTree = "<group>"; };
 		E211865D1B697CE2005E9AA3 /* PhysicalHealing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicalHealing.swift; sourceTree = "<group>"; };
-		E21325CF1B7048AB00B1304F /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		E21325CF1B7048AB00B1304F /* ShowImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageButton.swift; sourceTree = "<group>"; };
 		E21B45871AE04E8F007F10C5 /* Anointed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anointed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21B458B1AE04E8F007F10C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,15 +124,17 @@
 		E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wisdom.swift; sourceTree = "<group>"; };
 		E21B45BE1AE04EF6007F10C5 /* WorldMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldMap.swift; sourceTree = "<group>"; };
 		E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusicA.mp3; sourceTree = "<group>"; };
+		E24EA3261BAC92E000716B5D /* PlaySoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundButton.swift; sourceTree = "<group>"; };
 		E2522A881AE05C9E00EDD89A /* TanakhENG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TanakhENG.txt; sourceTree = "<group>"; };
 		E2522A8A1AE0631900EDD89A /* Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scroll.swift; sourceTree = "<group>"; };
-		E2522A8C1AE06B4D00EDD89A /* Psalm139Hebrew.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Psalm139Hebrew.txt; sourceTree = "<group>"; };
-		E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Psalm139ENG.txt; sourceTree = "<group>"; };
+		E2522A8C1AE06B4D00EDD89A /* Psalm 139Hebrew.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Psalm 139Hebrew.txt"; sourceTree = "<group>"; };
+		E2522A8E1AE06DBE00EDD89A /* Psalm 139ENG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Psalm 139ENG.txt"; sourceTree = "<group>"; };
 		E2522A901AE07ABA00EDD89A /* GridSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridSquare.swift; sourceTree = "<group>"; };
 		E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolTipSpriteNode.swift; sourceTree = "<group>"; };
-		E2790D4E1B8117A900702F50 /* Psalm139ENG.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Psalm139ENG.mp3; sourceTree = "<group>"; };
+		E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Psalm 139ENG.mp3"; sourceTree = "<group>"; };
 		E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tentmaking.swift; sourceTree = "<group>"; };
-		E2BE7A611B88274300A57242 /* Psalm139Hebrew.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Psalm139Hebrew.mp3; sourceTree = "<group>"; };
+		E29307D41BAE61B9009F8B6A /* StudySectionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySectionLabel.swift; sourceTree = "<group>"; };
+		E2BE7A611B88274300A57242 /* Psalm 139Hebrew.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Psalm 139Hebrew.mp3"; sourceTree = "<group>"; };
 		E2BE7A631B8A615D00A57242 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		E2BE7A691B8AA68A00A57242 /* HoverText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoverText.swift; sourceTree = "<group>"; };
 		E2D52D601AEC88900008879C /* SKMultiLineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMultiLineLabel.swift; sourceTree = "<group>"; wrapsLines = 0; };
@@ -191,22 +195,20 @@
 				E21B45B11AE04EF6007F10C5 /* GameCharacter.swift */,
 				E21B45901AE04E8F007F10C5 /* GameScene.sks */,
 				E21B458E1AE04E8F007F10C5 /* GameScene.swift */,
-				E21325CF1B7048AB00B1304F /* Button.swift */,
 				E21B45B21AE04EF6007F10C5 /* GameWorld.swift */,
 				E21B45B31AE04EF6007F10C5 /* Global.swift */,
 				E2522A901AE07ABA00EDD89A /* GridSquare.swift */,
 				E20309541B6FC69D00BF658F /* Hospitality.swift */,
+				E2BE7A691B8AA68A00A57242 /* HoverText.swift */,
 				E21B45921AE04E8F007F10C5 /* Images.xcassets */,
 				E20309441B6FB86100BF658F /* Interpretation.swift */,
 				E21B45B41AE04EF6007F10C5 /* Item.swift */,
 				E21B45B51AE04EF6007F10C5 /* Knowledge.swift */,
 				E21B45B61AE04EF6007F10C5 /* Location.swift */,
 				E21B45941AE04E8F007F10C5 /* MainMenu.xib */,
-				E20309561B6FC82A00BF658F /* Missionary.swift */,
-				E2D52D601AEC88900008879C /* SKMultiLineLabel.swift */,
-				E21B45B81AE04EF6007F10C5 /* NonPlayingCharacter.swift */,
 				E2BE7A631B8A615D00A57242 /* MenuItem.swift */,
-				E2BE7A691B8AA68A00A57242 /* HoverText.swift */,
+				E20309561B6FC82A00BF658F /* Missionary.swift */,
+				E21B45B81AE04EF6007F10C5 /* NonPlayingCharacter.swift */,
 				E203094A1B6FC0E300BF658F /* OneOnOneTeaching.swift */,
 				E20309401B6FB5C200BF658F /* OriginDiscernment.swift */,
 				E203094E1B6FC29400BF658F /* PartyLeadership.swift */,
@@ -214,14 +216,18 @@
 				E20309381B6FAF4D00BF658F /* PersonalProphecy.swift */,
 				E211865D1B697CE2005E9AA3 /* PhysicalHealing.swift */,
 				E20309421B6FB77300BF658F /* PrayerInTheSpirit.swift */,
-				E2522A8C1AE06B4D00EDD89A /* Psalm139Hebrew.txt */,
-				E2BE7A611B88274300A57242 /* Psalm139Hebrew.mp3 */,
-				E2522A8E1AE06DBE00EDD89A /* Psalm139ENG.txt */,
-				E2790D4E1B8117A900702F50 /* Psalm139ENG.mp3 */,
+				E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */,
+				E2522A8E1AE06DBE00EDD89A /* Psalm 139ENG.txt */,
+				E2BE7A611B88274300A57242 /* Psalm 139Hebrew.mp3 */,
+				E2522A8C1AE06B4D00EDD89A /* Psalm 139Hebrew.txt */,
 				E21B45B91AE04EF6007F10C5 /* Room.swift */,
 				E2522A8A1AE0631900EDD89A /* Scroll.swift */,
+				E29307D41BAE61B9009F8B6A /* StudySectionLabel.swift */,
 				E20309481B6FC01D00BF658F /* Servanthood.swift */,
+				E21325CF1B7048AB00B1304F /* ShowImageButton.swift */,
+				E24EA3261BAC92E000716B5D /* PlaySoundButton.swift */,
 				E21B45BA1AE04EF6007F10C5 /* Skill.swift */,
+				E2D52D601AEC88900008879C /* SKMultiLineLabel.swift */,
 				E21B45BB1AE04EF6007F10C5 /* SpiritualGift.swift */,
 				E21B458A1AE04E8F007F10C5 /* Supporting Files */,
 				E2522A881AE05C9E00EDD89A /* TanakhENG.txt */,
@@ -306,7 +312,9 @@
 		E21B457F1AE04E8F007F10C5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "ThinkMac Innovations";
 				TargetAttributes = {
 					E21B45861AE04E8F007F10C5 = {
@@ -342,12 +350,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2522A8F1AE06DBE00EDD89A /* Psalm139ENG.txt in Resources */,
+				E2522A8F1AE06DBE00EDD89A /* Psalm 139ENG.txt in Resources */,
 				E2522A891AE05C9E00EDD89A /* TanakhENG.txt in Resources */,
-				E2BE7A621B88274300A57242 /* Psalm139Hebrew.mp3 in Resources */,
+				E2BE7A621B88274300A57242 /* Psalm 139Hebrew.mp3 in Resources */,
 				E22424081B03E399002BE6EB /* BackgroundMusicA.mp3 in Resources */,
-				E2522A8D1AE06B4D00EDD89A /* Psalm139Hebrew.txt in Resources */,
-				E2790D4F1B8117A900702F50 /* Psalm139ENG.mp3 in Resources */,
+				E2522A8D1AE06B4D00EDD89A /* Psalm 139Hebrew.txt in Resources */,
+				E2790D4F1B8117A900702F50 /* Psalm 139ENG.mp3 in Resources */,
 				E21B45911AE04E8F007F10C5 /* GameScene.sks in Resources */,
 				E21B45931AE04E8F007F10C5 /* Images.xcassets in Resources */,
 				E21B45961AE04E8F007F10C5 /* MainMenu.xib in Resources */,
@@ -378,6 +386,7 @@
 				E21B45CA1AE04EF6007F10C5 /* NonPlayingCharacter.swift in Sources */,
 				E21B45C31AE04EF6007F10C5 /* GameCharacter.swift in Sources */,
 				E21B45CC1AE04EF6007F10C5 /* Skill.swift in Sources */,
+				E24EA3271BAC92E000716B5D /* PlaySoundButton.swift in Sources */,
 				E20309411B6FB5C300BF658F /* OriginDiscernment.swift in Sources */,
 				E20309571B6FC82A00BF658F /* Missionary.swift in Sources */,
 				E21B458F1AE04E8F007F10C5 /* GameScene.swift in Sources */,
@@ -399,6 +408,7 @@
 				E203094B1B6FC0E300BF658F /* OneOnOneTeaching.swift in Sources */,
 				E203094F1B6FC29400BF658F /* PartyLeadership.swift in Sources */,
 				E21B45BF1AE04EF6007F10C5 /* BibleEvent.swift in Sources */,
+				E29307D51BAE61B9009F8B6A /* StudySectionLabel.swift in Sources */,
 				E21B45C01AE04EF6007F10C5 /* Building.swift in Sources */,
 				E211865E1B697CE2005E9AA3 /* PhysicalHealing.swift in Sources */,
 				E21B45CF1AE04EF6007F10C5 /* Wisdom.swift in Sources */,
@@ -413,7 +423,7 @@
 				E21B45C51AE04EF6007F10C5 /* Global.swift in Sources */,
 				E20309551B6FC69D00BF658F /* Hospitality.swift in Sources */,
 				E21B45CB1AE04EF6007F10C5 /* Room.swift in Sources */,
-				E21325D01B7048AB00B1304F /* Button.swift in Sources */,
+				E21325D01B7048AB00B1304F /* ShowImageButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +478,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -534,6 +545,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Anointed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "thinkmacinnovations.$(Anointed:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -545,6 +557,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Anointed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "thinkmacinnovations.$(Anointed:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -564,6 +577,7 @@
 				);
 				INFOPLIST_FILE = AnointedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "thinkmacinnovations.$(Anointed:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anointed.app/Contents/MacOS/Anointed";
 			};
@@ -580,6 +594,7 @@
 				);
 				INFOPLIST_FILE = AnointedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "thinkmacinnovations.$(Anointed:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anointed.app/Contents/MacOS/Anointed";
 			};

@@ -106,7 +106,7 @@ class Animal : SKSpriteNode {
     /* moves the animal in a random direction */
     func moveRandom() {
         
-        var direction = random() % 4    //random number 0 - 3
+        let direction = random() % 4    //random number 0 - 3
         switch( direction ) {
             
         case 0: moveUP()    //move up

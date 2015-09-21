@@ -10,7 +10,7 @@ import Foundation
 
 class Wisdom {
     
-    let understandings : [Understanding]
+    let understanding : [Understanding]
     let knowledge : [Knowledge]
     let title : String
     let description : String
@@ -18,7 +18,7 @@ class Wisdom {
     
     init( understandingElements: [Understanding], knowledgeElements: [Knowledge], ttl: String, desc: String, scrip: String) {
         
-        understandings = understandingElements
+        understanding = understandingElements
         knowledge = knowledgeElements
         title = ttl
         description = desc
