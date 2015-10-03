@@ -69,35 +69,37 @@ class GameCharacter : SKSpriteNode {
         
     }
     
-    func howManyInInventory(itemName: String) -> Int {
+    /* RETURNS HOW MANY ITEMS WITH GIVEN NAME IN INVENTORY OF CHARACTER */
+    func howManyInInventory(itemName: String) -> Int {  //item name input
         
-        var num : Int
-        num = 0
+        var num : Int = 0  //init item counter
         
-        if inventory.count > 0 {
-            for index in 0...inventory.count-1 {
-                if(inventory[index].title == itemName) {
-                    num++
+        if inventory.count > 0 {    //if there's anything in the inventory
+            for item in inventory { //for each item in inventory...
+                if(item.title == itemName) {    //if the title of the object matches
+                    num++   //increment the item counter
                 }
             }
         }
         
-        return num
+        return num  //return total number of items with name "_itemName_"
         
     }
     
-    func grabFromInventory(itemName: String) -> Bool {
-        if inventory.count > 0 {
-            for index in 0...inventory.count-1 {
-                if(inventory[index].title == itemName) {
-                    inventory.removeAtIndex(index)
-                    return true
+    /* GRAB AN ITEM FROM THE INVENTORY (REMOVING IT FROM THE INVENTORY AND RETURNING TRUE IF IT WAS SUCCESSFULLY REMOVED) */
+    func grabFromInventory(itemName: String) -> Bool {  //item name input
+        if inventory.count > 0 {    //if the inventory is not empty
+            for index in 0...inventory.count-1 {    //go thru inventory with an index
+                if(inventory[index].title == itemName) {    //if the title matches
+                    inventory.removeAtIndex(index)  //remove it
+                    return true //return success
                 }
             }
         }
-        return false
+        return false    //if nothing gets removed, return false (failure)
     }
 
+    /* REQUIRED BY APPLE */
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

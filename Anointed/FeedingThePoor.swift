@@ -19,7 +19,7 @@ class FeedingThePoor : Skill {
         fatalError("init(coder:) has not been implemented")
     }
     
-    /* USE CHEERFUL GIVING SKILL ON NPC */
+    /* USE FEEDING THE POOR SKILL ON NPC */
     override func useOnNPC(npc: NonPlayingCharacter) {
         //give food
         print("Feeding the poor...")

@@ -13,6 +13,7 @@ import ScreenSaver
 /* DEFINES AN ANIMAL */
 class Animal : SKSpriteNode {
     
+    /* VARIABLES */
     let animalName: String   //name
     let descript: String   //description
     let spriteSheetName: String  //image name for spritesheet

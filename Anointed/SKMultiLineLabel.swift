@@ -62,12 +62,15 @@ class SKMultiLineLabel: SKNode {
         
     }
     
+    /* CHANGE TEXT COLOR OF ALL LINES OF TEXT IN SKMLL TO A GIVEN SKCOLOR */
     internal func highlightInColor( color: SKColor ) {
     
         for child in self.children {
             
-            let label = child as! SKLabelNode
-            label.fontColor = color
+            if child is SKLabelNode {
+                let label = child as! SKLabelNode
+                label.fontColor = color
+            }
             
         }
     

@@ -20,17 +20,18 @@ class BibleEvent {
     var date: NSDate
     var soundFile : String
     
+    /* INITIALIZATION */
     init( yr:Int, mo:Int, dy:Int, hr:Int, min:Int, sec:Int, ttl:String, desc:String, audioFile: String, c:City, l:Location, b:Building, r:Room ) {
         
-        let hebrewCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierHebrew)
-        let dateComponents = NSDateComponents()
-        dateComponents.year = yr
-        dateComponents.month = mo
-        dateComponents.day = dy
-        dateComponents.hour = hr
-        dateComponents.minute = min
-        dateComponents.second = sec
-        date = hebrewCalendar!.dateFromComponents(dateComponents)!
+        let hebrewCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierHebrew) //make a Hebrew calendar
+        let dateComponents = NSDateComponents() //make a new NSDateComponents object
+        dateComponents.year = yr    //year
+        dateComponents.month = mo   //month
+        dateComponents.day = dy //day
+        dateComponents.hour = hr    //hour
+        dateComponents.minute = min //minute
+        dateComponents.second = sec //second
+        date = hebrewCalendar!.dateFromComponents(dateComponents)!  //make new NSDate from the components and the Hebrew calendar
 
         title = ttl
         description = desc

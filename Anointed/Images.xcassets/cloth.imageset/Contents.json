@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "diy-wallpaper-roll-icon.png"
+      "filename" : "diy-wallpaper-roll-icon.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",

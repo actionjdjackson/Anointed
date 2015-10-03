@@ -40,31 +40,11 @@ class GameWorld {
     var celibacyTree : [Skill]
     var hospitalityTree : [Skill]
     var missionaryTree : [Skill]
+    var meditating : Bool
     
     init() {
         
-        /* SET UP THE KNOWLEDGE BASE OF THE GAME (knowledge, wisdom, and understanding) */
-        
-        let godsOmnipotence = Knowledge(ttl: "God is Omnipotent", desc: "God can do anything. He made you, so He can do whatever He wants, whenever He wants.", scrip: "Psalm 139:13-18")
-        let godsOmnipresence = Knowledge(ttl: "God is Omnipresent", desc: "God is everywhere. You cannot escape Him, no matter where you go.", scrip: "Psalm 139:7-12")
-        let godsOmniscience = Knowledge(ttl: "God is Omniscient", desc: "God knows everything. He knows your thoughts, your heart, and everything about you.", scrip: "Psalm 139:1-6")
-        let yahwehIsGod = Knowledge(ttl: "God's Name is Yahweh", desc: "God's name is Yahweh, which means I AM THAT I AM.", scrip: "Exodus 3:14")
-        
-        let godForgivesSinners = Knowledge(ttl: "God Forgives Sinners", desc: "With God there is forgiveness, that He may be feared. He is not random or evil in His actions, but He desires to save.", scrip: "Psalm 130:3-4")
-        
-        knowledgeBase["Psalm 139:13-18"] = godsOmnipotence
-        knowledgeBase["Psalm 139:7-12"] = godsOmnipresence
-        knowledgeBase["Psalm 139:1-6"] = godsOmniscience
-        knowledgeBase["Exodus 3:14"] = yahwehIsGod
-        knowledgeBase["Psalm 130:3-4"] = godForgivesSinners
-        
-        let iShouldFearGod = Understanding(knowledgeElements: [godsOmnipotence, godsOmnipresence, godsOmniscience], ttl: "I should fear God", desc: "Because God is omnipotent, omnipresent, and omniscient, I should fear Him.", scrip: "Psalm 139:23-24")
-        
-        understandingBase["Psalm 139:23-24"] = iShouldFearGod
-        
-        let fearOfTheLord = Wisdom(understandingElements: [iShouldFearGod], knowledgeElements: [yahwehIsGod, godForgivesSinners], ttl: "The Fear of Yahweh", desc: "Because I know who God is (Yahweh - 'HE IS THAT HE IS') and that I should fear Him, and also that He forgives sinners, I do fear Him. This is the beginning of wisdom.", scrip: "Proverbs 9:10")
-        
-        wisdomBase["Proverbs 9:10"] = fearOfTheLord
+        meditating = false
         
         /* SET UP THE PLAYER CHARACTER */
         
@@ -218,8 +198,34 @@ class GameWorld {
         player.inventory.append(cord5)
         player.inventory.append(cloth5)
         
+        /* SET UP THE KNOWLEDGE BASE OF THE GAME (knowledge, wisdom, and understanding) */
+        
+        let godsOmnipotence = Knowledge(ttl: "God is Omnipotent", desc: "God can do anything. He made you, so He can do whatever He wants, whenever He wants.", scrip: "Psalm 139:13-18")
+        let godsOmnipresence = Knowledge(ttl: "God is Omnipresent", desc: "God is everywhere. You cannot escape Him, no matter where you go.", scrip: "Psalm 139:7-12")
+        let godsOmniscience = Knowledge(ttl: "God is Omniscient", desc: "God knows everything. He knows your thoughts, your heart, and everything about you.", scrip: "Psalm 139:1-6")
+        let yahwehIsGod = Knowledge(ttl: "God's Name is Yahweh", desc: "God's name is Yahweh, which means I AM THAT I AM.", scrip: "Exodus 3:14")
+        
+        let sinnersAreGodsEnemies = Knowledge(ttl: "Sinners Are God's Enemies", desc: "David desires that God would deal with His enemies - the wicked.", scrip: "Psalm 139:19-22")
+        
+        let godForgivesSinners = Knowledge(ttl: "God Forgives Sinners", desc: "With God there is forgiveness, that He may be feared. He is not random or evil in His actions, but He desires to save.", scrip: "Psalm 130:3-4")
+        
+        knowledgeBase["Psalm 139:19-22"] = sinnersAreGodsEnemies
+        knowledgeBase["Psalm 139:13-18"] = godsOmnipotence
+        knowledgeBase["Psalm 139:7-12"] = godsOmnipresence
+        knowledgeBase["Psalm 139:1-6"] = godsOmniscience
+        knowledgeBase["Exodus 3:14"] = yahwehIsGod
+        knowledgeBase["Psalm 130:3-4"] = godForgivesSinners
+        
+        let iShouldFearGod = Understanding(knowledgeElements: [godsOmnipotence, godsOmnipresence, godsOmniscience], ttl: "I should fear God", desc: "Because God is omnipotent, omnipresent, and omniscient, I should fear Him like David did. But do I fear Him? Do I really know Him like David did?", scrip: "Psalm 139:23-24")
+        
+        understandingBase["Psalm 139:23-24"] = iShouldFearGod
+        
+        let fearOfTheLord = Wisdom(understandingElements: [iShouldFearGod], knowledgeElements: [yahwehIsGod, godForgivesSinners], ttl: "The Fear of Yahweh", desc: "Because I know who God is (Yahweh - 'HE IS THAT HE IS') and that I should fear Him, and also that He forgives sinners, I do fear Him. This is the beginning of wisdom.", scrip: "Proverbs 9:10")
+        
+        wisdomBase["Proverbs 9:10"] = fearOfTheLord
+        
         //makes all the items in the game
-        let psalm139Scroll = Scroll( ttl: "Psalm 139 Scroll", desc: "A copy of the 139th Psalm, in Hebrew, originally written by King David. In fairly good condition, and fully readable. Must know how to read Hebrew to use this scroll.", textFile: "Psalm 139", lang: "Hebrew", scrollSize: 1, knowl: [godsOmniscience, godsOmnipresence, godsOmnipotence] )
+        let psalm139Scroll = Scroll( ttl: "Psalm 139 Scroll", desc: "A copy of the 139th Psalm, in Hebrew, originally written by King David. In fairly good condition, and fully readable. Must know how to read Hebrew to use this scroll.", textFile: "Psalm 139", lang: "Hebrew", scrollSize: 1, knowl: [godsOmniscience, godsOmnipresence, godsOmnipotence, sinnersAreGodsEnemies], under: [iShouldFearGod], wisd: [] )
         let wood1 = Item(ttl: "Wood", desc: "1 Unit of Wood", sx: 1, sy: 1, spriteName: "wood")
         let cord1 = Item(ttl: "Cord", desc: "1 Unit of Cord", sx: 1, sy: 1, spriteName: "cord")
         let cloth1 = Item(ttl: "Cloth", desc: "1 Unit of Cloth", sx: 1, sy: 1, spriteName: "cloth")

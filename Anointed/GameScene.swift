@@ -13,8 +13,8 @@ import CoreFoundation
 class GameScene: SKScene {
     
     /* VARIABLES AND CONSTANTS USED IN SCENE */
-    var bibleEventTitle = SKLabelNode(fontNamed:"Chalkduster")
-    var bibleEventDescription = SKMultiLineLabel(theText: "Placeholder text blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah Lorem ipsum dolor setia imet raggi dieassm ilitia", theWidth: 40, fontsize: 12)
+    var bibleEventTitle = SKLabelNode(fontNamed:"")
+    var bibleEventDescription = SKMultiLineLabel(theText: "", theWidth: 40, fontsize: 12)
     var lowerBanner = SKSpriteNode(imageNamed:"LowerBannerBASE")    //load button bar into memory
     var experienceBars = SKSpriteNode(imageNamed:"ExperienceBarsBASE")  //load experience bar into memory
     var theOpenMenu = SKSpriteNode(imageNamed:"INVENTORYmenu")  //load inventory menu as default menu to open
@@ -75,7 +75,7 @@ class GameScene: SKScene {
     let INVENTORY_BUTTON_EDGE = CGFloat(85 + 256 + 64 - 10 - 1024 / 2)
     let SKILLS_BUTTON_EDGE = CGFloat(85 + 256 + 128 - 10 - 1024 / 2)
     let SKILLS_BAR_EDGE = CGFloat(-32)
-    let TIMESTAMP_OFFSET_X = CGFloat(-128)
+    let TIMESTAMP_OFFSET_X = CGFloat(-128 - 32)
     let TIMESTAMP_OFFSET_Y = CGFloat(64 + 14 - 1050 / 2)
     let TIMESTAMP_OFFSET_Z = CGFloat(10.0)
     let TIMESTAMP_FONT_SIZE = CGFloat(14)
@@ -118,13 +118,12 @@ class GameScene: SKScene {
     
     /* INITIALIZATION */
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
         
-        let options: NSTrackingAreaOptions = [NSTrackingAreaOptions.MouseMoved, NSTrackingAreaOptions.ActiveInKeyWindow]
-        let trackingArea = NSTrackingArea(rect:view.frame,options:options,owner:self,userInfo:nil)
-        view.addTrackingArea(trackingArea)
+        let options: NSTrackingAreaOptions = [NSTrackingAreaOptions.MouseMoved, NSTrackingAreaOptions.ActiveInKeyWindow]    //set up options for mouse tracking
+        let trackingArea = NSTrackingArea(rect:view.frame,options:options,owner:self,userInfo:nil)  //set up tracking area
+        view.addTrackingArea(trackingArea)  //add tracking area to this view (allows for more interactivity with mouse clicks and such)
         
-        srandom(UInt32(CFAbsoluteTimeGetCurrent()))
+        srandom(UInt32(CFAbsoluteTimeGetCurrent())) //seed random with current time in seconds
         
         formatter.calendar = hebrew     //using the Hebrew calendar
         formatter.dateStyle = .FullStyle    //full date
@@ -158,26 +157,36 @@ class GameScene: SKScene {
         
     }
     
+    /* MOUSE MOVEMENT CATCHER */
     override func mouseMoved(event: NSEvent) {
         // Get mouse position in scene coordinates
         let location = event.locationInNode(self)
         // Get node at mouse position
         let node = self.nodeAtPoint(location)
+        // Send mouseMoved to that node
         node.mouseMoved(event)
     }
     
+    /* RIGHT-CLICK CATCHER */
     override func rightMouseDown(theEvent: NSEvent) {
         
+        // Get mouse position in scene coordinates
         let location = theEvent.locationInNode(self)
+        // Get node at mouse position
         let node = self.nodeAtPoint(location)
+        // Send rightMouseDown to that node
         node.rightMouseDown(theEvent)
         
     }
     
+    /* RIGHT-CLICK RELEASE CATCHER */
     override func rightMouseUp(theEvent: NSEvent) {
         
+        // Get mouse position in scene coordinates
         let location = theEvent.locationInNode(self)
+        // Get node at mouse position
         let node = self.nodeAtPoint(location)
+        // Send rightMouseUp to that node
         node.rightMouseUp(theEvent)
         
     }
@@ -365,7 +374,7 @@ class GameScene: SKScene {
                 
             }
             
-            let textBlocker = SKShapeNode(rectOfSize: CGSize(width: 256 + 128, height: 256 * 2 - 64))   //make a rectangle to block text above text area
+            /*let textBlocker = SKShapeNode(rectOfSize: CGSize(width: 256 + 128, height: 256 * 2 - 64))   //make a rectangle to block text above text area
             textBlocker.fillColor = SKColor.blackColor()    //make it black
             textBlocker.lineWidth = 0.0 //no outline
             textBlocker.position = CGPoint(x: 256 + 32, y: 128 + 32 + 8 + 256)  //position appropriately
@@ -377,7 +386,7 @@ class GameScene: SKScene {
             textBlocker2.lineWidth = 0.0
             textBlocker2.position = CGPoint(x: 256 + 32, y: -(128 + 32 + 32 + 8 - 1 + 256))
             textBlocker2.zPosition = 3.0
-            theOpenMenu.addChild(textBlocker2)
+            theOpenMenu.addChild(textBlocker2)*/
             
         }
         
@@ -465,10 +474,21 @@ class GameScene: SKScene {
                     }
                 }
             } else {    //if we've clicked anywhere that's not part of the active UI
-                clearMenu() //clear open menu
+                
+                if UNIVERSE.theGame.meditating {
+                    //do nothing
+                } else {
+                    clearMenu() //clear open menu
+                }
             }
         } else { /* Has the user clicked OUTSIDE the lower banner? */
-            clearMenu()
+            
+            if UNIVERSE.theGame.meditating {
+                //do nothing
+            } else {
+                clearMenu() //clear open menu
+            }
+
         }
         
     }
@@ -520,60 +540,60 @@ class GameScene: SKScene {
         
         let key = theEvent.keyCode  //grab the key code of the key pressed
         
-        if key == SPACEBAR { //SPACEBAR IS PRESSED, PAUSE/UNPAUSE GAME
+        if key == SPACEBAR && !UNIVERSE.theGame.meditating { //SPACEBAR IS PRESSED, PAUSE/UNPAUSE GAME
             pauseUnPause()
-        } else if key == MINUS {   //MINUS KEY PRESSED
+        } else if key == MINUS && !UNIVERSE.theGame.meditating {   //MINUS KEY PRESSED
             GAME_SPEED /= 2.0   //divide game speed in half
-        } else if key == PLUS {   //PLUS KEY PRESSED
+        } else if key == PLUS && !UNIVERSE.theGame.meditating {   //PLUS KEY PRESSED
             GAME_SPEED *= 2.0   //multiply game speed by two
-        } else if key == I {   //'I' KEY IS PRESSED
+        } else if key == I && !UNIVERSE.theGame.meditating {   //'I' KEY IS PRESSED
             if menuUp == "INVENTORY" {  //pretty self explanatory, shows the menu corresponding to the key pressed
                 clearMenu()
             } else {
                 openMenu("INVENTORY")
             }
-        } else if key == P {   //'P' KEY PRESSED
+        } else if key == P && !UNIVERSE.theGame.meditating {   //'P' KEY PRESSED
             if menuUp == "PARTY" {
                 clearMenu()
             } else {
                 openMenu("PARTY")
             }
-        } else if key == N {   //'N' KEY
+        } else if key == N && !UNIVERSE.theGame.meditating {   //'N' KEY
             if menuUp == "NOTES" {
                 clearMenu()
             } else {
                 openMenu("NOTES")
             }
-        } else if key == K {   //'K'
+        } else if key == K && !UNIVERSE.theGame.meditating {   //'K'
             if menuUp == "KNOWLEDGE" {
                 clearMenu()
             } else {
                 openMenu("KNOWLEDGE")
             }
-        } else if key == R {   //'R'
+        } else if key == R && !UNIVERSE.theGame.meditating {   //'R'
             if menuUp == "PRAYER" {
                 clearMenu()
             } else {
                 openMenu("PRAYER")
             }
-        } else if key == T {   //'T'
+        } else if key == T && !UNIVERSE.theGame.meditating {   //'T'
             if menuUp == "TRAVEL" {
                 clearMenu()
             } else {
                 openMenu("TRAVEL")
             }
-        } else if key == L {    //'L'
+        } else if key == L && !UNIVERSE.theGame.meditating {    //'L'
             if menuUp == "SKILLS" {
                 clearMenu()
             } else {
                 openMenu("SKILLS")
             }
             
-        } else if key == ESCAPE { //'esc'
+        } else if key == ESCAPE && !UNIVERSE.theGame.meditating { //'esc'
             clearMenu()
         
         /* CHARACTER MOVEMENT & STATE CHANGE (SITTING, ETC.) CODE HERE */
-        } else if ( key == NUMPAD7 || key == Q ) && !PAUSED {   //'7' NUM PAD PRESSED - MOVING INTO UPPER LEFT SQUARE
+        } else if ( key == NUMPAD7 || key == Q ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'7' NUM PAD PRESSED - MOVING INTO UPPER LEFT SQUARE
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterUPPERLEFT")    //displays char moving up-left
             if Int(UNIVERSE.theGame.player.currentGridLocation.x + 1) < UNIVERSE.theGame.currentLocation.grid[0].count && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].npcList.count == 0 { //if in bounds and no collision
                 let moveUpperLeft = SKAction.moveByX(-64, y: 32, duration: PLAYER_MOVE_TIME)   //move gradually to new location
@@ -583,7 +603,7 @@ class GameScene: SKScene {
                 orderCorrectly()    //change the Z order of the player depending on objects around them
             }
             
-        } else if ( key == NUMPAD8 || key == W ) && !PAUSED {   //'8' NUM PAD PRESSED - everything else is the same idea as above, just look at [imageNamed:"characterXXXX"] for movement direction
+        } else if ( key == NUMPAD8 || key == W ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'8' NUM PAD PRESSED - everything else is the same idea as above, just look at [imageNamed:"characterXXXX"] for movement direction
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterUP")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x + 1) < UNIVERSE.theGame.currentLocation.grid[0].count && Int(UNIVERSE.theGame.player.currentGridLocation.y + 1) < UNIVERSE.theGame.currentLocation.grid.count && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].npcList.count == 0 {
                 let moveUp = SKAction.moveByX(0, y: 64, duration: PLAYER_MOVE_TIME)
@@ -594,7 +614,7 @@ class GameScene: SKScene {
                 orderCorrectly()
             }
             
-        } else if ( key == NUMPAD9 || key == E ) && !PAUSED {   //'9' NUM PAD PRESSED
+        } else if ( key == NUMPAD9 || key == E ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'9' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterUPPERRIGHT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.y + 1) < UNIVERSE.theGame.currentLocation.grid.count && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x)].npcList.count == 0 {
                 let moveUpperRight = SKAction.moveByX(64, y: 32, duration: PLAYER_MOVE_TIME)
@@ -604,7 +624,7 @@ class GameScene: SKScene {
                 orderCorrectly()
             }
             
-        } else if ( key == NUMPAD4 || key == A ) && !PAUSED {   //'4' NUM PAD PRESSED
+        } else if ( key == NUMPAD4 || key == A ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'4' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterLEFT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x + 1) < UNIVERSE.theGame.currentLocation.grid[0].count && Int(UNIVERSE.theGame.player.currentGridLocation.y - 1) >= 0 && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].npcList.count == 0 {
                 let moveLeft = SKAction.moveByX(-128, y: 0, duration: PLAYER_MOVE_TIME)
@@ -615,10 +635,10 @@ class GameScene: SKScene {
                 orderCorrectly()
             }
             
-        } else if ( key == NUMPAD5 || key == S ) && !PAUSED {   //'5' NUM PAD PRESSED
+        } else if ( key == NUMPAD5 || key == S ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'5' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterSEATED") //make character sit for center key
             
-        } else if ( key == NUMPAD6 || key == D ) && !PAUSED {   //'6' NUM PAD PRESSED
+        } else if ( key == NUMPAD6 || key == D ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'6' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterRIGHT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x - 1) >= 0 && Int(UNIVERSE.theGame.player.currentGridLocation.y + 1) < UNIVERSE.theGame.currentLocation.grid.count && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].npcList.count == 0 {
                 let moveRight = SKAction.moveByX(128, y: 0, duration: PLAYER_MOVE_TIME)
@@ -629,7 +649,7 @@ class GameScene: SKScene {
                 orderCorrectly()
             }
             
-        } else if ( key == NUMPAD1 || key == Z ) && !PAUSED {   //'1' NUM PAD PRESSED
+        } else if ( key == NUMPAD1 || key == Z ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'1' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterLOWERLEFT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.y - 1) >= 0 && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x)].npcList.count == 0 {
                 let moveLowerLeft = SKAction.moveByX(-64, y: -32, duration: PLAYER_MOVE_TIME)
@@ -639,7 +659,7 @@ class GameScene: SKScene {
                 orderCorrectly()
             }
             
-        } else if ( key == NUMPAD2 || key == X ) && !PAUSED {   //'2' NUM PAD PRESSED
+        } else if ( key == NUMPAD2 || key == X ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'2' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterDOWN")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x - 1) >= 0 && Int(UNIVERSE.theGame.player.currentGridLocation.y - 1) >= 0 && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].npcList.count == 0 {
                 let moveDown = SKAction.moveByX(0, y: -64, duration: PLAYER_MOVE_TIME)
@@ -650,7 +670,7 @@ class GameScene: SKScene {
                 orderCorrectly()
             }
             
-        } else if ( key == NUMPAD3 || key == C ) && !PAUSED {   //'3' NUM PAD PRESSED
+        } else if ( key == NUMPAD3 || key == C ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'3' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterLOWERRIGHT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x - 1) >= 0 && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].npcList.count == 0 {
                 let moveLowerRight = SKAction.moveByX(64, y: -32, duration: PLAYER_MOVE_TIME)
@@ -691,7 +711,7 @@ class GameScene: SKScene {
         
         for animal in UNIVERSE.theGame.currentLocation.animals {
             
-            animal.zPosition = 0
+            animal.zPosition = 0.5
             
         }
         
@@ -725,7 +745,7 @@ class GameScene: SKScene {
         return(tempPt)
     }
     
-    /* GOOD FOR MOUSE CLICKS GOING FROM ISO VIEW ON THE SCENE INTO A GRID SQUARE 2D COORD I.E. WHERE DID I CLICK? */
+    /* GOOD FOR MOUSE CLICKS GOING FROM ISO VIEW ON THE SCENE INTO A GRID SQUARE 2D COORD I.E. WHAT SQUARE DID I CLICK? */
     func getTileCoordinates(pt: CGPoint) -> CGPoint {
         var tempPt = CGPoint(x: 0, y: 0)
         let tileHeight = CGFloat(64.0)
@@ -783,7 +803,7 @@ class GameScene: SKScene {
         
         /* set up the date label and add it to the scene */
         dateLabel.fontSize = TIMESTAMP_FONT_SIZE //set date label font size
-        dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame) - TIMESTAMP_OFFSET_X, y: TIMESTAMP_OFFSET_Y)    //puts the date/time at bottom center of the screen, just above the button bar
+        dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame) + TIMESTAMP_OFFSET_X, y: TIMESTAMP_OFFSET_Y)    //puts the date/time at bottom center of the screen, just above the button bar
         dateLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
         dateLabel.zPosition = TIMESTAMP_OFFSET_Z
         self.addChild(dateLabel)    //adds the date label to the scene (not the world, so it stays in place like the banner
