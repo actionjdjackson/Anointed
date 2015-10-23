@@ -55,21 +55,18 @@ class MemorizationButton: SKNode {
             if child is SKMultiLineLabel {   //if it's an SKMultiLineLabel
                 
                 let mll = child as! SKMultiLineLabel    //grab it
-                mll.zPosition = 11.0    //put it above everything
-                let shrink = SKAction.scaleBy(0, duration: 3.0) //make an enlargement action
-                let fadeout = SKAction.fadeOutWithDuration(1.0) //make a fade out action
-                mll.runAction(shrink, completion: {    //run enlarge action and then...
-                    
-                    mll.runAction(fadeout, completion: {    //run the fadeout action and then...
-                        
-                        mll.removeFromParent()  //remove from parent
-                        
-                    })
-                    
-                })
-                
-            }
+                if mll.name!.hasPrefix(scrip) {
+                    UNIVERSE.theGame.player.knowledge.append(UNIVERSE.theGame.knowledgeBase[scrip]!)    //give the knowledge to the player
+                    mll.zPosition = 11.0    //put it above everything
+                    let shrink = SKAction.scaleBy(0, duration: 2.0) //make an shrink action
+                    let fadeout = SKAction.fadeOutWithDuration(2.0) //make a fade out action
+                    let moveToCorner = SKAction.moveTo(CGPoint.zero, duration: 2.0)
+                    mll.runAction(moveToCorner) //run the movetocorner action
+                    mll.runAction(shrink)       //run the shrink action
+                    mll.runAction(fadeout)    //run the fadeout action
+                }
             
+            }
         }
         
         self.removeFromParent() //remove button from parent

@@ -261,6 +261,11 @@ class GameScene: SKScene {
     /* CLEARS THE LOWER BANNER, REMOVES ANY OPEN MENU FROM THE SCREEN */
     func clearMenu() {
         resetLowerBanner()  //nothing highlighted
+        for node in self.children {
+            if node.name == "VISUALIZATION BACKGROUND" {
+                node.removeFromParent()
+            }
+        }
         for node in theOpenMenu.children {
             if node is Scroll {
                 let theScroll = node as! Scroll
@@ -373,6 +378,10 @@ class GameScene: SKScene {
                 }
                 
             }
+            
+            let visualizeButton = VisualizeKnowledgeButton()
+            visualizeButton.position = CGPoint(x: 0, y: -256)
+            theOpenMenu.addChild(visualizeButton)
             
             /*let textBlocker = SKShapeNode(rectOfSize: CGSize(width: 256 + 128, height: 256 * 2 - 64))   //make a rectangle to block text above text area
             textBlocker.fillColor = SKColor.blackColor()    //make it black

@@ -65,6 +65,9 @@ class MeditationButton: SKNode {
                 
                 let ssl = child as! StudySectionLabel   //grab it
                 
+                ssl.setScale(1.0)
+                ssl.alpha = 1.0
+                
                 let rotateFast = SKAction.rotateByAngle(6.28, duration: 1.0)    //set up a fast rotate action
                 ssl.runAction(rotateFast)   //run the rotate action on the ssl
                 
@@ -123,6 +126,10 @@ class MeditationButton: SKNode {
             } else if child is SKMultiLineLabel {   //if it's an SKMultiLineLabel and not a StudySectionLabel
                 
                 let mll = child as! SKMultiLineLabel    //grab it
+                
+                mll.setScale(1.0)
+                mll.alpha = 1.0
+                
                 for label in mll.children {     //for each child in mll
                     if label is SKLabelNode {   //if it's a label
                         if label.name == scrip + " (Understanding Requires Meditation)" {   //if it's the meditation notice label

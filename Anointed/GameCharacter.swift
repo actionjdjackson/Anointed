@@ -69,6 +69,30 @@ class GameCharacter : SKSpriteNode {
         
     }
     
+    func knowsScripture( scripture : String ) -> Bool {
+        
+        for knowledgeElement in knowledge {
+            if knowledgeElement.scripture == scripture {
+                return true
+            }
+        }
+        
+        for understandingElement in understanding {
+            if understandingElement.scripture == scripture {
+                return true
+            }
+        }
+        
+        for wisdomElement in wisdom {
+            if wisdomElement.scripture == scripture {
+                return true
+            }
+        }
+        
+        return false
+        
+    }
+    
     /* RETURNS HOW MANY ITEMS WITH GIVEN NAME IN INVENTORY OF CHARACTER */
     func howManyInInventory(itemName: String) -> Int {  //item name input
         

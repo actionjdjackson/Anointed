@@ -61,7 +61,7 @@ class StudySectionLabel : SKMultiLineLabel {    //inherit from SKmultilinelabel
                         englishText.name = scripture + "ENG"    //name this multilinelabel "_SCRIPTURE_ENG"
                         
                         /* GRAB KNOWLEDGE */
-                        if UNIVERSE.theGame.knowledgeBase[scripture] != nil {   //if there's knowledge for this scripture
+                        if UNIVERSE.theGame.knowledgeBase[scripture] != nil && !UNIVERSE.theGame.player.knowsScripture(scripture) {   //if there's knowledge for this scripture, and the player doesn't already have it memorized...
                             
                             let titleLabel = SKLabelNode(text: UNIVERSE.theGame.knowledgeBase[scripture]!.title)    //make a title label
                             let scripLabel = SKLabelNode(text: scripture)   //make a scripture label
@@ -82,9 +82,14 @@ class StudySectionLabel : SKMultiLineLabel {    //inherit from SKmultilinelabel
                             englishText.addChild(titleLabel)    //add to englishText
                             englishText.addChild(scripLabel)    //add to englishText
                             englishText.addChild(descLabel)     //add to englishText
+                            let memorize = MemorizationButton()
+                            memorize.position = CGPoint(x: 0, y: -englishText.pixelLength - 120)
+                            memorize.zPosition = 2.0
+                            memorize.name = scripture
+                            englishText.addChild(memorize)
                             
                             /* GRAB UNDERSTANDING */
-                        } else if UNIVERSE.theGame.understandingBase[scripture] != nil {    //if there's understanding for this scripture
+                        } else if UNIVERSE.theGame.understandingBase[scripture] != nil && !UNIVERSE.theGame.player.knowsScripture(scripture) {    //if there's understanding for this scripture
                             
                             if UNIVERSE.theGame.understandingBase[scripture]!.knowledge.count > 0 {     //if the understanding comes from knowledge
                                 
@@ -108,7 +113,7 @@ class StudySectionLabel : SKMultiLineLabel {    //inherit from SKmultilinelabel
                                 meditate.name = scripture
                                 englishText.addChild(meditate)
                                 
-                            } else {    //if the understanding comes from scripture alone
+                            } else if !UNIVERSE.theGame.player.knowsScripture(scripture) {    //if the understanding comes from scripture alone
                                 
                                 /* Do the same thing as with knowledge */
                                 let titleLabel = SKLabelNode(text: UNIVERSE.theGame.understandingBase[scripture]!.title)
@@ -130,10 +135,15 @@ class StudySectionLabel : SKMultiLineLabel {    //inherit from SKmultilinelabel
                                 englishText.addChild(titleLabel)
                                 englishText.addChild(scripLabel)
                                 englishText.addChild(descLabel)
+                                let memorize = MemorizationButton()
+                                memorize.position = CGPoint(x: 0, y: -englishText.pixelLength - 120)
+                                memorize.zPosition = 2.0
+                                memorize.name = scripture
+                                englishText.addChild(memorize)
                             }
                             
                             /* GRAB WISDOM */
-                        } else if UNIVERSE.theGame.wisdomBase[scripture] != nil {   //if there's wisdom for this scipture
+                        } else if UNIVERSE.theGame.wisdomBase[scripture] != nil && !UNIVERSE.theGame.player.knowsScripture(scripture){   //if there's wisdom for this scipture
                             
                             /* Do the same thing as with understanding */
                             if UNIVERSE.theGame.wisdomBase[scripture]!.understanding.count > 0 || UNIVERSE.theGame.wisdomBase[scripture]!.knowledge.count > 0 { //if it comes from understanding and/or knowledge
@@ -153,7 +163,7 @@ class StudySectionLabel : SKMultiLineLabel {    //inherit from SKmultilinelabel
                                 englishText.addChild(titleLabel)
                                 englishText.addChild(scripLabel)
                                 
-                            } else {    //if it comes from scripture alone
+                            } else if !UNIVERSE.theGame.player.knowsScripture(scripture) {    //if it comes from scripture alone
                                 
                                 let titleLabel = SKLabelNode(text: UNIVERSE.theGame.wisdomBase[scripture]!.title)
                                 let scripLabel = SKLabelNode(text: scripture)
