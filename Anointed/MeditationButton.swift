@@ -50,18 +50,18 @@ class MeditationButton: SKNode {
     /* MEDITATION CODE */
     func meditateOn( scrip : String ) {     //input the scripture
         
-        var missingKnowledgeFlag : Bool = true
-        for knowledgeElement in (UNIVERSE.theGame.understandingBase[scrip]?.knowledge)! {
-            for playerKnowledge in UNIVERSE.theGame.player.knowledge {
-                if knowledgeElement.title == playerKnowledge.title {
-                    missingKnowledgeFlag = false
-                }
+        var missingKnowledgeFlag : Bool = false
+        for knowledgePiece in (UNIVERSE.theGame.understandingBase[scrip]?.knowledge)! {
+            let playerKnowledge = UNIVERSE.theGame.player.knowledge as NSArray
+            if !playerKnowledge.containsObject(knowledgePiece) {
+                missingKnowledgeFlag = true
+                break
             }
         }
         
         if missingKnowledgeFlag == true {
             
-            print("You don't have all the knowledge memorized that is necessary for this meditation.")
+            UNIVERSE.alertText("You don't have all the knowledge memorized that is necessary for this meditation.")
             
         } else {
             

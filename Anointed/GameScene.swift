@@ -322,13 +322,18 @@ class GameScene: SKScene {
         
         /* SPECIAL INSTRUCTIONS FOR SKILLS MENU - ***INCOMPLETE*** */
         
-        if theMenu ==  "SKILLS" { //if we're working with the skills menu
+        if theMenu ==  "SKILLS&CALLING" { //if we're working with the skills menu
             
             var subSkillTreeButton : ShowImageButton
-            subSkillTreeButton = ShowImageButton(tex: SKTexture(imageNamed: "giftSkillTreeButton"), image: "giftsAndSubskillsTree")
+            subSkillTreeButton = ShowImageButton(buttonText: "Gift-Skills Tree", image: "giftsAndSubskillsTree")
             subSkillTreeButton.position = CGPoint(x: 0, y: -theOpenMenu.position.y)
             subSkillTreeButton.zPosition = 5.0
             theOpenMenu.addChild(subSkillTreeButton)
+            var officeCallingsButton : ShowImageButton
+            officeCallingsButton = ShowImageButton(buttonText: "Office Callings", image: "officeCallings")
+            officeCallingsButton.position = CGPoint(x: 0, y: -theOpenMenu.position.y - 32)
+            officeCallingsButton.zPosition = 5.0
+            theOpenMenu.addChild(officeCallingsButton)
                 
             if UNIVERSE.theGame.player.skills.count > 0 {    //if the player has any skills
                 for n in 0...UNIVERSE.theGame.player.skills.count-1 {    //iterate through all skills
@@ -459,11 +464,11 @@ class GameScene: SKScene {
                     openMenu("INVENTORY")
                 }
             } else if location.x <= SKILLS_BUTTON_EDGE {
-                if menuUp == "SKILLS" {
+                if menuUp == "SKILLS&CALLING" {
                     clearMenu()
                 } else if skillInUse < 0 {
                     clearMenu()
-                    openMenu("SKILLS")
+                    openMenu("SKILLS&CALLING")
                 }
                 /* DETECTS CLICKS ON THE SKILLS BAR FOR REGULAR SKILLS */
             } else if location.x >= SKILLS_BAR_EDGE && UNIVERSE.theGame.player.skills.count > 0 && location.y >= SKILLS_BAR_BASE_Y - 16 && skillInUse < 0 {    //if we're beyond the skills bar edge and the player has at least 1 skill
@@ -597,10 +602,10 @@ class GameScene: SKScene {
                 openMenu("TRAVEL")
             }
         } else if key == L && !UNIVERSE.theGame.meditating {    //'L'
-            if menuUp == "SKILLS" {
+            if menuUp == "SKILLS&CALLING" {
                 clearMenu()
             } else {
-                openMenu("SKILLS")
+                openMenu("SKILLS&CALLING")
             }
             
         } else if key == ESCAPE && !UNIVERSE.theGame.meditating { //'esc'
