@@ -22,7 +22,7 @@ class OneOnOneTeaching : Skill {
     /* USE ONE-ON-ONE TEACHING SKILL ON NPC */
     override func useOnNPC(npc: NonPlayingCharacter) {
         //teach
-        print("Teaching...")
+        UNIVERSE.alertText("Teaching...")
         //level up
         level++
         //update tooltip info
@@ -30,8 +30,8 @@ class OneOnOneTeaching : Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
         //report to console
-        print("Taught npc")
-        print("One-On-One Teaching +1")
+        UNIVERSE.alertText("Taught npc")
+        UNIVERSE.alertText("One-On-One Teaching +1")
     }
     
     /* CAN WE USE THIS SKILL RIGHT NOW? */

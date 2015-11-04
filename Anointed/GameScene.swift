@@ -270,10 +270,15 @@ class GameScene: SKScene {
             if node is Scroll {
                 let theScroll = node as! Scroll
                 if theScroll.selected {
-                    theScroll.removeAllChildren()
+                    for child in theScroll.children {
+                        if child.name == "OUTLINE" {
+                            child.removeFromParent()
+                        }
+                    }
                 }
             }
         }
+        theOpenMenu.removeAllChildren()
         theOpenMenu.removeFromParent()  //remove the open menu if it's there
         menuUp = "NONE" //set menuUp to "NONE" - so we know there's no menu up at this time
         if soundPlayer != nil {
@@ -984,6 +989,7 @@ func playBackgroundMusic(filename: String) {    //sets up an audio player to pla
     backgroundMusicPlayer.play()    //play song
 }
 
+/* GET SOUND LENGTH */
 func getSoundLength(filename: String) -> NSTimeInterval {
     
     let url = NSBundle.mainBundle().URLForResource(filename, withExtension: nil)

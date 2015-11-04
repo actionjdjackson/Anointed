@@ -39,12 +39,12 @@ class Tentmaking : Skill {
             self.toolTipSN.itemInfoB = "Time to Complete: "
             self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round(self.hoursToComplete - log(Double(self.level) * 1.0))) + "hrs"
             //report to console
-            print("Made a basic cloth tent.")
-            print("Tentmaking +1")
+            UNIVERSE.alertText("Made a basic cloth tent.")
+            UNIVERSE.alertText("Tentmaking +1")
             
         } else {    //if we don't have enough raw materials,
             
-            print("Not enough resources to make a tent. Sorry.")  //print to console no can do
+            UNIVERSE.alertText("Not enough resources to make a tent. Sorry.")  //UNIVERSE.alertText to console no can do
             
         }
     
@@ -69,12 +69,12 @@ class Tentmaking : Skill {
             self.toolTipSN.itemInfoB = "Time to Complete: "
             self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round(self.hoursToComplete - log(Double(self.level) * 1.0))) + "hrs"
             //report to console
-            print("Made a basic cloth tent.")
-            print("Tentmaking +1")
+            UNIVERSE.alertText("Made a basic cloth tent.")
+            UNIVERSE.alertText("Tentmaking +1")
             
         } else {    //if we don't have enough raw materials,
             
-            print("Not enough resources to make a tent. Sorry.")  //print to console no can do
+            UNIVERSE.alertText("Not enough resources to make a tent. Sorry.")  //UNIVERSE.alertText to console no can do
             
         }
         

@@ -22,7 +22,7 @@ class Interpretation : Skill {
     /* USE INTERPRETATION SKILL ON NPC */
     override func useOnNPC(npc: NonPlayingCharacter) {
         //interpretation
-        print("Interpreting...")
+        UNIVERSE.alertText("Interpreting...")
         //level up
         level++
         //update tooltip info
@@ -30,8 +30,8 @@ class Interpretation : Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
         //report to console
-        print("Interpreted message from NPC")
-        print("Interpretation +1")
+        UNIVERSE.alertText("Interpreted message from NPC")
+        UNIVERSE.alertText("Interpretation +1")
     }
     
     /* CAN WE USE THIS SKILL RIGHT NOW? */

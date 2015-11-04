@@ -30,6 +30,13 @@ struct UNIVERSE {
     
     static let theGame = GameWorld()
     
+    static var alertCount : Int = 0
+    static func alertText( text : String ) {
+        let at = AlertText(alertText: text)
+        at.position.y -= CGFloat(32 * alertCount)
+        alertCount++
+    }
+    
 }
 
 struct FILE_OPERATIONS {

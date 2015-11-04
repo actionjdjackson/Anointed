@@ -22,7 +22,7 @@ class OriginDiscernment : Skill {
     /* USE ORIGIN DISCERNMENT SKILL ON PERSONAL SITUATION */
     override func use() {
         //give word of knowledge
-        print("Discerning origin of spirit encountered...")
+        UNIVERSE.alertText("Discerning origin of spirit encountered...")
         //level up
         level++
         //update tooltip info
@@ -30,14 +30,14 @@ class OriginDiscernment : Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
         //report to console
-        print("Discerned spirit in personal situation")
-        print("Origin Discernment +1")
+        UNIVERSE.alertText("Discerned spirit in personal situation")
+        UNIVERSE.alertText("Origin Discernment +1")
     }
     
     /* USE ORIGIN DISCERNMENT SKILL ON NPC */
     override func useOnNPC(npc: NonPlayingCharacter) {
         //give word of knowledge
-        print("Discerning origin of spirit encountered in NPC's situation...")
+        UNIVERSE.alertText("Discerning origin of spirit encountered in NPC's situation...")
         //level up
         level++
         //update tooltip info
@@ -45,8 +45,8 @@ class OriginDiscernment : Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
         //report to console
-        print("Discerned spirit in NPC's situation")
-        print("Origin Discernment +1")
+        UNIVERSE.alertText("Discerned spirit in NPC's situation")
+        UNIVERSE.alertText("Origin Discernment +1")
     }
     
     /* CAN WE USE THIS SKILL RIGHT NOW? */

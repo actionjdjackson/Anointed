@@ -22,7 +22,7 @@ class NonPlayingCharacter : GameCharacter {
         conversation = convo    //stores the conversation
         super.init( )   //super initializer
         if conversation.itemsToBeTraded.count > 0 {
-            for (question, item) in conversation.itemsToBeTraded {
+            for (_, item) in conversation.itemsToBeTraded {
                 inventory.append(item)
             }
         }
@@ -63,7 +63,7 @@ class NonPlayingCharacter : GameCharacter {
             
             var i = 0   //how many questions have we gone through
             
-            for (question, answer) in conversation.informationToBeShared {  //iterate through all informational conversation pieces
+            for (question, _) in conversation.informationToBeShared {  //iterate through all informational conversation pieces
                 let menuItem = MenuItem(theText: question)  //put a menu up on top of the NPC with the text of the question
                 menuItem.position.y = CGFloat(i * -32)  //put it below any previous questions
                 menuItem.name = question    //names the menu item after the question it refers to
@@ -71,7 +71,7 @@ class NonPlayingCharacter : GameCharacter {
                 i++ //increment the question counter
             }
             
-            for (question, item) in conversation.itemsToBeTraded {  //iterate through all items to be traded
+            for (question, _) in conversation.itemsToBeTraded {  //iterate through all items to be traded
                 let menuItem = MenuItem(theText: question)  //put a menu up on top of the NPC with the text of the trade question
                 menuItem.position.y = CGFloat(i * -32)  //put it below any previous questions
                 menuItem.name = question    //names the menu item after the question it refers to
@@ -79,7 +79,7 @@ class NonPlayingCharacter : GameCharacter {
                 i++ //increment the question counter
             }
             
-            for (question, knowledge) in conversation.knowledgeToBeShared { //iterate through all knowledge to be shared
+            for (question, _) in conversation.knowledgeToBeShared { //iterate through all knowledge to be shared
                 let menuItem = MenuItem(theText: question)  //put a menu up on top of the NPC with the text of the knowledge question
                 menuItem.position.y = CGFloat(i * -32)  //put it below any previous questions
                 menuItem.name = question    //names the menu item after the question it refers to
@@ -87,7 +87,7 @@ class NonPlayingCharacter : GameCharacter {
                 i++ //increment the question counter
             }
             
-            for (question, understanding) in conversation.understandingToBeShared { //same as above, but for understanding
+            for (question, _) in conversation.understandingToBeShared { //same as above, but for understanding
                 let menuItem = MenuItem(theText: question)
                 menuItem.position.y = CGFloat(i * -32)
                 menuItem.name = question
@@ -95,7 +95,7 @@ class NonPlayingCharacter : GameCharacter {
                 i++
             }
             
-            for (question, wisdom) in conversation.wisdomToBeShared {   //same as above, but for wisdom
+            for (question, _) in conversation.wisdomToBeShared {   //same as above, but for wisdom
                 let menuItem = MenuItem(theText: question)
                 menuItem.position.y = CGFloat(i * -32)
                 menuItem.name = question

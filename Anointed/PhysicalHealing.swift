@@ -28,8 +28,8 @@ class PhysicalHealing: Skill {
         self.toolTipSN.itemInfoA = "Level " + String( level )   //update tooltip info
         self.toolTipSN.itemInfoB = "Time to Complete: " //update tooltip info
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"   //update ttip
-        print("Healed self")
-        print("Physical Healing +1")
+        UNIVERSE.alertText("Healed self")
+        UNIVERSE.alertText("Physical Healing +1")
         
     }
     
@@ -44,8 +44,8 @@ class PhysicalHealing: Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "   //update tooltip info
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"   //update ttip
         //report to console
-        print("Healed an NPC")
-        print("Physical Healing +1")
+        UNIVERSE.alertText("Healed an NPC")
+        UNIVERSE.alertText("Physical Healing +1")
         
     }
     
@@ -60,8 +60,8 @@ class PhysicalHealing: Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "   //update tooltip info
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"   //update ttip
         //report to console
-        print("Healed an animal")
-        print("Physical Healing +1")
+        UNIVERSE.alertText("Healed an animal")
+        UNIVERSE.alertText("Physical Healing +1")
         
     }
     

@@ -22,7 +22,7 @@ class WordOfWisdom : Skill {
     /* USE WORD OF WISDOM SKILL ON SELF */
     override func use() {
         //give word of knowledge
-        print("Speaking the word of wisdom to self...")
+        UNIVERSE.alertText("Speaking a word of wisdom to self...")
         //level up
         level++
         //update tooltip info
@@ -30,14 +30,14 @@ class WordOfWisdom : Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
         //report to console
-        print("Gave word of wisdom to self")
-        print("Word of Wisdom +1")
+        UNIVERSE.alertText("Gave word of wisdom to self")
+        UNIVERSE.alertText("Word of Wisdom +1")
     }
     
     /* USE WORD OF WISDOM SKILL ON NPC */
     override func useOnNPC(npc: NonPlayingCharacter) {
         //give word of knowledge
-        print("Speaking the word of wisdom to npc...")
+        UNIVERSE.alertText("Speaking a word of wisdom to npc...")
         //level up
         level++
         //update tooltip info
@@ -45,8 +45,8 @@ class WordOfWisdom : Skill {
         self.toolTipSN.itemInfoB = "Time to Complete: "
         self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
         //report to console
-        print("Gave word of wisdom to npc")
-        print("Word of Wisdom +1")
+        UNIVERSE.alertText("Gave word of wisdom to npc")
+        UNIVERSE.alertText("Word of Wisdom +1")
     }
     
     /* CAN WE USE THIS SKILL RIGHT NOW? */

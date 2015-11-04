@@ -36,12 +36,12 @@ class Winemaking : Skill {
             self.toolTipSN.itemInfoB = "Time to Complete: "
             self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
             //report to console
-            print("Made some miraculous, great-tasting wine!")
-            print("Winemaking +1")
+            UNIVERSE.alertText("Made some miraculous, great-tasting wine!")
+            UNIVERSE.alertText("Winemaking +1")
             
         } else {    //if we don't
             
-            print("Not enough resources to make wine. Sorry.")    //it's a no-go
+            UNIVERSE.alertText("Not enough resources to make wine. Sorry.")    //it's a no-go
             
         }
         
@@ -63,12 +63,12 @@ class Winemaking : Skill {
             self.toolTipSN.itemInfoB = "Time to Complete: "
             self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
             //report to console
-            print("Made some miraculous, great-tasting wine!")
-            print("Winemaking +1")
+            UNIVERSE.alertText("Made some miraculous, great-tasting wine!")
+            UNIVERSE.alertText("Winemaking +1")
             
         } else {    //if we don't
             
-            print("Not enough resources to make wine. Sorry.")    //it's a no-go
+            UNIVERSE.alertText("Not enough resources to make wine. Sorry.")    //it's a no-go
             
         }
     }
@@ -82,7 +82,7 @@ class Winemaking : Skill {
             
         } else {    //if we don't,
             
-            print("Not enough resources to make wine. Sorry.")
+            UNIVERSE.alertText("Not enough resources to make wine. Sorry.")
             return false    //we can't use the skill
             
         }
