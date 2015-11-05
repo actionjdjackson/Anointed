@@ -61,6 +61,12 @@
 		E2522A8D1AE06B4D00EDD89A /* Psalm 139Hebrew.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8C1AE06B4D00EDD89A /* Psalm 139Hebrew.txt */; };
 		E2522A8F1AE06DBE00EDD89A /* Psalm 139ENG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A8E1AE06DBE00EDD89A /* Psalm 139ENG.txt */; };
 		E2522A911AE07ABA00EDD89A /* GridSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2522A901AE07ABA00EDD89A /* GridSquare.swift */; };
+		E2622A6D1BEBA098007773A5 /* Apostle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A6C1BEBA098007773A5 /* Apostle.swift */; };
+		E2622A6F1BEBA0A4007773A5 /* Prophet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A6E1BEBA0A4007773A5 /* Prophet.swift */; };
+		E2622A711BEBA0AD007773A5 /* Evangelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A701BEBA0AD007773A5 /* Evangelist.swift */; };
+		E2622A731BEBA0B8007773A5 /* Pastor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A721BEBA0B8007773A5 /* Pastor.swift */; };
+		E2622A751BEBA0BE007773A5 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A741BEBA0BE007773A5 /* Teacher.swift */; };
+		E2622A771BEBA0CA007773A5 /* Layman.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A761BEBA0CA007773A5 /* Layman.swift */; };
 		E2643B9F1B5DD9FC006C280C /* ToolTipSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */; };
 		E2790D4F1B8117A900702F50 /* Psalm 139ENG.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */; };
 		E28589661BBEF9170004F3C6 /* MeditationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28589651BBEF9170004F3C6 /* MeditationButton.swift */; };
@@ -143,6 +149,12 @@
 		E2522A8C1AE06B4D00EDD89A /* Psalm 139Hebrew.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Psalm 139Hebrew.txt"; sourceTree = "<group>"; };
 		E2522A8E1AE06DBE00EDD89A /* Psalm 139ENG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Psalm 139ENG.txt"; sourceTree = "<group>"; };
 		E2522A901AE07ABA00EDD89A /* GridSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridSquare.swift; sourceTree = "<group>"; };
+		E2622A6C1BEBA098007773A5 /* Apostle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apostle.swift; sourceTree = "<group>"; };
+		E2622A6E1BEBA0A4007773A5 /* Prophet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prophet.swift; sourceTree = "<group>"; };
+		E2622A701BEBA0AD007773A5 /* Evangelist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evangelist.swift; sourceTree = "<group>"; };
+		E2622A721BEBA0B8007773A5 /* Pastor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pastor.swift; sourceTree = "<group>"; };
+		E2622A741BEBA0BE007773A5 /* Teacher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
+		E2622A761BEBA0CA007773A5 /* Layman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layman.swift; sourceTree = "<group>"; };
 		E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolTipSpriteNode.swift; sourceTree = "<group>"; };
 		E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Psalm 139ENG.mp3"; sourceTree = "<group>"; };
 		E28589651BBEF9170004F3C6 /* MeditationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationButton.swift; sourceTree = "<group>"; };
@@ -195,6 +207,12 @@
 		E21B45891AE04E8F007F10C5 /* Anointed */ = {
 			isa = PBXGroup;
 			children = (
+				E2622A6C1BEBA098007773A5 /* Apostle.swift */,
+				E2622A6E1BEBA0A4007773A5 /* Prophet.swift */,
+				E2622A701BEBA0AD007773A5 /* Evangelist.swift */,
+				E2622A721BEBA0B8007773A5 /* Pastor.swift */,
+				E2622A741BEBA0BE007773A5 /* Teacher.swift */,
+				E2622A761BEBA0CA007773A5 /* Layman.swift */,
 				E23DAFDB1BEA553800301BBB /* AlertText.swift */,
 				E2D52D621AEDE7670008879C /* Animal.swift */,
 				E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */,
@@ -401,6 +419,7 @@
 				E203093B1B6FB0A500BF658F /* WordOfKnowledge.swift in Sources */,
 				E28589661BBEF9170004F3C6 /* MeditationButton.swift in Sources */,
 				E20309431B6FB77300BF658F /* PrayerInTheSpirit.swift in Sources */,
+				E2622A6F1BEBA0A4007773A5 /* Prophet.swift in Sources */,
 				E2643B9F1B5DD9FC006C280C /* ToolTipSpriteNode.swift in Sources */,
 				E2F5473B1B5D2C43004F96D0 /* Winemaking.swift in Sources */,
 				E21B45C61AE04EF6007F10C5 /* Item.swift in Sources */,
@@ -410,9 +429,11 @@
 				E23DAFDC1BEA553800301BBB /* AlertText.swift in Sources */,
 				E21B45C31AE04EF6007F10C5 /* GameCharacter.swift in Sources */,
 				E21B45CC1AE04EF6007F10C5 /* Skill.swift in Sources */,
+				E2622A771BEBA0CA007773A5 /* Layman.swift in Sources */,
 				E24EA3271BAC92E000716B5D /* PlaySoundButton.swift in Sources */,
 				E20309411B6FB5C300BF658F /* OriginDiscernment.swift in Sources */,
 				E20309571B6FC82A00BF658F /* Missionary.swift in Sources */,
+				E2622A6D1BEBA098007773A5 /* Apostle.swift in Sources */,
 				E21B458F1AE04E8F007F10C5 /* GameScene.swift in Sources */,
 				E21B45D01AE04EF6007F10C5 /* WorldMap.swift in Sources */,
 				E21B45C11AE04EF6007F10C5 /* City.swift in Sources */,
@@ -427,11 +448,14 @@
 				E20309451B6FB86100BF658F /* Interpretation.swift in Sources */,
 				E2BE7A641B8A615D00A57242 /* MenuItem.swift in Sources */,
 				E21B45CD1AE04EF6007F10C5 /* SpiritualGift.swift in Sources */,
+				E2622A731BEBA0B8007773A5 /* Pastor.swift in Sources */,
 				E21DA0D41BC0C21800D43484 /* WisdomElement.swift in Sources */,
 				E20309391B6FAF4D00BF658F /* PersonalProphecy.swift in Sources */,
 				E20309531B6FC56700BF658F /* Celibate.swift in Sources */,
+				E2622A751BEBA0BE007773A5 /* Teacher.swift in Sources */,
 				E203094B1B6FC0E300BF658F /* OneOnOneTeaching.swift in Sources */,
 				E203094F1B6FC29400BF658F /* PartyLeadership.swift in Sources */,
+				E2622A711BEBA0AD007773A5 /* Evangelist.swift in Sources */,
 				E21B45BF1AE04EF6007F10C5 /* BibleEvent.swift in Sources */,
 				E29307D51BAE61B9009F8B6A /* StudySectionLabel.swift in Sources */,
 				E21B45C01AE04EF6007F10C5 /* Building.swift in Sources */,
