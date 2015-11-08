@@ -22,7 +22,7 @@ class GameWorld {
     var knowledgeBase : [String : Knowledge] = [:]
     var understandingBase : [String : Understanding] = [:]
     var wisdomBase : [String : Wisdom] = [:]
-    var skillTree: [[Skill]]
+    var skillTree: [Skill]
     var miraclesTree: [Skill]
     var healingTree: [Skill]
     var wisdomTree : [Skill]
@@ -47,19 +47,41 @@ class GameWorld {
         meditating = false
         
         /* SET UP THE PLAYER CHARACTER */
-        
         player = GameCharacter()    //set up a default character
         
         
-        /* CREATE & ADD SKILLS & GIFTS */
+        /*** CREATE & ADD SKILLS & GIFTS ***/
         
         /* MAKE SKILLS */
-        var tentmakingSkill : Tentmaking    //create tentmaking skill
-        tentmakingSkill = Tentmaking(user: player)
+        var tentmakingSkill : Tentmaking = Tentmaking(user: player) //make tentmaking skill
+        var carpentrySkill : Carpentry = Carpentry(user: player)
+        var philosophySkill : Philosophy = Philosophy(user: player)
+        var seafaringSkill : Seafaring = Seafaring(user: player)
+        var fishingSkill : Fishing = Fishing(user: player)
+        var cookingSkill : Cooking = Cooking(user: player)
+        var musicmakingSkill : Musicmaking = Musicmaking(user: player)
+        var tailoringSkill : Tailoring = Tailoring(user: player)
+        var artmakingSkill : Artmaking = Artmaking(user: player)
+        var jewelrymakingSkill : Jewelrymaking = Jewelrymaking(user: player)
+        var medicineSkill : Medicine = Medicine(user: player)
+        var weaponmakingSkill: Weaponmaking = Weaponmaking(user: player)
+        var bankingSkill : Banking = Banking(user: player)
+        var scribeSkill : Scribe = Scribe(user: player)
         
         /* GIVE SOME SKILLS TO PLAYER */
-        player.skills.append(tentmakingSkill)   //player (for now) has the tentmaking skill
+        player.skills.append(tentmakingSkill)   //player (for now) has the tentmaking skill thru the jewelrymaking skill
+        player.skills.append(carpentrySkill)
+        player.skills.append(philosophySkill)
+        player.skills.append(seafaringSkill)
+        player.skills.append(fishingSkill)
+        player.skills.append(cookingSkill)
+        player.skills.append(musicmakingSkill)
+        player.skills.append(tailoringSkill)
+        player.skills.append(artmakingSkill)
+        player.skills.append(jewelrymakingSkill)
         
+        /* MAKE SKILL TREE */
+        skillTree = [tentmakingSkill, carpentrySkill, philosophySkill, seafaringSkill, fishingSkill, cookingSkill, musicmakingSkill, tailoringSkill, artmakingSkill, jewelrymakingSkill, medicineSkill, weaponmakingSkill, bankingSkill]
         
         /* MAKE GIFT SUBSKILLS */
         var winemakingSkill : Winemaking    //create winemaking skill (will be a subset of miracles gift)
@@ -133,8 +155,7 @@ class GameWorld {
         player.spiritualGifts.append(interpretationGift)
         player.spiritualGifts.append(encouragementGift)
         
-        /* CREATE SKILL TREES */
-        skillTree = [[tentmakingSkill]]
+        /* CREATE GIFT SKILL TREES */
         miraclesTree = [winemakingSkill]
         healingTree = [physicalHealingSkill]
         wisdomTree = [wordOfWisdomSkill]

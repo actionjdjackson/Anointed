@@ -67,7 +67,21 @@
 		E2622A731BEBA0B8007773A5 /* Pastor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A721BEBA0B8007773A5 /* Pastor.swift */; };
 		E2622A751BEBA0BE007773A5 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A741BEBA0BE007773A5 /* Teacher.swift */; };
 		E2622A771BEBA0CA007773A5 /* Layman.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A761BEBA0CA007773A5 /* Layman.swift */; };
+		E2622A791BEBA1EF007773A5 /* OfficeCalling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A781BEBA1EF007773A5 /* OfficeCalling.swift */; };
+		E2622A7B1BEBB6E8007773A5 /* Carpentry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A7A1BEBB6E8007773A5 /* Carpentry.swift */; };
+		E2622A7D1BEBB6F2007773A5 /* Philosophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A7C1BEBB6F2007773A5 /* Philosophy.swift */; };
+		E2622A7F1BEBB702007773A5 /* Seafaring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A7E1BEBB702007773A5 /* Seafaring.swift */; };
+		E2622A811BEBB70C007773A5 /* Fishing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A801BEBB70C007773A5 /* Fishing.swift */; };
+		E2622A831BEBB713007773A5 /* Cooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A821BEBB713007773A5 /* Cooking.swift */; };
+		E2622A851BEBB722007773A5 /* Musicmaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A841BEBB722007773A5 /* Musicmaking.swift */; };
+		E2622A871BEBB729007773A5 /* Tailoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A861BEBB729007773A5 /* Tailoring.swift */; };
+		E2622A891BEBB730007773A5 /* Artmaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A881BEBB730007773A5 /* Artmaking.swift */; };
+		E2622A8B1BEBB738007773A5 /* Jewelrymaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A8A1BEBB738007773A5 /* Jewelrymaking.swift */; };
+		E2622A8D1BEBB753007773A5 /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A8C1BEBB753007773A5 /* Medicine.swift */; };
+		E2622A8F1BEBB75A007773A5 /* Weaponmaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A8E1BEBB75A007773A5 /* Weaponmaking.swift */; };
+		E2622A911BEBB761007773A5 /* Banking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A901BEBB760007773A5 /* Banking.swift */; };
 		E2643B9F1B5DD9FC006C280C /* ToolTipSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */; };
+		E27230CE1BEFE23300FE3C08 /* Scribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27230CD1BEFE23200FE3C08 /* Scribe.swift */; };
 		E2790D4F1B8117A900702F50 /* Psalm 139ENG.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */; };
 		E28589661BBEF9170004F3C6 /* MeditationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28589651BBEF9170004F3C6 /* MeditationButton.swift */; };
 		E28C4A511B4D7FC4001CD4A7 /* Tentmaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */; };
@@ -155,7 +169,21 @@
 		E2622A721BEBA0B8007773A5 /* Pastor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pastor.swift; sourceTree = "<group>"; };
 		E2622A741BEBA0BE007773A5 /* Teacher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		E2622A761BEBA0CA007773A5 /* Layman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layman.swift; sourceTree = "<group>"; };
+		E2622A781BEBA1EF007773A5 /* OfficeCalling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficeCalling.swift; sourceTree = "<group>"; };
+		E2622A7A1BEBB6E8007773A5 /* Carpentry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Carpentry.swift; sourceTree = "<group>"; };
+		E2622A7C1BEBB6F2007773A5 /* Philosophy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Philosophy.swift; sourceTree = "<group>"; };
+		E2622A7E1BEBB702007773A5 /* Seafaring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Seafaring.swift; sourceTree = "<group>"; };
+		E2622A801BEBB70C007773A5 /* Fishing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fishing.swift; sourceTree = "<group>"; };
+		E2622A821BEBB713007773A5 /* Cooking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cooking.swift; sourceTree = "<group>"; };
+		E2622A841BEBB722007773A5 /* Musicmaking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Musicmaking.swift; sourceTree = "<group>"; };
+		E2622A861BEBB729007773A5 /* Tailoring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tailoring.swift; sourceTree = "<group>"; };
+		E2622A881BEBB730007773A5 /* Artmaking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artmaking.swift; sourceTree = "<group>"; };
+		E2622A8A1BEBB738007773A5 /* Jewelrymaking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Jewelrymaking.swift; sourceTree = "<group>"; };
+		E2622A8C1BEBB753007773A5 /* Medicine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medicine.swift; sourceTree = "<group>"; };
+		E2622A8E1BEBB75A007773A5 /* Weaponmaking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weaponmaking.swift; sourceTree = "<group>"; };
+		E2622A901BEBB760007773A5 /* Banking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Banking.swift; sourceTree = "<group>"; };
 		E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolTipSpriteNode.swift; sourceTree = "<group>"; };
+		E27230CD1BEFE23200FE3C08 /* Scribe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scribe.swift; sourceTree = "<group>"; };
 		E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Psalm 139ENG.mp3"; sourceTree = "<group>"; };
 		E28589651BBEF9170004F3C6 /* MeditationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationButton.swift; sourceTree = "<group>"; };
 		E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tentmaking.swift; sourceTree = "<group>"; };
@@ -207,77 +235,18 @@
 		E21B45891AE04E8F007F10C5 /* Anointed */ = {
 			isa = PBXGroup;
 			children = (
-				E2622A6C1BEBA098007773A5 /* Apostle.swift */,
-				E2622A6E1BEBA0A4007773A5 /* Prophet.swift */,
-				E2622A701BEBA0AD007773A5 /* Evangelist.swift */,
-				E2622A721BEBA0B8007773A5 /* Pastor.swift */,
-				E2622A741BEBA0BE007773A5 /* Teacher.swift */,
-				E2622A761BEBA0CA007773A5 /* Layman.swift */,
-				E23DAFDB1BEA553800301BBB /* AlertText.swift */,
-				E2D52D621AEDE7670008879C /* Animal.swift */,
-				E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */,
-				E203093E1B6FB25D00BF658F /* Assurance.swift */,
-				E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */,
-				E21B45AD1AE04EF6007F10C5 /* BibleEvent.swift */,
-				E21B45AE1AE04EF6007F10C5 /* Building.swift */,
-				E20309521B6FC56700BF658F /* Celibate.swift */,
-				E203094C1B6FC1B400BF658F /* CheerfulGiving.swift */,
-				E21B45AF1AE04EF6007F10C5 /* City.swift */,
-				E21B45B01AE04EF6007F10C5 /* Conversation.swift */,
-				E20309501B6FC43400BF658F /* FeedingThePoor.swift */,
-				E21B45B11AE04EF6007F10C5 /* GameCharacter.swift */,
 				E21B45901AE04E8F007F10C5 /* GameScene.sks */,
+				E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */,
 				E21B458E1AE04E8F007F10C5 /* GameScene.swift */,
 				E21B45B21AE04EF6007F10C5 /* GameWorld.swift */,
 				E21B45B31AE04EF6007F10C5 /* Global.swift */,
-				E2522A901AE07ABA00EDD89A /* GridSquare.swift */,
-				E20309541B6FC69D00BF658F /* Hospitality.swift */,
-				E2BE7A691B8AA68A00A57242 /* HoverText.swift */,
-				E21B45921AE04E8F007F10C5 /* Images.xcassets */,
-				E20309441B6FB86100BF658F /* Interpretation.swift */,
-				E21B45B41AE04EF6007F10C5 /* Item.swift */,
-				E21B45B51AE04EF6007F10C5 /* Knowledge.swift */,
-				E21DA0CF1BC0B39900D43484 /* KnowledgeElement.swift */,
-				E21B45B61AE04EF6007F10C5 /* Location.swift */,
+				E27230D01BEFF41600FE3C08 /* Assets */,
+				E27230D21BEFF44900FE3C08 /* Callings */,
+				E27230D31BEFF46C00FE3C08 /* Game Objects/Events */,
+				E27230D11BEFF43D00FE3C08 /* Gifts/Skills */,
 				E21B45941AE04E8F007F10C5 /* MainMenu.xib */,
-				E28589651BBEF9170004F3C6 /* MeditationButton.swift */,
-				E21DA0C91BC0732400D43484 /* MemorizationButton.swift */,
-				E2BE7A631B8A615D00A57242 /* MenuItem.swift */,
-				E20309561B6FC82A00BF658F /* Missionary.swift */,
-				E21B45B81AE04EF6007F10C5 /* NonPlayingCharacter.swift */,
-				E203094A1B6FC0E300BF658F /* OneOnOneTeaching.swift */,
-				E20309401B6FB5C200BF658F /* OriginDiscernment.swift */,
-				E203094E1B6FC29400BF658F /* PartyLeadership.swift */,
-				E20309461B6FBED300BF658F /* PersonalEncouragement.swift */,
-				E20309381B6FAF4D00BF658F /* PersonalProphecy.swift */,
-				E211865D1B697CE2005E9AA3 /* PhysicalHealing.swift */,
-				E24EA3261BAC92E000716B5D /* PlaySoundButton.swift */,
-				E20309421B6FB77300BF658F /* PrayerInTheSpirit.swift */,
-				E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */,
-				E2522A8E1AE06DBE00EDD89A /* Psalm 139ENG.txt */,
-				E2BE7A611B88274300A57242 /* Psalm 139Hebrew.mp3 */,
-				E2522A8C1AE06B4D00EDD89A /* Psalm 139Hebrew.txt */,
-				E21B45B91AE04EF6007F10C5 /* Room.swift */,
-				E2522A8A1AE0631900EDD89A /* Scroll.swift */,
-				E20309481B6FC01D00BF658F /* Servanthood.swift */,
-				E21325CF1B7048AB00B1304F /* ShowImageButton.swift */,
-				E21B45BA1AE04EF6007F10C5 /* Skill.swift */,
-				E2D52D601AEC88900008879C /* SKMultiLineLabel.swift */,
-				E21B45BB1AE04EF6007F10C5 /* SpiritualGift.swift */,
-				E29307D41BAE61B9009F8B6A /* StudySectionLabel.swift */,
 				E21B458A1AE04E8F007F10C5 /* Supporting Files */,
-				E2522A881AE05C9E00EDD89A /* TanakhENG.txt */,
-				E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */,
-				E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */,
-				E21B45BC1AE04EF6007F10C5 /* Understanding.swift */,
-				E21DA0D11BC0C21100D43484 /* UnderstandingElement.swift */,
-				E21DA0CB1BC07F4C00D43484 /* VisualizeKnowledgeButton.swift */,
-				E2F5473A1B5D2C43004F96D0 /* Winemaking.swift */,
-				E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */,
-				E21DA0D31BC0C21800D43484 /* WisdomElement.swift */,
-				E203093A1B6FB0A500BF658F /* WordOfKnowledge.swift */,
-				E203093C1B6FB1EB00BF658F /* WordOfWisdom.swift */,
-				E21B45BE1AE04EF6007F10C5 /* WorldMap.swift */,
+				E27230CF1BEFF40300FE3C08 /* UI */,
 			);
 			path = Anointed;
 			sourceTree = "<group>";
@@ -305,6 +274,119 @@
 				E21B45A01AE04E8F007F10C5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E27230CF1BEFF40300FE3C08 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E23DAFDB1BEA553800301BBB /* AlertText.swift */,
+				E2BE7A691B8AA68A00A57242 /* HoverText.swift */,
+				E28589651BBEF9170004F3C6 /* MeditationButton.swift */,
+				E21DA0C91BC0732400D43484 /* MemorizationButton.swift */,
+				E2BE7A631B8A615D00A57242 /* MenuItem.swift */,
+				E24EA3261BAC92E000716B5D /* PlaySoundButton.swift */,
+				E21325CF1B7048AB00B1304F /* ShowImageButton.swift */,
+				E2D52D601AEC88900008879C /* SKMultiLineLabel.swift */,
+				E29307D41BAE61B9009F8B6A /* StudySectionLabel.swift */,
+				E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */,
+				E21DA0CB1BC07F4C00D43484 /* VisualizeKnowledgeButton.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		E27230D01BEFF41600FE3C08 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */,
+				E21B45921AE04E8F007F10C5 /* Images.xcassets */,
+				E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */,
+				E2522A8E1AE06DBE00EDD89A /* Psalm 139ENG.txt */,
+				E2BE7A611B88274300A57242 /* Psalm 139Hebrew.mp3 */,
+				E2522A8C1AE06B4D00EDD89A /* Psalm 139Hebrew.txt */,
+				E2522A881AE05C9E00EDD89A /* TanakhENG.txt */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		E27230D11BEFF43D00FE3C08 /* Gifts/Skills */ = {
+			isa = PBXGroup;
+			children = (
+				E2622A881BEBB730007773A5 /* Artmaking.swift */,
+				E203093E1B6FB25D00BF658F /* Assurance.swift */,
+				E2622A901BEBB760007773A5 /* Banking.swift */,
+				E2622A7A1BEBB6E8007773A5 /* Carpentry.swift */,
+				E20309521B6FC56700BF658F /* Celibate.swift */,
+				E203094C1B6FC1B400BF658F /* CheerfulGiving.swift */,
+				E2622A821BEBB713007773A5 /* Cooking.swift */,
+				E20309501B6FC43400BF658F /* FeedingThePoor.swift */,
+				E2622A801BEBB70C007773A5 /* Fishing.swift */,
+				E20309541B6FC69D00BF658F /* Hospitality.swift */,
+				E20309441B6FB86100BF658F /* Interpretation.swift */,
+				E2622A8A1BEBB738007773A5 /* Jewelrymaking.swift */,
+				E2622A8C1BEBB753007773A5 /* Medicine.swift */,
+				E20309561B6FC82A00BF658F /* Missionary.swift */,
+				E2622A841BEBB722007773A5 /* Musicmaking.swift */,
+				E203094A1B6FC0E300BF658F /* OneOnOneTeaching.swift */,
+				E20309401B6FB5C200BF658F /* OriginDiscernment.swift */,
+				E203094E1B6FC29400BF658F /* PartyLeadership.swift */,
+				E20309461B6FBED300BF658F /* PersonalEncouragement.swift */,
+				E20309381B6FAF4D00BF658F /* PersonalProphecy.swift */,
+				E2622A7C1BEBB6F2007773A5 /* Philosophy.swift */,
+				E211865D1B697CE2005E9AA3 /* PhysicalHealing.swift */,
+				E20309421B6FB77300BF658F /* PrayerInTheSpirit.swift */,
+				E27230CD1BEFE23200FE3C08 /* Scribe.swift */,
+				E2622A7E1BEBB702007773A5 /* Seafaring.swift */,
+				E20309481B6FC01D00BF658F /* Servanthood.swift */,
+				E21B45BA1AE04EF6007F10C5 /* Skill.swift */,
+				E21B45BB1AE04EF6007F10C5 /* SpiritualGift.swift */,
+				E2622A861BEBB729007773A5 /* Tailoring.swift */,
+				E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */,
+				E2622A8E1BEBB75A007773A5 /* Weaponmaking.swift */,
+				E2F5473A1B5D2C43004F96D0 /* Winemaking.swift */,
+				E203093A1B6FB0A500BF658F /* WordOfKnowledge.swift */,
+				E203093C1B6FB1EB00BF658F /* WordOfWisdom.swift */,
+			);
+			name = Gifts/Skills;
+			sourceTree = "<group>";
+		};
+		E27230D21BEFF44900FE3C08 /* Callings */ = {
+			isa = PBXGroup;
+			children = (
+				E2622A6C1BEBA098007773A5 /* Apostle.swift */,
+				E2622A701BEBA0AD007773A5 /* Evangelist.swift */,
+				E2622A761BEBA0CA007773A5 /* Layman.swift */,
+				E2622A781BEBA1EF007773A5 /* OfficeCalling.swift */,
+				E2622A721BEBA0B8007773A5 /* Pastor.swift */,
+				E2622A6E1BEBA0A4007773A5 /* Prophet.swift */,
+				E2622A741BEBA0BE007773A5 /* Teacher.swift */,
+			);
+			name = Callings;
+			sourceTree = "<group>";
+		};
+		E27230D31BEFF46C00FE3C08 /* Game Objects/Events */ = {
+			isa = PBXGroup;
+			children = (
+				E2D52D621AEDE7670008879C /* Animal.swift */,
+				E21B45AD1AE04EF6007F10C5 /* BibleEvent.swift */,
+				E21B45AE1AE04EF6007F10C5 /* Building.swift */,
+				E21B45AF1AE04EF6007F10C5 /* City.swift */,
+				E21B45B01AE04EF6007F10C5 /* Conversation.swift */,
+				E21B45B11AE04EF6007F10C5 /* GameCharacter.swift */,
+				E2522A901AE07ABA00EDD89A /* GridSquare.swift */,
+				E21B45B41AE04EF6007F10C5 /* Item.swift */,
+				E21B45B51AE04EF6007F10C5 /* Knowledge.swift */,
+				E21DA0CF1BC0B39900D43484 /* KnowledgeElement.swift */,
+				E21B45B61AE04EF6007F10C5 /* Location.swift */,
+				E21B45B81AE04EF6007F10C5 /* NonPlayingCharacter.swift */,
+				E21B45B91AE04EF6007F10C5 /* Room.swift */,
+				E2522A8A1AE0631900EDD89A /* Scroll.swift */,
+				E21B45BC1AE04EF6007F10C5 /* Understanding.swift */,
+				E21DA0D11BC0C21100D43484 /* UnderstandingElement.swift */,
+				E21B45BD1AE04EF6007F10C5 /* Wisdom.swift */,
+				E21DA0D31BC0C21800D43484 /* WisdomElement.swift */,
+				E21B45BE1AE04EF6007F10C5 /* WorldMap.swift */,
+			);
+			name = "Game Objects/Events";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,9 +501,13 @@
 				E203093B1B6FB0A500BF658F /* WordOfKnowledge.swift in Sources */,
 				E28589661BBEF9170004F3C6 /* MeditationButton.swift in Sources */,
 				E20309431B6FB77300BF658F /* PrayerInTheSpirit.swift in Sources */,
+				E2622A8F1BEBB75A007773A5 /* Weaponmaking.swift in Sources */,
 				E2622A6F1BEBA0A4007773A5 /* Prophet.swift in Sources */,
 				E2643B9F1B5DD9FC006C280C /* ToolTipSpriteNode.swift in Sources */,
+				E2622A891BEBB730007773A5 /* Artmaking.swift in Sources */,
+				E2622A791BEBA1EF007773A5 /* OfficeCalling.swift in Sources */,
 				E2F5473B1B5D2C43004F96D0 /* Winemaking.swift in Sources */,
+				E2622A831BEBB713007773A5 /* Cooking.swift in Sources */,
 				E21B45C61AE04EF6007F10C5 /* Item.swift in Sources */,
 				E20309491B6FC01D00BF658F /* Servanthood.swift in Sources */,
 				E21B45C21AE04EF6007F10C5 /* Conversation.swift in Sources */,
@@ -440,13 +526,17 @@
 				E203093F1B6FB25D00BF658F /* Assurance.swift in Sources */,
 				E21B45C71AE04EF6007F10C5 /* Knowledge.swift in Sources */,
 				E21B45C41AE04EF6007F10C5 /* GameWorld.swift in Sources */,
+				E2622A7D1BEBB6F2007773A5 /* Philosophy.swift in Sources */,
 				E203093D1B6FB1EB00BF658F /* WordOfWisdom.swift in Sources */,
+				E2622A7F1BEBB702007773A5 /* Seafaring.swift in Sources */,
 				E2522A8B1AE0631900EDD89A /* Scroll.swift in Sources */,
 				E20309471B6FBED300BF658F /* PersonalEncouragement.swift in Sources */,
 				E21B458D1AE04E8F007F10C5 /* AppDelegate.swift in Sources */,
 				E203094D1B6FC1B400BF658F /* CheerfulGiving.swift in Sources */,
 				E20309451B6FB86100BF658F /* Interpretation.swift in Sources */,
+				E2622A8B1BEBB738007773A5 /* Jewelrymaking.swift in Sources */,
 				E2BE7A641B8A615D00A57242 /* MenuItem.swift in Sources */,
+				E2622A851BEBB722007773A5 /* Musicmaking.swift in Sources */,
 				E21B45CD1AE04EF6007F10C5 /* SpiritualGift.swift in Sources */,
 				E2622A731BEBA0B8007773A5 /* Pastor.swift in Sources */,
 				E21DA0D41BC0C21800D43484 /* WisdomElement.swift in Sources */,
@@ -454,6 +544,7 @@
 				E20309531B6FC56700BF658F /* Celibate.swift in Sources */,
 				E2622A751BEBA0BE007773A5 /* Teacher.swift in Sources */,
 				E203094B1B6FC0E300BF658F /* OneOnOneTeaching.swift in Sources */,
+				E27230CE1BEFE23300FE3C08 /* Scribe.swift in Sources */,
 				E203094F1B6FC29400BF658F /* PartyLeadership.swift in Sources */,
 				E2622A711BEBA0AD007773A5 /* Evangelist.swift in Sources */,
 				E21B45BF1AE04EF6007F10C5 /* BibleEvent.swift in Sources */,
@@ -463,6 +554,7 @@
 				E21B45CF1AE04EF6007F10C5 /* Wisdom.swift in Sources */,
 				E21DA0CA1BC0732400D43484 /* MemorizationButton.swift in Sources */,
 				E2D52D631AEDE7670008879C /* Animal.swift in Sources */,
+				E2622A8D1BEBB753007773A5 /* Medicine.swift in Sources */,
 				E2BE7A6A1B8AA68A00A57242 /* HoverText.swift in Sources */,
 				E28C4A511B4D7FC4001CD4A7 /* Tentmaking.swift in Sources */,
 				E21B45CE1AE04EF6007F10C5 /* Understanding.swift in Sources */,
@@ -470,11 +562,15 @@
 				E20309511B6FC43400BF658F /* FeedingThePoor.swift in Sources */,
 				E2D52D611AEC88900008879C /* SKMultiLineLabel.swift in Sources */,
 				E2522A911AE07ABA00EDD89A /* GridSquare.swift in Sources */,
+				E2622A7B1BEBB6E8007773A5 /* Carpentry.swift in Sources */,
 				E21B45C81AE04EF6007F10C5 /* Location.swift in Sources */,
 				E21B45C51AE04EF6007F10C5 /* Global.swift in Sources */,
 				E21DA0D21BC0C21100D43484 /* UnderstandingElement.swift in Sources */,
+				E2622A811BEBB70C007773A5 /* Fishing.swift in Sources */,
 				E20309551B6FC69D00BF658F /* Hospitality.swift in Sources */,
+				E2622A871BEBB729007773A5 /* Tailoring.swift in Sources */,
 				E21B45CB1AE04EF6007F10C5 /* Room.swift in Sources */,
+				E2622A911BEBB761007773A5 /* Banking.swift in Sources */,
 				E21325D01B7048AB00B1304F /* ShowImageButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

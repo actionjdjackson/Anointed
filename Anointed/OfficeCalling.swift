@@ -1,5 +1,5 @@
 //
-//  Teacher.swift
+//  OfficeCalling.swift
 //  Anointed
 //
 //  Created by Jacob Jackson on 11/5/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Teacher: OfficeCalling {
+class OfficeCalling {
     
     
     

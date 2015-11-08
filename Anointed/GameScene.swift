@@ -19,7 +19,6 @@ class GameScene: SKScene {
     var experienceBars = SKSpriteNode(imageNamed:"ExperienceBarsBASE")  //load experience bar into memory
     var theOpenMenu = SKSpriteNode(imageNamed:"INVENTORYmenu")  //load inventory menu as default menu to open
     var menuUp = "NONE" //no menu up for starters
-    //var theGame = GameWorld()   //sets up the game world [NOW DOING IT GLOBALLY]
     let hebrew = NSCalendar(calendarIdentifier: NSCalendarIdentifierHebrew) //defines hebrew calendar
     let formatter = NSDateFormatter()   //sets up a date formatter for displaying hebrew dates
     let dateLabel = SKLabelNode(fontNamed:"Courier New")    //creates date label with font Courier New (fixed width)
@@ -146,7 +145,9 @@ class GameScene: SKScene {
     
     /* EVERY FRAME... */
     override func didFinishUpdate() {
+        
         self.centerOnNode(UNIVERSE.theGame.player)   //continually center on the player
+        
     }
     
     /* centers the screen on a given SKNode, in our case the player (as above) */
@@ -193,6 +194,7 @@ class GameScene: SKScene {
     
     /* CREATES THE LOWER BANNER WITH GAME BUTTONS, SKILLS, AND EXPERIENCE BARS */
     func setupLowerBanner() {
+        
         lowerBanner.removeFromParent()  //just in case we're re-setting-up, remove the current banner
         lowerBanner = SKSpriteNode(imageNamed:"LowerBannerBASE")    //define the lowerBanner as basic button bar with nothing selected
         lowerBanner.position = CGPoint( x: LOWER_BANNER_X, y: LOWER_BANNER_Y )   //put the button bar at correct location
@@ -250,22 +252,28 @@ class GameScene: SKScene {
     
     /* RESETS THE LOWER BANNER TO NOTHING SELECTED OR HIGHLIGHTED */
     func resetLowerBanner() {
+        
         lowerBanner.texture = SKTexture(imageNamed:"LowerBannerBASE")   //changes the lower banner's texture to the plain button bar with nothing selected
+        
     }
     
     /* ACTIVATES (HIGHLIGHTS) A PARTICULAR BUTTON ON THE LOWER BANNER */
     func activateLowerBanner(image: String) {
+        
         lowerBanner.texture = SKTexture(imageNamed: image)  //changes the lower banner's texture to an image named whatever
+        
     }
     
     /* CLEARS THE LOWER BANNER, REMOVES ANY OPEN MENU FROM THE SCREEN */
     func clearMenu() {
+        
         resetLowerBanner()  //nothing highlighted
         for node in self.children {
             if node.name == "VISUALIZATION BACKGROUND" {
                 node.removeFromParent()
             }
         }
+        
         for node in theOpenMenu.children {
             if node is Scroll {
                 let theScroll = node as! Scroll
@@ -278,6 +286,7 @@ class GameScene: SKScene {
                 }
             }
         }
+        
         theOpenMenu.removeAllChildren()
         theOpenMenu.removeFromParent()  //remove the open menu if it's there
         menuUp = "NONE" //set menuUp to "NONE" - so we know there's no menu up at this time
@@ -285,6 +294,7 @@ class GameScene: SKScene {
             soundPlayer.stop()
         }
         backgroundMusicPlayer.play()
+        
     }
     
     /* OPENS A MENU NAMED theMenu - HIGHLIGHTS THE BUTTON PRESSED AND DISPLAYS THE RESPECTIVE MENU DISPLAY */
@@ -322,7 +332,7 @@ class GameScene: SKScene {
         
         /* SPECIAL INSTRUCTIONS FOR SKILLS MENU - ***INCOMPLETE*** */
         
-        if theMenu ==  "SKILLS&CALLING" { //if we're working with the skills menu
+        if theMenu == "SKILLS&CALLING" { //if we're working with the skills menu
             
             var subSkillTreeButton : ShowImageButton
             subSkillTreeButton = ShowImageButton(buttonText: "Gift-Skills Tree", image: "giftsAndSubskillsTree")
@@ -334,6 +344,11 @@ class GameScene: SKScene {
             officeCallingsButton.position = CGPoint(x: 0, y: -theOpenMenu.position.y - 32)
             officeCallingsButton.zPosition = 5.0
             theOpenMenu.addChild(officeCallingsButton)
+            var naturalSkillsButton : ShowImageButton
+            naturalSkillsButton = ShowImageButton(buttonText: "Natural Skills Tree", image: "naturalSkills")
+            naturalSkillsButton.position = CGPoint(x: 0, y: -theOpenMenu.position.y - 64)
+            naturalSkillsButton.zPosition = 5.0
+            theOpenMenu.addChild(naturalSkillsButton)
                 
             if UNIVERSE.theGame.player.skills.count > 0 {    //if the player has any skills
                 for n in 0...UNIVERSE.theGame.player.skills.count-1 {    //iterate through all skills
@@ -345,6 +360,7 @@ class GameScene: SKScene {
                     theOpenMenu.addChild(skill) //add skill to the menu
                 }
             }
+            
             if UNIVERSE.theGame.player.spiritualGifts.count > 0 {    //if the player has any spiritual gifts
                 for n in 0...UNIVERSE.theGame.player.spiritualGifts.count-1 {    //iterate through all gifts
                     if n >= SKILLS_GRID_WIDTH { //if the player has too many spiritual gifts
@@ -367,6 +383,7 @@ class GameScene: SKScene {
                     }
                 }
             }
+            
         }
         
         /* SPECIAL INSTRUCTIONS FOR KNOWLEDGE MENU - ***INCOMPLETE*** */
@@ -470,6 +487,7 @@ class GameScene: SKScene {
                     clearMenu()
                     openMenu("SKILLS&CALLING")
                 }
+                
                 /* DETECTS CLICKS ON THE SKILLS BAR FOR REGULAR SKILLS */
             } else if location.x >= SKILLS_BAR_EDGE && UNIVERSE.theGame.player.skills.count > 0 && location.y >= SKILLS_BAR_BASE_Y - 16 && skillInUse < 0 {    //if we're beyond the skills bar edge and the player has at least 1 skill
                 var skillNo = Int((location.x+32) / 32) //calculate skill # based on mouse click x location
@@ -477,10 +495,11 @@ class GameScene: SKScene {
                 if skillNo > UNIVERSE.theGame.player.skills.count-1 { return }   //if we're out of bounds when considering available skills, just return
                 if UNIVERSE.theGame.player.skills[skillNo].canUse() && UNIVERSE.theGame.player.skills[skillNo].passive == false {    //if the skill is usable right now & not passive
                     if skillInUse < 0 { //and if skill in use is nothing (-1 typically) [if we're not currently working on another skill function]
-                        makeProgressBarFor( SECONDS_IN_ONE_HOUR * ((10.0 - log(Double(UNIVERSE.theGame.player.skills[0].level))) * UNIVERSE.theGame.player.skills[skillNo].hoursToComplete / 10.0), caption: UNIVERSE.theGame.player.skills[skillNo].title )   //make a progress bar with a duration based on a negative logarithmic curve from initial "hoursToComplete" value on down to a lower and lower number, so the higher your level in this skill, the less time it will take to complete the skill function
+                        makeProgressBarFor( SECONDS_IN_ONE_HOUR * UNIVERSE.theGame.player.skills[skillNo].hoursToComplete, caption: UNIVERSE.theGame.player.skills[skillNo].title )   //make a progress bar with a duration based on a negative logarithmic curve from initial "hoursToComplete" value on down to a lower and lower number, so the higher your level in this skill, the less time it will take to complete the skill function
                         skillInUse = skillNo    //set skill in use to the clicked skill
                     }
                 }
+                
                 /* DETECTS CLICKS ON THE SKILLS BAR FOR SPIRITUAL GIFT SKILLS */
             } else if location.x >= SKILLS_BAR_EDGE && giftSkills.count > 0 && location.y >= SKILLS_BAR_BASE_Y - 48 && location.y <= SKILLS_BAR_BASE_Y - 16 && skillInUse < 0 {   //if we've clicked a skill in the spiritual gifts skill bar (the bottom row)
                 var skillNo = Int((location.x+32) / 32) //calculate skill # based on mouse click x location
@@ -488,10 +507,11 @@ class GameScene: SKScene {
                 if skillNo > giftSkills.count-1 { return }  //if we're out of bounds when considering available gift skills, just return
                 if giftSkills[skillNo].canUse() && giftSkills[skillNo].passive == false {   //if the skill is usable right now & not passive
                     if skillInUse < 0 { //and if skill in use is nothing (-1 typically) [if we're not currently working on another skill function]
-                        makeProgressBarFor( SECONDS_IN_ONE_HOUR * ((10.0 - log(Double(giftSkills[skillNo].level))) * giftSkills[skillNo].hoursToComplete / 10.0), caption: giftSkills[skillNo].title )//make a progress bar with a duration based on a negative logarithmic curve from initial "hoursToComplete" value on down to a lower and lower number, so the higher your level in this skill, the less time it will take to complete the skill function
+                        makeProgressBarFor( SECONDS_IN_ONE_HOUR * giftSkills[skillNo].hoursToComplete, caption: giftSkills[skillNo].title )//make a progress bar with a duration based on a negative logarithmic curve from initial "hoursToComplete" value on down to a lower and lower number, so the higher your level in this skill, the less time it will take to complete the skill function
                         skillInUse = skillNo + 10   //set skill in use to the clicked skill (plus 10 because it's the bottom row)
                     }
                 }
+                
             } else {    //if we've clicked anywhere that's not part of the active UI
                 
                 if UNIVERSE.theGame.meditating {
@@ -500,6 +520,7 @@ class GameScene: SKScene {
                     clearMenu() //clear open menu
                 }
             }
+            
         } else { /* Has the user clicked OUTSIDE the lower banner? */
             
             if UNIVERSE.theGame.meditating {
@@ -738,6 +759,7 @@ class GameScene: SKScene {
     
     /* HANDLES PICKING UP ITEMS IN A PARTICULAR LOCATION ON THE GRID */
     func pickUpItems(pt: CGPoint) {
+        
         let x = Int(pt.x)   //make the CGPoint into two integer coordinates for the grid
         let y = Int(pt.y)   //as above
         if UNIVERSE.theGame.currentLocation.grid[y][x].contents.count > 0 {  //if there's something to pick up
@@ -750,27 +772,33 @@ class GameScene: SKScene {
     
     /* CONVERTS ISOMETRIC COORDS TO 2D GRID COORDS */
     func isoTo2D(pt: CGPoint) -> CGPoint {
+        
         var tempPt = CGPoint(x: 0, y: 0)
         tempPt.x = (2 * pt.y + pt.x) / 2
         tempPt.y = (2 * pt.y - pt.x) / 2
         return(tempPt)
+        
     }
     
     /* CONVERTS 2D GRID COORDS TO ISOMETRIC COORDS */
     func twoDToIso(pt: CGPoint) -> CGPoint {
+        
         var tempPt = CGPoint(x: 0, y: 0)
         tempPt.x = pt.x - pt.y
         tempPt.y = (pt.x + pt.y) / 2
         return(tempPt)
+        
     }
     
     /* GOOD FOR MOUSE CLICKS GOING FROM ISO VIEW ON THE SCENE INTO A GRID SQUARE 2D COORD I.E. WHAT SQUARE DID I CLICK? */
     func getTileCoordinates(pt: CGPoint) -> CGPoint {
+        
         var tempPt = CGPoint(x: 0, y: 0)
         let tileHeight = CGFloat(64.0)
         tempPt.x = floor(pt.x / tileHeight)
         tempPt.y = floor(pt.y / tileHeight)
         return(tempPt)
+        
     }
     
     /* CREATES THE CURRENT LOCATION THE PLAYER IS IN ON THE SCENE */
@@ -844,6 +872,7 @@ class GameScene: SKScene {
             UNIVERSE.theGame.nextEvent++ //increment bible events
             
         }
+        
     }
     
     /* MAKES A PROGRESS BAR FOR SKILLS OR GIFTS IN PROGRESS */
@@ -873,6 +902,7 @@ class GameScene: SKScene {
             progBarTime += deltaTime    //increment the progressbar's value by deltaTime
             progBar.size = CGSizeMake( CGFloat( ( CGFloat(progBarTime) / CGFloat(progBarDuration) ) * PROG_BAR_WIDTH ), progBar.size.height )   //redraw bar to reflect the change in time value
         }
+        
         if progBarTime >= progBarDuration && progBarDuration != 0.0 {   //if we've reached the end of the progressbar
             removeProgressBar() //remove progress bar (& activate skill)
         }
@@ -888,6 +918,7 @@ class GameScene: SKScene {
         progBarTime = 0.0   //reset time position
         progBarDuration = 0.0   //reset duration
         progBarCaption = SKLabelNode(text: "")  //reset caption
+        
         if skillInUse >= 10 {   //if we're using a spiritual gift skill
             var useWithoutTarget = true //initially, we assume we'll be using the gift without a target
             if UNIVERSE.theGame.currentLocation.people.count > 0 {   //if there's NPCs in the current location
@@ -898,6 +929,7 @@ class GameScene: SKScene {
                     }
                 }
             }
+            
             if UNIVERSE.theGame.currentLocation.animals.count > 0 {  //if there's animals in the current location
                 for n in 0...UNIVERSE.theGame.currentLocation.animals.count-1 {  //iterate through all animals
                     if UNIVERSE.theGame.currentLocation.animals[n].selected == true {    //if an animal is selected
@@ -906,10 +938,13 @@ class GameScene: SKScene {
                     }
                 }
             }
+            
             if useWithoutTarget == true {   //if there were no selections (targets)
                 giftSkills[skillInUse-10].use() //use the gift without a target (usually this means performing the skill function on yourself)
             }
+            
         } else {    //if we're using a natural skill
+            
             var useWithoutTarget = true //initially, we assume we'll be using the gift without a target
             if UNIVERSE.theGame.currentLocation.people.count > 0 {   //if there's NPCs in the current location
                 for n in 0...UNIVERSE.theGame.currentLocation.people.count-1 {   //iterate through all NPCs
@@ -919,6 +954,7 @@ class GameScene: SKScene {
                     }
                 }
             }
+            
             if UNIVERSE.theGame.currentLocation.animals.count > 0 {  //if there's animals in the current location
                 for n in 0...UNIVERSE.theGame.currentLocation.animals.count-1 {  // iterate through all aninmals
                     if UNIVERSE.theGame.currentLocation.animals[n].selected == true {    //if an animal is selected
@@ -927,6 +963,7 @@ class GameScene: SKScene {
                     }
                 }
             }
+            
             if useWithoutTarget == true {   //if there were no selections (targets)
                 UNIVERSE.theGame.player.skills[skillInUse].use() //use the skill without a target (usually this means performing the skill function on yourself)
             }

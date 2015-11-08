@@ -13,6 +13,7 @@ import SpriteKit
 class GameCharacter : SKSpriteNode {
     
     var firstName: String
+    var lastName: String
     var from: String
     var birthplace: String
     var romanCitizen: Bool
@@ -23,6 +24,7 @@ class GameCharacter : SKSpriteNode {
     var isDisciple: Bool
     var inventory: [Item]
     var inventorySize: Int
+    var calling: OfficeCalling
     var spiritualGifts: [SpiritualGift]
     var skills: [Skill]
     var knowledge: [Knowledge]
@@ -41,16 +43,18 @@ class GameCharacter : SKSpriteNode {
     init() {
         
         firstName = "Jacob"
-        from = "Madison, WI"
-        birthplace = "Madison, WI"
+        lastName = "Bar Daniel"
+        from = "Jerusalem"
+        birthplace = "Carthage"
         romanCitizen = true
         age = 30
-        occupation = "Computer Programmer"
+        occupation = "Tentmaker"
         baptized = true
         physicalHealth = 100
         isDisciple = true
         inventory = []
         inventorySize = 120
+        calling = Apostle()
         spiritualGifts = []
         skills = []
         knowledge = []

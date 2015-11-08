@@ -34,17 +34,19 @@ class Tentmaking : Skill {
             user.inventory.append(newTent)
             //level up tentmaking skill
             level++
+            //set new hours to complete value
+            hoursToComplete = round((self.baseHoursToComplete - log(Double(self.level))) * self.baseHoursToComplete / 10.0)
             //update tooltip info
             self.toolTipSN.itemInfoA = "Level " + String( level )
             self.toolTipSN.itemInfoB = "Time to Complete: "
-            self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round(self.hoursToComplete - log(Double(self.level) * 1.0))) + "hrs"
+            self.toolTipSN.itemInfoB += String(hoursToComplete) + "hrs"
             //report to console
             UNIVERSE.alertText("Made a basic cloth tent.")
             UNIVERSE.alertText("Tentmaking +1")
             
         } else {    //if we don't have enough raw materials,
             
-            UNIVERSE.alertText("Not enough resources to make a tent. Sorry.")  //UNIVERSE.alertText to console no can do
+            UNIVERSE.alertText("Not enough resources to make a tent. Sorry.")  //UNIVERSE.alertText no can do
             
         }
     
@@ -64,17 +66,19 @@ class Tentmaking : Skill {
             npc.inventory.append(newTent)
             //level up tentmaking skill
             level++
+            //set new hours to complete value
+            hoursToComplete = round((self.baseHoursToComplete - log(Double(self.level))) * self.baseHoursToComplete / 10.0)
             //update tooltip info
             self.toolTipSN.itemInfoA = "Level " + String( level )
             self.toolTipSN.itemInfoB = "Time to Complete: "
-            self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round(self.hoursToComplete - log(Double(self.level) * 1.0))) + "hrs"
+            self.toolTipSN.itemInfoB += String(hoursToComplete) + "hrs"
             //report to console
             UNIVERSE.alertText("Made a basic cloth tent.")
             UNIVERSE.alertText("Tentmaking +1")
             
         } else {    //if we don't have enough raw materials,
             
-            UNIVERSE.alertText("Not enough resources to make a tent. Sorry.")  //UNIVERSE.alertText to console no can do
+            UNIVERSE.alertText("Not enough resources to make a tent. Sorry.")  //UNIVERSE.alertText no can do
             
         }
         

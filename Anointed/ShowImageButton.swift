@@ -18,7 +18,7 @@ class ShowImageButton : SKNode {
     init( buttonText : String, image : String ) {
         
         imageToShow = SKSpriteNode(imageNamed: image)
-        button = SKShapeNode(rectOfSize: CGSize(width: 80, height: 30), cornerRadius: 8.0)  //make a rounded button shape
+        button = SKShapeNode(rectOfSize: CGSize(width: 6 * (buttonText.characters.count + 4), height: 30), cornerRadius: 8.0)  //make a rounded button shape
         button.fillColor = SKColor.blackColor() //make it black
         button.position = CGPoint.zero  //position at zero zero
         let text = SKLabelNode(text: buttonText)    //make a label for it
