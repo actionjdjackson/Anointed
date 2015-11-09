@@ -19,4 +19,32 @@ class Fishing : Skill {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func use() {
+        
+        if canUse() {
+            
+            //fishing stuff here
+            
+        } else {
+            
+            UNIVERSE.alertText("You have no boat to go fishing in!")
+            
+        }
+        
+    }
+    
+    override func canUse() -> Bool {
+        
+        var missingBoatFlag : Bool = true
+        for item in UNIVERSE.theGame.player.inventory {
+            if item.name!.hasSuffix("Boat") {
+                missingBoatFlag = false
+                break
+            }
+        }
+        
+        return !missingBoatFlag
+        
+    }
+    
 }

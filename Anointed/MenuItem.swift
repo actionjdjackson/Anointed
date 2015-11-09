@@ -42,7 +42,9 @@ class MenuItem : SKNode {
     
     /** HANDLES MOUSE CLICK EVENTS **/
     override func mouseDown(theEvent: NSEvent) {
-    
+        
+        if self.parent is NonPlayingCharacter { //if we're clicking on an NPC
+            
         let par = self.parent as! NonPlayingCharacter   //grabs the npc we're associated with (the player right clicked on the npc that is the parent of this menu)
         
         if menuText.text!.hasPrefix("Trade ") {  //if we're trading
@@ -73,15 +75,16 @@ class MenuItem : SKNode {
                 }
             }
             
-            let response = SKLabelNode(text: "It's a deal!")    //make a label node saying "It's a deal!"
+            /*let response = SKLabelNode(text: "It's a deal!")    //make a label node saying "It's a deal!"
             response.fontSize = 12  //same size
             response.fontName = "Arial" //same font
             response.fontColor = SKColor.whiteColor()   //same color
             response.position = CGPoint(x: 0, y: -96)  //below the bye button
-            response.zPosition = 100.0  //on top of everything
+            response.zPosition = 100.0  //on top of everything*/
+            UNIVERSE.alertText("It's a deal!")
             let fade = SKAction.fadeOutWithDuration(NSTimeInterval(3)) //fade out over 3 seconds
-            self.addChild(response) //add response text above NPC
-            response.runAction(fade)    //start fading out
+            /*self.addChild(response) //add response text above NPC
+            response.runAction(fade)    //start fading out*/
             
             backgroundBox.fillColor = SKColor.redColor()   //makes the box red
             self.runAction(fade)    //start fading out trade menu box
@@ -100,7 +103,7 @@ class MenuItem : SKNode {
                 var item : Item //declare temporary item
                 item = par.conversation.itemsToBeTraded[menuText.text!]! //set it to the item to be traded
                 let randomkey = random() % (UNIVERSE.theGame.player.inventory.count)    //pick a random inventory item
-                let response = SKLabelNode(text: "I'll take your " + UNIVERSE.theGame.player.inventory[randomkey].title)    //say "I'll take your ..."
+                /*let response = SKLabelNode(text: "I'll take your " + UNIVERSE.theGame.player.inventory[randomkey].title)    //say "I'll take your ..."
                 response.fontSize = 12  //same size
                 response.fontName = "Arial" //same font
                 response.fontColor = SKColor.whiteColor()   //same color
@@ -108,14 +111,15 @@ class MenuItem : SKNode {
                 response.zPosition = 100.0  //on top of everything
                 let fade = SKAction.fadeOutWithDuration(NSTimeInterval(10)) //fade out over 10 seconds
                 self.addChild(response) //add response text above NPC
-                response.runAction(fade)    //start fading out
+                response.runAction(fade)    //start fading out*/
+                UNIVERSE.alertText("I'll take your " + UNIVERSE.theGame.player.inventory[randomkey].title)
                 menuText.text = "Trade " + UNIVERSE.theGame.player.inventory[randomkey].title + " for " + item.title    //now the menu reads "Trade X for Y"
                 
             } else if par.conversation.informationToBeShared[menuText.text!] != nil {    //if we've clicked an information button
                 
                 var answer : String //answer text
                 answer = par.conversation.informationToBeShared[menuText.text!]! //grab the answer from the infotobeshared dictionary
-                let response = SKLabelNode(text: answer)    //make a label node
+                /*let response = SKLabelNode(text: answer)    //make a label node
                 response.fontSize = 12  //same size
                 response.fontName = "Arial" //same font
                 response.fontColor = SKColor.whiteColor()   //same color
@@ -123,7 +127,8 @@ class MenuItem : SKNode {
                 response.zPosition = 100.0  //on top of everything
                 let fade = SKAction.fadeOutWithDuration(NSTimeInterval(10)) //fade out over 10 seconds
                 self.addChild(response) //add response text above NPC
-                response.runAction(fade)    //start fading out
+                response.runAction(fade)    //start fading out*/
+                UNIVERSE.alertText(answer)
             
             } else if par.conversation.knowledgeToBeShared[menuText.text!] != nil {  //if we've clicked a knowledge button
                 
@@ -135,7 +140,7 @@ class MenuItem : SKNode {
                         par.conversation.knowledgeToBeShared.removeValueForKey(key) //remove it
                     }
                 }
-                let response = SKLabelNode(text: newKnowledge.title)    //make a label node with text = to title of knowledge element
+                /*let response = SKLabelNode(text: newKnowledge.title)    //make a label node with text = to title of knowledge element
                 response.fontSize = 12  //same size
                 response.fontName = "Arial" //same font
                 response.fontColor = SKColor.whiteColor()   //same color
@@ -143,7 +148,8 @@ class MenuItem : SKNode {
                 response.zPosition = 100.0  //on top of everything
                 let fade = SKAction.fadeOutWithDuration(NSTimeInterval(10)) //fade out over 10 seconds
                 self.addChild(response) //add response text above NPC
-                response.runAction(fade)    //start fading out
+                response.runAction(fade)    //start fading out*/
+                UNIVERSE.alertText(newKnowledge.title)
                 
             } else if par.conversation.understandingToBeShared[menuText.text!] != nil {  //if we've clicked an understanding button
                 
@@ -155,7 +161,7 @@ class MenuItem : SKNode {
                         par.conversation.understandingToBeShared.removeValueForKey(key) //remove it
                     }
                 }
-                let response = SKLabelNode(text: newUnderstanding.title)    //make a label node with text = to title of understanding element
+                /*let response = SKLabelNode(text: newUnderstanding.title)    //make a label node with text = to title of understanding element
                 response.fontSize = 12  //same size
                 response.fontName = "Arial" //same font
                 response.fontColor = SKColor.whiteColor()   //same color
@@ -163,7 +169,8 @@ class MenuItem : SKNode {
                 response.zPosition = 100.0  //on top of everything
                 let fade = SKAction.fadeOutWithDuration(NSTimeInterval(10)) //fade out over 10 seconds
                 self.addChild(response) //add response text above NPC
-                response.runAction(fade)    //start fading out
+                response.runAction(fade)    //start fading out*/
+                UNIVERSE.alertText(newUnderstanding.title)
                 
             } else if par.conversation.wisdomToBeShared[menuText.text!] != nil { //if we've clicked a wisdom button
                 
@@ -175,7 +182,7 @@ class MenuItem : SKNode {
                         par.conversation.wisdomToBeShared.removeValueForKey(key)    //remove it
                     }
                 }
-                let response = SKLabelNode(text: newWisdom.title)   //make a label node with text = to title of wisdom element
+                /*let response = SKLabelNode(text: newWisdom.title)   //make a label node with text = to title of wisdom element
                 response.fontSize = 12  //same size
                 response.fontName = "Arial" //same font
                 response.fontColor = SKColor.whiteColor()   //same color
@@ -183,12 +190,15 @@ class MenuItem : SKNode {
                 response.zPosition = 100.0  //on top of everything
                 let fade = SKAction.fadeOutWithDuration(NSTimeInterval(10)) //fade out over 10 seconds
                 self.addChild(response) //add response text above NPC
-                response.runAction(fade)    //start fading out
+                response.runAction(fade)    //start fading out*/
+                UNIVERSE.alertText(newWisdom.title)
                 
             }
             
         }
     
+    }
+        
     }
     
 }

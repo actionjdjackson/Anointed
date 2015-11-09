@@ -81,6 +81,40 @@
 		E2622A8F1BEBB75A007773A5 /* Weaponmaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A8E1BEBB75A007773A5 /* Weaponmaking.swift */; };
 		E2622A911BEBB761007773A5 /* Banking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2622A901BEBB760007773A5 /* Banking.swift */; };
 		E2643B9F1B5DD9FC006C280C /* ToolTipSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */; };
+		E2686DEA1BF0F10D002E37B3 /* CreationalGift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686DE91BF0F10D002E37B3 /* CreationalGift.swift */; };
+		E2686DEC1BF0F1C4002E37B3 /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686DEB1BF0F1C4002E37B3 /* Gift.swift */; };
+		E2686DEE1BF10B34002E37B3 /* BlindingLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686DED1BF10B34002E37B3 /* BlindingLight.swift */; };
+		E2686DF01BF10B3D002E37B3 /* SolarEclipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686DEF1BF10B3D002E37B3 /* SolarEclipse.swift */; };
+		E2686DF21BF10B49002E37B3 /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686DF11BF10B49002E37B3 /* Multiplication.swift */; };
+		E2686DF41BF10B53002E37B3 /* MentalHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686DF31BF10B53002E37B3 /* MentalHealing.swift */; };
+		E2686DF61BF10B5D002E37B3 /* EmotionalHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686DF51BF10B5D002E37B3 /* EmotionalHealing.swift */; };
+		E2686DF81BF10B66002E37B3 /* ShalomWholeness.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686DF71BF10B66002E37B3 /* ShalomWholeness.swift */; };
+		E2686DFA1BF10B6F002E37B3 /* PublicUtterance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686DF91BF10B6F002E37B3 /* PublicUtterance.swift */; };
+		E2686DFC1BF10B79002E37B3 /* CorporalAssurance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686DFB1BF10B79002E37B3 /* CorporalAssurance.swift */; };
+		E2686DFE1BF10B81002E37B3 /* ProjectFaith.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686DFD1BF10B81002E37B3 /* ProjectFaith.swift */; };
+		E2686E001BF10B8A002E37B3 /* DemonicIdentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686DFF1BF10B8A002E37B3 /* DemonicIdentification.swift */; };
+		E2686E021BF10B92002E37B3 /* AngelicIdentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E011BF10B92002E37B3 /* AngelicIdentification.swift */; };
+		E2686E041BF10B9D002E37B3 /* UnknownHumanLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E031BF10B9D002E37B3 /* UnknownHumanLanguage.swift */; };
+		E2686E061BF10BA9002E37B3 /* AngelicLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E051BF10BA9002E37B3 /* AngelicLanguage.swift */; };
+		E2686E081BF10BBB002E37B3 /* CorporalEncouragement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E071BF10BBB002E37B3 /* CorporalEncouragement.swift */; };
+		E2686E0A1BF10BC2002E37B3 /* FootWashing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E091BF10BC2002E37B3 /* FootWashing.swift */; };
+		E2686E0C1BF10BCA002E37B3 /* GiftedDeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E0B1BF10BCA002E37B3 /* GiftedDeacon.swift */; };
+		E2686E0E1BF10BD2002E37B3 /* CorporalTeaching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E0D1BF10BD2002E37B3 /* CorporalTeaching.swift */; };
+		E2686E101BF10BDB002E37B3 /* CrowdTeaching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E0F1BF10BDB002E37B3 /* CrowdTeaching.swift */; };
+		E2686E121BF10BE3002E37B3 /* FinancialBenefactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E111BF10BE3002E37B3 /* FinancialBenefactor.swift */; };
+		E2686E141BF10C0B002E37B3 /* LocalChurchLeadership.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E131BF10C0B002E37B3 /* LocalChurchLeadership.swift */; };
+		E2686E161BF10C14002E37B3 /* ChurchwideLeadership.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E151BF10C14002E37B3 /* ChurchwideLeadership.swift */; };
+		E2686E181BF10C1E002E37B3 /* ClothingTheNaked.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E171BF10C1E002E37B3 /* ClothingTheNaked.swift */; };
+		E2686E1A1BF10C26002E37B3 /* Restoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E191BF10C26002E37B3 /* Restoration.swift */; };
+		E2686E1C1BF10C2E002E37B3 /* ThrowAParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E1B1BF10C2E002E37B3 /* ThrowAParty.swift */; };
+		E2686E1E1BF10C36002E37B3 /* MissionaryJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E1D1BF10C36002E37B3 /* MissionaryJourney.swift */; };
+		E2686E201BF10C45002E37B3 /* MiraculousCommunion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E1F1BF10C45002E37B3 /* MiraculousCommunion.swift */; };
+		E2686E221BF10C50002E37B3 /* DynamicPreaching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E211BF10C50002E37B3 /* DynamicPreaching.swift */; };
+		E2686E241BF10C62002E37B3 /* GiftedMentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E231BF10C62002E37B3 /* GiftedMentor.swift */; };
+		E2686E261BF10C6C002E37B3 /* TotalRestoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E251BF10C6C002E37B3 /* TotalRestoration.swift */; };
+		E2686E281BF10C72002E37B3 /* Dreamgiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E271BF10C72002E37B3 /* Dreamgiver.swift */; };
+		E2686E2A1BF10C77002E37B3 /* Visionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E291BF10C77002E37B3 /* Visionary.swift */; };
+		E2686E2C1BF10C7D002E37B3 /* Spiritualist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E2B1BF10C7D002E37B3 /* Spiritualist.swift */; };
 		E27230CE1BEFE23300FE3C08 /* Scribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27230CD1BEFE23200FE3C08 /* Scribe.swift */; };
 		E2790D4F1B8117A900702F50 /* Psalm 139ENG.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */; };
 		E28589661BBEF9170004F3C6 /* MeditationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28589651BBEF9170004F3C6 /* MeditationButton.swift */; };
@@ -183,6 +217,40 @@
 		E2622A8E1BEBB75A007773A5 /* Weaponmaking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weaponmaking.swift; sourceTree = "<group>"; };
 		E2622A901BEBB760007773A5 /* Banking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Banking.swift; sourceTree = "<group>"; };
 		E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolTipSpriteNode.swift; sourceTree = "<group>"; };
+		E2686DE91BF0F10D002E37B3 /* CreationalGift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationalGift.swift; sourceTree = "<group>"; };
+		E2686DEB1BF0F1C4002E37B3 /* Gift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
+		E2686DED1BF10B34002E37B3 /* BlindingLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlindingLight.swift; sourceTree = "<group>"; };
+		E2686DEF1BF10B3D002E37B3 /* SolarEclipse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolarEclipse.swift; sourceTree = "<group>"; };
+		E2686DF11BF10B49002E37B3 /* Multiplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
+		E2686DF31BF10B53002E37B3 /* MentalHealing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentalHealing.swift; sourceTree = "<group>"; };
+		E2686DF51BF10B5D002E37B3 /* EmotionalHealing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionalHealing.swift; sourceTree = "<group>"; };
+		E2686DF71BF10B66002E37B3 /* ShalomWholeness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShalomWholeness.swift; sourceTree = "<group>"; };
+		E2686DF91BF10B6F002E37B3 /* PublicUtterance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicUtterance.swift; sourceTree = "<group>"; };
+		E2686DFB1BF10B79002E37B3 /* CorporalAssurance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorporalAssurance.swift; sourceTree = "<group>"; };
+		E2686DFD1BF10B81002E37B3 /* ProjectFaith.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectFaith.swift; sourceTree = "<group>"; };
+		E2686DFF1BF10B8A002E37B3 /* DemonicIdentification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemonicIdentification.swift; sourceTree = "<group>"; };
+		E2686E011BF10B92002E37B3 /* AngelicIdentification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngelicIdentification.swift; sourceTree = "<group>"; };
+		E2686E031BF10B9D002E37B3 /* UnknownHumanLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnknownHumanLanguage.swift; sourceTree = "<group>"; };
+		E2686E051BF10BA9002E37B3 /* AngelicLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngelicLanguage.swift; sourceTree = "<group>"; };
+		E2686E071BF10BBB002E37B3 /* CorporalEncouragement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorporalEncouragement.swift; sourceTree = "<group>"; };
+		E2686E091BF10BC2002E37B3 /* FootWashing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootWashing.swift; sourceTree = "<group>"; };
+		E2686E0B1BF10BCA002E37B3 /* GiftedDeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftedDeacon.swift; sourceTree = "<group>"; };
+		E2686E0D1BF10BD2002E37B3 /* CorporalTeaching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorporalTeaching.swift; sourceTree = "<group>"; };
+		E2686E0F1BF10BDB002E37B3 /* CrowdTeaching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrowdTeaching.swift; sourceTree = "<group>"; };
+		E2686E111BF10BE3002E37B3 /* FinancialBenefactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinancialBenefactor.swift; sourceTree = "<group>"; };
+		E2686E131BF10C0B002E37B3 /* LocalChurchLeadership.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalChurchLeadership.swift; sourceTree = "<group>"; };
+		E2686E151BF10C14002E37B3 /* ChurchwideLeadership.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchwideLeadership.swift; sourceTree = "<group>"; };
+		E2686E171BF10C1E002E37B3 /* ClothingTheNaked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClothingTheNaked.swift; sourceTree = "<group>"; };
+		E2686E191BF10C26002E37B3 /* Restoration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restoration.swift; sourceTree = "<group>"; };
+		E2686E1B1BF10C2E002E37B3 /* ThrowAParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowAParty.swift; sourceTree = "<group>"; };
+		E2686E1D1BF10C36002E37B3 /* MissionaryJourney.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionaryJourney.swift; sourceTree = "<group>"; };
+		E2686E1F1BF10C45002E37B3 /* MiraculousCommunion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiraculousCommunion.swift; sourceTree = "<group>"; };
+		E2686E211BF10C50002E37B3 /* DynamicPreaching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicPreaching.swift; sourceTree = "<group>"; };
+		E2686E231BF10C62002E37B3 /* GiftedMentor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftedMentor.swift; sourceTree = "<group>"; };
+		E2686E251BF10C6C002E37B3 /* TotalRestoration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalRestoration.swift; sourceTree = "<group>"; };
+		E2686E271BF10C72002E37B3 /* Dreamgiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dreamgiver.swift; sourceTree = "<group>"; };
+		E2686E291BF10C77002E37B3 /* Visionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visionary.swift; sourceTree = "<group>"; };
+		E2686E2B1BF10C7D002E37B3 /* Spiritualist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spiritualist.swift; sourceTree = "<group>"; };
 		E27230CD1BEFE23200FE3C08 /* Scribe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scribe.swift; sourceTree = "<group>"; };
 		E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Psalm 139ENG.mp3"; sourceTree = "<group>"; };
 		E28589651BBEF9170004F3C6 /* MeditationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationButton.swift; sourceTree = "<group>"; };
@@ -311,20 +379,44 @@
 		E27230D11BEFF43D00FE3C08 /* Gifts/Skills */ = {
 			isa = PBXGroup;
 			children = (
+				E2686E011BF10B92002E37B3 /* AngelicIdentification.swift */,
+				E2686E051BF10BA9002E37B3 /* AngelicLanguage.swift */,
 				E2622A881BEBB730007773A5 /* Artmaking.swift */,
 				E203093E1B6FB25D00BF658F /* Assurance.swift */,
 				E2622A901BEBB760007773A5 /* Banking.swift */,
+				E2686DED1BF10B34002E37B3 /* BlindingLight.swift */,
 				E2622A7A1BEBB6E8007773A5 /* Carpentry.swift */,
 				E20309521B6FC56700BF658F /* Celibate.swift */,
 				E203094C1B6FC1B400BF658F /* CheerfulGiving.swift */,
+				E2686E151BF10C14002E37B3 /* ChurchwideLeadership.swift */,
+				E2686E171BF10C1E002E37B3 /* ClothingTheNaked.swift */,
 				E2622A821BEBB713007773A5 /* Cooking.swift */,
+				E2686DFB1BF10B79002E37B3 /* CorporalAssurance.swift */,
+				E2686E071BF10BBB002E37B3 /* CorporalEncouragement.swift */,
+				E2686E0D1BF10BD2002E37B3 /* CorporalTeaching.swift */,
+				E2686DE91BF0F10D002E37B3 /* CreationalGift.swift */,
+				E2686E0F1BF10BDB002E37B3 /* CrowdTeaching.swift */,
+				E2686DFF1BF10B8A002E37B3 /* DemonicIdentification.swift */,
+				E2686E271BF10C72002E37B3 /* Dreamgiver.swift */,
+				E2686E211BF10C50002E37B3 /* DynamicPreaching.swift */,
+				E2686DF51BF10B5D002E37B3 /* EmotionalHealing.swift */,
 				E20309501B6FC43400BF658F /* FeedingThePoor.swift */,
+				E2686E111BF10BE3002E37B3 /* FinancialBenefactor.swift */,
 				E2622A801BEBB70C007773A5 /* Fishing.swift */,
+				E2686E091BF10BC2002E37B3 /* FootWashing.swift */,
+				E2686DEB1BF0F1C4002E37B3 /* Gift.swift */,
+				E2686E0B1BF10BCA002E37B3 /* GiftedDeacon.swift */,
+				E2686E231BF10C62002E37B3 /* GiftedMentor.swift */,
 				E20309541B6FC69D00BF658F /* Hospitality.swift */,
 				E20309441B6FB86100BF658F /* Interpretation.swift */,
 				E2622A8A1BEBB738007773A5 /* Jewelrymaking.swift */,
+				E2686E131BF10C0B002E37B3 /* LocalChurchLeadership.swift */,
 				E2622A8C1BEBB753007773A5 /* Medicine.swift */,
+				E2686DF31BF10B53002E37B3 /* MentalHealing.swift */,
+				E2686E1F1BF10C45002E37B3 /* MiraculousCommunion.swift */,
 				E20309561B6FC82A00BF658F /* Missionary.swift */,
+				E2686E1D1BF10C36002E37B3 /* MissionaryJourney.swift */,
+				E2686DF11BF10B49002E37B3 /* Multiplication.swift */,
 				E2622A841BEBB722007773A5 /* Musicmaking.swift */,
 				E203094A1B6FC0E300BF658F /* OneOnOneTeaching.swift */,
 				E20309401B6FB5C200BF658F /* OriginDiscernment.swift */,
@@ -334,13 +426,23 @@
 				E2622A7C1BEBB6F2007773A5 /* Philosophy.swift */,
 				E211865D1B697CE2005E9AA3 /* PhysicalHealing.swift */,
 				E20309421B6FB77300BF658F /* PrayerInTheSpirit.swift */,
+				E2686DFD1BF10B81002E37B3 /* ProjectFaith.swift */,
+				E2686DF91BF10B6F002E37B3 /* PublicUtterance.swift */,
+				E2686E191BF10C26002E37B3 /* Restoration.swift */,
 				E27230CD1BEFE23200FE3C08 /* Scribe.swift */,
 				E2622A7E1BEBB702007773A5 /* Seafaring.swift */,
 				E20309481B6FC01D00BF658F /* Servanthood.swift */,
+				E2686DF71BF10B66002E37B3 /* ShalomWholeness.swift */,
 				E21B45BA1AE04EF6007F10C5 /* Skill.swift */,
+				E2686DEF1BF10B3D002E37B3 /* SolarEclipse.swift */,
 				E21B45BB1AE04EF6007F10C5 /* SpiritualGift.swift */,
+				E2686E2B1BF10C7D002E37B3 /* Spiritualist.swift */,
 				E2622A861BEBB729007773A5 /* Tailoring.swift */,
 				E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */,
+				E2686E1B1BF10C2E002E37B3 /* ThrowAParty.swift */,
+				E2686E251BF10C6C002E37B3 /* TotalRestoration.swift */,
+				E2686E031BF10B9D002E37B3 /* UnknownHumanLanguage.swift */,
+				E2686E291BF10C77002E37B3 /* Visionary.swift */,
 				E2622A8E1BEBB75A007773A5 /* Weaponmaking.swift */,
 				E2F5473A1B5D2C43004F96D0 /* Winemaking.swift */,
 				E203093A1B6FB0A500BF658F /* WordOfKnowledge.swift */,
@@ -498,10 +600,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E21DA0CC1BC07F4C00D43484 /* VisualizeKnowledgeButton.swift in Sources */,
+				E2686E201BF10C45002E37B3 /* MiraculousCommunion.swift in Sources */,
+				E2686DF41BF10B53002E37B3 /* MentalHealing.swift in Sources */,
+				E2686E241BF10C62002E37B3 /* GiftedMentor.swift in Sources */,
+				E2686DFC1BF10B79002E37B3 /* CorporalAssurance.swift in Sources */,
 				E203093B1B6FB0A500BF658F /* WordOfKnowledge.swift in Sources */,
 				E28589661BBEF9170004F3C6 /* MeditationButton.swift in Sources */,
 				E20309431B6FB77300BF658F /* PrayerInTheSpirit.swift in Sources */,
+				E2686E081BF10BBB002E37B3 /* CorporalEncouragement.swift in Sources */,
 				E2622A8F1BEBB75A007773A5 /* Weaponmaking.swift in Sources */,
+				E2686E0E1BF10BD2002E37B3 /* CorporalTeaching.swift in Sources */,
 				E2622A6F1BEBA0A4007773A5 /* Prophet.swift in Sources */,
 				E2643B9F1B5DD9FC006C280C /* ToolTipSpriteNode.swift in Sources */,
 				E2622A891BEBB730007773A5 /* Artmaking.swift in Sources */,
@@ -518,14 +626,22 @@
 				E2622A771BEBA0CA007773A5 /* Layman.swift in Sources */,
 				E24EA3271BAC92E000716B5D /* PlaySoundButton.swift in Sources */,
 				E20309411B6FB5C300BF658F /* OriginDiscernment.swift in Sources */,
+				E2686DEC1BF0F1C4002E37B3 /* Gift.swift in Sources */,
+				E2686E1E1BF10C36002E37B3 /* MissionaryJourney.swift in Sources */,
 				E20309571B6FC82A00BF658F /* Missionary.swift in Sources */,
 				E2622A6D1BEBA098007773A5 /* Apostle.swift in Sources */,
 				E21B458F1AE04E8F007F10C5 /* GameScene.swift in Sources */,
+				E2686DF81BF10B66002E37B3 /* ShalomWholeness.swift in Sources */,
+				E2686E0C1BF10BCA002E37B3 /* GiftedDeacon.swift in Sources */,
+				E2686DFE1BF10B81002E37B3 /* ProjectFaith.swift in Sources */,
 				E21B45D01AE04EF6007F10C5 /* WorldMap.swift in Sources */,
 				E21B45C11AE04EF6007F10C5 /* City.swift in Sources */,
 				E203093F1B6FB25D00BF658F /* Assurance.swift in Sources */,
+				E2686DF61BF10B5D002E37B3 /* EmotionalHealing.swift in Sources */,
 				E21B45C71AE04EF6007F10C5 /* Knowledge.swift in Sources */,
 				E21B45C41AE04EF6007F10C5 /* GameWorld.swift in Sources */,
+				E2686E021BF10B92002E37B3 /* AngelicIdentification.swift in Sources */,
+				E2686DF01BF10B3D002E37B3 /* SolarEclipse.swift in Sources */,
 				E2622A7D1BEBB6F2007773A5 /* Philosophy.swift in Sources */,
 				E203093D1B6FB1EB00BF658F /* WordOfWisdom.swift in Sources */,
 				E2622A7F1BEBB702007773A5 /* Seafaring.swift in Sources */,
@@ -533,44 +649,64 @@
 				E20309471B6FBED300BF658F /* PersonalEncouragement.swift in Sources */,
 				E21B458D1AE04E8F007F10C5 /* AppDelegate.swift in Sources */,
 				E203094D1B6FC1B400BF658F /* CheerfulGiving.swift in Sources */,
+				E2686E0A1BF10BC2002E37B3 /* FootWashing.swift in Sources */,
 				E20309451B6FB86100BF658F /* Interpretation.swift in Sources */,
 				E2622A8B1BEBB738007773A5 /* Jewelrymaking.swift in Sources */,
+				E2686E1A1BF10C26002E37B3 /* Restoration.swift in Sources */,
+				E2686E121BF10BE3002E37B3 /* FinancialBenefactor.swift in Sources */,
 				E2BE7A641B8A615D00A57242 /* MenuItem.swift in Sources */,
 				E2622A851BEBB722007773A5 /* Musicmaking.swift in Sources */,
 				E21B45CD1AE04EF6007F10C5 /* SpiritualGift.swift in Sources */,
 				E2622A731BEBA0B8007773A5 /* Pastor.swift in Sources */,
+				E2686DEE1BF10B34002E37B3 /* BlindingLight.swift in Sources */,
+				E2686E041BF10B9D002E37B3 /* UnknownHumanLanguage.swift in Sources */,
 				E21DA0D41BC0C21800D43484 /* WisdomElement.swift in Sources */,
+				E2686E101BF10BDB002E37B3 /* CrowdTeaching.swift in Sources */,
 				E20309391B6FAF4D00BF658F /* PersonalProphecy.swift in Sources */,
+				E2686E221BF10C50002E37B3 /* DynamicPreaching.swift in Sources */,
 				E20309531B6FC56700BF658F /* Celibate.swift in Sources */,
 				E2622A751BEBA0BE007773A5 /* Teacher.swift in Sources */,
 				E203094B1B6FC0E300BF658F /* OneOnOneTeaching.swift in Sources */,
 				E27230CE1BEFE23300FE3C08 /* Scribe.swift in Sources */,
 				E203094F1B6FC29400BF658F /* PartyLeadership.swift in Sources */,
+				E2686E2A1BF10C77002E37B3 /* Visionary.swift in Sources */,
 				E2622A711BEBA0AD007773A5 /* Evangelist.swift in Sources */,
 				E21B45BF1AE04EF6007F10C5 /* BibleEvent.swift in Sources */,
 				E29307D51BAE61B9009F8B6A /* StudySectionLabel.swift in Sources */,
 				E21B45C01AE04EF6007F10C5 /* Building.swift in Sources */,
 				E211865E1B697CE2005E9AA3 /* PhysicalHealing.swift in Sources */,
 				E21B45CF1AE04EF6007F10C5 /* Wisdom.swift in Sources */,
+				E2686E001BF10B8A002E37B3 /* DemonicIdentification.swift in Sources */,
 				E21DA0CA1BC0732400D43484 /* MemorizationButton.swift in Sources */,
 				E2D52D631AEDE7670008879C /* Animal.swift in Sources */,
+				E2686E181BF10C1E002E37B3 /* ClothingTheNaked.swift in Sources */,
 				E2622A8D1BEBB753007773A5 /* Medicine.swift in Sources */,
+				E2686E261BF10C6C002E37B3 /* TotalRestoration.swift in Sources */,
+				E2686DF21BF10B49002E37B3 /* Multiplication.swift in Sources */,
 				E2BE7A6A1B8AA68A00A57242 /* HoverText.swift in Sources */,
 				E28C4A511B4D7FC4001CD4A7 /* Tentmaking.swift in Sources */,
 				E21B45CE1AE04EF6007F10C5 /* Understanding.swift in Sources */,
 				E21DA0D01BC0B39900D43484 /* KnowledgeElement.swift in Sources */,
 				E20309511B6FC43400BF658F /* FeedingThePoor.swift in Sources */,
+				E2686DEA1BF0F10D002E37B3 /* CreationalGift.swift in Sources */,
+				E2686E281BF10C72002E37B3 /* Dreamgiver.swift in Sources */,
 				E2D52D611AEC88900008879C /* SKMultiLineLabel.swift in Sources */,
+				E2686E141BF10C0B002E37B3 /* LocalChurchLeadership.swift in Sources */,
+				E2686E061BF10BA9002E37B3 /* AngelicLanguage.swift in Sources */,
 				E2522A911AE07ABA00EDD89A /* GridSquare.swift in Sources */,
 				E2622A7B1BEBB6E8007773A5 /* Carpentry.swift in Sources */,
+				E2686E1C1BF10C2E002E37B3 /* ThrowAParty.swift in Sources */,
+				E2686DFA1BF10B6F002E37B3 /* PublicUtterance.swift in Sources */,
 				E21B45C81AE04EF6007F10C5 /* Location.swift in Sources */,
 				E21B45C51AE04EF6007F10C5 /* Global.swift in Sources */,
 				E21DA0D21BC0C21100D43484 /* UnderstandingElement.swift in Sources */,
 				E2622A811BEBB70C007773A5 /* Fishing.swift in Sources */,
 				E20309551B6FC69D00BF658F /* Hospitality.swift in Sources */,
 				E2622A871BEBB729007773A5 /* Tailoring.swift in Sources */,
+				E2686E161BF10C14002E37B3 /* ChurchwideLeadership.swift in Sources */,
 				E21B45CB1AE04EF6007F10C5 /* Room.swift in Sources */,
 				E2622A911BEBB761007773A5 /* Banking.swift in Sources */,
+				E2686E2C1BF10C7D002E37B3 /* Spiritualist.swift in Sources */,
 				E21325D01B7048AB00B1304F /* ShowImageButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

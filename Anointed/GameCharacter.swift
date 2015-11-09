@@ -25,7 +25,7 @@ class GameCharacter : SKSpriteNode {
     var inventory: [Item]
     var inventorySize: Int
     var calling: OfficeCalling
-    var spiritualGifts: [SpiritualGift]
+    var gifts: [Gift]
     var skills: [Skill]
     var knowledge: [Knowledge]
     var wisdom: [Wisdom]
@@ -55,7 +55,7 @@ class GameCharacter : SKSpriteNode {
         inventory = []
         inventorySize = 120
         calling = Apostle()
-        spiritualGifts = []
+        gifts = []
         skills = []
         knowledge = []
         wisdom = []

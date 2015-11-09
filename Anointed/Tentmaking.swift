@@ -24,7 +24,7 @@ class Tentmaking : Skill {
     override func use() {
     
         //if you have all the raw materials necessary,
-        if user.howManyInInventory("Cloth") > 0 && user.howManyInInventory("Cord") > 0 && user.howManyInInventory("Wood") > 0 {
+        if canUse() {
             
             //make a tent
             user.grabFromInventory("Cloth")
@@ -46,7 +46,7 @@ class Tentmaking : Skill {
             
         } else {    //if we don't have enough raw materials,
             
-            UNIVERSE.alertText("Not enough resources to make a tent. Sorry.")  //UNIVERSE.alertText no can do
+            UNIVERSE.alertText("Not enough resources to make a tent. Sorry.")  // no can do
             
         }
     
@@ -56,7 +56,7 @@ class Tentmaking : Skill {
     override func useOnNPC(npc: NonPlayingCharacter) {
         
         //if you have all the raw materials necessary,
-        if user.howManyInInventory("Cloth") > 0 && user.howManyInInventory("Cord") > 0 && user.howManyInInventory("Wood") > 0 {
+        if canUse() {
             
             //make a tent
             user.grabFromInventory("Cloth")

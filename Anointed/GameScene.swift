@@ -238,8 +238,8 @@ class GameScene: SKScene {
     func grabGiftSkills() {
         
         giftSkills = [] //initialize giftSkills to empty array
-        if UNIVERSE.theGame.player.spiritualGifts.count > 0 {    //if the player has any spiritual gifts
-            for gift in UNIVERSE.theGame.player.spiritualGifts {    //iterate through all spiritual gifts
+        if UNIVERSE.theGame.player.gifts.count > 0 {    //if the player has any spiritual gifts
+            for gift in UNIVERSE.theGame.player.gifts {    //iterate through all spiritual gifts
                 if gift.subSkills.count > 0 {   //if there are subskills
                     for subskill in gift.subSkills {   //iterate through all subskills
                         giftSkills.append(subskill)    //add subskill to giftSKills array
@@ -361,19 +361,19 @@ class GameScene: SKScene {
                 }
             }
             
-            if UNIVERSE.theGame.player.spiritualGifts.count > 0 {    //if the player has any spiritual gifts
-                for n in 0...UNIVERSE.theGame.player.spiritualGifts.count-1 {    //iterate through all gifts
+            if UNIVERSE.theGame.player.gifts.count > 0 {    //if the player has any spiritual gifts
+                for n in 0...UNIVERSE.theGame.player.gifts.count-1 {    //iterate through all gifts
                     if n >= SKILLS_GRID_WIDTH { //if the player has too many spiritual gifts
                         fatalError("TOO MANY GIFTS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")    //exit with error
                     }
-                    let gift = UNIVERSE.theGame.player.spiritualGifts[n] //grab a gift
+                    let gift = UNIVERSE.theGame.player.gifts[n] //grab a gift
                     gift.position = CGPoint(x: GIFT_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: GIFT_POSITION_BASE_Y - CGFloat(Int(n / SKILLS_GRID_WIDTH)) * SKILL_ICON_SIZE)    //position gift on top (spiritual gifts) row
                     theOpenMenu.addChild(gift)  //add gift to the menu
                     
                     if gift.subSkills.count > 0 {   //if the gift has subskills
                         for m in 0...gift.subSkills.count-1 {   //iterate through all subskills
                             if m >= GIFT_SKILLS_GRID_HEIGHT {   //if the player has too many gift skills for this spiritual gift
-                                fatalError("TOO MANY GIFT SUBSKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON")   //exit with error
+                                fatalError("TOO MANY GIFT SUBSKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")   //exit with error
                             }
                             let skill = gift.subSkills[m]   //grab a subskill
                             skill.position = CGPoint(x: GIFT_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: GIFT_POSITION_BASE_Y - CGFloat((m + 1) % GIFT_SKILLS_GRID_HEIGHT) * SKILL_ICON_SIZE)    //position below the corresponding spiritual gift, in sequence to bottom of column
@@ -1078,6 +1078,5 @@ func playSound(filename: String) {    //sets up an audio player to play sound ef
 
     soundPlayer.numberOfLoops = 0   //play once
     soundPlayer.prepareToPlay() //load into memory
-    backgroundMusicPlayer.pause()
     soundPlayer.play()  //play sound
 }

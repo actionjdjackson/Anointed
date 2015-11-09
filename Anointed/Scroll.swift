@@ -122,11 +122,14 @@ class Scroll: Item {
     }
 
     override func mouseDown(theEvent: NSEvent) {
-        
+    
         if parent!.name == "KNOWLEDGE" {
             if selected == true {   //if already selected
                 
                 soundPlayer.stop()
+                if backgroundMusicPlayer != nil {
+                    backgroundMusicPlayer.play()
+                }
                 
                 selected = false    //now deselected
                 for obj in parent!.children {   //for all siblings

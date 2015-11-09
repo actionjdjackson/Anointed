@@ -83,7 +83,7 @@ class StudySectionLabel : SKMultiLineLabel {    //inherit from SKmultilinelabel
                             englishText.addChild(scripLabel)    //add to englishText
                             englishText.addChild(descLabel)     //add to englishText
                             let memorize = MemorizationButton()
-                            memorize.position = CGPoint(x: 0, y: -englishText.pixelLength - 120)
+                            memorize.position = CGPoint(x: 0, y: -englishText.pixelLength - 130)
                             memorize.zPosition = 2.0
                             memorize.name = scripture
                             englishText.addChild(memorize)
