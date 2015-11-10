@@ -13,7 +13,7 @@ class PhysicalHealing: Skill {
     
     /* SETS UP PHYSICAL HEALING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Physical Healing", skillDesc: "Allows you to physically heal a target, or yourself.", skillUser: user, skillSprite : "physicalHealing", baseTimeToComplete : 1, passv: false )
+        super.init( skillName: "Physical Healing", skillDesc: "Allows you to physically heal a target, or yourself.", skillUser: user, skillSprite : "physicalHealing", baseTimeToComplete : 1, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

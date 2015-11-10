@@ -12,7 +12,7 @@ class Philosophy : Skill {
     
     /* SETS UP PHILOSOPHY SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Philosophy", skillDesc: "Allows you to reflect on life and think analytically.", skillUser: user, skillSprite : "philosophy", baseTimeToComplete : 10.0, passv: false )
+        super.init( skillName: "Philosophy", skillDesc: "Allows you to reflect on life and think analytically.", skillUser: user, skillSprite : "philosophy", baseTimeToComplete : 10.0, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

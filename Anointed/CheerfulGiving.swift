@@ -12,7 +12,7 @@ class CheerfulGiving : Skill {
     
     /* SET UP CHEERFUL GIVING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Cheerful Giving", skillDesc: "Allows you to give special gifts to others with cheerfulness.", skillUser: user, skillSprite : "cheerfulGiving", baseTimeToComplete : 0.125, passv: false )
+        super.init( skillName: "Cheerful Giving", skillDesc: "Allows you to give special gifts to others with cheerfulness.", skillUser: user, skillSprite : "cheerfulGiving", baseTimeToComplete : 0.125, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

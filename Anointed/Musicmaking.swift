@@ -12,7 +12,7 @@ class Musicmaking : Skill {
     
     /* SETS UP MUSICMAKING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Musicmaking", skillDesc: "Allows you to make music on various instruments, including singing.", skillUser: user, skillSprite : "musicmaking", baseTimeToComplete : 10.0, passv: false )
+        super.init( skillName: "Musicmaking", skillDesc: "Allows you to make music on various instruments, including singing.", skillUser: user, skillSprite : "musicmaking", baseTimeToComplete : 10.0, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

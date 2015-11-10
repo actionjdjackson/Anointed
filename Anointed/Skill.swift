@@ -22,8 +22,9 @@ class Skill : SKSpriteNode {
     var hoursToComplete : Double
     var toolTipSN : ToolTipSpriteNode
     var passive : Bool
+    var subskills : [Subskill]
     
-    init( skillName : String, skillDesc : String, skillUser : GameCharacter, skillSprite : String, baseTimeToComplete : Double, passv: Bool ) {
+    init( skillName : String, skillDesc : String, skillUser : GameCharacter, skillSprite : String, baseTimeToComplete : Double, passv : Bool, subsk : [Subskill]) {
         
         title = skillName
         desc = skillDesc
@@ -34,12 +35,14 @@ class Skill : SKSpriteNode {
         baseHoursToComplete = baseTimeToComplete    //base time to complete
         hoursToComplete = baseHoursToComplete
         passive = passv
+        subskills = subsk
         let texture = SKTexture(imageNamed: sprite) //grab texture for this skill
         toolTipSN = ToolTipSpriteNode(tex: SKTexture(imageNamed: toolTip), infoA: "Level " + String( level ), infoB: "Time to Complete: ? hrs" )    //create ttip
         toolTipSN.itemInfoA = "Level " + String( level )    //set info A to the level of the skill
         toolTipSN.itemInfoB = "Time to Complete: "
         toolTipSN.itemInfoB += String(hoursToComplete) + " hrs"   //set info B to time to complete rounded to nearest hr
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size()) //init spritenode superclass with grabbed texture
+        name = skillName
         toolTipSN.position = CGPointZero    //center on skill
         toolTipSN.zPosition = 2.0   //set z position of tooltip to draw on top of skill
         toolTipSN.size = CGSize.zero    //initially hide tooltip

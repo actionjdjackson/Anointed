@@ -12,7 +12,7 @@ class Cooking : Skill {
     
     /* SETS UP COOKING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Cooking", skillDesc: "Allows you to cook food of various different kinds.", skillUser: user, skillSprite : "cooking", baseTimeToComplete : 10.0, passv: false )
+        super.init( skillName: "Cooking", skillDesc: "Allows you to cook food of various different kinds.", skillUser: user, skillSprite : "cooking", baseTimeToComplete : 10.0, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

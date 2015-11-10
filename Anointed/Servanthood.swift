@@ -12,7 +12,7 @@ class Servanthood : Skill {
     
     /* SET UP SERVICE SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Servanthood", skillDesc: "Allows you to have the option of serving someone during a conversation.", skillUser: user, skillSprite : "servanthood", baseTimeToComplete : 1, passv: true )
+        super.init( skillName: "Servanthood", skillDesc: "Allows you to have the option of serving someone during a conversation.", skillUser: user, skillSprite : "servanthood", baseTimeToComplete : 1, passv: true, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

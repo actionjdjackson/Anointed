@@ -12,7 +12,7 @@ class OriginDiscernment : Skill {
     
     /* SET UP ORIGIN DISCERNMENT SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Origin Discernment", skillDesc: "Allows you to discern wether or not a spirit is from God or from Satan.", skillUser: user, skillSprite : "originDiscernment", baseTimeToComplete : 1, passv: false )
+        super.init( skillName: "Origin Discernment", skillDesc: "Allows you to discern wether or not a spirit is from God or from Satan.", skillUser: user, skillSprite : "originDiscernment", baseTimeToComplete : 1, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

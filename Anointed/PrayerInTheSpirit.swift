@@ -12,7 +12,7 @@ class PrayerInTheSpirit : Skill {
     
     /* SET UP PERSONAL PROPHECY SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Prayer in the Spirit", skillDesc: "Allows you to pray in a personal prayer language.", skillUser: user, skillSprite : "prayerInTheSpirit", baseTimeToComplete : 1, passv: false )
+        super.init( skillName: "Prayer in the Spirit", skillDesc: "Allows you to pray in a personal prayer language.", skillUser: user, skillSprite : "prayerInTheSpirit", baseTimeToComplete : 1, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -12,7 +12,7 @@ class Tailoring : Skill {
     
     /* SETS UP TAILORING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Tailoring", skillDesc: "Allows you to make clothing of various different kinds.", skillUser: user, skillSprite : "tailoring", baseTimeToComplete : 10.0, passv: false )
+        super.init( skillName: "Tailoring", skillDesc: "Allows you to make clothing of various different kinds.", skillUser: user, skillSprite : "tailoring", baseTimeToComplete : 10.0, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

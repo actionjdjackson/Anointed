@@ -12,7 +12,7 @@ class Hospitality : Skill {
     
     /* SET UP HOSPITALITY SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Hospitality", skillDesc: "Allows you to invite people into your home and serve them food, entertain, and have meaningful conversation, possibly leading to a presentation of the Gospel.", skillUser: user, skillSprite : "hospitality", baseTimeToComplete : 6, passv: false )
+        super.init( skillName: "Hospitality", skillDesc: "Allows you to invite people into your home and serve them food, entertain, and have meaningful conversation, possibly leading to a presentation of the Gospel.", skillUser: user, skillSprite : "hospitality", baseTimeToComplete : 6, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

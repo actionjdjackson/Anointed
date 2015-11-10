@@ -12,7 +12,7 @@ class OneOnOneTeaching : Skill {
     
     /* SET UP ONE-ON-ONE TEACHING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "One-On-One Teaching", skillDesc: "Allows you to teach another character from the scriptures.", skillUser: user, skillSprite : "oneOnOneTeaching", baseTimeToComplete : 1, passv: false )
+        super.init( skillName: "One-On-One Teaching", skillDesc: "Allows you to teach another character from the scriptures.", skillUser: user, skillSprite : "oneOnOneTeaching", baseTimeToComplete : 1, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -12,7 +12,7 @@ class PersonalEncouragement : Skill {
     
     /* SET UP PERSONAL ENCOURAGEMENT SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Personal Encouragement", skillDesc: "Allows you to encourage another believer in their faith and life.", skillUser: user, skillSprite : "personalEncouragement", baseTimeToComplete : 1, passv: false )
+        super.init( skillName: "Personal Encouragement", skillDesc: "Allows you to encourage another believer in their faith and life.", skillUser: user, skillSprite : "personalEncouragement", baseTimeToComplete : 1, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -212,6 +212,7 @@ class GameScene: SKScene {
                     fatalError("TOO MANY SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")   //exit with error
                 }
                 let skill = SKSpriteNode(imageNamed: UNIVERSE.theGame.player.skills[n].sprite)   //grab the sprite for the current skill
+                skill.size = CGSize(width: 32, height: 32)
                 skill.position = CGPoint(x: SKILLS_BAR_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILLS_BAR_BASE_Y) //position in quickbar
                 skill.zPosition = SKILLS_BAR_BASE_Z //set Z position for drawing on top of grid
                 self.addChild(skill)    //add skill to scene
@@ -226,6 +227,7 @@ class GameScene: SKScene {
                     fatalError("TOO MANY SPIRITUAL GIFT SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")    //exit with error
                 }
                 let skill = SKSpriteNode(imageNamed: giftSkills[n].sprite)  //grab the sprite for the current subskill
+                skill.size = CGSize(width: 32, height: 32)
                 skill.position = CGPoint(x: SKILLS_BAR_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILLS_BAR_BASE_Y - 32)    //position in quickbar
                 skill.zPosition = SKILLS_BAR_BASE_Z //set Z position for drawing on top of grid
                 self.addChild(skill)    //add subskill to scene
@@ -325,6 +327,7 @@ class GameScene: SKScene {
                     let item = UNIVERSE.theGame.player.inventory[n]  //grab an item
                     item.removeFromParent()
                     theOpenMenu.addChild(item)  //add item to the menu
+                    item.size = CGSize(width: 32, height: 32)
                     item.position = CGPoint( x: INVENTORY_ITEM_BASE_X + CGFloat(n % INVENTORY_GRID_WIDTH) * INVENTORY_ITEM_SIZE, y: INVENTORY_ITEM_BASE_Y - CGFloat(n / INVENTORY_GRID_WIDTH) * INVENTORY_ITEM_SIZE )  //position appropriately in the inventory grid
                 }
             }
@@ -356,6 +359,7 @@ class GameScene: SKScene {
                         fatalError("TOO MANY SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")   //exit with error
                     }
                     let skill = UNIVERSE.theGame.player.skills[n]    //grab a skill
+                    skill.size = CGSize(width: 32, height: 32)
                     skill.position = CGPoint(x: SKILL_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILL_POSITION_BASE_Y - CGFloat(Int(n / SKILLS_GRID_WIDTH)) * SKILL_ICON_SIZE) //position skill on bottom (natural skills) row
                     theOpenMenu.addChild(skill) //add skill to the menu
                 }
@@ -367,6 +371,7 @@ class GameScene: SKScene {
                         fatalError("TOO MANY GIFTS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")    //exit with error
                     }
                     let gift = UNIVERSE.theGame.player.gifts[n] //grab a gift
+                    gift.size = CGSize(width: 32, height: 32)
                     gift.position = CGPoint(x: GIFT_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: GIFT_POSITION_BASE_Y - CGFloat(Int(n / SKILLS_GRID_WIDTH)) * SKILL_ICON_SIZE)    //position gift on top (spiritual gifts) row
                     theOpenMenu.addChild(gift)  //add gift to the menu
                     
@@ -376,6 +381,7 @@ class GameScene: SKScene {
                                 fatalError("TOO MANY GIFT SUBSKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")   //exit with error
                             }
                             let skill = gift.subSkills[m]   //grab a subskill
+                            skill.size = CGSize(width: 32, height: 32)
                             skill.position = CGPoint(x: GIFT_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: GIFT_POSITION_BASE_Y - CGFloat((m + 1) % GIFT_SKILLS_GRID_HEIGHT) * SKILL_ICON_SIZE)    //position below the corresponding spiritual gift, in sequence to bottom of column
                             
                             theOpenMenu.addChild(skill) //add subskill to the menu

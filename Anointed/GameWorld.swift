@@ -52,8 +52,11 @@ class GameWorld {
         
         /*** CREATE & ADD SKILLS & GIFTS ***/
         
-        /* MAKE SKILLS */
-        var tentmakingSkill : Tentmaking = Tentmaking(user: player) //make tentmaking skill
+        /* MAKE SKILLS & SUBSKILLS */
+        
+        var makeSmallTent : MakeSmallTent = MakeSmallTent(user: player)
+        
+        var tentmakingSkill : Tentmaking = Tentmaking(user: player, subsk: [makeSmallTent]) //make tentmaking skill
         var carpentrySkill : Carpentry = Carpentry(user: player)
         var philosophySkill : Philosophy = Philosophy(user: player)
         var seafaringSkill : Seafaring = Seafaring(user: player)

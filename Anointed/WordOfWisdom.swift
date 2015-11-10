@@ -12,7 +12,7 @@ class WordOfWisdom : Skill {
     
     /* SET UP WORD OF WISDOM SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Word of Wisdom", skillDesc: "Allows you to give a special message of supernatural wisdom.", skillUser: user, skillSprite : "wordOfWisdom", baseTimeToComplete : 1, passv: false )
+        super.init( skillName: "Word of Wisdom", skillDesc: "Allows you to give a special message of supernatural wisdom.", skillUser: user, skillSprite : "wordOfWisdom", baseTimeToComplete : 1, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

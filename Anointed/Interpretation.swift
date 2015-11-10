@@ -12,7 +12,7 @@ class Interpretation : Skill {
     
     /* SET UP INTERPRETATION OF TONGUES SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Interpretation", skillDesc: "Allows you to interpret tongues spoken by another character.", skillUser: user, skillSprite : "interpretation", baseTimeToComplete : 1, passv: false )
+        super.init( skillName: "Interpretation", skillDesc: "Allows you to interpret tongues spoken by another character.", skillUser: user, skillSprite : "interpretation", baseTimeToComplete : 1, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -12,7 +12,7 @@ class FeedingThePoor : Skill {
     
     /* SET UP FEEDING THE POOR SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Feeding the Poor", skillDesc: "Allows you to obtain and give out food to the poor.", skillUser: user, skillSprite : "feedingThePoor", baseTimeToComplete : 1, passv: false )
+        super.init( skillName: "Feeding the Poor", skillDesc: "Allows you to obtain and give out food to the poor.", skillUser: user, skillSprite : "feedingThePoor", baseTimeToComplete : 1, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

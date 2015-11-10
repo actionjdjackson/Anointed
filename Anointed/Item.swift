@@ -32,7 +32,8 @@ class Item : SKSpriteNode {
         let texture = SKTexture(imageNamed: spriteName) //sets temp texture to appropriate sprite
         toolTipSN = ToolTipSpriteNode(tex: SKTexture(imageNamed: sprite + "TOOLTIP"), infoA: "SizeX: " + String( inventorySizeX ), infoB: "SizeY: " + String( inventorySizeY ) )    //grab tooltip image and set displayed info to the sizeX and sizeY values
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size()) //calls super.init with temp texture and with normal size
-        toolTipSN.name = "TOOLTIP"
+        self.name = title
+        toolTipSN.name = sprite + "TOOLTIP"
         toolTipSN.position = CGPointZero    //center on screen
         toolTipSN.zPosition = TOOLTIP_Z_POSITION   //draw above item
         toolTipSN.size = CGSize.zero    //initially hide (zero size)

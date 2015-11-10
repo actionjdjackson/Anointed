@@ -12,7 +12,7 @@ class Jewelrymaking : Skill {
     
     /* SETS UP JEWELRYMAKING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Jewelrymaking", skillDesc: "Allows you to make various kinds of jewelry.", skillUser: user, skillSprite : "jewelrymaking", baseTimeToComplete : 10.0, passv: false )
+        super.init( skillName: "Jewelrymaking", skillDesc: "Allows you to make various kinds of jewelry.", skillUser: user, skillSprite : "jewelrymaking", baseTimeToComplete : 10.0, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

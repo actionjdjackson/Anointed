@@ -12,7 +12,7 @@ class PartyLeadership : Skill {
     
     /* SET UP CHEERFUL GIVING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Party Leadership", skillDesc: "Allows you to lead a party of believers on quests or missionary journeys", skillUser: user, skillSprite : "partyLeadership", baseTimeToComplete : 1, passv: false )
+        super.init( skillName: "Party Leadership", skillDesc: "Allows you to lead a party of believers on quests or missionary journeys", skillUser: user, skillSprite : "partyLeadership", baseTimeToComplete : 1, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

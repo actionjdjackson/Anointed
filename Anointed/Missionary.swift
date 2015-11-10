@@ -12,7 +12,7 @@ class Missionary : Skill {
     
     /* SET UP MISSIONARY SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Missionary", skillDesc: "Allows you to have the ability to travel abroad spreading the Gospel.", skillUser: user, skillSprite : "missionary", baseTimeToComplete : 0.0, passv: true )
+        super.init( skillName: "Missionary", skillDesc: "Allows you to have the ability to travel abroad spreading the Gospel.", skillUser: user, skillSprite : "missionary", baseTimeToComplete : 0.0, passv: true, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

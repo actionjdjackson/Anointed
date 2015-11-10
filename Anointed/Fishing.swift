@@ -12,7 +12,7 @@ class Fishing : Skill {
     
     /* SETS UP FISHING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Fishing", skillDesc: "Allows you to go into shallow water and fish using a net.", skillUser: user, skillSprite : "fishing", baseTimeToComplete : 10.0, passv: false )
+        super.init( skillName: "Fishing", skillDesc: "Allows you to go into shallow water and fish using a net.", skillUser: user, skillSprite : "fishing", baseTimeToComplete : 10.0, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,7 +27,7 @@ class Fishing : Skill {
             
         } else {
             
-            UNIVERSE.alertText("You have no boat to go fishing in!")
+            //nope, can't go fishing
             
         }
         
@@ -39,6 +39,7 @@ class Fishing : Skill {
         for item in UNIVERSE.theGame.player.inventory {
             if item.name!.hasSuffix("Boat") {
                 missingBoatFlag = false
+                UNIVERSE.alertText("You can't go fishing without a boat!")
                 break
             }
         }

@@ -12,7 +12,7 @@ class Carpentry : Skill {
     
     /* SETS UP CARPENTRY SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Carpentry", skillDesc: "Allows you to make various items out of wood.", skillUser: user, skillSprite : "carpentry", baseTimeToComplete : 10.0, passv: false )
+        super.init( skillName: "Carpentry", skillDesc: "Allows you to make various items out of wood.", skillUser: user, skillSprite : "carpentry", baseTimeToComplete : 10.0, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

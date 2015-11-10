@@ -12,7 +12,7 @@ class Seafaring : Skill {
     
     /* SETS UP SEAFARING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Seafaring", skillDesc: "Allows you to row, sail, and travel on your own boat.", skillUser: user, skillSprite : "seafaring", baseTimeToComplete : 10.0, passv: false )
+        super.init( skillName: "Seafaring", skillDesc: "Allows you to row, sail, and travel on your own boat.", skillUser: user, skillSprite : "seafaring", baseTimeToComplete : 10.0, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

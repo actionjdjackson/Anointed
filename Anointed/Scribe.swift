@@ -12,7 +12,7 @@ class Scribe : Skill {
     
     /* SETS UP BANKING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Scribe", skillDesc: "Allows you to create and copy documents - including scripture, legal documents, and letters.", skillUser: user, skillSprite : "scribe", baseTimeToComplete : 10.0, passv: false )
+        super.init( skillName: "Scribe", skillDesc: "Allows you to create and copy documents - including scripture, legal documents, and letters.", skillUser: user, skillSprite : "scribe", baseTimeToComplete : 10.0, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

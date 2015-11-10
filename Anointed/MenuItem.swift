@@ -43,6 +43,27 @@ class MenuItem : SKNode {
     /** HANDLES MOUSE CLICK EVENTS **/
     override func mouseDown(theEvent: NSEvent) {
         
+        if self.parent is Skill {
+            
+            let skill = self.parent as! Skill
+            for subskill in skill.subskills {
+                if subskill.name == self.name {
+                    if subskill.canUse() {
+                        subskill.use()
+                        self.backgroundBox.fillColor = SKColor.blueColor()
+                        let fade = SKAction.fadeOutWithDuration(NSTimeInterval(3)) //fade out over 3 seconds
+                        self.runAction(fade, completion: {
+                            self.parent?.removeAllChildren()
+                        })
+                    }
+                }
+            }
+            if self.name == "Cancel" {
+                self.parent?.removeAllChildren()
+            }
+            
+        }
+        
         if self.parent is NonPlayingCharacter { //if we're clicking on an NPC
             
         let par = self.parent as! NonPlayingCharacter   //grabs the npc we're associated with (the player right clicked on the npc that is the parent of this menu)

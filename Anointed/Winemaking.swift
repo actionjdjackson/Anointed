@@ -12,7 +12,7 @@ class Winemaking : Skill {
     
     /* SET UP WINEMAKING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Winemaking", skillDesc: "Allows you to turn water into wine", skillUser: user, skillSprite : "winemaking", baseTimeToComplete : 1, passv: false )
+        super.init( skillName: "Winemaking", skillDesc: "Allows you to turn water into wine", skillUser: user, skillSprite : "winemaking", baseTimeToComplete : 1, passv: false, subsk: [] )
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -23,7 +23,7 @@ class Winemaking : Skill {
     override func use() {
         
         //if you have all the raw materials necessary,
-        if user.howManyInInventory("Water") > 0 {
+        if canUse() {
             
             //make into wine
             user.grabFromInventory("Water")

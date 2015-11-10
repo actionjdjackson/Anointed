@@ -12,7 +12,7 @@ class PersonalProphecy : Skill {
     
     /* SET UP PERSONAL PROPHECY SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Personal Prophecy", skillDesc: "Allows you to give a personal prophecy to another game character.", skillUser: user, skillSprite : "personalProphecy", baseTimeToComplete : 1, passv: false )
+        super.init( skillName: "Personal Prophecy", skillDesc: "Allows you to give a personal prophecy to another game character.", skillUser: user, skillSprite : "personalProphecy", baseTimeToComplete : 1, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

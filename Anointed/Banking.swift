@@ -12,7 +12,7 @@ class Banking : Skill {
     
     /* SETS UP BANKING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Banking", skillDesc: "Allows you to conduct business as a banker, including making a lockbox, exchanging currency, lending money, etc.", skillUser: user, skillSprite : "banking", baseTimeToComplete : 10.0, passv: false )
+        super.init( skillName: "Banking", skillDesc: "Allows you to conduct business as a banker, including making a lockbox, exchanging currency, lending money, etc.", skillUser: user, skillSprite : "banking", baseTimeToComplete : 10.0, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

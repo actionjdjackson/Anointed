@@ -12,7 +12,7 @@ class Assurance : Skill {
     
     /* SET UP WORD OF WISDOM SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Assurance", skillDesc: "Gives you special, strong, supernatural faith for assurance over your own life & ministry.", skillUser: user, skillSprite : "assurance", baseTimeToComplete: 0.0, passv: true )
+        super.init( skillName: "Assurance", skillDesc: "Gives you special, strong, supernatural faith for assurance over your own life & ministry.", skillUser: user, skillSprite : "assurance", baseTimeToComplete: 0.0, passv: true, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

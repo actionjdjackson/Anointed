@@ -12,7 +12,7 @@ class Artmaking : Skill {
     
     /* SETS UP ARTMAKING SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Artmaking", skillDesc: "Allows you to make drawings, paintings, carvings, or scupltures.", skillUser: user, skillSprite : "artmaking", baseTimeToComplete : 10.0, passv: false )
+        super.init( skillName: "Artmaking", skillDesc: "Allows you to make drawings, paintings, carvings, or scupltures.", skillUser: user, skillSprite : "artmaking", baseTimeToComplete : 10.0, passv: false, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {

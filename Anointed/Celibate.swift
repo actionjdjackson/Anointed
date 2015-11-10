@@ -12,7 +12,7 @@ class Celibate : Skill {
     
     /* SET UP CELIBATE SKILL */
     init( user : GameCharacter ) {
-        super.init( skillName: "Celibate", skillDesc: "Gives the player the ability to abstain from sexual activity and remain unmarried.", skillUser: user, skillSprite : "celibate", baseTimeToComplete : 1, passv: true )
+        super.init( skillName: "Celibate", skillDesc: "Gives the player the ability to abstain from sexual activity and remain unmarried.", skillUser: user, skillSprite : "celibate", baseTimeToComplete : 1, passv: true, subsk: [] )
     }
     
     required init?(coder aDecoder: NSCoder) {
