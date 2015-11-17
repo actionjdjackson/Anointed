@@ -55,13 +55,25 @@ class GameWorld {
         /* MAKE SKILLS & SUBSKILLS */
         
         var makeSmallTent : MakeSmallTent = MakeSmallTent(user: player)
+        var makeMediumTent : MakeMediumTent = MakeMediumTent(user: player)
+        var makeLargeTent : MakeLargeTent = MakeLargeTent(user: player)
+        var tentmakingSkill : Tentmaking = Tentmaking(user: player, subsk: [makeSmallTent, makeMediumTent, makeLargeTent]) //make tentmaking skill
         
-        var tentmakingSkill : Tentmaking = Tentmaking(user: player, subsk: [makeSmallTent]) //make tentmaking skill
-        var carpentrySkill : Carpentry = Carpentry(user: player)
+        var makeChair : MakeChair = MakeChair(user: player)
+        var makeBench : MakeBench = MakeBench(user: player)
+        var makeTable : MakeTable = MakeTable(user: player)
+        var makeBoat : MakeBoat = MakeBoat(user: player)
+        var carpentrySkill : Carpentry = Carpentry(user: player, subsk: [makeChair, makeBench, makeTable, makeBoat]) //make carpentry skill
+        
         var philosophySkill : Philosophy = Philosophy(user: player)
         var seafaringSkill : Seafaring = Seafaring(user: player)
-        var fishingSkill : Fishing = Fishing(user: player)
-        var cookingSkill : Cooking = Cooking(user: player)
+        
+        var makeNet : MakeNet = MakeNet(user: player)
+        var fishingSkill : Fishing = Fishing(user: player, subsk: [makeNet])
+        
+        var makeCampfire : MakeCampfire = MakeCampfire(user: player)
+        var cookingSkill : Cooking = Cooking(user: player, subsk: [makeCampfire])
+        
         var musicmakingSkill : Musicmaking = Musicmaking(user: player)
         var tailoringSkill : Tailoring = Tailoring(user: player)
         var artmakingSkill : Artmaking = Artmaking(user: player)

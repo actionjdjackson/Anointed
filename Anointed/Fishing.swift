@@ -11,8 +11,8 @@ import Foundation
 class Fishing : Skill {
     
     /* SETS UP FISHING SKILL */
-    init( user : GameCharacter ) {
-        super.init( skillName: "Fishing", skillDesc: "Allows you to go into shallow water and fish using a net.", skillUser: user, skillSprite : "fishing", baseTimeToComplete : 10.0, passv: false, subsk: [] )
+    init( user : GameCharacter, subsk: [Subskill] ) {
+        super.init( skillName: "Fishing", skillDesc: "Allows you to go into shallow water and fish using a net.", skillUser: user, skillSprite : "fishing", baseTimeToComplete : 10.0, passv: false, subsk: subsk )
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -11,8 +11,8 @@ import Foundation
 class Cooking : Skill {
     
     /* SETS UP COOKING SKILL */
-    init( user : GameCharacter ) {
-        super.init( skillName: "Cooking", skillDesc: "Allows you to cook food of various different kinds.", skillUser: user, skillSprite : "cooking", baseTimeToComplete : 10.0, passv: false, subsk: [] )
+    init( user : GameCharacter, subsk : [Subskill] ) {
+        super.init( skillName: "Cooking", skillDesc: "Allows you to cook food of various different kinds.", skillUser: user, skillSprite : "cooking", baseTimeToComplete : 10.0, passv: false, subsk: subsk )
     }
     
     required init?(coder aDecoder: NSCoder) {

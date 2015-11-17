@@ -1,5 +1,5 @@
 //
-//  MakeSmallTent.swift
+//  MakeMediumTent.swift
 //  Anointed
 //
 //  Created by Jacob Jackson on 11/10/15.
@@ -9,28 +9,28 @@
 import Foundation
 import SpriteKit
 
-class MakeSmallTent : Subskill {
+class MakeMediumTent : Subskill {
     
     init( user: GameCharacter ) {
         
-        super.init(skillName: "Make Small Tent", skillDesc: "Make a small, one-person tent.", skillUser: user, skillSprite: "tent", baseTimeToComplete: 10, level: 1)
+        super.init(skillName: "Make Medium Tent", skillDesc: "Make a medium, family-sized tent.", skillUser: user, skillSprite: "tent", baseTimeToComplete: 15, level: 5)
         
     }
-
+    
     /* USE TENTMAKING SKILL ON SELF (TENT GOES INTO INVENTORY) */
     override func use() {
         
         //if you have all the raw materials necessary,
         if canUse() {
             
-            UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Small Tent...", completion: {
+            UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Medium Tent...", completion: {
                 
                 //make a tent
-                self.user.inventory.append(self.makeSmallTent())
+                self.user.inventory.append(self.makeMediumTent())
                 //level up tentmaking skill
                 self.levelUp()
                 //report to screen
-                UNIVERSE.alertText("Made a basic cloth tent.")
+                UNIVERSE.alertText("Made a medium sized cloth tent.")
                 
             })
             
@@ -48,12 +48,16 @@ class MakeSmallTent : Subskill {
         //if you have all the raw materials necessary,
         if canUse() {
             
-            //make a tent
-            npc.inventory.append(self.makeSmallTent())
-            //level up tentmaking skill
-            self.levelUp()
-            //report to screen
-            UNIVERSE.alertText("Made a basic cloth tent for " + npc.name!)
+            UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Medium Tent...", completion: {
+                
+                //make a tent
+                npc.inventory.append(self.makeMediumTent())
+                //level up tentmaking skill
+                self.levelUp()
+                //report to screen
+                UNIVERSE.alertText("Made a medium cloth tent for " + npc.name!)
+                
+            })
             
         } else {    //if we don't have enough raw materials,
             
@@ -63,12 +67,13 @@ class MakeSmallTent : Subskill {
         
     }
     
-    func makeSmallTent() -> Item {
+    func makeMediumTent() -> Item {
         
-        user.grabFromInventory("Cloth")
-        user.grabFromInventory("Cord")
-        user.grabFromInventory("Wood")
-        let newTent = Item(ttl: "Tent", desc: "A basic cloth tent.", sx: 1, sy: 1, spriteName: "tent")
+        self.user.grabFromInventory("Cloth")
+        self.user.grabFromInventory("Cloth")
+        self.user.grabFromInventory("Cord")
+        self.user.grabFromInventory("Wood")
+        let newTent = Item(ttl: "Medium Tent", desc: "A medium-sized cloth tent.", sx: 2, sy: 2, spriteName: "tent")
         return newTent
         
     }
@@ -76,7 +81,7 @@ class MakeSmallTent : Subskill {
     /* CAN WE USE THE TENTMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Cloth") > 0 && user.howManyInInventory("Cord") > 0 && user.howManyInInventory("Wood") > 0 { //if we've got enough stuff
+        if user.howManyInInventory("Cloth") > 1 && user.howManyInInventory("Cord") > 0 && user.howManyInInventory("Wood") > 0 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the tentmaking skill
             

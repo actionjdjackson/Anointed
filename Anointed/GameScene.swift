@@ -10,7 +10,7 @@ import SpriteKit
 import AVFoundation
 import CoreFoundation
 
-class GameScene: SKScene {
+class GameScene : SKScene {
     
     /* VARIABLES AND CONSTANTS USED IN SCENE */
     var bibleEventTitle = SKLabelNode(fontNamed:"")
@@ -29,60 +29,11 @@ class GameScene: SKScene {
     var progBarFrame : SKSpriteNode = SKSpriteNode(imageNamed: "progressBarFrame")  //progress bar frame
     var progBar : SKSpriteNode = SKSpriteNode(imageNamed: "progressBar")    //progress bar
     var progBarCaption : SKLabelNode = SKLabelNode(text: "")    //empty progress bar caption
-    var progBarTime : Double = 0.0  //initially, progbar has no time value
+    //var progBarTime : Double = 0.0  //initially, progbar has no time value DEPRECATED
     var progBarDuration : Double = 0.0  //initially, progbar has no duration value
     var skillInUse : Int = -1   //no skill in use initially
     var giftSkills : [Skill] = []   //giftSkills array set to empty array
     var nodeEntered : String = ""
-    
-    /* POSITIONAL/SIZE CONSTANTS USED IN DRAWING, ETC. */
-    let CENTER_OF_SCREEN_X = CGFloat(0.5)
-    let CENTER_OF_SCREEN_Y = CGFloat(0.5)
-    let LOWER_BANNER_X = CGFloat(-112)
-    let LOWER_BANNER_Y = CGFloat(-1050/2 + 32)
-    let LOWER_BANNER_Z = CGFloat(10.0)
-    let EXPERIENCE_BARS_X = CGFloat(400)
-    let EXPERIENCE_BARS_Y = CGFloat(-1050/2 + 32)
-    let EXPERIENCE_BARS_Z = CGFloat(10.0)
-    let OPEN_MENU_Y = CGFloat(-32 + 12)
-    let OPEN_MENU_Z = CGFloat(2.0)
-    let MENU_TITLE_FONT_SIZE = CGFloat(24)
-    let MENU_TITLE_X = CGFloat(0.0)
-    let MENU_TITLE_Y = CGFloat(CGRectGetMaxY(SKSpriteNode(imageNamed:"INVENTORYmenu").frame) / 2.0 + 128 - 32)
-    let SKILLS_BAR_BASE_X = CGFloat(-16)
-    let SKILLS_BAR_BASE_Y = CGFloat(-1050/2 + 32 + 16)
-    let SKILLS_BAR_BASE_Z = CGFloat(10.0)
-    let SKILL_POSITION_BASE_X = CGFloat(96.0 - CGFloat(SKSpriteNode(imageNamed:"INVENTORYmenu").frame.width) / 2.0)
-    let SKILL_POSITION_BASE_Y = CGFloat(SKSpriteNode(imageNamed:"INVENTORYmenu").frame.height) / 2.0 - 518.0
-    let GIFT_POSITION_BASE_Y = CGFloat(SKSpriteNode(imageNamed:"INVENTORYmenu").frame.height) / 2.0 - 128.0 - 48.0
-    let GIFT_POSITION_BASE_X = CGFloat(96.0 - CGFloat(SKSpriteNode(imageNamed:"INVENTORYmenu").frame.width) / 2.0) - 2.0
-    let GIFT_SKILLS_GRID_HEIGHT = 9
-    let SKILL_ICON_SIZE = CGFloat(32.0)
-    let INVENTORY_ITEM_BASE_X = CGFloat(88 - 234)
-    let INVENTORY_ITEM_BASE_Y = CGFloat(100)
-    let INVENTORY_ITEM_SIZE = CGFloat(32.0)
-    let INVENTORY_GRID_WIDTH = 10
-    let INVENTORY_GRID_HEIGHT = 12
-    let SKILLS_GRID_WIDTH = 10
-    let SKILLS_GRID_HEIGHT = 2
-    let LOWER_BANNER_TOP_EDGE = CGFloat(64 - 1050 / 2)
-    let PARTY_BUTTON_EDGE = CGFloat(85 - 1024 / 2)
-    let NOTES_BUTTON_EDGE = CGFloat(85 + 64 - 1024 / 2)
-    let KNOWLEDGE_BUTTON_EDGE = CGFloat(85 + 128 - 1024 / 2)
-    let PRAYER_BUTTON_EDGE = CGFloat(85 + 128 + 64 - 10 - 1024 / 2)
-    let TRAVEL_BUTTON_EDGE = CGFloat(85 + 256 - 10 - 1024 / 2)
-    let INVENTORY_BUTTON_EDGE = CGFloat(85 + 256 + 64 - 10 - 1024 / 2)
-    let SKILLS_BUTTON_EDGE = CGFloat(85 + 256 + 128 - 10 - 1024 / 2)
-    let SKILLS_BAR_EDGE = CGFloat(-32)
-    let TIMESTAMP_OFFSET_X = CGFloat(-128 - 32)
-    let TIMESTAMP_OFFSET_Y = CGFloat(64 + 14 - 1050 / 2)
-    let TIMESTAMP_OFFSET_Z = CGFloat(10.0)
-    let TIMESTAMP_FONT_SIZE = CGFloat(14)
-    let PROG_BAR_WIDTH = CGFloat(256.0)
-    let PLAYER_MOVE_TIME = 0.125
-    let SECONDS_IN_ONE_HOUR = 60.0 * 60.0
-    let KNOWLEDGE_MENU_SCROLL_OFFSET_X = -256 - 128 - 64 - 32 + 8 + 1
-    let KNOWLEDGE_MENU_SCROLL_OFFSET_Y = 256 - 64 - 8 + 4
     
     /* KEYPRESS CONSTANTS */
     let ESCAPE = UInt16(53)
@@ -130,7 +81,7 @@ class GameScene: SKScene {
         
         world.fillColor = SKColor.blackColor()  //the world is a black background
         self.addChild(world)    //world node is added to the scene immediately
-        self.anchorPoint = CGPoint(x: CENTER_OF_SCREEN_X, y: CENTER_OF_SCREEN_Y) //anchor the screen on center
+        self.anchorPoint = CGPoint(x: CONSTANTS.CENTER_OF_SCREEN_X, y: CONSTANTS.CENTER_OF_SCREEN_Y) //anchor the screen on center
         
         createLocation()    //creates the current location in spritekit
         
@@ -197,24 +148,24 @@ class GameScene: SKScene {
         
         lowerBanner.removeFromParent()  //just in case we're re-setting-up, remove the current banner
         lowerBanner = SKSpriteNode(imageNamed:"LowerBannerBASE")    //define the lowerBanner as basic button bar with nothing selected
-        lowerBanner.position = CGPoint( x: LOWER_BANNER_X, y: LOWER_BANNER_Y )   //put the button bar at correct location
-        lowerBanner.zPosition = LOWER_BANNER_Z
+        lowerBanner.position = CGPoint( x: CONSTANTS.LOWER_BANNER_X, y: CONSTANTS.LOWER_BANNER_Y )   //put the button bar at correct location
+        lowerBanner.zPosition = CONSTANTS.LOWER_BANNER_Z
         self.addChild(lowerBanner)  //add the banner to the current scene
         experienceBars.removeFromParent()   //just in case we're re-setting-up, remove the current exp bars
-        experienceBars.position = CGPoint(x: EXPERIENCE_BARS_X, y: EXPERIENCE_BARS_Y) //put experience bars at the correct location
-        experienceBars.zPosition = EXPERIENCE_BARS_Z
+        experienceBars.position = CGPoint(x: CONSTANTS.EXPERIENCE_BARS_X, y: CONSTANTS.EXPERIENCE_BARS_Y) //put experience bars at the correct location
+        experienceBars.zPosition = CONSTANTS.EXPERIENCE_BARS_Z
         self.addChild(experienceBars)   //add the experience bars (to the right of the button bar, as above)
         
         
         if UNIVERSE.theGame.player.skills.count > 0 {    //if the player has any skills
             for n in 0...UNIVERSE.theGame.player.skills.count-1 {    //iterate through all skills
-                if n >= SKILLS_GRID_WIDTH { //if the player has too many skills
+                if n >= CONSTANTS.SKILLS_GRID_WIDTH { //if the player has too many skills
                     fatalError("TOO MANY SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")   //exit with error
                 }
                 let skill = SKSpriteNode(imageNamed: UNIVERSE.theGame.player.skills[n].sprite)   //grab the sprite for the current skill
                 skill.size = CGSize(width: 32, height: 32)
-                skill.position = CGPoint(x: SKILLS_BAR_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILLS_BAR_BASE_Y) //position in quickbar
-                skill.zPosition = SKILLS_BAR_BASE_Z //set Z position for drawing on top of grid
+                skill.position = CGPoint(x: CONSTANTS.SKILLS_BAR_BASE_X + CGFloat(n % CONSTANTS.SKILLS_GRID_WIDTH) * CONSTANTS.SKILL_ICON_SIZE, y: CONSTANTS.SKILLS_BAR_BASE_Y) //position in quickbar
+                skill.zPosition = CONSTANTS.SKILLS_BAR_BASE_Z //set Z position for drawing on top of grid
                 self.addChild(skill)    //add skill to scene
             }
         }
@@ -223,13 +174,13 @@ class GameScene: SKScene {
         
         if giftSkills.count > 0 {   //if there are any spiritual gift subskills
             for n in 0...giftSkills.count-1 {   //iterate through all subskills
-                if n >= SKILLS_GRID_WIDTH { //if there are too many subskills
+                if n >= CONSTANTS.SKILLS_GRID_WIDTH { //if there are too many subskills
                     fatalError("TOO MANY SPIRITUAL GIFT SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")    //exit with error
                 }
                 let skill = SKSpriteNode(imageNamed: giftSkills[n].sprite)  //grab the sprite for the current subskill
                 skill.size = CGSize(width: 32, height: 32)
-                skill.position = CGPoint(x: SKILLS_BAR_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILLS_BAR_BASE_Y - 32)    //position in quickbar
-                skill.zPosition = SKILLS_BAR_BASE_Z //set Z position for drawing on top of grid
+                skill.position = CGPoint(x: CONSTANTS.SKILLS_BAR_BASE_X + CGFloat(n % CONSTANTS.SKILLS_GRID_WIDTH) * CONSTANTS.SKILL_ICON_SIZE, y: CONSTANTS.SKILLS_BAR_BASE_Y - 32)    //position in quickbar
+                skill.zPosition = CONSTANTS.SKILLS_BAR_BASE_Z //set Z position for drawing on top of grid
                 self.addChild(skill)    //add subskill to scene
             }
         }
@@ -307,13 +258,13 @@ class GameScene: SKScene {
         menuUp = theMenu    //keeping track of what menu is open currently
         theOpenMenu = SKSpriteNode(imageNamed: theMenu + "menu")    //sets up the menu image
         theOpenMenu.name = theMenu
-        theOpenMenu.position = CGPoint( x: CGRectGetMidX(self.frame), y: OPEN_MENU_Y ) //places it just above the button bar, and centered on the scene's frame
-        theOpenMenu.zPosition = OPEN_MENU_Z
+        theOpenMenu.position = CGPoint( x: CGRectGetMidX(self.frame), y: CONSTANTS.OPEN_MENU_Y ) //places it just above the button bar, and centered on the scene's frame
+        theOpenMenu.zPosition = CONSTANTS.OPEN_MENU_Z
         self.addChild(theOpenMenu)  //displays the menu
         let menuTitle = SKLabelNode(fontNamed: "Zapfino")   //sets up a label for the menu title
         menuTitle.text = theMenu.lowercaseString.capitalizedString  //makes the menu Thisway instead of THISWAY
-        menuTitle.fontSize = MENU_TITLE_FONT_SIZE //sets the font size
-        menuTitle.position = CGPoint(x: MENU_TITLE_X, y: MENU_TITLE_Y)    //positions at top center of menu
+        menuTitle.fontSize = CONSTANTS.MENU_TITLE_FONT_SIZE //sets the font size
+        menuTitle.position = CGPoint(x: CONSTANTS.MENU_TITLE_X, y: CONSTANTS.MENU_TITLE_Y)    //positions at top center of menu
         theOpenMenu.addChild(menuTitle) //displays the label as a child of the current menu
         
         /* SPECIAL INSTRUCTIONS FOR INVENTORY MENU - ***INCOMPLETE*** */
@@ -321,14 +272,14 @@ class GameScene: SKScene {
         if theMenu == "INVENTORY" { //if we're working with the inventory menu
             if UNIVERSE.theGame.player.inventory.count > 0 { //if the player has any inventory items
                 for n in 0...UNIVERSE.theGame.player.inventory.count-1   { //iterate through all inventory items
-                    if n >= INVENTORY_GRID_WIDTH * INVENTORY_GRID_HEIGHT {  //if the player has too many items in the inventory
+                    if n >= CONSTANTS.INVENTORY_GRID_WIDTH * CONSTANTS.INVENTORY_GRID_HEIGHT {  //if the player has too many items in the inventory
                         fatalError("TOO MANY ITEMS IN INVENTORY. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")   //exit with error
                     }
                     let item = UNIVERSE.theGame.player.inventory[n]  //grab an item
                     item.removeFromParent()
                     theOpenMenu.addChild(item)  //add item to the menu
                     item.size = CGSize(width: 32, height: 32)
-                    item.position = CGPoint( x: INVENTORY_ITEM_BASE_X + CGFloat(n % INVENTORY_GRID_WIDTH) * INVENTORY_ITEM_SIZE, y: INVENTORY_ITEM_BASE_Y - CGFloat(n / INVENTORY_GRID_WIDTH) * INVENTORY_ITEM_SIZE )  //position appropriately in the inventory grid
+                    item.position = CGPoint( x: CONSTANTS.INVENTORY_ITEM_BASE_X + CGFloat(n % CONSTANTS.INVENTORY_GRID_WIDTH) * CONSTANTS.INVENTORY_ITEM_SIZE, y: CONSTANTS.INVENTORY_ITEM_BASE_Y - CGFloat(n / CONSTANTS.INVENTORY_GRID_WIDTH) * CONSTANTS.INVENTORY_ITEM_SIZE )  //position appropriately in the inventory grid
                 }
             }
         }
@@ -355,34 +306,34 @@ class GameScene: SKScene {
                 
             if UNIVERSE.theGame.player.skills.count > 0 {    //if the player has any skills
                 for n in 0...UNIVERSE.theGame.player.skills.count-1 {    //iterate through all skills
-                    if n >= SKILLS_GRID_WIDTH * SKILLS_GRID_HEIGHT {    //if the player has too many skills to display on the skills menu
+                    if n >= CONSTANTS.SKILLS_GRID_WIDTH * CONSTANTS.SKILLS_GRID_HEIGHT {    //if the player has too many skills to display on the skills menu
                         fatalError("TOO MANY SKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")   //exit with error
                     }
                     let skill = UNIVERSE.theGame.player.skills[n]    //grab a skill
                     skill.size = CGSize(width: 32, height: 32)
-                    skill.position = CGPoint(x: SKILL_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: SKILL_POSITION_BASE_Y - CGFloat(Int(n / SKILLS_GRID_WIDTH)) * SKILL_ICON_SIZE) //position skill on bottom (natural skills) row
+                    skill.position = CGPoint(x: CONSTANTS.SKILL_POSITION_BASE_X + CGFloat(n % CONSTANTS.SKILLS_GRID_WIDTH) * CONSTANTS.SKILL_ICON_SIZE, y: CONSTANTS.SKILL_POSITION_BASE_Y - CGFloat(Int(n / CONSTANTS.SKILLS_GRID_WIDTH)) * CONSTANTS.SKILL_ICON_SIZE) //position skill on bottom (natural skills) row
                     theOpenMenu.addChild(skill) //add skill to the menu
                 }
             }
             
             if UNIVERSE.theGame.player.gifts.count > 0 {    //if the player has any spiritual gifts
                 for n in 0...UNIVERSE.theGame.player.gifts.count-1 {    //iterate through all gifts
-                    if n >= SKILLS_GRID_WIDTH { //if the player has too many spiritual gifts
+                    if n >= CONSTANTS.SKILLS_GRID_WIDTH { //if the player has too many spiritual gifts
                         fatalError("TOO MANY GIFTS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")    //exit with error
                     }
                     let gift = UNIVERSE.theGame.player.gifts[n] //grab a gift
                     gift.size = CGSize(width: 32, height: 32)
-                    gift.position = CGPoint(x: GIFT_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: GIFT_POSITION_BASE_Y - CGFloat(Int(n / SKILLS_GRID_WIDTH)) * SKILL_ICON_SIZE)    //position gift on top (spiritual gifts) row
+                    gift.position = CGPoint(x: CONSTANTS.GIFT_POSITION_BASE_X + CGFloat(n % CONSTANTS.SKILLS_GRID_WIDTH) * CONSTANTS.SKILL_ICON_SIZE, y: CONSTANTS.GIFT_POSITION_BASE_Y - CGFloat(Int(n / CONSTANTS.SKILLS_GRID_WIDTH)) * CONSTANTS.SKILL_ICON_SIZE)    //position gift on top (spiritual gifts) row
                     theOpenMenu.addChild(gift)  //add gift to the menu
                     
                     if gift.subSkills.count > 0 {   //if the gift has subskills
                         for m in 0...gift.subSkills.count-1 {   //iterate through all subskills
-                            if m >= GIFT_SKILLS_GRID_HEIGHT {   //if the player has too many gift skills for this spiritual gift
+                            if m >= CONSTANTS.GIFT_SKILLS_GRID_HEIGHT {   //if the player has too many gift skills for this spiritual gift
                                 fatalError("TOO MANY GIFT SUBSKILLS. IMPLEMENT OVERFILL BLOCKING FUNCTION SOON.")   //exit with error
                             }
                             let skill = gift.subSkills[m]   //grab a subskill
                             skill.size = CGSize(width: 32, height: 32)
-                            skill.position = CGPoint(x: GIFT_POSITION_BASE_X + CGFloat(n % SKILLS_GRID_WIDTH) * SKILL_ICON_SIZE, y: GIFT_POSITION_BASE_Y - CGFloat((m + 1) % GIFT_SKILLS_GRID_HEIGHT) * SKILL_ICON_SIZE)    //position below the corresponding spiritual gift, in sequence to bottom of column
+                            skill.position = CGPoint(x: CONSTANTS.GIFT_POSITION_BASE_X + CGFloat(n % CONSTANTS.SKILLS_GRID_WIDTH) * CONSTANTS.SKILL_ICON_SIZE, y: CONSTANTS.GIFT_POSITION_BASE_Y - CGFloat((m + 1) % CONSTANTS.GIFT_SKILLS_GRID_HEIGHT) * CONSTANTS.SKILL_ICON_SIZE)    //position below the corresponding spiritual gift, in sequence to bottom of column
                             
                             theOpenMenu.addChild(skill) //add subskill to the menu
                         }
@@ -405,7 +356,7 @@ class GameScene: SKScene {
                     let aScroll : Scroll = item as! Scroll   //grab the scroll as a scroll
                     aScroll.removeFromParent()
                     theOpenMenu.addChild(aScroll)   //add to the open menu
-                    aScroll.position = CGPoint(x: KNOWLEDGE_MENU_SCROLL_OFFSET_X + (allScrolls.count % 2) * 32, y: KNOWLEDGE_MENU_SCROLL_OFFSET_Y - (allScrolls.count / 2) * 32 ) //position scroll
+                    aScroll.position = CGPoint(x: CONSTANTS.KNOWLEDGE_MENU_SCROLL_OFFSET_X + (allScrolls.count % 2) * 32, y: CONSTANTS.KNOWLEDGE_MENU_SCROLL_OFFSET_Y - (allScrolls.count / 2) * 32 ) //position scroll
                     allScrolls.append(aScroll)  //add to scroll list
                     
                 }
@@ -443,50 +394,50 @@ class GameScene: SKScene {
         let location = theEvent.locationInNode(self)    //grabs the location where the user has clicked
         
         /* Has the user clicked a menu button on the lower banner? */
-        if location.y <= LOWER_BANNER_TOP_EDGE {
-            if location.x <= PARTY_BUTTON_EDGE {    //if they clicked the party button...
+        if location.y <= CONSTANTS.LOWER_BANNER_TOP_EDGE {
+            if location.x <= CONSTANTS.PARTY_BUTTON_EDGE {    //if they clicked the party button...
                 if menuUp == "PARTY" {  //if it's already up,
                     clearMenu() // clear it
                 } else if skillInUse < 0 {    // otherwise,
                     clearMenu()
                     openMenu("PARTY")   //open the party menu
                 }
-            } else if location.x <= NOTES_BUTTON_EDGE {    //same thing here and for all menu button clicks
+            } else if location.x <= CONSTANTS.NOTES_BUTTON_EDGE {    //same thing here and for all menu button clicks
                 if menuUp == "NOTES" {
                     clearMenu()
                 } else if skillInUse < 0 {
                     clearMenu()
                     openMenu("NOTES")
                 }
-            } else if location.x <= KNOWLEDGE_BUTTON_EDGE {
+            } else if location.x <= CONSTANTS.KNOWLEDGE_BUTTON_EDGE {
                 if menuUp == "KNOWLEDGE" {
                     clearMenu()
                 } else if skillInUse < 0 {
                     clearMenu()
                     openMenu("KNOWLEDGE")
                 }
-            } else if location.x <= PRAYER_BUTTON_EDGE {
+            } else if location.x <= CONSTANTS.PRAYER_BUTTON_EDGE {
                 if menuUp == "PRAYER" {
                     clearMenu()
                 } else if skillInUse < 0 {
                     clearMenu()
                     openMenu("PRAYER")
                 }
-            } else if location.x <= TRAVEL_BUTTON_EDGE {
+            } else if location.x <= CONSTANTS.TRAVEL_BUTTON_EDGE {
                 if menuUp == "TRAVEL" {
                     clearMenu()
                 } else if skillInUse < 0 {
                     clearMenu()
                     openMenu("TRAVEL")
                 }
-            } else if location.x <= INVENTORY_BUTTON_EDGE {
+            } else if location.x <= CONSTANTS.INVENTORY_BUTTON_EDGE {
                 if menuUp == "INVENTORY" {
                     clearMenu()
                 } else if skillInUse < 0 {
                     clearMenu()
                     openMenu("INVENTORY")
                 }
-            } else if location.x <= SKILLS_BUTTON_EDGE {
+            } else if location.x <= CONSTANTS.SKILLS_BUTTON_EDGE {
                 if menuUp == "SKILLS&CALLING" {
                     clearMenu()
                 } else if skillInUse < 0 {
@@ -495,26 +446,44 @@ class GameScene: SKScene {
                 }
                 
                 /* DETECTS CLICKS ON THE SKILLS BAR FOR REGULAR SKILLS */
-            } else if location.x >= SKILLS_BAR_EDGE && UNIVERSE.theGame.player.skills.count > 0 && location.y >= SKILLS_BAR_BASE_Y - 16 && skillInUse < 0 {    //if we're beyond the skills bar edge and the player has at least 1 skill
+            } else if location.x >= CONSTANTS.SKILLS_BAR_EDGE && UNIVERSE.theGame.player.skills.count > 0 && location.y >= CONSTANTS.SKILLS_BAR_BASE_Y - 16 && skillInUse < 0 {    //if we're beyond the skills bar edge and the player has at least 1 skill
                 var skillNo = Int((location.x+32) / 32) //calculate skill # based on mouse click x location
                 if skillNo < 0 { skillNo = 0 }  //if the skill is negative, make it the first skill (0)
                 if skillNo > UNIVERSE.theGame.player.skills.count-1 { return }   //if we're out of bounds when considering available skills, just return
-                if UNIVERSE.theGame.player.skills[skillNo].canUse() && UNIVERSE.theGame.player.skills[skillNo].passive == false {    //if the skill is usable right now & not passive
-                    if skillInUse < 0 { //and if skill in use is nothing (-1 typically) [if we're not currently working on another skill function]
-                        makeProgressBarFor( SECONDS_IN_ONE_HOUR * UNIVERSE.theGame.player.skills[skillNo].hoursToComplete, caption: UNIVERSE.theGame.player.skills[skillNo].title )   //make a progress bar with a duration based on a negative logarithmic curve from initial "hoursToComplete" value on down to a lower and lower number, so the higher your level in this skill, the less time it will take to complete the skill function
-                        skillInUse = skillNo    //set skill in use to the clicked skill
-                    }
+                
+                var i : Int = 0
+                for subskill in UNIVERSE.theGame.player.skills[skillNo].subskills {
+                    
+                    let subskillMenu : MenuItem = MenuItem(theText: subskill.name!)
+                    subskillMenu.name = String(skillNo) + " " + subskill.name!
+                    subskillMenu.position = CGPoint(x: 0, y: -480)
+                    subskillMenu.position.y += CGFloat(i * 32)
+                    subskillMenu.zPosition = 100
+                    self.addChild(subskillMenu)
+                    i++
+                    
                 }
+                let cancelMenu : MenuItem = MenuItem(theText: "Cancel")
+                cancelMenu.name = "Cancel"
+                cancelMenu.position = CGPoint(x: 0, y: -480)
+                cancelMenu.position.y += CGFloat(i * 32)
+                cancelMenu.zPosition = 100
+                self.addChild(cancelMenu)
                 
                 /* DETECTS CLICKS ON THE SKILLS BAR FOR SPIRITUAL GIFT SKILLS */
-            } else if location.x >= SKILLS_BAR_EDGE && giftSkills.count > 0 && location.y >= SKILLS_BAR_BASE_Y - 48 && location.y <= SKILLS_BAR_BASE_Y - 16 && skillInUse < 0 {   //if we've clicked a skill in the spiritual gifts skill bar (the bottom row)
+            } else if location.x >= CONSTANTS.SKILLS_BAR_EDGE && giftSkills.count > 0 && location.y >= CONSTANTS.SKILLS_BAR_BASE_Y - 48 && location.y <= CONSTANTS.SKILLS_BAR_BASE_Y - 16 && skillInUse < 0 {   //if we've clicked a skill in the spiritual gifts skill bar (the bottom row)
                 var skillNo = Int((location.x+32) / 32) //calculate skill # based on mouse click x location
                 if skillNo < 0 { skillNo = 0 }  //if it's negative, make it the first skill (0)
                 if skillNo > giftSkills.count-1 { return }  //if we're out of bounds when considering available gift skills, just return
                 if giftSkills[skillNo].canUse() && giftSkills[skillNo].passive == false {   //if the skill is usable right now & not passive
                     if skillInUse < 0 { //and if skill in use is nothing (-1 typically) [if we're not currently working on another skill function]
-                        makeProgressBarFor( SECONDS_IN_ONE_HOUR * giftSkills[skillNo].hoursToComplete, caption: giftSkills[skillNo].title )//make a progress bar with a duration based on a negative logarithmic curve from initial "hoursToComplete" value on down to a lower and lower number, so the higher your level in this skill, the less time it will take to complete the skill function
                         skillInUse = skillNo + 10   //set skill in use to the clicked skill (plus 10 because it's the bottom row)
+                        makeProgressBarFor( CONSTANTS.SECONDS_IN_ONE_HOUR * giftSkills[skillNo].hoursToComplete, caption: giftSkills[skillNo].title, completion: {
+                        
+                            self.removeProgressBar()
+                            self.skillInUse = -1
+                            
+                        } )//make a progress bar with a duration based on a negative logarithmic curve from initial "hoursToComplete" value on down to a lower and lower number, so the higher your level in this skill, the less time it will take to complete the skill function
                     }
                 }
                 
@@ -525,6 +494,7 @@ class GameScene: SKScene {
                 } else {
                     clearMenu() //clear open menu
                 }
+                
             }
             
         } else { /* Has the user clicked OUTSIDE the lower banner? */
@@ -642,7 +612,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD7 || key == Q ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'7' NUM PAD PRESSED - MOVING INTO UPPER LEFT SQUARE
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterUPPERLEFT")    //displays char moving up-left
             if Int(UNIVERSE.theGame.player.currentGridLocation.x + 1) < UNIVERSE.theGame.currentLocation.grid[0].count && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].npcList.count == 0 { //if in bounds and no collision
-                let moveUpperLeft = SKAction.moveByX(-64, y: 32, duration: PLAYER_MOVE_TIME)   //move gradually to new location
+                let moveUpperLeft = SKAction.moveByX(-64, y: 32, duration: CONSTANTS.PLAYER_MOVE_TIME)   //move gradually to new location
                 UNIVERSE.theGame.player.runAction(moveUpperLeft) //runs the action defined above
                 UNIVERSE.theGame.player.currentGridLocation.x += 1   //sets grid location (corresponding to matrix, not spritekit location)
                 pickUpItems(UNIVERSE.theGame.player.currentGridLocation) //pick up any items in-square automatically
@@ -652,7 +622,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD8 || key == W ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'8' NUM PAD PRESSED - everything else is the same idea as above, just look at [imageNamed:"characterXXXX"] for movement direction
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterUP")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x + 1) < UNIVERSE.theGame.currentLocation.grid[0].count && Int(UNIVERSE.theGame.player.currentGridLocation.y + 1) < UNIVERSE.theGame.currentLocation.grid.count && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].npcList.count == 0 {
-                let moveUp = SKAction.moveByX(0, y: 64, duration: PLAYER_MOVE_TIME)
+                let moveUp = SKAction.moveByX(0, y: 64, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveUp)
                 UNIVERSE.theGame.player.currentGridLocation.x += 1
                 UNIVERSE.theGame.player.currentGridLocation.y += 1
@@ -663,7 +633,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD9 || key == E ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'9' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterUPPERRIGHT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.y + 1) < UNIVERSE.theGame.currentLocation.grid.count && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x)].npcList.count == 0 {
-                let moveUpperRight = SKAction.moveByX(64, y: 32, duration: PLAYER_MOVE_TIME)
+                let moveUpperRight = SKAction.moveByX(64, y: 32, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveUpperRight)
                 UNIVERSE.theGame.player.currentGridLocation.y += 1
                 pickUpItems(UNIVERSE.theGame.player.currentGridLocation)
@@ -673,7 +643,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD4 || key == A ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'4' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterLEFT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x + 1) < UNIVERSE.theGame.currentLocation.grid[0].count && Int(UNIVERSE.theGame.player.currentGridLocation.y - 1) >= 0 && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].npcList.count == 0 {
-                let moveLeft = SKAction.moveByX(-128, y: 0, duration: PLAYER_MOVE_TIME)
+                let moveLeft = SKAction.moveByX(-128, y: 0, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveLeft)
                 UNIVERSE.theGame.player.currentGridLocation.y -= 1
                 UNIVERSE.theGame.player.currentGridLocation.x += 1
@@ -687,7 +657,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD6 || key == D ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'6' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterRIGHT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x - 1) >= 0 && Int(UNIVERSE.theGame.player.currentGridLocation.y + 1) < UNIVERSE.theGame.currentLocation.grid.count && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].npcList.count == 0 {
-                let moveRight = SKAction.moveByX(128, y: 0, duration: PLAYER_MOVE_TIME)
+                let moveRight = SKAction.moveByX(128, y: 0, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveRight)
                 UNIVERSE.theGame.player.currentGridLocation.y += 1
                 UNIVERSE.theGame.player.currentGridLocation.x -= 1
@@ -698,7 +668,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD1 || key == Z ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'1' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterLOWERLEFT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.y - 1) >= 0 && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x)].npcList.count == 0 {
-                let moveLowerLeft = SKAction.moveByX(-64, y: -32, duration: PLAYER_MOVE_TIME)
+                let moveLowerLeft = SKAction.moveByX(-64, y: -32, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveLowerLeft)
                 UNIVERSE.theGame.player.currentGridLocation.y -= 1
                 pickUpItems(UNIVERSE.theGame.player.currentGridLocation)
@@ -708,7 +678,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD2 || key == X ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'2' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterDOWN")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x - 1) >= 0 && Int(UNIVERSE.theGame.player.currentGridLocation.y - 1) >= 0 && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].npcList.count == 0 {
-                let moveDown = SKAction.moveByX(0, y: -64, duration: PLAYER_MOVE_TIME)
+                let moveDown = SKAction.moveByX(0, y: -64, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveDown)
                 UNIVERSE.theGame.player.currentGridLocation.y -= 1
                 UNIVERSE.theGame.player.currentGridLocation.x -= 1
@@ -719,7 +689,7 @@ class GameScene: SKScene {
         } else if ( key == NUMPAD3 || key == C ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'3' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterLOWERRIGHT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x - 1) >= 0 && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].npcList.count == 0 {
-                let moveLowerRight = SKAction.moveByX(64, y: -32, duration: PLAYER_MOVE_TIME)
+                let moveLowerRight = SKAction.moveByX(64, y: -32, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveLowerRight)
                 UNIVERSE.theGame.player.currentGridLocation.x -= 1
                 pickUpItems(UNIVERSE.theGame.player.currentGridLocation)
@@ -855,10 +825,11 @@ class GameScene: SKScene {
         }
         
         /* set up the date label and add it to the scene */
-        dateLabel.fontSize = TIMESTAMP_FONT_SIZE //set date label font size
-        dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame) + TIMESTAMP_OFFSET_X, y: TIMESTAMP_OFFSET_Y)    //puts the date/time at bottom center of the screen, just above the button bar
+        dateLabel.color = SKColor.blackColor()
+        dateLabel.fontSize = CONSTANTS.TIMESTAMP_FONT_SIZE //set date label font size
+        dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame) + CONSTANTS.TIMESTAMP_OFFSET_X, y: CONSTANTS.TIMESTAMP_OFFSET_Y)    //puts the date/time at bottom center of the screen, just above the button bar
         dateLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
-        dateLabel.zPosition = TIMESTAMP_OFFSET_Z
+        dateLabel.zPosition = CONSTANTS.TIMESTAMP_OFFSET_Z
         self.addChild(dateLabel)    //adds the date label to the scene (not the world, so it stays in place like the banner
         
     }
@@ -882,7 +853,7 @@ class GameScene: SKScene {
     }
     
     /* MAKES A PROGRESS BAR FOR SKILLS OR GIFTS IN PROGRESS */
-    func makeProgressBarFor( time: Double, caption: String) {
+    func makeProgressBarFor( time: Double, caption: String, completion: () -> Void ) {
         
         progBarCaption = SKLabelNode(text: caption) //make caption
         progBarCaption.zPosition = 5.0  //put the caption in front of the frame and prog bar
@@ -894,13 +865,19 @@ class GameScene: SKScene {
         progBar.position = CGPointZero  //center the progbar
         progBar.zPosition = 4.0 //place the progbar between the frame and the caption
         progBarDuration = time  //set the duration to the time given when makeProgressBarFor was called
-        progBar.size = CGSizeMake(0, progBar.size.height)   //make the progbar invisible for starters (zero width)
+        progBar.size = CGSizeMake(1, progBar.size.height)   //make the progbar invisible for starters (zero width)
         self.addChild(progBarFrame) //add frame to scene
         self.addChild(progBarCaption)   //add caption to scene
         self.addChild(progBar)  //add progbar to scene
+        let progBarScale = SKAction.scaleXTo(CONSTANTS.PROG_BAR_WIDTH, duration: progBarDuration)
+        progBar.runAction(progBarScale, completion: {
+            self.removeProgressBar()
+            completion()
+        })
         
     }
     
+    /* DEPRECATED******************************
     /* UPDATES THE CURRENT PROGRESS BAR LEVEL */
     func updateProgressBar( deltaTime : Double ) {
         
@@ -914,6 +891,7 @@ class GameScene: SKScene {
         }
         
     }
+    */
     
     /* REMOVES THE PROGRESS BAR FROM THE SCENE, ACTIVATES THE SKILL OR GIFT BEING WAITED FOR */
     func removeProgressBar() {
@@ -921,69 +899,15 @@ class GameScene: SKScene {
         progBarFrame.removeFromParent() //remove the frame
         progBar.removeFromParent()  //remove the bar
         progBarCaption.removeFromParent()   //remove the caption
-        progBarTime = 0.0   //reset time position
+        //progBarTime = 0.0   //reset time position DEPRECATED
         progBarDuration = 0.0   //reset duration
         progBarCaption = SKLabelNode(text: "")  //reset caption
-        
-        if skillInUse >= 10 {   //if we're using a spiritual gift skill
-            var useWithoutTarget = true //initially, we assume we'll be using the gift without a target
-            if UNIVERSE.theGame.currentLocation.people.count > 0 {   //if there's NPCs in the current location
-                for n in 0...UNIVERSE.theGame.currentLocation.people.count-1 {   //interate through all NPCs
-                    if UNIVERSE.theGame.currentLocation.people[n].selected == true { //if an NPC is selected
-                        giftSkills[skillInUse-10].useOnNPC(UNIVERSE.theGame.currentLocation.people[n])   //perform the skill function on the NPC
-                        useWithoutTarget = false    //now we don't want to use the gift without a target
-                    }
-                }
-            }
-            
-            if UNIVERSE.theGame.currentLocation.animals.count > 0 {  //if there's animals in the current location
-                for n in 0...UNIVERSE.theGame.currentLocation.animals.count-1 {  //iterate through all animals
-                    if UNIVERSE.theGame.currentLocation.animals[n].selected == true {    //if an animal is selected
-                        giftSkills[skillInUse-10].useOnAnimal(UNIVERSE.theGame.currentLocation.animals[n])   //perform the skill function on the animal
-                        useWithoutTarget = false    //we don't want to use the gift without a target
-                    }
-                }
-            }
-            
-            if useWithoutTarget == true {   //if there were no selections (targets)
-                giftSkills[skillInUse-10].use() //use the gift without a target (usually this means performing the skill function on yourself)
-            }
-            
-        } else {    //if we're using a natural skill
-            
-            var useWithoutTarget = true //initially, we assume we'll be using the gift without a target
-            if UNIVERSE.theGame.currentLocation.people.count > 0 {   //if there's NPCs in the current location
-                for n in 0...UNIVERSE.theGame.currentLocation.people.count-1 {   //iterate through all NPCs
-                    if UNIVERSE.theGame.currentLocation.people[n].selected == true { //if an NPC is selected
-                        UNIVERSE.theGame.player.skills[skillInUse].useOnNPC(UNIVERSE.theGame.currentLocation.people[n])   //perform the skill function on the NPC
-                        useWithoutTarget = false    //now we don't want to use the gift without a target
-                    }
-                }
-            }
-            
-            if UNIVERSE.theGame.currentLocation.animals.count > 0 {  //if there's animals in the current location
-                for n in 0...UNIVERSE.theGame.currentLocation.animals.count-1 {  // iterate through all aninmals
-                    if UNIVERSE.theGame.currentLocation.animals[n].selected == true {    //if an animal is selected
-                        UNIVERSE.theGame.player.skills[skillInUse].useOnAnimal(UNIVERSE.theGame.currentLocation.animals[n])   //perform the skill function on the animal
-                        useWithoutTarget = false    //we don't want to use the gift without a target
-                    }
-                }
-            }
-            
-            if useWithoutTarget == true {   //if there were no selections (targets)
-                UNIVERSE.theGame.player.skills[skillInUse].use() //use the skill without a target (usually this means performing the skill function on yourself)
-            }
-        }
-        
-        skillInUse = -1 //reset skill number holder to nothing (-1)
         
     }
     
     /* EVERY FRAME DO THIS (60 times/sec) */
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        
-        updateProgressBar( GAME_SPEED ) //update the progressbar at speed GAME_SPEED
         
         for animal in UNIVERSE.theGame.currentLocation.animals {  //for each animal
             

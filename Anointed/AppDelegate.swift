@@ -54,6 +54,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFit
             
+            UNIVERSE.theScene = scene
+            
             self.skView!.presentScene(scene)    //show me the game!
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */

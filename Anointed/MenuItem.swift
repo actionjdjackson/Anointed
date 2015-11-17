@@ -43,25 +43,35 @@ class MenuItem : SKNode {
     /** HANDLES MOUSE CLICK EVENTS **/
     override func mouseDown(theEvent: NSEvent) {
         
-        if self.parent is Skill {
-            
-            let skill = self.parent as! Skill
-            for subskill in skill.subskills {
-                if subskill.name == self.name {
-                    if subskill.canUse() {
-                        subskill.use()
-                        self.backgroundBox.fillColor = SKColor.blueColor()
-                        let fade = SKAction.fadeOutWithDuration(NSTimeInterval(3)) //fade out over 3 seconds
-                        self.runAction(fade, completion: {
-                            self.parent?.removeAllChildren()
-                        })
+        if self.parent is SKScene {
+            if self.name!.hasSuffix("Cancel") {
+                for node in self.parent!.children {
+                    if node is MenuItem {
+                        let aNode = node as! MenuItem
+                        aNode.removeFromParent()
+                    }
+                }
+            } else {
+                let words = self.name?.componentsSeparatedByString(" ")
+                let skill = UNIVERSE.theGame.player.skills[Int(words![0])!]
+                for subskill in skill.subskills {
+                    if self.name!.hasSuffix(subskill.name!) {
+                        if subskill.canUse() {
+                            subskill.use()
+                            self.backgroundBox.fillColor = SKColor.blueColor()
+                            let fade = SKAction.fadeOutWithDuration(NSTimeInterval(3)) //fade out over 3 seconds
+                            self.runAction(fade, completion: {
+                                for node in self.parent!.children {
+                                    if node is MenuItem {
+                                        let aNode = node as! MenuItem
+                                        aNode.removeFromParent()
+                                    }
+                                }
+                            })
+                        }
                     }
                 }
             }
-            if self.name == "Cancel" {
-                self.parent?.removeAllChildren()
-            }
-            
         }
         
         if self.parent is NonPlayingCharacter { //if we're clicking on an NPC
