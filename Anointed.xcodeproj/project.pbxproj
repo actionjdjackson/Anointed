@@ -57,6 +57,8 @@
 		E22424081B03E399002BE6EB /* BackgroundMusicA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */; };
 		E227B30E1BFB969D00D534AC /* MakeSash.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227B30D1BFB969D00D534AC /* MakeSash.swift */; };
 		E227B3101BFB982700D534AC /* MakeTunic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227B30F1BFB982700D534AC /* MakeTunic.swift */; };
+		E227B3121BFB994B00D534AC /* MakeToga.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227B3111BFB994B00D534AC /* MakeToga.swift */; };
+		E227B3141BFB99FF00D534AC /* MakeRobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227B3131BFB99FF00D534AC /* MakeRobe.swift */; };
 		E23DAFDC1BEA553800301BBB /* AlertText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23DAFDB1BEA553800301BBB /* AlertText.swift */; };
 		E24EA3271BAC92E000716B5D /* PlaySoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EA3261BAC92E000716B5D /* PlaySoundButton.swift */; };
 		E2522A891AE05C9E00EDD89A /* TanakhENG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A881AE05C9E00EDD89A /* TanakhENG.txt */; };
@@ -205,6 +207,8 @@
 		E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusicA.mp3; sourceTree = "<group>"; };
 		E227B30D1BFB969D00D534AC /* MakeSash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeSash.swift; sourceTree = "<group>"; };
 		E227B30F1BFB982700D534AC /* MakeTunic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeTunic.swift; sourceTree = "<group>"; };
+		E227B3111BFB994B00D534AC /* MakeToga.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeToga.swift; sourceTree = "<group>"; };
+		E227B3131BFB99FF00D534AC /* MakeRobe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeRobe.swift; sourceTree = "<group>"; };
 		E23DAFDB1BEA553800301BBB /* AlertText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertText.swift; sourceTree = "<group>"; };
 		E24EA3261BAC92E000716B5D /* PlaySoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundButton.swift; sourceTree = "<group>"; };
 		E2522A881AE05C9E00EDD89A /* TanakhENG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TanakhENG.txt; sourceTree = "<group>"; };
@@ -558,10 +562,12 @@
 				E2BB7AAF1BFA275E00711442 /* MakeLargeTent.swift */,
 				E2C1F6981BF501080084D591 /* MakeMediumTent.swift */,
 				E2DBDF0C1BFA4B3C00E57D38 /* MakeNet.swift */,
+				E227B3131BFB99FF00D534AC /* MakeRobe.swift */,
 				E227B30D1BFB969D00D534AC /* MakeSash.swift */,
-				E227B30F1BFB982700D534AC /* MakeTunic.swift */,
 				E2FA4ED31BF2515E00AF4C07 /* MakeSmallTent.swift */,
 				E2BB7AB51BFA3AE100711442 /* MakeTable.swift */,
+				E227B3111BFB994B00D534AC /* MakeToga.swift */,
+				E227B30F1BFB982700D534AC /* MakeTunic.swift */,
 				E26871F01BF10EB7002E37B3 /* Subskill.swift */,
 			);
 			name = "Natural Subskills";
@@ -701,6 +707,7 @@
 				E23DAFDC1BEA553800301BBB /* AlertText.swift in Sources */,
 				E21B45C31AE04EF6007F10C5 /* GameCharacter.swift in Sources */,
 				E21B45CC1AE04EF6007F10C5 /* Skill.swift in Sources */,
+				E227B3141BFB99FF00D534AC /* MakeRobe.swift in Sources */,
 				E2622A771BEBA0CA007773A5 /* Layman.swift in Sources */,
 				E24EA3271BAC92E000716B5D /* PlaySoundButton.swift in Sources */,
 				E20309411B6FB5C300BF658F /* OriginDiscernment.swift in Sources */,
@@ -775,6 +782,7 @@
 				E20309511B6FC43400BF658F /* FeedingThePoor.swift in Sources */,
 				E2686DEA1BF0F10D002E37B3 /* CreationalGift.swift in Sources */,
 				E2686E281BF10C72002E37B3 /* Dreamgiver.swift in Sources */,
+				E227B3121BFB994B00D534AC /* MakeToga.swift in Sources */,
 				E2D52D611AEC88900008879C /* SKMultiLineLabel.swift in Sources */,
 				E2686E141BF10C0B002E37B3 /* LocalChurchLeadership.swift in Sources */,
 				E2686E061BF10BA9002E37B3 /* AngelicLanguage.swift in Sources */,

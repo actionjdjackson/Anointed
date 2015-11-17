@@ -79,7 +79,9 @@ class GameWorld {
         
         var makeSash : MakeSash = MakeSash(user: player)
         var makeTunic : MakeTunic = MakeTunic(user: player)
-        var tailoringSkill : Tailoring = Tailoring(user: player, subsk: [makeSash, makeTunic])
+        var makeToga : MakeToga = MakeToga(user: player)
+        var makeRobe : MakeRobe = MakeRobe(user: player)
+        var tailoringSkill : Tailoring = Tailoring(user: player, subsk: [makeSash, makeTunic, makeToga, makeRobe])
         
         var artmakingSkill : Artmaking = Artmaking(user: player)
         
