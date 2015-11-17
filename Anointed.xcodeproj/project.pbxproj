@@ -56,6 +56,7 @@
 		E21DA0D41BC0C21800D43484 /* WisdomElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21DA0D31BC0C21800D43484 /* WisdomElement.swift */; };
 		E22424081B03E399002BE6EB /* BackgroundMusicA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */; };
 		E227B30E1BFB969D00D534AC /* MakeSash.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227B30D1BFB969D00D534AC /* MakeSash.swift */; };
+		E227B3101BFB982700D534AC /* MakeTunic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227B30F1BFB982700D534AC /* MakeTunic.swift */; };
 		E23DAFDC1BEA553800301BBB /* AlertText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23DAFDB1BEA553800301BBB /* AlertText.swift */; };
 		E24EA3271BAC92E000716B5D /* PlaySoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EA3261BAC92E000716B5D /* PlaySoundButton.swift */; };
 		E2522A891AE05C9E00EDD89A /* TanakhENG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A881AE05C9E00EDD89A /* TanakhENG.txt */; };
@@ -203,6 +204,7 @@
 		E21DA0D31BC0C21800D43484 /* WisdomElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WisdomElement.swift; sourceTree = "<group>"; };
 		E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusicA.mp3; sourceTree = "<group>"; };
 		E227B30D1BFB969D00D534AC /* MakeSash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeSash.swift; sourceTree = "<group>"; };
+		E227B30F1BFB982700D534AC /* MakeTunic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeTunic.swift; sourceTree = "<group>"; };
 		E23DAFDB1BEA553800301BBB /* AlertText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertText.swift; sourceTree = "<group>"; };
 		E24EA3261BAC92E000716B5D /* PlaySoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundButton.swift; sourceTree = "<group>"; };
 		E2522A881AE05C9E00EDD89A /* TanakhENG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TanakhENG.txt; sourceTree = "<group>"; };
@@ -557,6 +559,7 @@
 				E2C1F6981BF501080084D591 /* MakeMediumTent.swift */,
 				E2DBDF0C1BFA4B3C00E57D38 /* MakeNet.swift */,
 				E227B30D1BFB969D00D534AC /* MakeSash.swift */,
+				E227B30F1BFB982700D534AC /* MakeTunic.swift */,
 				E2FA4ED31BF2515E00AF4C07 /* MakeSmallTent.swift */,
 				E2BB7AB51BFA3AE100711442 /* MakeTable.swift */,
 				E26871F01BF10EB7002E37B3 /* Subskill.swift */,
@@ -690,6 +693,7 @@
 				E2F5473B1B5D2C43004F96D0 /* Winemaking.swift in Sources */,
 				E2622A831BEBB713007773A5 /* Cooking.swift in Sources */,
 				E21B45C61AE04EF6007F10C5 /* Item.swift in Sources */,
+				E227B3101BFB982700D534AC /* MakeTunic.swift in Sources */,
 				E20309491B6FC01D00BF658F /* Servanthood.swift in Sources */,
 				E2012ECA1BFB872D005D6A46 /* MakeCampfire.swift in Sources */,
 				E21B45C21AE04EF6007F10C5 /* Conversation.swift in Sources */,

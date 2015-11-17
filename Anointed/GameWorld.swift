@@ -66,6 +66,7 @@ class GameWorld {
         var carpentrySkill : Carpentry = Carpentry(user: player, subsk: [makeChair, makeBench, makeTable, makeBoat]) //make carpentry skill
         
         var philosophySkill : Philosophy = Philosophy(user: player)
+        
         var seafaringSkill : Seafaring = Seafaring(user: player)
         
         var makeNet : MakeNet = MakeNet(user: player)
@@ -77,13 +78,19 @@ class GameWorld {
         var musicmakingSkill : Musicmaking = Musicmaking(user: player)
         
         var makeSash : MakeSash = MakeSash(user: player)
-        var tailoringSkill : Tailoring = Tailoring(user: player, subsk: [makeSash])
+        var makeTunic : MakeTunic = MakeTunic(user: player)
+        var tailoringSkill : Tailoring = Tailoring(user: player, subsk: [makeSash, makeTunic])
         
         var artmakingSkill : Artmaking = Artmaking(user: player)
+        
         var jewelrymakingSkill : Jewelrymaking = Jewelrymaking(user: player)
+        
         var medicineSkill : Medicine = Medicine(user: player)
+        
         var weaponmakingSkill: Weaponmaking = Weaponmaking(user: player)
+        
         var bankingSkill : Banking = Banking(user: player)
+        
         var scribeSkill : Scribe = Scribe(user: player)
         
         /* GIVE SOME SKILLS TO PLAYER */
