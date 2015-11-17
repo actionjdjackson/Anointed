@@ -55,6 +55,7 @@
 		E21DA0D21BC0C21100D43484 /* UnderstandingElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21DA0D11BC0C21100D43484 /* UnderstandingElement.swift */; };
 		E21DA0D41BC0C21800D43484 /* WisdomElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21DA0D31BC0C21800D43484 /* WisdomElement.swift */; };
 		E22424081B03E399002BE6EB /* BackgroundMusicA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */; };
+		E227B30E1BFB969D00D534AC /* MakeSash.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227B30D1BFB969D00D534AC /* MakeSash.swift */; };
 		E23DAFDC1BEA553800301BBB /* AlertText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23DAFDB1BEA553800301BBB /* AlertText.swift */; };
 		E24EA3271BAC92E000716B5D /* PlaySoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EA3261BAC92E000716B5D /* PlaySoundButton.swift */; };
 		E2522A891AE05C9E00EDD89A /* TanakhENG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2522A881AE05C9E00EDD89A /* TanakhENG.txt */; };
@@ -201,6 +202,7 @@
 		E21DA0D11BC0C21100D43484 /* UnderstandingElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderstandingElement.swift; sourceTree = "<group>"; };
 		E21DA0D31BC0C21800D43484 /* WisdomElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WisdomElement.swift; sourceTree = "<group>"; };
 		E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusicA.mp3; sourceTree = "<group>"; };
+		E227B30D1BFB969D00D534AC /* MakeSash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeSash.swift; sourceTree = "<group>"; };
 		E23DAFDB1BEA553800301BBB /* AlertText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertText.swift; sourceTree = "<group>"; };
 		E24EA3261BAC92E000716B5D /* PlaySoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundButton.swift; sourceTree = "<group>"; };
 		E2522A881AE05C9E00EDD89A /* TanakhENG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TanakhENG.txt; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 				E2BB7AAF1BFA275E00711442 /* MakeLargeTent.swift */,
 				E2C1F6981BF501080084D591 /* MakeMediumTent.swift */,
 				E2DBDF0C1BFA4B3C00E57D38 /* MakeNet.swift */,
+				E227B30D1BFB969D00D534AC /* MakeSash.swift */,
 				E2FA4ED31BF2515E00AF4C07 /* MakeSmallTent.swift */,
 				E2BB7AB51BFA3AE100711442 /* MakeTable.swift */,
 				E26871F01BF10EB7002E37B3 /* Subskill.swift */,
@@ -771,6 +774,7 @@
 				E2D52D611AEC88900008879C /* SKMultiLineLabel.swift in Sources */,
 				E2686E141BF10C0B002E37B3 /* LocalChurchLeadership.swift in Sources */,
 				E2686E061BF10BA9002E37B3 /* AngelicLanguage.swift in Sources */,
+				E227B30E1BFB969D00D534AC /* MakeSash.swift in Sources */,
 				E2522A911AE07ABA00EDD89A /* GridSquare.swift in Sources */,
 				E2622A7B1BEBB6E8007773A5 /* Carpentry.swift in Sources */,
 				E2686E1C1BF10C2E002E37B3 /* ThrowAParty.swift in Sources */,

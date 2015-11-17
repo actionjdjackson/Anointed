@@ -17,7 +17,7 @@ class AlertText: SKLabelNode {
         self.text = alertText
         self.fontSize = 18
         self.fontName = "Arial"
-        self.fontColor = SKColor.whiteColor()
+        self.fontColor = SKColor.redColor()
         self.position = CGPoint.zero
         self.zPosition = 100
         UNIVERSE.theGame.player.addChild(self)

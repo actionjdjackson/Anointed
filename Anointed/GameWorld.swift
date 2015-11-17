@@ -75,7 +75,10 @@ class GameWorld {
         var cookingSkill : Cooking = Cooking(user: player, subsk: [makeCampfire])
         
         var musicmakingSkill : Musicmaking = Musicmaking(user: player)
-        var tailoringSkill : Tailoring = Tailoring(user: player)
+        
+        var makeSash : MakeSash = MakeSash(user: player)
+        var tailoringSkill : Tailoring = Tailoring(user: player, subsk: [makeSash])
+        
         var artmakingSkill : Artmaking = Artmaking(user: player)
         var jewelrymakingSkill : Jewelrymaking = Jewelrymaking(user: player)
         var medicineSkill : Medicine = Medicine(user: player)
