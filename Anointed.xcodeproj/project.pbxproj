@@ -138,6 +138,9 @@
 		E2D52D631AEDE7670008879C /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D52D621AEDE7670008879C /* Animal.swift */; };
 		E2DBDF0B1BFA426C00E57D38 /* MakeBoat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBDF0A1BFA426C00E57D38 /* MakeBoat.swift */; };
 		E2DBDF0D1BFA4B3C00E57D38 /* MakeNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBDF0C1BFA4B3C00E57D38 /* MakeNet.swift */; };
+		E2F4848E1BFCE3AB001B7DAB /* MakeCharcoalSketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4848D1BFCE3AB001B7DAB /* MakeCharcoalSketch.swift */; };
+		E2F484901BFCE501001B7DAB /* MakePainting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4848F1BFCE501001B7DAB /* MakePainting.swift */; };
+		E2F484921BFCE6E2001B7DAB /* MakeMosaic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F484911BFCE6E2001B7DAB /* MakeMosaic.swift */; };
 		E2F5473B1B5D2C43004F96D0 /* Winemaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5473A1B5D2C43004F96D0 /* Winemaking.swift */; };
 		E2FA4ED41BF2515E00AF4C07 /* MakeSmallTent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA4ED31BF2515E00AF4C07 /* MakeSmallTent.swift */; };
 /* End PBXBuildFile section */
@@ -288,6 +291,9 @@
 		E2D52D621AEDE7670008879C /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		E2DBDF0A1BFA426C00E57D38 /* MakeBoat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeBoat.swift; sourceTree = "<group>"; };
 		E2DBDF0C1BFA4B3C00E57D38 /* MakeNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeNet.swift; sourceTree = "<group>"; };
+		E2F4848D1BFCE3AB001B7DAB /* MakeCharcoalSketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeCharcoalSketch.swift; sourceTree = "<group>"; };
+		E2F4848F1BFCE501001B7DAB /* MakePainting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakePainting.swift; sourceTree = "<group>"; };
+		E2F484911BFCE6E2001B7DAB /* MakeMosaic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeMosaic.swift; sourceTree = "<group>"; };
 		E2F5473A1B5D2C43004F96D0 /* Winemaking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Winemaking.swift; sourceTree = "<group>"; };
 		E2FA4ED31BF2515E00AF4C07 /* MakeSmallTent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeSmallTent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -559,9 +565,12 @@
 				E2DBDF0A1BFA426C00E57D38 /* MakeBoat.swift */,
 				E2012EC91BFB872D005D6A46 /* MakeCampfire.swift */,
 				E2BB7AB11BFA2ECC00711442 /* MakeChair.swift */,
+				E2F4848D1BFCE3AB001B7DAB /* MakeCharcoalSketch.swift */,
 				E2BB7AAF1BFA275E00711442 /* MakeLargeTent.swift */,
 				E2C1F6981BF501080084D591 /* MakeMediumTent.swift */,
+				E2F484911BFCE6E2001B7DAB /* MakeMosaic.swift */,
 				E2DBDF0C1BFA4B3C00E57D38 /* MakeNet.swift */,
+				E2F4848F1BFCE501001B7DAB /* MakePainting.swift */,
 				E227B3131BFB99FF00D534AC /* MakeRobe.swift */,
 				E227B30D1BFB969D00D534AC /* MakeSash.swift */,
 				E2FA4ED31BF2515E00AF4C07 /* MakeSmallTent.swift */,
@@ -697,6 +706,7 @@
 				E2622A891BEBB730007773A5 /* Artmaking.swift in Sources */,
 				E2622A791BEBA1EF007773A5 /* OfficeCalling.swift in Sources */,
 				E2F5473B1B5D2C43004F96D0 /* Winemaking.swift in Sources */,
+				E2F4848E1BFCE3AB001B7DAB /* MakeCharcoalSketch.swift in Sources */,
 				E2622A831BEBB713007773A5 /* Cooking.swift in Sources */,
 				E21B45C61AE04EF6007F10C5 /* Item.swift in Sources */,
 				E227B3101BFB982700D534AC /* MakeTunic.swift in Sources */,
@@ -730,6 +740,7 @@
 				E2686E021BF10B92002E37B3 /* AngelicIdentification.swift in Sources */,
 				E2686DF01BF10B3D002E37B3 /* SolarEclipse.swift in Sources */,
 				E2622A7D1BEBB6F2007773A5 /* Philosophy.swift in Sources */,
+				E2F484901BFCE501001B7DAB /* MakePainting.swift in Sources */,
 				E203093D1B6FB1EB00BF658F /* WordOfWisdom.swift in Sources */,
 				E2622A7F1BEBB702007773A5 /* Seafaring.swift in Sources */,
 				E2522A8B1AE0631900EDD89A /* Scroll.swift in Sources */,
@@ -746,6 +757,7 @@
 				E21B45CD1AE04EF6007F10C5 /* SpiritualGift.swift in Sources */,
 				E2622A731BEBA0B8007773A5 /* Pastor.swift in Sources */,
 				E2686DEE1BF10B34002E37B3 /* BlindingLight.swift in Sources */,
+				E2F484921BFCE6E2001B7DAB /* MakeMosaic.swift in Sources */,
 				E2BB7AB41BFA38F000711442 /* MakeBench.swift in Sources */,
 				E2686E041BF10B9D002E37B3 /* UnknownHumanLanguage.swift in Sources */,
 				E2BB7AB61BFA3AE100711442 /* MakeTable.swift in Sources */,
