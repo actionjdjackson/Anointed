@@ -49,7 +49,7 @@ class MakeCharcoalSketch : Subskill {
         if canUse() {
             
             //make a tent
-            npc.inventory.append(self.MakeCharcoalSketch())
+            npc.inventory.append(self.makeCharcoalSketch())
             //level up tentmaking skill
             self.levelUp()
             //report to screen
@@ -63,7 +63,7 @@ class MakeCharcoalSketch : Subskill {
         
     }
     
-    func MakeCharcoalSketch() -> Item {
+    func makeCharcoalSketch() -> Item {
         
         user.grabFromInventory("Parchment")
         let newCharcoalSketch = Item(ttl: "Charcoal Sketch", desc: "A charcoal sketch.", sx: 1, sy: 1, spriteName: "charcoalSketch")
@@ -74,7 +74,7 @@ class MakeCharcoalSketch : Subskill {
     /* CAN WE USE THE CHARCOALSKETCHMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Parchment") > 0 && user.howManyInInventory("CharcoalPencil") > 0 { //if we've got enough stuff
+        if user.howManyInInventory("Parchment") > 0 && user.howManyInInventory("CharcoalPencil") > 0 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the charcoalsketchmaking skill
             

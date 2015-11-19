@@ -26,7 +26,7 @@ class MakeMosaic : Subskill {
             UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Mosaic...", completion: {
                 
                 //make a tent
-                self.user.inventory.append(self.MakeMosaic())
+                self.user.inventory.append(self.makeMosaic())
                 //level up tentmaking skill
                 self.levelUp()
                 //report to screen
@@ -49,7 +49,7 @@ class MakeMosaic : Subskill {
         if canUse() {
             
             //make a tent
-            npc.inventory.append(self.MakeMosaic())
+            npc.inventory.append(self.makeMosaic())
             //level up tentmaking skill
             self.levelUp()
             //report to screen
@@ -63,7 +63,7 @@ class MakeMosaic : Subskill {
         
     }
     
-    func MakeMosaic() -> Item {
+    func makeMosaic() -> Item {
         
         user.grabFromInventory("Tiles")
         user.grabFromInventory("Mortar")
@@ -75,7 +75,7 @@ class MakeMosaic : Subskill {
     /* CAN WE USE THE MOSAICMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Tiles") > 0 && user.howManyInInventory("Mortar") > 0 { //if we've got enough stuff
+        if user.howManyInInventory("Tiles") > 0 && user.howManyInInventory("Mortar") > 0 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the mosaicmaking skill
             

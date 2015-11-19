@@ -17,7 +17,7 @@ class MakeBoat : Subskill {
         
     }
     
-    /* USE TABLEMAKING SUBSKILL ON SELF (TABLE GOES INTO INVENTORY) */
+    /* USE BOATMAKING SUBSKILL ON SELF (BOAT GOES INTO INVENTORY) */
     override func use() {
         
         //if you have all the raw materials necessary,
@@ -42,7 +42,7 @@ class MakeBoat : Subskill {
         
     }
     
-    /* USE TABLEMAKING SUBSKILL ON NPC (GOES INTO NPC'S INVENTORY) */
+    /* USE BOATMAKING SUBSKILL ON NPC (GOES INTO NPC'S INVENTORY) */
     override func useOnNPC(npc: NonPlayingCharacter) {
         
         //if you have all the raw materials necessary,
@@ -82,7 +82,7 @@ class MakeBoat : Subskill {
     /* CAN WE USE THE BOATMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Wood") > 4 { //if we've got enough stuff
+        if user.howManyInInventory("Wood") > 4 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the boatmaking skill
             

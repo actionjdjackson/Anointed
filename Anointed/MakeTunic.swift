@@ -26,7 +26,7 @@ class MakeTunic : Subskill {
             UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Tunic...", completion: {
                 
                 //make a tent
-                self.user.inventory.append(self.MakeTunic())
+                self.user.inventory.append(self.makeTunic())
                 //level up tentmaking skill
                 self.levelUp()
                 //report to screen
@@ -49,7 +49,7 @@ class MakeTunic : Subskill {
         if canUse() {
             
             //make a tent
-            npc.inventory.append(self.MakeTunic())
+            npc.inventory.append(self.makeTunic())
             //level up tentmaking skill
             self.levelUp()
             //report to screen
@@ -63,7 +63,7 @@ class MakeTunic : Subskill {
         
     }
     
-    func MakeTunic() -> Item {
+    func makeTunic() -> Item {
         
         user.grabFromInventory("Cloth")
         user.grabFromInventory("Cloth")
@@ -75,7 +75,7 @@ class MakeTunic : Subskill {
     /* CAN WE USE THE TUNICMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Cloth") > 1 { //if we've got enough stuff
+        if user.howManyInInventory("Cloth") > 1 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the tunicmaking skill
             

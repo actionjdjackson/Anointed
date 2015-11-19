@@ -26,7 +26,7 @@ class MakeTonic : Subskill {
             UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Tonic...", completion: {
                 
                 //make a tent
-                self.user.inventory.append(self.MakeTonic())
+                self.user.inventory.append(self.makeTonic())
                 //level up tentmaking skill
                 self.levelUp()
                 //report to screen
@@ -49,7 +49,7 @@ class MakeTonic : Subskill {
         if canUse() {
             
             //make a tent
-            npc.inventory.append(self.MakeTonic())
+            npc.inventory.append(self.makeTonic())
             //level up tentmaking skill
             self.levelUp()
             //report to screen
@@ -63,7 +63,7 @@ class MakeTonic : Subskill {
         
     }
     
-    func MakeTonic() -> Item {
+    func makeTonic() -> Item {
         
         user.grabFromInventory("TonicPowder")
         user.grabFromInventory("Waterskin")
@@ -75,7 +75,7 @@ class MakeTonic : Subskill {
     /* CAN WE USE THE TONICMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("TonicPowder") > 0 && user.howManyInInventory("Waterskin") > 0 { //if we've got enough stuff
+        if user.howManyInInventory("TonicPowder") > 0 && user.howManyInInventory("Waterskin") > 0 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the tonicmaking skill
             

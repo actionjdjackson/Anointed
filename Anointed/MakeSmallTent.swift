@@ -76,7 +76,7 @@ class MakeSmallTent : Subskill {
     /* CAN WE USE THE TENTMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Cloth") > 0 && user.howManyInInventory("Cord") > 0 && user.howManyInInventory("Wood") > 0 { //if we've got enough stuff
+        if user.howManyInInventory("Cloth") > 0 && user.howManyInInventory("Cord") > 0 && user.howManyInInventory("Wood") > 0 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the tentmaking skill
             

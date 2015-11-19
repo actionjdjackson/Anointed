@@ -1,61 +1,61 @@
 //
-//  MakeTable.swift
+//  MakeBowAndArrow.swift
 //  Anointed
 //
-//  Created by Jacob Jackson on 11/16/15.
+//  Created by Jacob Jackson on 11/19/15.
 //  Copyright © 2015 ThinkMac Innovations. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class MakeTable : Subskill {
+class MakeBowAndArrow : Subskill {
     
     init( user: GameCharacter ) {
         
-        super.init(skillName: "Make Table", skillDesc: "Make a ground-level table.", skillUser: user, skillSprite: "table", baseTimeToComplete: 8, level: 10)
+        super.init(skillName: "Make Bow & Arrow", skillDesc: "Make a traditional wooden Bow & Arrow.", skillUser: user, skillSprite: "bow&arrow", baseTimeToComplete: 8, level: 5)
         
     }
     
-    /* USE TABLEMAKING SUBSKILL ON SELF (TABLE GOES INTO INVENTORY) */
+    /* USE BOW&ARROWMAKING SUBSKILL ON SELF (BOW&ARROW GOES INTO INVENTORY) */
     override func use() {
         
         //if you have all the raw materials necessary,
         if canUse() {
             
-            UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Table...", completion: {
+            UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Bow & Arrow...", completion: {
                 
                 //make a table
-                self.user.inventory.append(self.makeTable())
-                //level up carpentry skill
+                self.user.inventory.append(self.makeBowAndArrow())
+                //level up bow&arrowmaking skill
                 self.levelUp()
                 //report to screen
-                UNIVERSE.alertText("Made a ground-level table.")
+                UNIVERSE.alertText("Made a Bow & Arrow.")
                 
             })
             
         } else {    //if we don't have enough raw materials,
             
-            UNIVERSE.alertText("Not enough resources to make a table. Sorry.")  // no can do
+            UNIVERSE.alertText("Not enough resources to make a Bow & Arrow. Sorry.")  // no can do
             
         }
         
     }
     
-    /* USE TABLEMAKING SUBSKILL ON NPC (GOES INTO NPC'S INVENTORY) */
+    /* USE BOW&ARROWMAKING SUBSKILL ON NPC (GOES INTO NPC'S INVENTORY) */
     override func useOnNPC(npc: NonPlayingCharacter) {
         
         //if you have all the raw materials necessary,
         if canUse() {
             
-            UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Table...", completion: {
+            UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Bow & Arrow...", completion: {
                 
-                //make a table
-                npc.inventory.append(self.makeTable())
-                //level up carpentry skill
+                //make a bow&arrow, put it in npc's inventory
+                npc.inventory.append(self.makeBowAndArrow())
+                //level up bow&arrowmaking skill
                 self.levelUp()
                 //report to screen
-                UNIVERSE.alertText("Made a table for " + npc.name!)
+                UNIVERSE.alertText("Made a Bow & Arrow for " + npc.name!)
                 
             })
             
@@ -67,21 +67,21 @@ class MakeTable : Subskill {
         
     }
     
-    func makeTable() -> Item {
+    func makeBowAndArrow() -> Item {
         
         self.user.grabFromInventory("Wood")
         self.user.grabFromInventory("Wood")
-        let newTable = Item(ttl: "Table", desc: "A ground-level table.", sx: 3, sy: 2, spriteName: "table")
-        return newTable
+        let newBowAndArrow = Item(ttl: "Bow & Arrow", desc: "A traditional, wooden Bow & Arrow.", sx: 2, sy: 4, spriteName: "bow&arrow")
+        return newBowAndArrow
         
     }
     
-    /* CAN WE USE THE TABLEMAKING SKILL RIGHT NOW? */
+    /* CAN WE USE THE BOW&ARROWMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
         if user.howManyInInventory("Wood") > 1 && self.level >= levelRequired { //if we've got enough stuff
             
-            return true //then we can use the tablemaking skill
+            return true //then we can use the bow&arrowmaking skill
             
         } else {    //otherwise,
             

@@ -26,7 +26,7 @@ class MakeSplint : Subskill {
             UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Splint...", completion: {
                 
                 //make a tent
-                self.user.inventory.append(self.MakeSplint())
+                self.user.inventory.append(self.makeSplint())
                 //level up tentmaking skill
                 self.levelUp()
                 //report to screen
@@ -49,7 +49,7 @@ class MakeSplint : Subskill {
         if canUse() {
             
             //make a tent
-            npc.inventory.append(self.MakeSplint())
+            npc.inventory.append(self.makeSplint())
             //level up tentmaking skill
             self.levelUp()
             //report to screen
@@ -63,7 +63,7 @@ class MakeSplint : Subskill {
         
     }
     
-    func MakeSplint() -> Item {
+    func makeSplint() -> Item {
         
         user.grabFromInventory("Wood")
         user.grabFromInventory("Cloth")
@@ -75,7 +75,7 @@ class MakeSplint : Subskill {
     /* CAN WE USE THE SPLINTMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Wood") > 0 && user.howManyInInventory("Cloth") > 0 { //if we've got enough stuff
+        if user.howManyInInventory("Wood") > 0 && user.howManyInInventory("Cloth") > 0 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the splintmaking skill
             

@@ -26,6 +26,10 @@
 		E20309571B6FC82A00BF658F /* Missionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309561B6FC82A00BF658F /* Missionary.swift */; };
 		E211865E1B697CE2005E9AA3 /* PhysicalHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E211865D1B697CE2005E9AA3 /* PhysicalHealing.swift */; };
 		E21325D01B7048AB00B1304F /* ShowImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21325CF1B7048AB00B1304F /* ShowImageButton.swift */; };
+		E21A93931BFE21D1003AB93F /* MakeSpear.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A93921BFE21D1003AB93F /* MakeSpear.swift */; };
+		E21A93951BFE2624003AB93F /* MakeBowAndArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A93941BFE2624003AB93F /* MakeBowAndArrow.swift */; };
+		E21A93971BFE28FF003AB93F /* MakeKnife.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A93961BFE28FF003AB93F /* MakeKnife.swift */; };
+		E21A93991BFE2AA0003AB93F /* MakeShortSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A93981BFE2AA0003AB93F /* MakeShortSword.swift */; };
 		E21B458D1AE04E8F007F10C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */; };
 		E21B458F1AE04E8F007F10C5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21B458E1AE04E8F007F10C5 /* GameScene.swift */; };
 		E21B45911AE04E8F007F10C5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E21B45901AE04E8F007F10C5 /* GameScene.sks */; };
@@ -182,6 +186,10 @@
 		E20309561B6FC82A00BF658F /* Missionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Missionary.swift; sourceTree = "<group>"; };
 		E211865D1B697CE2005E9AA3 /* PhysicalHealing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicalHealing.swift; sourceTree = "<group>"; };
 		E21325CF1B7048AB00B1304F /* ShowImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageButton.swift; sourceTree = "<group>"; };
+		E21A93921BFE21D1003AB93F /* MakeSpear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeSpear.swift; sourceTree = "<group>"; };
+		E21A93941BFE2624003AB93F /* MakeBowAndArrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeBowAndArrow.swift; sourceTree = "<group>"; };
+		E21A93961BFE28FF003AB93F /* MakeKnife.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeKnife.swift; sourceTree = "<group>"; };
+		E21A93981BFE2AA0003AB93F /* MakeShortSword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeShortSword.swift; sourceTree = "<group>"; };
 		E21B45871AE04E8F007F10C5 /* Anointed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anointed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21B458B1AE04E8F007F10C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21B458C1AE04E8F007F10C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -577,26 +585,30 @@
 			children = (
 				E2BB7AB31BFA38F000711442 /* MakeBench.swift */,
 				E2DBDF0A1BFA426C00E57D38 /* MakeBoat.swift */,
+				E21A93941BFE2624003AB93F /* MakeBowAndArrow.swift */,
 				E27036771BFE191D00FB6D97 /* MakeBracelet.swift */,
 				E2012EC91BFB872D005D6A46 /* MakeCampfire.swift */,
 				E2BB7AB11BFA2ECC00711442 /* MakeChair.swift */,
 				E2F4848D1BFCE3AB001B7DAB /* MakeCharcoalSketch.swift */,
 				E270367D1BFE1C2400FB6D97 /* MakeEarring.swift */,
+				E21A93961BFE28FF003AB93F /* MakeKnife.swift */,
 				E2BB7AAF1BFA275E00711442 /* MakeLargeTent.swift */,
 				E2C1F6981BF501080084D591 /* MakeMediumTent.swift */,
-				E270367F1BFE1D1B00FB6D97 /* MakePoultice.swift */,
-				E27036831BFE1FCB00FB6D97 /* MakeSplint.swift */,
-				E27036811BFE1ED300FB6D97 /* MakeTonic.swift */,
 				E2F484911BFCE6E2001B7DAB /* MakeMosaic.swift */,
 				E27036791BFE1A2C00FB6D97 /* MakeNecklace.swift */,
 				E2DBDF0C1BFA4B3C00E57D38 /* MakeNet.swift */,
 				E2F4848F1BFCE501001B7DAB /* MakePainting.swift */,
+				E270367F1BFE1D1B00FB6D97 /* MakePoultice.swift */,
 				E270367B1BFE1B0E00FB6D97 /* MakeRing.swift */,
 				E227B3131BFB99FF00D534AC /* MakeRobe.swift */,
 				E227B30D1BFB969D00D534AC /* MakeSash.swift */,
+				E21A93981BFE2AA0003AB93F /* MakeShortSword.swift */,
 				E2FA4ED31BF2515E00AF4C07 /* MakeSmallTent.swift */,
+				E21A93921BFE21D1003AB93F /* MakeSpear.swift */,
+				E27036831BFE1FCB00FB6D97 /* MakeSplint.swift */,
 				E2BB7AB51BFA3AE100711442 /* MakeTable.swift */,
 				E227B3111BFB994B00D534AC /* MakeToga.swift */,
+				E27036811BFE1ED300FB6D97 /* MakeTonic.swift */,
 				E227B30F1BFB982700D534AC /* MakeTunic.swift */,
 				E26871F01BF10EB7002E37B3 /* Subskill.swift */,
 			);
@@ -722,6 +734,7 @@
 				E28589661BBEF9170004F3C6 /* MeditationButton.swift in Sources */,
 				E20309431B6FB77300BF658F /* PrayerInTheSpirit.swift in Sources */,
 				E2686E081BF10BBB002E37B3 /* CorporalEncouragement.swift in Sources */,
+				E21A93931BFE21D1003AB93F /* MakeSpear.swift in Sources */,
 				E2622A8F1BEBB75A007773A5 /* Weaponmaking.swift in Sources */,
 				E2686E0E1BF10BD2002E37B3 /* CorporalTeaching.swift in Sources */,
 				E2622A6F1BEBA0A4007773A5 /* Prophet.swift in Sources */,
@@ -735,9 +748,11 @@
 				E227B3101BFB982700D534AC /* MakeTunic.swift in Sources */,
 				E20309491B6FC01D00BF658F /* Servanthood.swift in Sources */,
 				E2012ECA1BFB872D005D6A46 /* MakeCampfire.swift in Sources */,
+				E21A93951BFE2624003AB93F /* MakeBowAndArrow.swift in Sources */,
 				E21B45C21AE04EF6007F10C5 /* Conversation.swift in Sources */,
 				E21B45CA1AE04EF6007F10C5 /* NonPlayingCharacter.swift in Sources */,
 				E23DAFDC1BEA553800301BBB /* AlertText.swift in Sources */,
+				E21A93971BFE28FF003AB93F /* MakeKnife.swift in Sources */,
 				E21B45C31AE04EF6007F10C5 /* GameCharacter.swift in Sources */,
 				E21B45CC1AE04EF6007F10C5 /* Skill.swift in Sources */,
 				E227B3141BFB99FF00D534AC /* MakeRobe.swift in Sources */,
@@ -753,6 +768,7 @@
 				E2FA4ED41BF2515E00AF4C07 /* MakeSmallTent.swift in Sources */,
 				E2686E0C1BF10BCA002E37B3 /* GiftedDeacon.swift in Sources */,
 				E2686DFE1BF10B81002E37B3 /* ProjectFaith.swift in Sources */,
+				E21A93991BFE2AA0003AB93F /* MakeShortSword.swift in Sources */,
 				E21B45D01AE04EF6007F10C5 /* WorldMap.swift in Sources */,
 				E21B45C11AE04EF6007F10C5 /* City.swift in Sources */,
 				E27036781BFE191D00FB6D97 /* MakeBracelet.swift in Sources */,

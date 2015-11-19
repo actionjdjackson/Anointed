@@ -26,7 +26,7 @@ class MakePainting : Subskill {
             UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Painting...", completion: {
                 
                 //make a tent
-                self.user.inventory.append(self.MakePainting())
+                self.user.inventory.append(self.makePainting())
                 //level up tentmaking skill
                 self.levelUp()
                 //report to screen
@@ -49,7 +49,7 @@ class MakePainting : Subskill {
         if canUse() {
             
             //make a tent
-            npc.inventory.append(self.MakePainting())
+            npc.inventory.append(self.makePainting())
             //level up tentmaking skill
             self.levelUp()
             //report to screen
@@ -63,7 +63,7 @@ class MakePainting : Subskill {
         
     }
     
-    func MakePainting() -> Item {
+    func makePainting() -> Item {
         
         user.grabFromInventory("Parchment")
         let newPainting = Item(ttl: "Painting", desc: "A beautiful painting.", sx: 1, sy: 1, spriteName: "painting")
@@ -74,7 +74,7 @@ class MakePainting : Subskill {
     /* CAN WE USE THE PAINTINGMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Parchment") > 0 && user.howManyInInventory("PaintSet") > 0 { //if we've got enough stuff
+        if user.howManyInInventory("Parchment") > 0 && user.howManyInInventory("PaintSet") > 0 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the charcoalsketchmaking skill
             

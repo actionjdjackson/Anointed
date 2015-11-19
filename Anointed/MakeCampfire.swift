@@ -46,7 +46,7 @@ class MakeCampfire : Subskill {
     /* CAN WE USE THE CAMPFIREMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Wood") > 0 { //if we've got enough stuff
+        if user.howManyInInventory("Wood") > 0 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the campfiremaking skill
             

@@ -26,7 +26,7 @@ class MakePoultice : Subskill {
             UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Poultice...", completion: {
                 
                 //make a tent
-                self.user.inventory.append(self.MakePoultice())
+                self.user.inventory.append(self.makePoultice())
                 //level up tentmaking skill
                 self.levelUp()
                 //report to screen
@@ -49,7 +49,7 @@ class MakePoultice : Subskill {
         if canUse() {
             
             //make a tent
-            npc.inventory.append(self.MakePoultice())
+            npc.inventory.append(self.makePoultice())
             //level up tentmaking skill
             self.levelUp()
             //report to screen
@@ -63,7 +63,7 @@ class MakePoultice : Subskill {
         
     }
     
-    func MakePoultice() -> Item {
+    func makePoultice() -> Item {
         
         user.grabFromInventory("Spices")
         user.grabFromInventory("Cloth")
@@ -75,7 +75,7 @@ class MakePoultice : Subskill {
     /* CAN WE USE THE POULTICEMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Spices") > 0 && user.howManyInInventory("Cloth") > 0 { //if we've got enough stuff
+        if user.howManyInInventory("Spices") > 0 && user.howManyInInventory("Cloth") > 0 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the poulticemaking skill
             

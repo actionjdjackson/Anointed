@@ -26,7 +26,7 @@ class MakeToga : Subskill {
             UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Toga...", completion: {
                 
                 //make a tent
-                self.user.inventory.append(self.MakeToga())
+                self.user.inventory.append(self.makeToga())
                 //level up tentmaking skill
                 self.levelUp()
                 //report to screen
@@ -49,7 +49,7 @@ class MakeToga : Subskill {
         if canUse() {
             
             //make a tent
-            npc.inventory.append(self.MakeToga())
+            npc.inventory.append(self.makeToga())
             //level up tentmaking skill
             self.levelUp()
             //report to screen
@@ -63,7 +63,7 @@ class MakeToga : Subskill {
         
     }
     
-    func MakeToga() -> Item {
+    func makeToga() -> Item {
         
         user.grabFromInventory("Cloth")
         user.grabFromInventory("Cloth")
@@ -76,7 +76,7 @@ class MakeToga : Subskill {
     /* CAN WE USE THE TOGAMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Cloth") > 2 { //if we've got enough stuff
+        if user.howManyInInventory("Cloth") > 2 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the togamaking skill
             

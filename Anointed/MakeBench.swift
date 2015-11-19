@@ -79,7 +79,7 @@ class MakeBench : Subskill {
     /* CAN WE USE THE BENCHMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Wood") > 1 { //if we've got enough stuff
+        if user.howManyInInventory("Wood") > 1 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the benchmaking skill
             

@@ -80,7 +80,7 @@ class MakeNet : Subskill {
     /* CAN WE USE THE BOATMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Cord") > 2 { //if we've got enough stuff
+        if user.howManyInInventory("Cord") > 2 && self.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the netmaking skill
             
