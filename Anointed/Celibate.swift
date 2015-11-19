@@ -21,7 +21,7 @@ class Celibate : Skill {
     
     override func applyPassiveTraits() {
         
-        //fill in stuff here
+        UNIVERSE.theGame.player.historyWithGodExperience += 0.01
         
     }
     

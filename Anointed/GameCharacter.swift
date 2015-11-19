@@ -34,7 +34,11 @@ class GameCharacter : SKSpriteNode {
     var intelligence:  Int
     var strength: Int
     var dexterity: Int
-    var experience: Int
+    var experience: Double
+    var historyWithGodExperience : Double
+    var faith : Double
+    var hope : Double
+    var love : Double
     var languagesKnown: [String]
     var currentGridLocation: CGPoint
     
@@ -64,7 +68,11 @@ class GameCharacter : SKSpriteNode {
         intelligence = 10
         strength = 10
         dexterity = 10
-        experience = age * 1000
+        experience = Double(age) * 1000.0
+        historyWithGodExperience = 0.0
+        faith = 1.0
+        hope = 1.0
+        love = 1.0
         languagesKnown = ["Hebrew", "Aramaic", "Greek", "Latin"]
         currentGridLocation = CGPoint(x: 5, y: 5)
         

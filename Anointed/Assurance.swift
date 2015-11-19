@@ -21,7 +21,7 @@ class Assurance : Skill {
     
     override func applyPassiveTraits() {
         
-        //fill in stuff here
+        UNIVERSE.theGame.player.faith += 0.1
         
     }
     
