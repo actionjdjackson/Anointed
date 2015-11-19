@@ -125,7 +125,7 @@
 		E270367A1BFE1A2C00FB6D97 /* MakeNecklace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27036791BFE1A2C00FB6D97 /* MakeNecklace.swift */; };
 		E270367C1BFE1B0E00FB6D97 /* MakeRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270367B1BFE1B0E00FB6D97 /* MakeRing.swift */; };
 		E270367E1BFE1C2400FB6D97 /* MakeEarring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270367D1BFE1C2400FB6D97 /* MakeEarring.swift */; };
-		E27036801BFE1D1B00FB6D97 /* makePoultice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270367F1BFE1D1B00FB6D97 /* makePoultice.swift */; };
+		E27036801BFE1D1B00FB6D97 /* MakePoultice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270367F1BFE1D1B00FB6D97 /* MakePoultice.swift */; };
 		E27036821BFE1ED300FB6D97 /* MakeTonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27036811BFE1ED300FB6D97 /* MakeTonic.swift */; };
 		E27036841BFE1FCB00FB6D97 /* MakeSplint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27036831BFE1FCB00FB6D97 /* MakeSplint.swift */; };
 		E27230CE1BEFE23300FE3C08 /* Scribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27230CD1BEFE23200FE3C08 /* Scribe.swift */; };
@@ -285,7 +285,7 @@
 		E27036791BFE1A2C00FB6D97 /* MakeNecklace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeNecklace.swift; sourceTree = "<group>"; };
 		E270367B1BFE1B0E00FB6D97 /* MakeRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeRing.swift; sourceTree = "<group>"; };
 		E270367D1BFE1C2400FB6D97 /* MakeEarring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeEarring.swift; sourceTree = "<group>"; };
-		E270367F1BFE1D1B00FB6D97 /* makePoultice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = makePoultice.swift; sourceTree = "<group>"; };
+		E270367F1BFE1D1B00FB6D97 /* MakePoultice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakePoultice.swift; sourceTree = "<group>"; };
 		E27036811BFE1ED300FB6D97 /* MakeTonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeTonic.swift; sourceTree = "<group>"; };
 		E27036831BFE1FCB00FB6D97 /* MakeSplint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeSplint.swift; sourceTree = "<group>"; };
 		E27230CD1BEFE23200FE3C08 /* Scribe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scribe.swift; sourceTree = "<group>"; };
@@ -584,7 +584,7 @@
 				E270367D1BFE1C2400FB6D97 /* MakeEarring.swift */,
 				E2BB7AAF1BFA275E00711442 /* MakeLargeTent.swift */,
 				E2C1F6981BF501080084D591 /* MakeMediumTent.swift */,
-				E270367F1BFE1D1B00FB6D97 /* makePoultice.swift */,
+				E270367F1BFE1D1B00FB6D97 /* MakePoultice.swift */,
 				E27036831BFE1FCB00FB6D97 /* MakeSplint.swift */,
 				E27036811BFE1ED300FB6D97 /* MakeTonic.swift */,
 				E2F484911BFCE6E2001B7DAB /* MakeMosaic.swift */,
@@ -718,7 +718,7 @@
 				E2686E241BF10C62002E37B3 /* GiftedMentor.swift in Sources */,
 				E2686DFC1BF10B79002E37B3 /* CorporalAssurance.swift in Sources */,
 				E203093B1B6FB0A500BF658F /* WordOfKnowledge.swift in Sources */,
-				E27036801BFE1D1B00FB6D97 /* makePoultice.swift in Sources */,
+				E27036801BFE1D1B00FB6D97 /* MakePoultice.swift in Sources */,
 				E28589661BBEF9170004F3C6 /* MeditationButton.swift in Sources */,
 				E20309431B6FB77300BF658F /* PrayerInTheSpirit.swift in Sources */,
 				E2686E081BF10BBB002E37B3 /* CorporalEncouragement.swift in Sources */,
