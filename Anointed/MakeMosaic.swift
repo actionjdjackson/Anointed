@@ -13,7 +13,7 @@ class MakeMosaic : Subskill {
     
     init( user: GameCharacter ) {
         
-        super.init(skillName: "Make Mosaic", skillDesc: "Draw a mosaic.", skillUser: user, skillSprite: "mosaic", baseTimeToComplete: 2, level: 1)
+        super.init(skillName: "Make Mosaic", skillDesc: "Create a multicolored mosaic.", skillUser: user, skillSprite: "mosaic", baseTimeToComplete: 2, level: 1)
         
     }
     
@@ -65,7 +65,8 @@ class MakeMosaic : Subskill {
     
     func MakeMosaic() -> Item {
         
-        user.grabFromInventory("Parchment")
+        user.grabFromInventory("Tiles")
+        user.grabFromInventory("Mortar")
         let newMosaic = Item(ttl: "Mosaic", desc: "A multicolored mosaic.", sx: 1, sy: 1, spriteName: "mosaic")
         return newMosaic
         

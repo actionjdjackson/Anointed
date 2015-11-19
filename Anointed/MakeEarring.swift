@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class MakeEarearring : Subskill {
+class MakeEarring : Subskill {
     
     init( user: GameCharacter ) {
         

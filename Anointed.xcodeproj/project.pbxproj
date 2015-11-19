@@ -125,6 +125,9 @@
 		E270367A1BFE1A2C00FB6D97 /* MakeNecklace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27036791BFE1A2C00FB6D97 /* MakeNecklace.swift */; };
 		E270367C1BFE1B0E00FB6D97 /* MakeRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270367B1BFE1B0E00FB6D97 /* MakeRing.swift */; };
 		E270367E1BFE1C2400FB6D97 /* MakeEarring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270367D1BFE1C2400FB6D97 /* MakeEarring.swift */; };
+		E27036801BFE1D1B00FB6D97 /* makePoultice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270367F1BFE1D1B00FB6D97 /* makePoultice.swift */; };
+		E27036821BFE1ED300FB6D97 /* MakeTonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27036811BFE1ED300FB6D97 /* MakeTonic.swift */; };
+		E27036841BFE1FCB00FB6D97 /* MakeSplint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27036831BFE1FCB00FB6D97 /* MakeSplint.swift */; };
 		E27230CE1BEFE23300FE3C08 /* Scribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27230CD1BEFE23200FE3C08 /* Scribe.swift */; };
 		E2790D4F1B8117A900702F50 /* Psalm 139ENG.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */; };
 		E28589661BBEF9170004F3C6 /* MeditationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28589651BBEF9170004F3C6 /* MeditationButton.swift */; };
@@ -282,6 +285,9 @@
 		E27036791BFE1A2C00FB6D97 /* MakeNecklace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeNecklace.swift; sourceTree = "<group>"; };
 		E270367B1BFE1B0E00FB6D97 /* MakeRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeRing.swift; sourceTree = "<group>"; };
 		E270367D1BFE1C2400FB6D97 /* MakeEarring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeEarring.swift; sourceTree = "<group>"; };
+		E270367F1BFE1D1B00FB6D97 /* makePoultice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = makePoultice.swift; sourceTree = "<group>"; };
+		E27036811BFE1ED300FB6D97 /* MakeTonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeTonic.swift; sourceTree = "<group>"; };
+		E27036831BFE1FCB00FB6D97 /* MakeSplint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeSplint.swift; sourceTree = "<group>"; };
 		E27230CD1BEFE23200FE3C08 /* Scribe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scribe.swift; sourceTree = "<group>"; };
 		E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Psalm 139ENG.mp3"; sourceTree = "<group>"; };
 		E28589651BBEF9170004F3C6 /* MeditationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationButton.swift; sourceTree = "<group>"; };
@@ -571,18 +577,21 @@
 			children = (
 				E2BB7AB31BFA38F000711442 /* MakeBench.swift */,
 				E2DBDF0A1BFA426C00E57D38 /* MakeBoat.swift */,
+				E27036771BFE191D00FB6D97 /* MakeBracelet.swift */,
 				E2012EC91BFB872D005D6A46 /* MakeCampfire.swift */,
 				E2BB7AB11BFA2ECC00711442 /* MakeChair.swift */,
 				E2F4848D1BFCE3AB001B7DAB /* MakeCharcoalSketch.swift */,
-				E27036771BFE191D00FB6D97 /* MakeBracelet.swift */,
-				E27036791BFE1A2C00FB6D97 /* MakeNecklace.swift */,
-				E270367B1BFE1B0E00FB6D97 /* MakeRing.swift */,
 				E270367D1BFE1C2400FB6D97 /* MakeEarring.swift */,
 				E2BB7AAF1BFA275E00711442 /* MakeLargeTent.swift */,
 				E2C1F6981BF501080084D591 /* MakeMediumTent.swift */,
+				E270367F1BFE1D1B00FB6D97 /* makePoultice.swift */,
+				E27036831BFE1FCB00FB6D97 /* MakeSplint.swift */,
+				E27036811BFE1ED300FB6D97 /* MakeTonic.swift */,
 				E2F484911BFCE6E2001B7DAB /* MakeMosaic.swift */,
+				E27036791BFE1A2C00FB6D97 /* MakeNecklace.swift */,
 				E2DBDF0C1BFA4B3C00E57D38 /* MakeNet.swift */,
 				E2F4848F1BFCE501001B7DAB /* MakePainting.swift */,
+				E270367B1BFE1B0E00FB6D97 /* MakeRing.swift */,
 				E227B3131BFB99FF00D534AC /* MakeRobe.swift */,
 				E227B30D1BFB969D00D534AC /* MakeSash.swift */,
 				E2FA4ED31BF2515E00AF4C07 /* MakeSmallTent.swift */,
@@ -709,6 +718,7 @@
 				E2686E241BF10C62002E37B3 /* GiftedMentor.swift in Sources */,
 				E2686DFC1BF10B79002E37B3 /* CorporalAssurance.swift in Sources */,
 				E203093B1B6FB0A500BF658F /* WordOfKnowledge.swift in Sources */,
+				E27036801BFE1D1B00FB6D97 /* makePoultice.swift in Sources */,
 				E28589661BBEF9170004F3C6 /* MeditationButton.swift in Sources */,
 				E20309431B6FB77300BF658F /* PrayerInTheSpirit.swift in Sources */,
 				E2686E081BF10BBB002E37B3 /* CorporalEncouragement.swift in Sources */,
@@ -754,6 +764,7 @@
 				E2686E021BF10B92002E37B3 /* AngelicIdentification.swift in Sources */,
 				E2686DF01BF10B3D002E37B3 /* SolarEclipse.swift in Sources */,
 				E2622A7D1BEBB6F2007773A5 /* Philosophy.swift in Sources */,
+				E27036821BFE1ED300FB6D97 /* MakeTonic.swift in Sources */,
 				E2F484901BFCE501001B7DAB /* MakePainting.swift in Sources */,
 				E203093D1B6FB1EB00BF658F /* WordOfWisdom.swift in Sources */,
 				E2622A7F1BEBB702007773A5 /* Seafaring.swift in Sources */,
@@ -831,6 +842,7 @@
 				E21B45CB1AE04EF6007F10C5 /* Room.swift in Sources */,
 				E2622A911BEBB761007773A5 /* Banking.swift in Sources */,
 				E2686E2C1BF10C7D002E37B3 /* Spiritualist.swift in Sources */,
+				E27036841BFE1FCB00FB6D97 /* MakeSplint.swift in Sources */,
 				E21325D01B7048AB00B1304F /* ShowImageButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
