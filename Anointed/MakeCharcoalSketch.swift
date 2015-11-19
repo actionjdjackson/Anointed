@@ -26,7 +26,7 @@ class MakeCharcoalSketch : Subskill {
             UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Charcoal Sketch...", completion: {
                 
                 //make a tent
-                self.user.inventory.append(self.MakeCharcoalSketch())
+                self.user.inventory.append(self.makeCharcoalSketch())
                 //level up tentmaking skill
                 self.levelUp()
                 //report to screen
