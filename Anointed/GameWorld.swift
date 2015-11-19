@@ -65,9 +65,9 @@ class GameWorld {
         var makeBoat : MakeBoat = MakeBoat(user: player)
         var carpentrySkill : Carpentry = Carpentry(user: player, subsk: [makeChair, makeBench, makeTable, makeBoat]) //make carpentry skill
         
-        var philosophySkill : Philosophy = Philosophy(user: player)
+        var philosophySkill : Philosophy = Philosophy(user: player, subsk: [])
         
-        var seafaringSkill : Seafaring = Seafaring(user: player)
+        var seafaringSkill : Seafaring = Seafaring(user: player, subsk: [])
         
         var makeNet : MakeNet = MakeNet(user: player)
         var fishingSkill : Fishing = Fishing(user: player, subsk: [makeNet])
@@ -88,15 +88,27 @@ class GameWorld {
         var makeMosaic : MakeMosaic = MakeMosaic(user: player)
         var artmakingSkill : Artmaking = Artmaking(user: player, subsk: [makeCharcoalSketch, makePainting, makeMosaic])
         
-        var jewelrymakingSkill : Jewelrymaking = Jewelrymaking(user: player)
+        var makeBracelet : MakeBracelet = MakeBracelet(user: player)
+        var makeNecklace : MakeNecklace = MakeNecklace(user: player)
+        var makeRing : MakeRing = MakeRing(user: player)
+        var makeEarring : MakeEarring = MakeEarring(user: player)
+        var jewelrymakingSkill : Jewelrymaking = Jewelrymaking(user: player, subsk: [makeBracelet, makeNecklace, makeRing, makeEarring])
         
-        var medicineSkill : Medicine = Medicine(user: player)
+        var makePoultice : MakePoultice = MakePoultice(user: player)
+        var makeTonic : MakeTonic = MakeTonic(user: player)
+        var makeSplint : MakeSplint = MakeSplint(user: player)
+        var medicineSkill : Medicine = Medicine(user: player, subsk: [makePoultice, makeTonic, makeSplint])
         
-        var weaponmakingSkill: Weaponmaking = Weaponmaking(user: player)
+        var makeSpear : MakeSpear = MakeSpear(user: player)
+        var makeBowAndArrow : MakeBowAndArrow = MakeBowAndArrow(user: player)
+        var makeKnife : MakeKnife = MakeKnife(user: player)
+        var makeShortsword : MakeShortSword = MakeShortSword(user: player)
+        var weaponmakingSkill: Weaponmaking = Weaponmaking(user: player, subsk: [makeSpear, makeBowAndArrow, makeKnife, makeShortsword])
         
-        var bankingSkill : Banking = Banking(user: player)
+        var makeLockbox : MakeLockbox = MakeLockbox(user: player)
+        var bankingSkill : Banking = Banking(user: player, subsk: [makeLockbox])
         
-        var scribeSkill : Scribe = Scribe(user: player)
+        var scribeSkill : Scribe = Scribe(user: player, subsk: [])
         
         /* GIVE SOME SKILLS TO PLAYER */
         player.skills.append(tentmakingSkill)   //player (for now) has the tentmaking skill thru the jewelrymaking skill

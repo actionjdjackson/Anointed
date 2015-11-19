@@ -11,8 +11,8 @@ import Foundation
 class Weaponmaking : Skill {
     
     /* SETS UP WEAPONMAKING SKILL */
-    init( user : GameCharacter ) {
-        super.init( skillName: "Weaponmaking", skillDesc: "Allows you to make various kinds of weaponry.", skillUser: user, skillSprite : "weaponmaking", baseTimeToComplete : 10.0, passv: false, subsk: [] )
+    init( user : GameCharacter, subsk: [Subskill] ) {
+        super.init( skillName: "Weaponmaking", skillDesc: "Allows you to make various kinds of weaponry.", skillUser: user, skillSprite : "weaponmaking", baseTimeToComplete : 10.0, passv: false, subsk: subsk )
     }
     
     required init?(coder aDecoder: NSCoder) {

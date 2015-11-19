@@ -121,6 +121,10 @@
 		E2686E2A1BF10C77002E37B3 /* Visionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E291BF10C77002E37B3 /* Visionary.swift */; };
 		E2686E2C1BF10C7D002E37B3 /* Spiritualist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2686E2B1BF10C7D002E37B3 /* Spiritualist.swift */; };
 		E26871F11BF10EB7002E37B3 /* Subskill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26871F01BF10EB7002E37B3 /* Subskill.swift */; };
+		E27036781BFE191D00FB6D97 /* MakeBracelet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27036771BFE191D00FB6D97 /* MakeBracelet.swift */; };
+		E270367A1BFE1A2C00FB6D97 /* MakeNecklace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27036791BFE1A2C00FB6D97 /* MakeNecklace.swift */; };
+		E270367C1BFE1B0E00FB6D97 /* MakeRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270367B1BFE1B0E00FB6D97 /* MakeRing.swift */; };
+		E270367E1BFE1C2400FB6D97 /* MakeEarring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270367D1BFE1C2400FB6D97 /* MakeEarring.swift */; };
 		E27230CE1BEFE23300FE3C08 /* Scribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27230CD1BEFE23200FE3C08 /* Scribe.swift */; };
 		E2790D4F1B8117A900702F50 /* Psalm 139ENG.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */; };
 		E28589661BBEF9170004F3C6 /* MeditationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28589651BBEF9170004F3C6 /* MeditationButton.swift */; };
@@ -274,6 +278,10 @@
 		E2686E291BF10C77002E37B3 /* Visionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visionary.swift; sourceTree = "<group>"; };
 		E2686E2B1BF10C7D002E37B3 /* Spiritualist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spiritualist.swift; sourceTree = "<group>"; };
 		E26871F01BF10EB7002E37B3 /* Subskill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subskill.swift; sourceTree = "<group>"; };
+		E27036771BFE191D00FB6D97 /* MakeBracelet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeBracelet.swift; sourceTree = "<group>"; };
+		E27036791BFE1A2C00FB6D97 /* MakeNecklace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeNecklace.swift; sourceTree = "<group>"; };
+		E270367B1BFE1B0E00FB6D97 /* MakeRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeRing.swift; sourceTree = "<group>"; };
+		E270367D1BFE1C2400FB6D97 /* MakeEarring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeEarring.swift; sourceTree = "<group>"; };
 		E27230CD1BEFE23200FE3C08 /* Scribe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scribe.swift; sourceTree = "<group>"; };
 		E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Psalm 139ENG.mp3"; sourceTree = "<group>"; };
 		E28589651BBEF9170004F3C6 /* MeditationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationButton.swift; sourceTree = "<group>"; };
@@ -566,6 +574,10 @@
 				E2012EC91BFB872D005D6A46 /* MakeCampfire.swift */,
 				E2BB7AB11BFA2ECC00711442 /* MakeChair.swift */,
 				E2F4848D1BFCE3AB001B7DAB /* MakeCharcoalSketch.swift */,
+				E27036771BFE191D00FB6D97 /* MakeBracelet.swift */,
+				E27036791BFE1A2C00FB6D97 /* MakeNecklace.swift */,
+				E270367B1BFE1B0E00FB6D97 /* MakeRing.swift */,
+				E270367D1BFE1C2400FB6D97 /* MakeEarring.swift */,
 				E2BB7AAF1BFA275E00711442 /* MakeLargeTent.swift */,
 				E2C1F6981BF501080084D591 /* MakeMediumTent.swift */,
 				E2F484911BFCE6E2001B7DAB /* MakeMosaic.swift */,
@@ -691,6 +703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E21DA0CC1BC07F4C00D43484 /* VisualizeKnowledgeButton.swift in Sources */,
+				E270367A1BFE1A2C00FB6D97 /* MakeNecklace.swift in Sources */,
 				E2686E201BF10C45002E37B3 /* MiraculousCommunion.swift in Sources */,
 				E2686DF41BF10B53002E37B3 /* MentalHealing.swift in Sources */,
 				E2686E241BF10C62002E37B3 /* GiftedMentor.swift in Sources */,
@@ -732,6 +745,7 @@
 				E2686DFE1BF10B81002E37B3 /* ProjectFaith.swift in Sources */,
 				E21B45D01AE04EF6007F10C5 /* WorldMap.swift in Sources */,
 				E21B45C11AE04EF6007F10C5 /* City.swift in Sources */,
+				E27036781BFE191D00FB6D97 /* MakeBracelet.swift in Sources */,
 				E203093F1B6FB25D00BF658F /* Assurance.swift in Sources */,
 				E2686DF61BF10B5D002E37B3 /* EmotionalHealing.swift in Sources */,
 				E21B45C71AE04EF6007F10C5 /* Knowledge.swift in Sources */,
@@ -752,6 +766,7 @@
 				E2622A8B1BEBB738007773A5 /* Jewelrymaking.swift in Sources */,
 				E2686E1A1BF10C26002E37B3 /* Restoration.swift in Sources */,
 				E2686E121BF10BE3002E37B3 /* FinancialBenefactor.swift in Sources */,
+				E270367E1BFE1C2400FB6D97 /* MakeEarring.swift in Sources */,
 				E2BE7A641B8A615D00A57242 /* MenuItem.swift in Sources */,
 				E2622A851BEBB722007773A5 /* Musicmaking.swift in Sources */,
 				E21B45CD1AE04EF6007F10C5 /* SpiritualGift.swift in Sources */,
@@ -786,6 +801,7 @@
 				E2686E181BF10C1E002E37B3 /* ClothingTheNaked.swift in Sources */,
 				E2622A8D1BEBB753007773A5 /* Medicine.swift in Sources */,
 				E2686E261BF10C6C002E37B3 /* TotalRestoration.swift in Sources */,
+				E270367C1BFE1B0E00FB6D97 /* MakeRing.swift in Sources */,
 				E2686DF21BF10B49002E37B3 /* Multiplication.swift in Sources */,
 				E2BE7A6A1B8AA68A00A57242 /* HoverText.swift in Sources */,
 				E28C4A511B4D7FC4001CD4A7 /* Tentmaking.swift in Sources */,
