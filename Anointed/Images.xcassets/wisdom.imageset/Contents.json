@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "wordOfWisdom.png"
+      "filename" : "wisdomGift.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",

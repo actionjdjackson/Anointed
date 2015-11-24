@@ -148,6 +148,7 @@ class GameScene : SKScene {
         
         lowerBanner.removeFromParent()  //just in case we're re-setting-up, remove the current banner
         lowerBanner = SKSpriteNode(imageNamed:"LowerBannerBASE")    //define the lowerBanner as basic button bar with nothing selected
+        lowerBanner.name = "LOWERBANNER"
         lowerBanner.position = CGPoint( x: CONSTANTS.LOWER_BANNER_X, y: CONSTANTS.LOWER_BANNER_Y )   //put the button bar at correct location
         lowerBanner.zPosition = CONSTANTS.LOWER_BANNER_Z
         self.addChild(lowerBanner)  //add the banner to the current scene
@@ -341,11 +342,8 @@ class GameScene : SKScene {
                 }
             }
             
-        }
-        
-        /* SPECIAL INSTRUCTIONS FOR KNOWLEDGE MENU - ***INCOMPLETE*** */
-        
-        if theMenu == "KNOWLEDGE" { //if we're working with the knowledge menu...
+            /* SPECIAL INSTRUCTIONS FOR KNOWLEDGE MENU - ***INCOMPLETE*** */
+        } else if theMenu == "KNOWLEDGE" { //if we're working with the knowledge menu...
             
             var allScrolls : [Scroll] = []   //scroll array declared
             
@@ -380,11 +378,14 @@ class GameScene : SKScene {
             textBlocker2.position = CGPoint(x: 256 + 32, y: -(128 + 32 + 32 + 8 - 1 + 256))
             textBlocker2.zPosition = 3.0
             theOpenMenu.addChild(textBlocker2)*/
+          
+            /* SPECIAL INSTRUCTIONS FOR PRAYER MENU - ***INCOMPLETE*** */
+        } else if theMenu == "PRAYER" {
+    
+            
             
         }
-        
-        /* NEED TO WRITE CODE FOR OTHER MENUS' SPECIAL INSTRUCTIONS */
-        
+    
     }
     
     /* HANDLES ALL MOUSE CLICKS */
@@ -451,24 +452,24 @@ class GameScene : SKScene {
                 if skillNo < 0 { skillNo = 0 }  //if the skill is negative, make it the first skill (0)
                 if skillNo > UNIVERSE.theGame.player.skills.count-1 { return }   //if we're out of bounds when considering available skills, just return
                 
-                var i : Int = 0
-                for subskill in UNIVERSE.theGame.player.skills[skillNo].subskills {
+                var i : Int = 0 //initialize i
+                for subskill in UNIVERSE.theGame.player.skills[skillNo].subskills { //for every subskill in current natural skill
                     
-                    let subskillMenu : MenuItem = MenuItem(theText: subskill.name!)
-                    subskillMenu.name = String(skillNo) + " " + subskill.name!
-                    subskillMenu.position = CGPoint(x: 0, y: -480)
-                    subskillMenu.position.y += CGFloat(i * 32)
-                    subskillMenu.zPosition = 100
-                    self.addChild(subskillMenu)
-                    i++
+                    let subskillMenu : MenuItem = MenuItem(theText: subskill.name!) //make a menu for the subskill
+                    subskillMenu.name = String(skillNo) + " " + subskill.name!  //set the name to "[skillno] [skillname]"
+                    subskillMenu.position = CGPoint(x: location.x+100, y: 0)  //put at bottom of screen initially
+                    subskillMenu.position.y += CGFloat(i * 32)  //move up by 32px with each successive subskill menu
+                    subskillMenu.zPosition = 100    //put on top of everything
+                    lowerBanner.addChild(subskillMenu) //add to scene
+                    i++ //increment i
                     
                 }
-                let cancelMenu : MenuItem = MenuItem(theText: "Cancel")
-                cancelMenu.name = "Cancel"
-                cancelMenu.position = CGPoint(x: 0, y: -480)
-                cancelMenu.position.y += CGFloat(i * 32)
-                cancelMenu.zPosition = 100
-                self.addChild(cancelMenu)
+                let cancelMenu : MenuItem = MenuItem(theText: "Cancel") //make a cancel menu last
+                cancelMenu.name = "Cancel"  //name = Cancel
+                cancelMenu.position = CGPoint(x: location.x+100, y: 0)    //start at bottom of screen
+                cancelMenu.position.y += CGFloat(i * 32)    //but above last subskill menu
+                cancelMenu.zPosition = 100  //put on top of everything
+                lowerBanner.addChild(cancelMenu)   //add to scene
                 
                 /* DETECTS CLICKS ON THE SKILLS BAR FOR SPIRITUAL GIFT SKILLS */
             } else if location.x >= CONSTANTS.SKILLS_BAR_EDGE && giftSkills.count > 0 && location.y >= CONSTANTS.SKILLS_BAR_BASE_Y - 48 && location.y <= CONSTANTS.SKILLS_BAR_BASE_Y - 16 && skillInUse < 0 {   //if we've clicked a skill in the spiritual gifts skill bar (the bottom row)
@@ -478,7 +479,7 @@ class GameScene : SKScene {
                 if giftSkills[skillNo].canUse() && giftSkills[skillNo].passive == false {   //if the skill is usable right now & not passive
                     if skillInUse < 0 { //and if skill in use is nothing (-1 typically) [if we're not currently working on another skill function]
                         skillInUse = skillNo + 10   //set skill in use to the clicked skill (plus 10 because it's the bottom row)
-                        makeProgressBarFor( CONSTANTS.SECONDS_IN_ONE_HOUR * giftSkills[skillNo].hoursToComplete, caption: giftSkills[skillNo].title, completion: {
+                        makeProgressBarFor( giftSkills[skillNo].hoursToComplete, caption: giftSkills[skillNo].title, completion: {
                         
                             self.removeProgressBar()
                             self.skillInUse = -1
@@ -869,7 +870,7 @@ class GameScene : SKScene {
         self.addChild(progBarFrame) //add frame to scene
         self.addChild(progBarCaption)   //add caption to scene
         self.addChild(progBar)  //add progbar to scene
-        let progBarScale = SKAction.scaleXTo(CONSTANTS.PROG_BAR_WIDTH, duration: progBarDuration)
+        let progBarScale = SKAction.resizeToWidth(CONSTANTS.PROG_BAR_WIDTH, duration: progBarDuration)
         progBar.runAction(progBarScale, completion: {
             self.removeProgressBar()
             completion()

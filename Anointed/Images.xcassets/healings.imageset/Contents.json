@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "healings.png"
+      "filename" : "healingGift.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",

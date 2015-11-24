@@ -43,7 +43,7 @@ class MenuItem : SKNode {
     /** HANDLES MOUSE CLICK EVENTS **/
     override func mouseDown(theEvent: NSEvent) {
         
-        if self.parent is SKScene {
+        if self.parent!.name == "LOWERBANNER" {
             if self.name!.hasSuffix("Cancel") {
                 for node in self.parent!.children {
                     if node is MenuItem {

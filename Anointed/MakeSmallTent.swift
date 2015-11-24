@@ -13,7 +13,7 @@ class MakeSmallTent : Subskill {
     
     init( user: GameCharacter ) {
         
-        super.init(skillName: "Make Small Tent", skillDesc: "Make a small, one-person tent.", skillUser: user, skillSprite: "tent", baseTimeToComplete: 10, level: 1)
+        super.init(skillName: "Tentmaking - Small Tent", skillDesc: "Make a small, one-person tent.", skillUser: user, skillSprite: "tent", baseTimeToComplete: 10, level: 1)
         
     }
 

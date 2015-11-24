@@ -86,6 +86,19 @@ class Skill : SKSpriteNode {
         
     }
     
+    func levelUp() {
+        
+        //level up
+        self.level++
+        //set new hours to complete value
+        self.hoursToComplete = round((self.baseHoursToComplete - log(Double(self.level))) * self.baseHoursToComplete / 10.0)
+        //update tooltip info
+        self.toolTipSN.itemInfoA = "Level " + String( self.level )
+        self.toolTipSN.itemInfoB = ""
+        UNIVERSE.alertText( self.name! + " +1")
+        
+    }
+    
     /* HANDLES MOUSE CLICK, DISPLAYS TOOLTIP WHILE MOUSE IS HELD DOWN */
     override func mouseDown( theEvent: NSEvent ) {
         

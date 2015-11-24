@@ -13,7 +13,7 @@ class MakeMediumTent : Subskill {
     
     init( user: GameCharacter ) {
         
-        super.init(skillName: "Make Medium Tent", skillDesc: "Make a medium, family-sized tent.", skillUser: user, skillSprite: "tent", baseTimeToComplete: 15, level: 5)
+        super.init(skillName: "Tentmaking - Medium Tent", skillDesc: "Make a medium, family-sized tent.", skillUser: user, skillSprite: "tent", baseTimeToComplete: 15, level: 5)
         
     }
     
@@ -81,7 +81,14 @@ class MakeMediumTent : Subskill {
     /* CAN WE USE THE TENTMAKING SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         
-        if user.howManyInInventory("Cloth") > 1 && user.howManyInInventory("Cord") > 0 && user.howManyInInventory("Wood") > 0 && self.level >= levelRequired { //if we've got enough stuff
+        var superskill : Skill = Skill(skillName: "Nothing", skillDesc: "Nothing", skillUser: UNIVERSE.theGame.player, skillSprite: "Nothing", baseTimeToComplete: 0, passv: false, subsk: [])
+        for skill in UNIVERSE.theGame.player.skills {
+            if skill.name == "Tentmaking" {
+                superskill = skill
+            }
+        }
+        
+        if user.howManyInInventory("Cloth") > 1 && user.howManyInInventory("Cord") > 0 && user.howManyInInventory("Wood") > 0 && superskill.level >= levelRequired { //if we've got enough stuff
             
             return true //then we can use the tentmaking skill
             

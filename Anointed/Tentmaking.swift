@@ -15,9 +15,10 @@ class Tentmaking : Skill {
     /* SETS UP TENTMAKING SKILL */
     init( user : GameCharacter, subsk: [Subskill] ) {
         super.init( skillName: "Tentmaking", skillDesc: "Allows you to make tents out of wood, cloth, and cord.", skillUser: user, skillSprite : "tentmaking", baseTimeToComplete : 10.0, passv: false, subsk: subsk )
+        self.name = "Tentmaking"
         self.userInteractionEnabled = true
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

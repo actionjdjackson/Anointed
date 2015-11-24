@@ -20,10 +20,16 @@ class Subskill : Skill {
         
     }
     
-    func levelUp() {
+    override func levelUp() {
         
         //level up
         self.level++
+        //level up natural skill (superskill)
+        for skill in UNIVERSE.theGame.player.skills {
+            if self.name!.hasPrefix(skill.name!) {
+                skill.levelUp()
+            }
+        }
         //set new hours to complete value
         self.hoursToComplete = round((self.baseHoursToComplete - log(Double(self.level))) * self.baseHoursToComplete / 10.0)
         //update tooltip info
