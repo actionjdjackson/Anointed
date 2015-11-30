@@ -43,6 +43,18 @@ class NonPlayingCharacter : GameCharacter {
         } else if talking == true {
             //do nothing
         } else {    //if not already selected
+            for npc in UNIVERSE.theGame.currentLocation.people {
+                if npc.selected {
+                    npc.removeAllChildren()
+                    npc.selected = false
+                }
+            }
+            for animal in UNIVERSE.theGame.currentLocation.animals {
+                if animal.selected {
+                    animal.removeAllChildren()
+                    animal.selected = false
+                }
+            }
             selected = true //we are now selected
             var outlineBox : SKShapeNode    //new shapenode
             outlineBox = SKShapeNode(rectOfSize: self.texture!.size(), cornerRadius: 10)    //make rounded rectangle

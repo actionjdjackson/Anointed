@@ -14,7 +14,6 @@ import ScreenSaver
 class Animal : SKSpriteNode {
     
     /* VARIABLES */
-    let animalName: String   //name
     let descript: String   //description
     let spriteSheetName: String  //image name for spritesheet
     var deltaT = 0.0    //start delta time for AI at zero
@@ -39,8 +38,7 @@ class Animal : SKSpriteNode {
     let SELECTION_CORNER_RADIUS = CGFloat(10)
     
     init( name: String, desc: String, sheetName: String, gridLoc : CGPoint, bounds: [Int] ) {
-        
-        animalName = name
+
         descript = desc
         spriteSheetName = sheetName
         gridLocation = gridLoc
@@ -66,6 +64,7 @@ class Animal : SKSpriteNode {
                 SKTexture(rect: CGRect(x: CGFloat(64)/w, y: CGFloat(96)/h, width: sw, height: sh), inTexture: spriteSheet)
             ] ]
         super.init(texture: sprites[0][0], color: SKColor.clearColor(), size: sprites[0][0].size()) //sets up tex, bgcolor, and size
+        self.name = name
         self.userInteractionEnabled = true
         
     }
@@ -77,6 +76,18 @@ class Animal : SKSpriteNode {
             self.removeAllChildren()    //remove halo
             selected = false    //now no longer selected
         } else {    //if it is not already selected
+            for npc in UNIVERSE.theGame.currentLocation.people {
+                if npc.selected {
+                    npc.removeAllChildren()
+                    npc.selected = false
+                }
+            }
+            for animal in UNIVERSE.theGame.currentLocation.animals {
+                if animal.selected {
+                    animal.removeAllChildren()
+                    animal.selected = false
+                }
+            }
             var outlineBox : SKShapeNode    //create new halo shapenode
             outlineBox = SKShapeNode(rectOfSize: self.texture!.size(), cornerRadius: SELECTION_CORNER_RADIUS)    //make a rounded rectangle of size equal to animal sprite size
             outlineBox.lineWidth = SELECTION_OUTLINE_SIZE   //set the line width

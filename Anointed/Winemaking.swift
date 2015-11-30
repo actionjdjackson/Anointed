@@ -73,6 +73,29 @@ class Winemaking : Skill {
         }
     }
     
+    override func useOnAnimal(animal: Animal) {
+        //if you have all the raw materials necessary,
+        if user.howManyInInventory("Water") > 0 {
+            
+            //make a tent
+            user.grabFromInventory("Water")
+            //level up
+            level++
+            //update tooltip info
+            self.toolTipSN.itemInfoA = "Level " + String( level )
+            self.toolTipSN.itemInfoB = "Time to Complete: "
+            self.toolTipSN.itemInfoB += String(stringInterpolationSegment: round((10.0 - log(Double(self.level))) * self.hoursToComplete / 10.0)) + "hrs"
+            //report to console
+            UNIVERSE.alertText("Fed wine to " + animal.name! + ".")
+            UNIVERSE.alertText("Winemaking +1")
+            
+        } else {    //if we don't
+            
+            UNIVERSE.alertText("Not enough resources to make wine. Sorry.")    //it's a no-go
+            
+        }
+    }
+    
     /* CAN WE USE THIS SKILL RIGHT NOW? */
     override func canUse() -> Bool {
         

@@ -480,7 +480,26 @@ class GameScene : SKScene {
                     if skillInUse < 0 { //and if skill in use is nothing (-1 typically) [if we're not currently working on another skill function]
                         skillInUse = skillNo + 10   //set skill in use to the clicked skill (plus 10 because it's the bottom row)
                         makeProgressBarFor( giftSkills[skillNo].hoursToComplete, caption: giftSkills[skillNo].title, completion: {
-                        
+                            
+                            var hasTarget = false
+                            for npc in UNIVERSE.theGame.currentLocation.people {
+                                if npc.selected {
+                                    self.giftSkills[skillNo].useOnNPC(npc)
+                                    hasTarget = true
+                                    break
+                                }
+                            }
+                            for animal in UNIVERSE.theGame.currentLocation.animals {
+                                if animal.selected {
+                                    self.giftSkills[skillNo].useOnAnimal(animal)
+                                    hasTarget = true
+                                    break
+                                }
+                            }
+                            if hasTarget == false {
+                                self.giftSkills[skillNo].use()
+                            }
+                            
                             self.removeProgressBar()
                             self.skillInUse = -1
                             
