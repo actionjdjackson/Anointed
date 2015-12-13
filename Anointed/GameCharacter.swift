@@ -41,6 +41,7 @@ class GameCharacter : SKSpriteNode {
     var love : Double
     var languagesKnown: [String]
     var currentGridLocation: CGPoint
+    var currentPrayerFocus : [String]
     
     /* FOR NOW, JUST DEFAULT TO ME AND DEFINE THINGS AS WE NEED TO FOR DEBUGGING. CHARS WILL BE DEFINABLE/CREATABLE LATER IN GAME DEV - ***IN PROGRESS*** */
     
@@ -75,6 +76,7 @@ class GameCharacter : SKSpriteNode {
         love = 1.0
         languagesKnown = ["Hebrew", "Aramaic", "Greek", "Latin"]
         currentGridLocation = CGPoint(x: 5, y: 5)
+        currentPrayerFocus = []
         
         let texture = SKTexture(imageNamed: "characterDOWN")    //make a texture w/ the downward-facing character image
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size()) //defines tex, bgcolor, and size

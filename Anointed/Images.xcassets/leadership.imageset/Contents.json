@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "leadership.png"
+      "filename" : "leadership.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",

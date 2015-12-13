@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E2012ECA1BFB872D005D6A46 /* MakeCampfire.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2012EC91BFB872D005D6A46 /* MakeCampfire.swift */; };
+		E20305701C0CBC2E00A0B2EE /* PrayerFocusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E203056F1C0CBC2E00A0B2EE /* PrayerFocusButton.swift */; };
 		E20309391B6FAF4D00BF658F /* PersonalProphecy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309381B6FAF4D00BF658F /* PersonalProphecy.swift */; };
 		E203093B1B6FB0A500BF658F /* WordOfKnowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E203093A1B6FB0A500BF658F /* WordOfKnowledge.swift */; };
 		E203093D1B6FB1EB00BF658F /* WordOfWisdom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E203093C1B6FB1EB00BF658F /* WordOfWisdom.swift */; };
@@ -169,6 +170,7 @@
 
 /* Begin PBXFileReference section */
 		E2012EC91BFB872D005D6A46 /* MakeCampfire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeCampfire.swift; sourceTree = "<group>"; };
+		E203056F1C0CBC2E00A0B2EE /* PrayerFocusButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerFocusButton.swift; sourceTree = "<group>"; };
 		E20309381B6FAF4D00BF658F /* PersonalProphecy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalProphecy.swift; sourceTree = "<group>"; };
 		E203093A1B6FB0A500BF658F /* WordOfKnowledge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordOfKnowledge.swift; sourceTree = "<group>"; };
 		E203093C1B6FB1EB00BF658F /* WordOfWisdom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordOfWisdom.swift; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 				E29307D41BAE61B9009F8B6A /* StudySectionLabel.swift */,
 				E2643B9E1B5DD9FC006C280C /* ToolTipSpriteNode.swift */,
 				E21DA0CB1BC07F4C00D43484 /* VisualizeKnowledgeButton.swift */,
+				E203056F1C0CBC2E00A0B2EE /* PrayerFocusButton.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -820,6 +823,7 @@
 				E203094F1B6FC29400BF658F /* PartyLeadership.swift in Sources */,
 				E2686E2A1BF10C77002E37B3 /* Visionary.swift in Sources */,
 				E2622A711BEBA0AD007773A5 /* Evangelist.swift in Sources */,
+				E20305701C0CBC2E00A0B2EE /* PrayerFocusButton.swift in Sources */,
 				E21B45BF1AE04EF6007F10C5 /* BibleEvent.swift in Sources */,
 				E29307D51BAE61B9009F8B6A /* StudySectionLabel.swift in Sources */,
 				E21B45C01AE04EF6007F10C5 /* Building.swift in Sources */,

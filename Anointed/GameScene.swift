@@ -382,7 +382,18 @@ class GameScene : SKScene {
             /* SPECIAL INSTRUCTIONS FOR PRAYER MENU - ***INCOMPLETE*** */
         } else if theMenu == "PRAYER" {
     
-            
+            let skillsPrayerFocus : PrayerFocusButton = PrayerFocusButton(focusArea: "Pray Over Skills")
+            skillsPrayerFocus.position = CGPoint(x: 0, y: 0)
+            theOpenMenu.addChild(skillsPrayerFocus)
+            let giftsPrayerFocus : PrayerFocusButton = PrayerFocusButton(focusArea: "Pray For Gifts")
+            giftsPrayerFocus.position = CGPoint(x: 0, y: -48)
+            theOpenMenu.addChild(giftsPrayerFocus)
+            let healthPrayerFocus : PrayerFocusButton = PrayerFocusButton(focusArea: "Pray For Health")
+            healthPrayerFocus.position = CGPoint(x: 0, y: -96)
+            theOpenMenu.addChild(healthPrayerFocus)
+            let experiencePrayerFocus : PrayerFocusButton = PrayerFocusButton(focusArea: "Pray For Experience")
+            experiencePrayerFocus.position = CGPoint(x: 0, y: -144)
+            theOpenMenu.addChild(experiencePrayerFocus)
             
         }
     
@@ -897,22 +908,6 @@ class GameScene : SKScene {
         
     }
     
-    /* DEPRECATED******************************
-    /* UPDATES THE CURRENT PROGRESS BAR LEVEL */
-    func updateProgressBar( deltaTime : Double ) {
-        
-        if progBarDuration > 0.0 { //if the progress bar is active (has a duration greater than zero)
-            progBarTime += deltaTime    //increment the progressbar's value by deltaTime
-            progBar.size = CGSizeMake( CGFloat( ( CGFloat(progBarTime) / CGFloat(progBarDuration) ) * PROG_BAR_WIDTH ), progBar.size.height )   //redraw bar to reflect the change in time value
-        }
-        
-        if progBarTime >= progBarDuration && progBarDuration != 0.0 {   //if we've reached the end of the progressbar
-            removeProgressBar() //remove progress bar (& activate skill)
-        }
-        
-    }
-    */
-    
     /* REMOVES THE PROGRESS BAR FROM THE SCENE, ACTIVATES THE SKILL OR GIFT BEING WAITED FOR */
     func removeProgressBar() {
         
@@ -928,6 +923,36 @@ class GameScene : SKScene {
     /* EVERY FRAME DO THIS (60 times/sec) */
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        
+        if UNIVERSE.theGame.player.currentPrayerFocus.contains("Pray Over Skills") {
+            
+            if Int(currentTime) % (100) == 0 {
+            
+                UNIVERSE.theGame.player.skills[random() % UNIVERSE.theGame.player.skills.count].levelUp()
+                
+            }
+            
+        }
+        
+        if UNIVERSE.theGame.player.currentPrayerFocus.contains("Pray For Health") {
+            
+            if Int(currentTime) % (100) == 0 {
+                
+                UNIVERSE.theGame.player.physicalHealth = 100
+                
+            }
+            
+        }
+        
+        if UNIVERSE.theGame.player.currentPrayerFocus.contains("Pray For Gifts") {
+            
+        }
+        
+        if UNIVERSE.theGame.player.currentPrayerFocus.contains("Pray For Experience") {
+                
+            UNIVERSE.theGame.player.experience++
+            
+        }
         
         for animal in UNIVERSE.theGame.currentLocation.animals {  //for each animal
             
