@@ -54,70 +54,70 @@ class GameWorld {
         
         /* MAKE SKILLS & SUBSKILLS */
         
-        var makeSmallTent : MakeSmallTent = MakeSmallTent(user: player)
-        var makeMediumTent : MakeMediumTent = MakeMediumTent(user: player)
-        var makeLargeTent : MakeLargeTent = MakeLargeTent(user: player)
-        var tentmakingSkill : Tentmaking = Tentmaking(user: player, subsk: [makeSmallTent, makeMediumTent, makeLargeTent]) //make tentmaking skill
+        let makeSmallTent : MakeSmallTent = MakeSmallTent(user: player)
+        let makeMediumTent : MakeMediumTent = MakeMediumTent(user: player)
+        let makeLargeTent : MakeLargeTent = MakeLargeTent(user: player)
+        let tentmakingSkill : Tentmaking = Tentmaking(user: player, subsk: [makeSmallTent, makeMediumTent, makeLargeTent]) //make tentmaking skill
         
-        var makeChair : MakeChair = MakeChair(user: player)
-        var makeBench : MakeBench = MakeBench(user: player)
-        var makeTable : MakeTable = MakeTable(user: player)
-        var makeBoat : MakeBoat = MakeBoat(user: player)
-        var carpentrySkill : Carpentry = Carpentry(user: player, subsk: [makeChair, makeBench, makeTable, makeBoat]) //make carpentry skill
+        let makeChair : MakeChair = MakeChair(user: player)
+        let makeBench : MakeBench = MakeBench(user: player)
+        let makeTable : MakeTable = MakeTable(user: player)
+        let makeBoat : MakeBoat = MakeBoat(user: player)
+        let carpentrySkill : Carpentry = Carpentry(user: player, subsk: [makeChair, makeBench, makeTable, makeBoat]) //make carpentry skill
         
-        var philosophySkill : Philosophy = Philosophy(user: player, subsk: [])
+        let philosophySkill : Philosophy = Philosophy(user: player, subsk: [])
         
-        var seafaringSkill : Seafaring = Seafaring(user: player, subsk: [])
+        let seafaringSkill : Seafaring = Seafaring(user: player, subsk: [])
         
-        var makeNet : MakeNet = MakeNet(user: player)
-        var fishingSkill : Fishing = Fishing(user: player, subsk: [makeNet])
+        let makeNet : MakeNet = MakeNet(user: player)
+        let fishingSkill : Fishing = Fishing(user: player, subsk: [makeNet])
         
-        var makeCampfire : MakeCampfire = MakeCampfire(user: player)
-        var cookingSkill : Cooking = Cooking(user: player, subsk: [makeCampfire])
+        let makeCampfire : MakeCampfire = MakeCampfire(user: player)
+        let cookingSkill : Cooking = Cooking(user: player, subsk: [makeCampfire])
         
-        var musicmakingSkill : Musicmaking = Musicmaking(user: player)
+        let musicmakingSkill : Musicmaking = Musicmaking(user: player)
         
-        var makeSash : MakeSash = MakeSash(user: player)
-        var makeTunic : MakeTunic = MakeTunic(user: player)
-        var makeToga : MakeToga = MakeToga(user: player)
-        var makeRobe : MakeRobe = MakeRobe(user: player)
-        var tailoringSkill : Tailoring = Tailoring(user: player, subsk: [makeSash, makeTunic, makeToga, makeRobe])
+        let makeSash : MakeSash = MakeSash(user: player)
+        let makeTunic : MakeTunic = MakeTunic(user: player)
+        let makeToga : MakeToga = MakeToga(user: player)
+        let makeRobe : MakeRobe = MakeRobe(user: player)
+        let tailoringSkill : Tailoring = Tailoring(user: player, subsk: [makeSash, makeTunic, makeToga, makeRobe])
         
-        var makeCharcoalSketch : MakeCharcoalSketch = MakeCharcoalSketch(user: player)
-        var makePainting : MakePainting = MakePainting(user: player)
-        var makeMosaic : MakeMosaic = MakeMosaic(user: player)
-        var artmakingSkill : Artmaking = Artmaking(user: player, subsk: [makeCharcoalSketch, makePainting, makeMosaic])
+        let makeCharcoalSketch : MakeCharcoalSketch = MakeCharcoalSketch(user: player)
+        let makePainting : MakePainting = MakePainting(user: player)
+        let makeMosaic : MakeMosaic = MakeMosaic(user: player)
+        let artmakingSkill : Artmaking = Artmaking(user: player, subsk: [makeCharcoalSketch, makePainting, makeMosaic])
         
-        var makeBracelet : MakeBracelet = MakeBracelet(user: player)
-        var makeNecklace : MakeNecklace = MakeNecklace(user: player)
-        var makeRing : MakeRing = MakeRing(user: player)
-        var makeEarring : MakeEarring = MakeEarring(user: player)
-        var jewelrymakingSkill : Jewelrymaking = Jewelrymaking(user: player, subsk: [makeBracelet, makeNecklace, makeRing, makeEarring])
+        let makeBracelet : MakeBracelet = MakeBracelet(user: player)
+        let makeNecklace : MakeNecklace = MakeNecklace(user: player)
+        let makeRing : MakeRing = MakeRing(user: player)
+        let makeEarring : MakeEarring = MakeEarring(user: player)
+        let jewelrymakingSkill : Jewelrymaking = Jewelrymaking(user: player, subsk: [makeBracelet, makeNecklace, makeRing, makeEarring])
         
-        var makePoultice : MakePoultice = MakePoultice(user: player)
-        var makeTonic : MakeTonic = MakeTonic(user: player)
-        var makeSplint : MakeSplint = MakeSplint(user: player)
-        var medicineSkill : Medicine = Medicine(user: player, subsk: [makePoultice, makeTonic, makeSplint])
+        let makePoultice : MakePoultice = MakePoultice(user: player)
+        let makeTonic : MakeTonic = MakeTonic(user: player)
+        let makeSplint : MakeSplint = MakeSplint(user: player)
+        let medicineSkill : Medicine = Medicine(user: player, subsk: [makePoultice, makeTonic, makeSplint])
         
-        var makeSpear : MakeSpear = MakeSpear(user: player)
-        var makeBowAndArrow : MakeBowAndArrow = MakeBowAndArrow(user: player)
-        var makeKnife : MakeKnife = MakeKnife(user: player)
-        var makeShortsword : MakeShortSword = MakeShortSword(user: player)
-        var weaponmakingSkill: Weaponmaking = Weaponmaking(user: player, subsk: [makeSpear, makeBowAndArrow, makeKnife, makeShortsword])
+        let makeSpear : MakeSpear = MakeSpear(user: player)
+        let makeBowAndArrow : MakeBowAndArrow = MakeBowAndArrow(user: player)
+        let makeKnife : MakeKnife = MakeKnife(user: player)
+        let makeShortsword : MakeShortSword = MakeShortSword(user: player)
+        let weaponmakingSkill: Weaponmaking = Weaponmaking(user: player, subsk: [makeSpear, makeBowAndArrow, makeKnife, makeShortsword])
         
-        var makeLockbox : MakeLockbox = MakeLockbox(user: player)
-        var bankingSkill : Banking = Banking(user: player, subsk: [makeLockbox])
+        let makeLockbox : MakeLockbox = MakeLockbox(user: player)
+        let bankingSkill : Banking = Banking(user: player, subsk: [makeLockbox])
         
-        var scribeSkill : Scribe = Scribe(user: player, subsk: [])
+        let scribeSkill : Scribe = Scribe(user: player, subsk: [])
         
         /* GIVE SOME SKILLS TO PLAYER */
         player.skills.append(tentmakingSkill)   //player (for now) has the tentmaking skill thru the jewelrymaking skill
         player.skills.append(carpentrySkill)
-        player.skills.append(philosophySkill)
-        player.skills.append(seafaringSkill)
+        player.skills.append(medicineSkill)
+        player.skills.append(weaponmakingSkill)
         player.skills.append(fishingSkill)
         player.skills.append(cookingSkill)
-        player.skills.append(musicmakingSkill)
+        player.skills.append(bankingSkill)
         player.skills.append(tailoringSkill)
         player.skills.append(artmakingSkill)
         player.skills.append(jewelrymakingSkill)
@@ -399,9 +399,20 @@ class GameWorld {
         
         let blankGrid : [[GridSquare]] = [[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare]]
         
-        var tempGrid = blankGrid
         
-        let time = UInt32(NSDate().timeIntervalSinceReferenceDate)
+        /* MAKE A DOUBLE OF THE GRID SQUARES AVAILABLE FOR PLACEMENT */
+        var allGridSquares2 = allGridSquares
+        var genericGridSquares2 = genericGridSquares
+        var uniqueGridSquares2 = uniqueGridSquares
+        var specialGridSquares2 = specialGridSquares
+        /*************************************************************/
+        
+        var tempGrid = blankGrid
+        /* MAKE A DOUBLE OF THE TEMP GRID */
+        var tempGrid2 = blankGrid
+        /**********************************/
+        
+        var time = UInt32(NSDate().timeIntervalSinceReferenceDate)
         srandom(time)
         
         for i in 0...tempGrid.count-1 {
@@ -426,8 +437,36 @@ class GameWorld {
             }
         }
         
-        /* THIS IS A TEMPORARY GRID OF ISO SQUARES FOR DEBUGGING ONLY */
-        /*var tempGrid = [[desertWithPsalm139Scroll, emptyDesertSquare, desertWithCloth2, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, desertWithWood, emptyBrickSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyBrickSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyBrickSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, desertWithTree, emptyBrickSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, desertWithStonePillars, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyBrickSquare, emptyBrickSquare, emptyBrickSquare, emptyDesertSquare, desertWithTimothy, emptyDesertSquare, emptyBrickSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[desertWithOtherTree, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyBrickSquare, emptyBrickSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyBrickSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, desertWithCord],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, desertWithOtherTree, emptyDesertSquare, emptyDesertSquare, desertWithCloth],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[desertWithGrassyRock, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, desertWithAnotherTree, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare],[emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare, emptyDesertSquare]]*/
+        
+        
+        /* MAKE NEW LOCATION TO SWITCH TO */
+        time = UInt32(NSDate().timeIntervalSinceReferenceDate)
+        srandom(time)
+        
+        for i in 0...tempGrid2.count-1 {
+            for j in 0...tempGrid2[0].count-1 {
+                
+                let r = random() % 100
+                if r <= 93 {
+                    tempGrid2[i][j] = genericGridSquares2[random() % genericGridSquares2.count]
+                } else if r <= 95 {
+                    tempGrid2[i][j] = specialGridSquares2[random() % specialGridSquares2.count]
+                } else if r <= 100 && uniqueGridSquares2.count > 0 {
+                    let randomUnique = random() % uniqueGridSquares2.count
+                    tempGrid2[i][j] = uniqueGridSquares2[randomUnique]
+                    uniqueGridSquares2.removeAtIndex(randomUnique)
+                    if tempGrid2[i][j].animalList.count > 0 {
+                        tempGrid2[i][j].animalList[0].gridLocation.x = CGFloat(j)
+                        tempGrid2[i][j].animalList[0].gridLocation.y = CGFloat(i)
+                    }
+                    
+                }
+                
+            }
+        }
+        /**********************************/
+        
+        
         
         /* SETS UP JERUSALEM'S LOCATIONS AND BUILDINGS AND ROOMS ***UNDER CONSTRUCTION*** */
         let TheAltar = Room(ttl: "The Altar", gridSquares: [[]])
@@ -441,7 +480,7 @@ class GameWorld {
         
         /* SETS UP BETHELEHEM'S LOCATIONS AND BUILDINGS AND ROOMS ***UNDER CONSTRUCTION***  */
         let CaveStable = Location(n:"Cave Stable", d:"A small stable inside a cave, near an Inn", g:tempGrid, a:[sheep1, sheep2, sheep3, sheep4, sheep5], npc:[Timothy]) //uses temporary grid defined above as the "Cave Stable" location where Jesus is born
-        let ShepherdsFields = Location(n:"The Shepherds' Fields", d:"The fields just outside Bethelehem, where shepherds kept their flocks by night", g:[[]], a:[], npc:[])
+        let ShepherdsFields = Location(n:"The Shepherds' Fields", d:"The fields just outside Bethelehem, where shepherds kept their flocks by night", g:tempGrid2, a:[sheep1, sheep2, sheep3, sheep4], npc:[Timothy])
         let BethlehemSynagogueMainRoom = Room(ttl: "Bethlehem Synagogue Main Room", gridSquares: [[]])
         let BethlehemSynagogue = Building(ttl: "Bethlehem Synagogue", r:[[BethlehemSynagogueMainRoom]])
         let BethlehemSquare = Location(n:"Bethlehem Town Square", d:"Bethlehem Town Square", g:[[]], a:[], npc:[])

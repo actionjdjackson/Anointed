@@ -262,7 +262,7 @@ class GameScene : SKScene {
         theOpenMenu.position = CGPoint( x: CGRectGetMidX(self.frame), y: CONSTANTS.OPEN_MENU_Y ) //places it just above the button bar, and centered on the scene's frame
         theOpenMenu.zPosition = CONSTANTS.OPEN_MENU_Z
         self.addChild(theOpenMenu)  //displays the menu
-        let menuTitle = SKLabelNode(fontNamed: "Zapfino")   //sets up a label for the menu title
+        let menuTitle = SKLabelNode(fontNamed: "Papyrus")   //sets up a label for the menu title
         menuTitle.text = theMenu.lowercaseString.capitalizedString  //makes the menu Thisway instead of THISWAY
         menuTitle.fontSize = CONSTANTS.MENU_TITLE_FONT_SIZE //sets the font size
         menuTitle.position = CGPoint(x: CONSTANTS.MENU_TITLE_X, y: CONSTANTS.MENU_TITLE_Y)    //positions at top center of menu
@@ -364,20 +364,6 @@ class GameScene : SKScene {
             let visualizeButton = VisualizeKnowledgeButton()
             visualizeButton.position = CGPoint(x: 0, y: -256)
             theOpenMenu.addChild(visualizeButton)
-            
-            /*let textBlocker = SKShapeNode(rectOfSize: CGSize(width: 256 + 128, height: 256 * 2 - 64))   //make a rectangle to block text above text area
-            textBlocker.fillColor = SKColor.blackColor()    //make it black
-            textBlocker.lineWidth = 0.0 //no outline
-            textBlocker.position = CGPoint(x: 256 + 32, y: 128 + 32 + 8 + 256)  //position appropriately
-            textBlocker.zPosition = 3.0 //put in front of text but behind menu bar
-            theOpenMenu.addChild(textBlocker)   //add to open menu
-            
-            let textBlocker2 = SKShapeNode(rectOfSize: CGSize(width: 256 + 128, height: 256 * 2))   //same as above, but for under text area
-            textBlocker2.fillColor = SKColor.blackColor()
-            textBlocker2.lineWidth = 0.0
-            textBlocker2.position = CGPoint(x: 256 + 32, y: -(128 + 32 + 32 + 8 - 1 + 256))
-            textBlocker2.zPosition = 3.0
-            theOpenMenu.addChild(textBlocker2)*/
           
             /* SPECIAL INSTRUCTIONS FOR PRAYER MENU - ***INCOMPLETE*** */
         } else if theMenu == "PRAYER" {
@@ -394,6 +380,11 @@ class GameScene : SKScene {
             let experiencePrayerFocus : PrayerFocusButton = PrayerFocusButton(focusArea: "Pray For Experience")
             experiencePrayerFocus.position = CGPoint(x: 0, y: -144)
             theOpenMenu.addChild(experiencePrayerFocus)
+            
+            /* SPECIAL INSTRUCTIONS FOR NOTES MENU ***INCOMPLETE*** */
+        } else if theMenu == "NOTES" {
+            
+            
             
         }
     
@@ -669,7 +660,16 @@ class GameScene : SKScene {
                 UNIVERSE.theGame.player.currentGridLocation.y += 1
                 pickUpItems(UNIVERSE.theGame.player.currentGridLocation)
                 orderCorrectly()
+                
+                /************** GAH! ****************/
+                
+            } else if Int(UNIVERSE.theGame.player.currentGridLocation.y + 1) == UNIVERSE.theGame.currentLocation.grid.count {
+                UNIVERSE.theGame.currentLocation = UNIVERSE.theGame.currentCity.cityLocations[0][1]
+                UNIVERSE.theGame.player.currentGridLocation = CGPoint( x: UNIVERSE.theGame.player.currentGridLocation.x, y: 0 )
+                createLocation()
+                orderCorrectly()
             }
+                /************************************/
             
         } else if ( key == NUMPAD4 || key == A ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'4' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterLEFT")
@@ -811,6 +811,8 @@ class GameScene : SKScene {
     /* CREATES THE CURRENT LOCATION THE PLAYER IS IN ON THE SCENE */
     func createLocation() {
         
+        world.removeAllChildren()
+        
         for x in 0...UNIVERSE.theGame.currentLocation.grid.count-1 {     //iterating through the x coords of the loc. grid
             for y in 0...UNIVERSE.theGame.currentLocation.grid[0].count-1 {  //iterating through the y coords of the loc. grid
                 let xx = UNIVERSE.theGame.currentLocation.grid.count-x-1 //converts x to reverse order for drawing prettiness
@@ -855,13 +857,17 @@ class GameScene : SKScene {
             }
         }
         
-        /* set up the date label and add it to the scene */
-        dateLabel.color = SKColor.blackColor()
-        dateLabel.fontSize = CONSTANTS.TIMESTAMP_FONT_SIZE //set date label font size
-        dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame) + CONSTANTS.TIMESTAMP_OFFSET_X, y: CONSTANTS.TIMESTAMP_OFFSET_Y)    //puts the date/time at bottom center of the screen, just above the button bar
-        dateLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
-        dateLabel.zPosition = CONSTANTS.TIMESTAMP_OFFSET_Z
-        self.addChild(dateLabel)    //adds the date label to the scene (not the world, so it stays in place like the banner
+        if !self.children.contains(dateLabel) {
+            
+            0/* set up the date label and add it to the scene */
+            dateLabel.color = SKColor.blackColor()
+            dateLabel.fontSize = CONSTANTS.TIMESTAMP_FONT_SIZE //set date label font size
+            dateLabel.position = CGPoint(x:CGRectGetMidX(self.frame) + CONSTANTS.TIMESTAMP_OFFSET_X, y: CONSTANTS.TIMESTAMP_OFFSET_Y)    //puts the date/time at bottom center of the screen, just above the button bar
+            dateLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+            dateLabel.zPosition = CONSTANTS.TIMESTAMP_OFFSET_Z
+            self.addChild(dateLabel)    //adds the date label to the scene (not the world, so it stays in place like the banner
+        
+        }
         
     }
     
@@ -938,7 +944,7 @@ class GameScene : SKScene {
             
             if Int(currentTime) % (100) == 0 {
                 
-                UNIVERSE.theGame.player.physicalHealth = 100
+                UNIVERSE.theGame.player.physicalHealth = 100 / UNIVERSE.theGame.player.currentPrayerFocus.count
                 
             }
             
@@ -950,7 +956,7 @@ class GameScene : SKScene {
         
         if UNIVERSE.theGame.player.currentPrayerFocus.contains("Pray For Experience") {
                 
-            UNIVERSE.theGame.player.experience++
+            UNIVERSE.theGame.player.experience += Double(100 / UNIVERSE.theGame.player.currentPrayerFocus.count)
             
         }
         

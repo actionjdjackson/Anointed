@@ -40,7 +40,7 @@ struct CONSTANTS {
     static let EXPERIENCE_BARS_Z = CGFloat(10.0)
     static let OPEN_MENU_Y = CGFloat(-32 + 12)
     static let OPEN_MENU_Z = CGFloat(2.0)
-    static let MENU_TITLE_FONT_SIZE = CGFloat(24)
+    static let MENU_TITLE_FONT_SIZE = CGFloat(36)
     static let MENU_TITLE_X = CGFloat(0.0)
     static let MENU_TITLE_Y = CGFloat(CGRectGetMaxY(SKSpriteNode(imageNamed:"INVENTORYmenu").frame) / 2.0 + 128 - 32)
     static let SKILLS_BAR_BASE_X = CGFloat(-16)
@@ -52,8 +52,8 @@ struct CONSTANTS {
     static let GIFT_POSITION_BASE_X = CGFloat(96.0 - CGFloat(SKSpriteNode(imageNamed:"INVENTORYmenu").frame.width) / 2.0) - 2.0
     static let GIFT_SKILLS_GRID_HEIGHT = 9
     static let SKILL_ICON_SIZE = CGFloat(32.0)
-    static let INVENTORY_ITEM_BASE_X = CGFloat(88 - 234)
-    static let INVENTORY_ITEM_BASE_Y = CGFloat(100)
+    static let INVENTORY_ITEM_BASE_X = CGFloat(88 - 234 + 32 + 8)
+    static let INVENTORY_ITEM_BASE_Y = CGFloat(100 + 32)
     static let INVENTORY_ITEM_SIZE = CGFloat(32.0)
     static let INVENTORY_GRID_WIDTH = 10
     static let INVENTORY_GRID_HEIGHT = 12
