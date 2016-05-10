@@ -55,7 +55,7 @@ class PrayerFocusButton : SKNode {
             if UNIVERSE.theGame.player.currentPrayerFocus.count > 0 {
                 for n in 0...UNIVERSE.theGame.player.currentPrayerFocus.count-1 {
                     if UNIVERSE.theGame.player.currentPrayerFocus[n] == self.name {
-                        UNIVERSE.theGame.player.currentPrayerFocus.removeAtIndex(n)
+                        UNIVERSE.theGame.player.currentPrayerFocus.removeAtIndex(n) //remove this prayer focus from the prayer list
                         break
                     }
                 }
@@ -63,7 +63,7 @@ class PrayerFocusButton : SKNode {
             
         } else {
             button.fillColor = SKColor.blueColor()     //make button color blue when released
-            UNIVERSE.theGame.player.currentPrayerFocus.append(self.name!)
+            UNIVERSE.theGame.player.currentPrayerFocus.append(self.name!)   //add this prayer focus to the prayer list
             self.selected = true
         }
         

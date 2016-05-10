@@ -26,6 +26,7 @@ class Winemaking : Skill {
         if canUse() {
             
             //make into wine
+            playSound("Winemaking.mp3")
             user.grabFromInventory("Water")
             let newWineskin = Item(ttl: "Wineskin", desc: "A wineskin filled with wine", sx: 1, sy: 1, spriteName: "wineskin")
             user.inventory.append(newWineskin)
@@ -52,7 +53,8 @@ class Winemaking : Skill {
         //if you have all the raw materials necessary,
         if user.howManyInInventory("Water") > 0 {
             
-            //make a tent
+            //make a wineskin
+            playSound("Winemaking.mp3")
             user.grabFromInventory("Water")
             let newWineskin = Item(ttl: "Wineskin", desc: "A wineskin filled with wine", sx: 1, sy: 1, spriteName: "wineskin")
             npc.inventory.append(newWineskin)
@@ -77,7 +79,8 @@ class Winemaking : Skill {
         //if you have all the raw materials necessary,
         if user.howManyInInventory("Water") > 0 {
             
-            //make a tent
+            //make a wineskin
+            playSound("Winemaking.mp3")
             user.grabFromInventory("Water")
             //level up
             level++

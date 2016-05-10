@@ -30,7 +30,7 @@ class GameWorld {
     var faithTree : [Skill]
     var discernmentTree : [Skill]
     var tonguesTree : [Skill]
-    var interpretationTree : [Skill]
+    //var interpretationTree : [Skill]
     var encouragementTree : [Skill]
     var serviceTree : [Skill]
     var teachingTree : [Skill]
@@ -128,6 +128,8 @@ class GameWorld {
         /* MAKE GIFT SUBSKILLS */
         var winemakingSkill : Winemaking    //create winemaking skill (will be a subset of miracles gift)
         winemakingSkill = Winemaking(user: player)
+        var blindingLightSkill : BlindingLight
+        blindingLightSkill = BlindingLight(user: player)
         var physicalHealingSkill : PhysicalHealing //create physical healing skill (will be a subset of healings gift)
         physicalHealingSkill = PhysicalHealing(user: player)
         var personalProphecySkill : PersonalProphecy    // etc. etc. etc.
@@ -142,8 +144,8 @@ class GameWorld {
         originDiscernmentSkill = OriginDiscernment(user: player)
         var prayerInTheSpiritSkill : PrayerInTheSpirit
         prayerInTheSpiritSkill = PrayerInTheSpirit(user: player)
-        var interpretationSkill : Interpretation
-        interpretationSkill = Interpretation(user: player)
+        //var interpretationSkill : Interpretation
+        //interpretationSkill = Interpretation(user: player)
         
         var personalEncouragementSkill : PersonalEncouragement
         personalEncouragementSkill = PersonalEncouragement(user: player)
@@ -165,7 +167,7 @@ class GameWorld {
         missionarySkill = Missionary(user: player)
         
         /* MAKE ALL THE GIFTS */
-        let miraclesGift = SpiritualGift(giftName: "The Gift of Miracles", giftDesc: "A spritual gift that allows the player miraculous powers to alter nature, provide signs and wonders for unbelievers, and support the faith and confidence of believers.", giftUser: player, giftSprite: "miracles", giftSkills: [winemakingSkill])
+        let miraclesGift = SpiritualGift(giftName: "The Gift of Miracles", giftDesc: "A spritual gift that allows the player miraculous powers to alter nature, provide signs and wonders for unbelievers, and support the faith and confidence of believers.", giftUser: player, giftSprite: "miracles", giftSkills: [winemakingSkill, blindingLightSkill])
         let prophecyGift = SpiritualGift(giftName: "The Gift of Prophecy", giftDesc: "A spiritual gift that allows the player to speak a message from God, including the ability to predict future events", giftUser: player, giftSprite: "prophecy", giftSkills: [personalProphecySkill])
         let healingsGift = SpiritualGift(giftName: "The Gifts of Healings", giftDesc: "A set of spiritual gifts for spiritual, emotional, mental, and physical healing of others or self", giftUser: player, giftSprite: "healings", giftSkills: [physicalHealingSkill])
         let wisdomGift = SpiritualGift(giftName: "The Gift of the Word of Wisdom", giftDesc: "A spiritual gift that allows the player to give a special message of wisdom into a person's life or situation", giftUser: player, giftSprite: "wisdom", giftSkills: [wordOfWisdomSkill])
@@ -173,7 +175,7 @@ class GameWorld {
         let faithGift = SpiritualGift(giftName: "The Gift of Faith", giftDesc: "Gives the player great faith to carry out big things for God in the church, and comfort other believers & carry them", giftUser: player, giftSprite: "faith", giftSkills: [assuranceSkill])
         let discernmentGift = SpiritualGift(giftName: "The Gift of the Discerning of Spirits", giftDesc: "A spiritual gift that allows the player to discern wether a message, person, or spiritual being is from God or from Satan", giftUser: player, giftSprite: "discernment", giftSkills: [originDiscernmentSkill])
         let tonguesGift = SpiritualGift(giftName: "The Gift of Tongues", giftDesc: "Allows the player to speak in other languages he or she has never learned. Includes angelic or heavenly languages as well", giftUser: player, giftSprite: "tongues", giftSkills: [prayerInTheSpiritSkill])
-        let interpretationGift = SpiritualGift(giftName: "The Gift of the Interpretation of Tongues", giftDesc: "Allows the player to interpret a language he or she has never learned. Used in conjunction with the gift of tongues in other believers", giftUser: player, giftSprite: "interpretation", giftSkills: [interpretationSkill])
+        //let interpretationGift = SpiritualGift(giftName: "The Gift of the Interpretation of Tongues", giftDesc: "Allows the player to interpret a language he or she has never learned. Used in conjunction with the gift of tongues in other believers", giftUser: player, giftSprite: "interpretation", giftSkills: [interpretationSkill])
         
         let encouragementGift = CreationalGift(giftName: "The Gift of Encouragement", giftDesc: "A spiritual gift that allows the player to build up (encourage) another believer in their faith, increasing their resistance to temptation and their HG experience points.", giftUser: player, giftSprite: "encouragement", giftSkills: [personalEncouragementSkill])
         var serviceGift = CreationalGift(giftName: "The Gift of Service", giftDesc: "A spiritual gift that gives the player an aptitude for serving others in various ways.", giftUser: player, giftSprite: "service", giftSkills: [servanthoodSkill])
@@ -194,18 +196,18 @@ class GameWorld {
         player.gifts.append(faithGift)
         player.gifts.append(discernmentGift)
         player.gifts.append(tonguesGift)
-        player.gifts.append(interpretationGift)
+        //player.gifts.append(interpretationGift)
         player.gifts.append(encouragementGift)
         
         /* CREATE GIFT SKILL TREES */
-        miraclesTree = [winemakingSkill]
+        miraclesTree = [winemakingSkill, blindingLightSkill]
         healingTree = [physicalHealingSkill]
         wisdomTree = [wordOfWisdomSkill]
         knowledgeTree = [wordOfKnowledgeSkill]
         faithTree = [assuranceSkill]
         discernmentTree = [originDiscernmentSkill]
         tonguesTree = [prayerInTheSpiritSkill]
-        interpretationTree = [interpretationSkill]
+        //interpretationTree = [interpretationSkill]
         encouragementTree = [personalEncouragementSkill]
         serviceTree = [servanthoodSkill]
         teachingTree = [oneOnOneTeachingSkill]

@@ -128,7 +128,7 @@ class Scroll: Item {
                 
                 soundPlayer.stop()
                 if backgroundMusicPlayer != nil {
-                    backgroundMusicPlayer.play()
+                    unMuteBackgroundMusic()
                 }
                 
                 selected = false    //now deselected
@@ -153,7 +153,7 @@ class Scroll: Item {
                 playSound(self.fileName + self.language + ".mp3")   //play original language clip
                 if backgroundMusicPlayer != nil {   //if there is background music
                     if backgroundMusicPlayer.playing {  //if it's playing
-                        backgroundMusicPlayer.pause()   //pause the background music
+                        muteBackgroundMusic()   //mute the background music
                     }
                 }
                 

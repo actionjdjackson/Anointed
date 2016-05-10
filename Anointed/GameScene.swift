@@ -83,16 +83,19 @@ class GameScene : SKScene {
         self.addChild(world)    //world node is added to the scene immediately
         self.anchorPoint = CGPoint(x: CONSTANTS.CENTER_OF_SCREEN_X, y: CONSTANTS.CENTER_OF_SCREEN_Y) //anchor the screen on center
         
-        createLocation()    //creates the current location in spritekit
-        
-        orderCorrectly()
-        
-        setupLowerBanner()  //creates the game function buttons and experience bars on a lower banner
-        
-        playBackgroundMusic("BackgroundMusicA.mp3") //start background music
+        createMainMenu()
         
     }
 
+    
+    func createMainMenu() {
+        
+        let startScreenLabel : StartScreenLabel = StartScreenLabel()
+        self.addChild(startScreenLabel)
+        playBackgroundMusic("IntoYourArms.mp3")
+        
+    }
+    
     
     /* EVERY FRAME... */
     override func didFinishUpdate() {
@@ -104,8 +107,10 @@ class GameScene : SKScene {
     /* centers the screen on a given SKNode, in our case the player (as above) */
     func centerOnNode( node: SKNode ) {
         
-        let cameraPositionInScene = node.scene?.convertPoint(node.position, fromNode: node.parent!) //convert point
+        if self.children.count > 2 {
+            let cameraPositionInScene = node.scene?.convertPoint(node.position, fromNode: node.parent!) //convert point
         node.parent!.position = CGPointMake(node.parent!.position.x - cameraPositionInScene!.x, node.parent!.position.y - cameraPositionInScene!.y)   //translate to give parent node correct position
+        }
         
     }
     
@@ -247,7 +252,9 @@ class GameScene : SKScene {
         if soundPlayer != nil {
             soundPlayer.stop()
         }
-        backgroundMusicPlayer.play()
+        if backgroundMusicPlayer != nil {
+            backgroundMusicPlayer.play()
+        }
         
     }
     
@@ -385,6 +392,10 @@ class GameScene : SKScene {
         } else if theMenu == "NOTES" {
             
             
+            /* SPECIAL INSTRUCTIONS FOR TRAVEL MENU ***INCOMPLETE*** */
+        } else if theMenu == "TRAVEL" {
+            
+            
             
         }
     
@@ -394,7 +405,26 @@ class GameScene : SKScene {
     override func mouseDown(theEvent: NSEvent) {
         /* Called when a mouse click occurs */
         
+        if self.children.count < 3 {
+            for child in self.children {
+                if child is StartScreenLabel {
+                    child.removeFromParent()
+                    self.createLocation()    //creates the current location in spritekit
+                    
+                    self.orderCorrectly()
+                    
+                    self.setupLowerBanner()  //creates the game function buttons and experience bars on a lower banner
+                    
+                    playBackgroundMusic("BackgroundMusicB.mp3") //start background music
+                }
+            }
+        }
+        
         let location = theEvent.locationInNode(self)    //grabs the location where the user has clicked
+        
+        if backgroundMusicPlayer != nil {
+            backgroundMusicPlayer.volume = 0.5
+        }
         
         /* Has the user clicked a menu button on the lower banner? */
         if location.y <= CONSTANTS.LOWER_BANNER_TOP_EDGE {
@@ -634,6 +664,7 @@ class GameScene : SKScene {
         } else if ( key == NUMPAD7 || key == Q ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'7' NUM PAD PRESSED - MOVING INTO UPPER LEFT SQUARE
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterUPPERLEFT")    //displays char moving up-left
             if Int(UNIVERSE.theGame.player.currentGridLocation.x + 1) < UNIVERSE.theGame.currentLocation.grid[0].count && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].npcList.count == 0 { //if in bounds and no collision
+                playSound("WalkCycle.aiff") //play walking sound
                 let moveUpperLeft = SKAction.moveByX(-64, y: 32, duration: CONSTANTS.PLAYER_MOVE_TIME)   //move gradually to new location
                 UNIVERSE.theGame.player.runAction(moveUpperLeft) //runs the action defined above
                 UNIVERSE.theGame.player.currentGridLocation.x += 1   //sets grid location (corresponding to matrix, not spritekit location)
@@ -644,6 +675,7 @@ class GameScene : SKScene {
         } else if ( key == NUMPAD8 || key == W ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'8' NUM PAD PRESSED - everything else is the same idea as above, just look at [imageNamed:"characterXXXX"] for movement direction
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterUP")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x + 1) < UNIVERSE.theGame.currentLocation.grid[0].count && Int(UNIVERSE.theGame.player.currentGridLocation.y + 1) < UNIVERSE.theGame.currentLocation.grid.count && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].npcList.count == 0 {
+                playSound("WalkCycle.aiff") //play walking sound
                 let moveUp = SKAction.moveByX(0, y: 64, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveUp)
                 UNIVERSE.theGame.player.currentGridLocation.x += 1
@@ -655,13 +687,16 @@ class GameScene : SKScene {
         } else if ( key == NUMPAD9 || key == E ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'9' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterUPPERRIGHT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.y + 1) < UNIVERSE.theGame.currentLocation.grid.count && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x)].npcList.count == 0 {
+                playSound("WalkCycle.aiff") //play walking sound
                 let moveUpperRight = SKAction.moveByX(64, y: 32, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveUpperRight)
                 UNIVERSE.theGame.player.currentGridLocation.y += 1
                 pickUpItems(UNIVERSE.theGame.player.currentGridLocation)
                 orderCorrectly()
                 
-                /************** GAH! ****************/
+                
+            }
+                /************** GAH! ****************
                 
             } else if Int(UNIVERSE.theGame.player.currentGridLocation.y + 1) == UNIVERSE.theGame.currentLocation.grid.count {
                 UNIVERSE.theGame.currentLocation = UNIVERSE.theGame.currentCity.cityLocations[0][1]
@@ -669,11 +704,12 @@ class GameScene : SKScene {
                 createLocation()
                 orderCorrectly()
             }
-                /************************************/
+                ***********************************/
             
         } else if ( key == NUMPAD4 || key == A ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'4' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterLEFT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x + 1) < UNIVERSE.theGame.currentLocation.grid[0].count && Int(UNIVERSE.theGame.player.currentGridLocation.y - 1) >= 0 && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x + 1)].npcList.count == 0 {
+                playSound("WalkCycle.aiff") //play walking sound
                 let moveLeft = SKAction.moveByX(-128, y: 0, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveLeft)
                 UNIVERSE.theGame.player.currentGridLocation.y -= 1
@@ -688,6 +724,7 @@ class GameScene : SKScene {
         } else if ( key == NUMPAD6 || key == D ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'6' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterRIGHT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x - 1) >= 0 && Int(UNIVERSE.theGame.player.currentGridLocation.y + 1) < UNIVERSE.theGame.currentLocation.grid.count && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y + 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].npcList.count == 0 {
+                playSound("WalkCycle.aiff") //play walking sound
                 let moveRight = SKAction.moveByX(128, y: 0, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveRight)
                 UNIVERSE.theGame.player.currentGridLocation.y += 1
@@ -699,6 +736,7 @@ class GameScene : SKScene {
         } else if ( key == NUMPAD1 || key == Z ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'1' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterLOWERLEFT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.y - 1) >= 0 && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x)].npcList.count == 0 {
+                playSound("WalkCycle.aiff") //play walking sound
                 let moveLowerLeft = SKAction.moveByX(-64, y: -32, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveLowerLeft)
                 UNIVERSE.theGame.player.currentGridLocation.y -= 1
@@ -709,6 +747,7 @@ class GameScene : SKScene {
         } else if ( key == NUMPAD2 || key == X ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'2' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterDOWN")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x - 1) >= 0 && Int(UNIVERSE.theGame.player.currentGridLocation.y - 1) >= 0 && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y - 1)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].npcList.count == 0 {
+                playSound("WalkCycle.aiff") //play walking sound
                 let moveDown = SKAction.moveByX(0, y: -64, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveDown)
                 UNIVERSE.theGame.player.currentGridLocation.y -= 1
@@ -720,6 +759,7 @@ class GameScene : SKScene {
         } else if ( key == NUMPAD3 || key == C ) && !PAUSED && !UNIVERSE.theGame.meditating {   //'3' NUM PAD PRESSED
             UNIVERSE.theGame.player.texture = SKTexture(imageNamed: "characterLOWERRIGHT")
             if Int(UNIVERSE.theGame.player.currentGridLocation.x - 1) >= 0 && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].extraObject == "" && UNIVERSE.theGame.currentLocation.grid[Int(UNIVERSE.theGame.player.currentGridLocation.y)][Int(UNIVERSE.theGame.player.currentGridLocation.x - 1)].npcList.count == 0 {
+                playSound("WalkCycle.aiff") //play walking sound
                 let moveLowerRight = SKAction.moveByX(64, y: -32, duration: CONSTANTS.PLAYER_MOVE_TIME)
                 UNIVERSE.theGame.player.runAction(moveLowerRight)
                 UNIVERSE.theGame.player.currentGridLocation.x -= 1
@@ -989,6 +1029,7 @@ var backgroundMusicPlayer: AVAudioPlayer!
 var soundPlayer: AVAudioPlayer!
 
 func playBackgroundMusic(filename: String) {    //sets up an audio player to play background music
+    
     let url = NSBundle.mainBundle().URLForResource(filename, withExtension: nil)
     if (url == nil) {
         print("Could not find file: \(filename)")
@@ -1009,7 +1050,21 @@ func playBackgroundMusic(filename: String) {    //sets up an audio player to pla
     
     backgroundMusicPlayer.numberOfLoops = -1    //loop continuously
     backgroundMusicPlayer.prepareToPlay()   //load into memory
+    backgroundMusicPlayer.volume = 0.5
     backgroundMusicPlayer.play()    //play song
+    
+}
+
+func unMuteBackgroundMusic() {
+    
+    backgroundMusicPlayer.volume = 0.5
+    
+}
+
+func muteBackgroundMusic() {
+    
+    backgroundMusicPlayer.volume = 0.05
+    
 }
 
 /* GET SOUND LENGTH */

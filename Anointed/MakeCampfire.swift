@@ -28,6 +28,8 @@ class MakeCampfire : Subskill {
                 //make a campfire
                 self.user.grabFromInventory("Wood")
                 UNIVERSE.theScene.nodeAtPoint(CGPoint(x: 64, y: 64)).addChild(SKSpriteNode(imageNamed: "campfire"))
+                //play campfire sound
+                playSound("Campfire.mp3")
                 //level up campfiremaking skill
                 self.levelUp()
                 //report to screen
