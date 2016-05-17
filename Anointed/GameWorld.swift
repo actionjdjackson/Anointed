@@ -12,11 +12,11 @@ import SpriteKit
 /* THE GAME WORLD CLASS KEEPS TRACK OF ALL THE CITIES, LOCATIONS, BUILDINGS, ROOMS, THE PLAYER (GAME CHARACTER), THE IN-GAME DATE AND TIME, AND ALL BIBLE EVENTS. IT WILL CONTAIN ALL "LEVEL" DATA AS DEFINED IN TEXT FILES OR JUST HARD-CODED INTO THIS FILE, DEPENDING ON WETHER OR NOT I WANT TO MAKE A LEVEL EDITOR, WHICH I PROBABLY WILL. ***IN PROGRESS*** */
 class GameWorld {
     
-    var bibleEvents : [BibleEvent]
-    var cities : [City]
-    var nextEvent : Int
+    //var bibleEvents : [BibleEvent]
+    var cities : [Location]
+    //var nextEvent : Int
     var gameDate : NSDate
-    var currentCity : City
+    //var currentCity : City
     var currentLocation : Location
     var player : GameCharacter
     var knowledgeBase : [String : Knowledge] = [:]
@@ -454,13 +454,13 @@ class GameWorld {
                 } else if r <= 95 {
                     tempGrid2[i][j] = specialGridSquares2[random() % specialGridSquares2.count]
                 } else if r <= 100 && uniqueGridSquares2.count > 0 {
-                    let randomUnique = random() % uniqueGridSquares2.count
+                    /*let randomUnique = random() % uniqueGridSquares2.count
                     tempGrid2[i][j] = uniqueGridSquares2[randomUnique]
                     uniqueGridSquares2.removeAtIndex(randomUnique)
                     if tempGrid2[i][j].animalList.count > 0 {
                         tempGrid2[i][j].animalList[0].gridLocation.x = CGFloat(j)
                         tempGrid2[i][j].animalList[0].gridLocation.y = CGFloat(i)
-                    }
+                    }*/
                     
                 }
                 
@@ -471,39 +471,39 @@ class GameWorld {
         
         
         /* SETS UP JERUSALEM'S LOCATIONS AND BUILDINGS AND ROOMS ***UNDER CONSTRUCTION*** */
-        let TheAltar = Room(ttl: "The Altar", gridSquares: [[]])
-        let TheTemple = Building(ttl: "The Temple", r: [[TheAltar]])
-        let SouthofTemple = Location(n:"The South Entrance to the Temple", d:"The glorious Jewish Temple, the Home of Yahweh, God of Israel", g:[[]], a:[], npc:[])
-        let Jerusalem = City(locations: [[SouthofTemple]])
+        //let TheAltar = Room(ttl: "The Altar", gridSquares: [[]])
+        //let TheTemple = Building(ttl: "The Temple", r: [[TheAltar]])
+        //let SouthofTemple = Location(n:"The South Entrance to the Temple", d:"The glorious Jewish Temple, the Home of Yahweh, God of Israel", g:[[]], a:[], npc:[])
+        //let Jerusalem = City(locations: [[SouthofTemple]])
         
         //sets up nil room and nil building as empty objects for placeholders
-        let nilRoom = Room(ttl: "Default Nil Room", gridSquares: [[]])
-        let nilBuilding = Building(ttl: "Default Nil Building", r: [[]])
+        //let nilRoom = Room(ttl: "Default Nil Room", gridSquares: [[]])
+        //let nilBuilding = Building(ttl: "Default Nil Building", r: [[]])
         
         /* SETS UP BETHELEHEM'S LOCATIONS AND BUILDINGS AND ROOMS ***UNDER CONSTRUCTION***  */
-        let CaveStable = Location(n:"Cave Stable", d:"A small stable inside a cave, near an Inn", g:tempGrid, a:[sheep1, sheep2, sheep3, sheep4, sheep5], npc:[Timothy]) //uses temporary grid defined above as the "Cave Stable" location where Jesus is born
-        let ShepherdsFields = Location(n:"The Shepherds' Fields", d:"The fields just outside Bethelehem, where shepherds kept their flocks by night", g:tempGrid2, a:[sheep1, sheep2, sheep3, sheep4], npc:[Timothy])
-        let BethlehemSynagogueMainRoom = Room(ttl: "Bethlehem Synagogue Main Room", gridSquares: [[]])
-        let BethlehemSynagogue = Building(ttl: "Bethlehem Synagogue", r:[[BethlehemSynagogueMainRoom]])
-        let BethlehemSquare = Location(n:"Bethlehem Town Square", d:"Bethlehem Town Square", g:[[]], a:[], npc:[])
-        let Bethlehem = City(locations: [[CaveStable, ShepherdsFields, BethlehemSquare]])
+        let Jerusalem = Location(n:"Jerusalem", d:"The capital city of Judea", g:tempGrid, a:[sheep1, sheep2, sheep3, sheep4, sheep5], npc:[Timothy]) //uses temporary grid defined above as the "Cave Stable" location where Jesus is born
+        let Bethlehem = Location(n:"Bethlehem", d:"The birthplace of Jesus", g:tempGrid2, a:[], npc:[])
+        //let BethlehemSynagogueMainRoom = Room(ttl: "Bethlehem Synagogue Main Room", gridSquares: [[]])
+        //let BethlehemSynagogue = Building(ttl: "Bethlehem Synagogue", r:[[BethlehemSynagogueMainRoom]])
+        //let BethlehemSquare = Location(n:"Bethlehem Town Square", d:"Bethlehem Town Square", g:[[]], a:[], npc:[])
+        //let Bethlehem = City(locations: [[CaveStable, ShepherdsFields, BethlehemSquare]])
         
         /* SETS THE CURRENT CITY AND LOCATION WHERE THE GAME STARTS */
-        currentCity = Bethlehem
-        currentLocation = CaveStable
+        //currentCity = Bethlehem
+        currentLocation = Jerusalem
         
         /* CITIES ARRAY AND WORLD MAP FOR WORLD TRAVEL VIEW (TO BE IMPLEMENTED LATER) */
         cities = [Jerusalem, Bethlehem]
         var worldMap = WorldMap()
         
         /* ALL BIBLE EVENTS ARE RECORDED HERE, COMING FROM THE CLASB NLT TRANSLATION, WITH A LOT OF GUESSING TIMEWISE */
-        bibleEvents = [
+        /* bibleEvents = [
             BibleEvent(yr: 3755, mo: HebrewMonths.TISHRI, dy: 15, hr: 21, min: 0, sec: 0, ttl: "Jesus Is Born in Bethlehem", desc: "At that time the Roman emperor, Augustus, decreed that a census should be taken throughout the Roman Empire. (This was the first census taken when Quirinius was governor of Syria.) All returned to their own ancestral towns to register for this census. And because Joseph was a descendant of King David, he had to go to Bethlehem in Judea, David’s ancient home. He traveled there from the village of Nazareth in Galilee. He took with him Mary, his fiancée, who was now obviously pregnant. And while they were there, the time came for her baby to be born. She gave birth to her first child, a son. She wrapped him snugly in strips of cloth and laid him in a manger, because there was no lodging available for them.", audioFile: "Luke2;1-7.mp3", c: Bethlehem, l: CaveStable, b: nilBuilding, r: nilRoom),
             BibleEvent(yr: 3755, mo: HebrewMonths.TISHRI, dy: 15, hr: 21, min: 30, sec: 0, ttl: "Shepherds Visit Jesus", desc: "That night there were shepherds staying in the fields nearby, guarding their flocks of sheep. Suddenly, an angel of the Lord appeared among them, and the radiance of the Lord’s glory surrounded them. They were terrified, but the angel reassured them. “Don’t be afraid!” he said. “I bring you good news that will bring great joy to all people. The Savior—yes, the Messiah, the Lord—has been born today in Bethlehem, the city of David! And you will recognize him by this sign: You will find a baby wrapped snugly in strips of cloth, lying in a manger.” Suddenly, the angel was joined by a vast host of others—the armies of heaven—praising God and saying, “Glory to God in highest heaven, and peace on earth to those with whom God is pleased.” When the angels had returned to heaven, the shepherds said to each other, “Let’s go to Bethlehem! Let’s see this thing that has happened, which the Lord has told us about.” They hurried to the village and found Mary and Joseph. And there was the baby, lying in the manger. After seeing him, the shepherds told everyone what had happened and what the angel had said to them about this child. All who heard the shepherds’ story were astonished, but Mary kept all these things in her heart and thought about them often. The shepherds went back to their flocks, glorifying and praising God for all they had heard and seen. It was just as the angel had told them.", audioFile: "Luke2;8-20.mp3", c: Bethlehem, l: ShepherdsFields, b: nilBuilding, r: nilRoom),
             BibleEvent(yr: 3755, mo: HebrewMonths.TISHRI, dy: 23, hr: 8, min: 0, sec: 0, ttl: "Jesus is Circumcised", desc: "Eight days later, when the baby was circumcised, he was named Jesus, the name given him by the angel even before he was conceived.", audioFile: "Luke2;21.mp3", c: Bethlehem, l: BethlehemSquare, b: BethlehemSynagogue, r: BethlehemSynagogueMainRoom),
             BibleEvent(yr: 3755, mo: HebrewMonths.CHESHVAN, dy: 25, hr: 8, min: 0, sec: 0, ttl: "Mary and Joseph Bring Jesus to the Temple", desc: "Then it was time for their purification offering, as required by the law of Moses after the birth of a child; so his parents took him to Jerusalem to present him to the Lord. The law of the Lord says, “If a woman’s first child is a boy, he must be dedicated to the Lord.” So they offered the sacrifice required in the law of the Lord—“either a pair of turtledoves or two young pigeons.”", audioFile: "Luke2;22-24.mp3", c: Jerusalem, l: SouthofTemple, b: TheTemple, r: TheAltar)
                         ]
-        nextEvent = 0   //start with first BibleEvent
+        nextEvent = 0   //start with first BibleEvent */
         
     }
 }

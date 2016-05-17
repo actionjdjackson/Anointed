@@ -395,7 +395,18 @@ class GameScene : SKScene {
             /* SPECIAL INSTRUCTIONS FOR TRAVEL MENU ***INCOMPLETE*** */
         } else if theMenu == "TRAVEL" {
             
-            
+            let sailboat = SKSpriteNode(imageNamed: "sailboat")
+            sailboat.position = CGPoint.zero
+            sailboat.position.x -= 256
+            theOpenMenu.addChild(sailboat)
+            playSound("waves.aiff")
+            sailboat.runAction(SKAction.moveBy(CGVector.init(dx: 512, dy: 0), duration: 5.0))
+            sailboat.runAction(SKAction.fadeOutWithDuration(5.0), completion: {
+                UNIVERSE.theGame.player.currentGridLocation = CGPoint(x: 5,y: 5)
+                UNIVERSE.theGame.currentLocation = UNIVERSE.theGame.cities[1]
+                self.createLocation()
+                self.clearMenu()
+            })
             
         }
     
@@ -916,7 +927,7 @@ class GameScene : SKScene {
     
     func updateBibleEvents( time: CFTimeInterval ) {
         
-        if UNIVERSE.theGame.bibleEvents.count == UNIVERSE.theGame.nextEvent { //if the Bible has no more events to describe...
+       /* if UNIVERSE.theGame.bibleEvents.count == UNIVERSE.theGame.nextEvent { //if the Bible has no more events to describe...
             exit(0) //exit the game completely
         }
         
@@ -925,7 +936,7 @@ class GameScene : SKScene {
             playSound(UNIVERSE.theGame.bibleEvents[UNIVERSE.theGame.nextEvent].soundFile) //play audio bible clip
             UNIVERSE.theGame.nextEvent++ //increment bible events
             
-        }
+        } */
         
     }
     

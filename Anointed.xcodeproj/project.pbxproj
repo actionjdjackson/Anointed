@@ -25,6 +25,8 @@
 		E20309531B6FC56700BF658F /* Celibate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309521B6FC56700BF658F /* Celibate.swift */; };
 		E20309551B6FC69D00BF658F /* Hospitality.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309541B6FC69D00BF658F /* Hospitality.swift */; };
 		E20309571B6FC82A00BF658F /* Missionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20309561B6FC82A00BF658F /* Missionary.swift */; };
+		E203F28A1CE229F6000478E4 /* waves.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E203F2891CE229F6000478E4 /* waves.aiff */; };
+		E203F28C1CE22CED000478E4 /* tentmaking.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E203F28B1CE22CED000478E4 /* tentmaking.mp3 */; };
 		E211865E1B697CE2005E9AA3 /* PhysicalHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E211865D1B697CE2005E9AA3 /* PhysicalHealing.swift */; };
 		E21325D01B7048AB00B1304F /* ShowImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21325CF1B7048AB00B1304F /* ShowImageButton.swift */; };
 		E21A93931BFE21D1003AB93F /* MakeSpear.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A93921BFE21D1003AB93F /* MakeSpear.swift */; };
@@ -194,6 +196,8 @@
 		E20309521B6FC56700BF658F /* Celibate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Celibate.swift; sourceTree = "<group>"; };
 		E20309541B6FC69D00BF658F /* Hospitality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hospitality.swift; sourceTree = "<group>"; };
 		E20309561B6FC82A00BF658F /* Missionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Missionary.swift; sourceTree = "<group>"; };
+		E203F2891CE229F6000478E4 /* waves.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = waves.aiff; sourceTree = "<group>"; };
+		E203F28B1CE22CED000478E4 /* tentmaking.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tentmaking.mp3; sourceTree = "<group>"; };
 		E211865D1B697CE2005E9AA3 /* PhysicalHealing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicalHealing.swift; sourceTree = "<group>"; };
 		E21325CF1B7048AB00B1304F /* ShowImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageButton.swift; sourceTree = "<group>"; };
 		E21A93921BFE21D1003AB93F /* MakeSpear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeSpear.swift; sourceTree = "<group>"; };
@@ -549,6 +553,8 @@
 				E2D7D6041CE213FC0081BB55 /* WalkCycle.aiff */,
 				E2D7D6061CE216180081BB55 /* BlindingLight.mp3 */,
 				E2E0DF4F1CE21A320097C4FC /* Winemaking.mp3 */,
+				E203F2891CE229F6000478E4 /* waves.aiff */,
+				E203F28B1CE22CED000478E4 /* tentmaking.mp3 */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -728,6 +734,7 @@
 				E2D7D6031CE20FE80081BB55 /* Campfire.mp3 in Resources */,
 				E2522A8F1AE06DBE00EDD89A /* Psalm 139ENG.txt in Resources */,
 				E2E0DF501CE21A320097C4FC /* Winemaking.mp3 in Resources */,
+				E203F28A1CE229F6000478E4 /* waves.aiff in Resources */,
 				E2522A891AE05C9E00EDD89A /* TanakhENG.txt in Resources */,
 				E2BE7A621B88274300A57242 /* Psalm 139Hebrew.mp3 in Resources */,
 				E2D7D6051CE213FC0081BB55 /* WalkCycle.aiff in Resources */,
@@ -735,6 +742,7 @@
 				E2522A8D1AE06B4D00EDD89A /* Psalm 139Hebrew.txt in Resources */,
 				E2790D4F1B8117A900702F50 /* Psalm 139ENG.mp3 in Resources */,
 				E22A5C901CDBA7AB009BA96D /* BackgroundMusicB.mp3 in Resources */,
+				E203F28C1CE22CED000478E4 /* tentmaking.mp3 in Resources */,
 				E2D7D6071CE216180081BB55 /* BlindingLight.mp3 in Resources */,
 				E21B45911AE04E8F007F10C5 /* GameScene.sks in Resources */,
 				E21B45931AE04E8F007F10C5 /* Images.xcassets in Resources */,
