@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SpriteKit
 
 class BlindingLight : Skill {
     
@@ -25,7 +26,16 @@ class BlindingLight : Skill {
         //if you have all the raw materials necessary,
         if canUse() {
             
+            let light : SKShapeNode
+            light = SKShapeNode(rectOfSize: CGSize(width: 4096*2, height: 4096*2))
+            light.fillColor = SKColor.whiteColor()
+            light.position = CGPoint(x: 0.5, y: 0.5)
+            light.zPosition = 1000
+            UNIVERSE.theScene.world.addChild(light)
             playSound("BlindingLight.mp3")
+            light.runAction(SKAction.fadeOutWithDuration(3), completion: {
+                light.removeFromParent()
+                })
             //level up
             level++
             //update tooltip info

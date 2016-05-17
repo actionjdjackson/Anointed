@@ -894,6 +894,12 @@ class GameScene : SKScene {
         UNIVERSE.theGame.player.zPosition = 0
         world.addChild(UNIVERSE.theGame.player)  //add the player to the world
         
+        if UNIVERSE.theGame.currentLocation.visited == false {
+            UNIVERSE.theGame.player.experience += 1000
+            UNIVERSE.alertText("Explored new location, +1000 experience")
+            UNIVERSE.theGame.currentLocation.visited = true
+        }
+        
         for x in 0...UNIVERSE.theGame.currentLocation.grid.count-1 {     //iterating through the x coords of the loc. grid
             for y in 0...UNIVERSE.theGame.currentLocation.grid[0].count-1 {  //iterating through the y coords of the loc. grid
                 let xx = UNIVERSE.theGame.currentLocation.grid.count-x-1 //converts x to reverse order for drawing prettiness

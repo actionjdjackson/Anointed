@@ -16,6 +16,7 @@ class Location {
     var grid : [[GridSquare]]
     var animals : [Animal]
     var people : [NonPlayingCharacter]
+    var visited : Bool
     
     init( n:String, d:String, g:[[GridSquare]], a:[Animal], npc:[NonPlayingCharacter]) {
         
@@ -24,6 +25,7 @@ class Location {
         grid = g
         animals = a
         people = npc
+        visited = false
         
     }
     
