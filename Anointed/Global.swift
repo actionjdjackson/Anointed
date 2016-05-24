@@ -93,6 +93,8 @@ struct UNIVERSE {
         alertCount++
     }
     
+    static var currentTimeGlobal : CFTimeInterval = 0.0
+    
 }
 
 struct FILE_OPERATIONS {

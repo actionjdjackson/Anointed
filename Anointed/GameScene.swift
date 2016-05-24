@@ -987,6 +987,8 @@ class GameScene : SKScene {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
+        UNIVERSE.currentTimeGlobal = currentTime
+        
         if UNIVERSE.theGame.player.currentPrayerFocus.contains("Pray Over Skills") {
             
             if Int(currentTime) % (100) == 0 {
@@ -1020,6 +1022,12 @@ class GameScene : SKScene {
         for animal in UNIVERSE.theGame.currentLocation.animals {  //for each animal
             
             animal.updateAI(currentTime)    //update the AI
+            
+        }
+        
+        for npc in UNIVERSE.theGame.currentLocation.people {    //for each npc
+            
+            npc.update(currentTime) //update the AI/quests/etc
             
         }
         

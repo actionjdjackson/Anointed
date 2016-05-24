@@ -15,11 +15,13 @@ class NonPlayingCharacter : GameCharacter {
     let SELECTION_OUTLINE_SIZE = CGFloat(2.0)   //size of the line for drawing the selection halo
     let SELECTION_OUTLINE_GLOW_SIZE = CGFloat(5.0)  //size of the glow for drawing the selection halo
     var conversation : Conversation //conversation elements go here
+    var quests : [Quest] //quest element goes here
     var talking : Bool = false  //keeps track of whether or not we're in a conversation
     
-    init( convo: Conversation ) {
+    init( convo: Conversation, theQuests : [Quest] ) {
         
         conversation = convo    //stores the conversation
+        quests = theQuests
         super.init( )   //super initializer
         if conversation.itemsToBeTraded.count > 0 {
             for (_, item) in conversation.itemsToBeTraded {
@@ -115,6 +117,14 @@ class NonPlayingCharacter : GameCharacter {
                 i++
             }
             
+            for quest in quests {
+                let menuItem = MenuItem(theText: quest.title)
+                menuItem.position.y = CGFloat(i * -32)
+                menuItem.name = quest.title
+                self.addChild(menuItem)
+                i++
+            }
+            
             let menuItem = MenuItem(theText: "Bye!")    //add a bye menu item
             menuItem.position.y = CGFloat(i * -32)  //put it below any previous questions
             menuItem.name = "END_CONVERSATION"  //name it "END_CONVERSATION" for later use in identifying the button as the conversation-ender
@@ -126,6 +136,14 @@ class NonPlayingCharacter : GameCharacter {
             self.removeAllChildren()    //remove conversation elements (and everything else, like the selection outline)
             talking = false //we are no longer talking
             
+        }
+        
+    }
+    
+    func update( time : NSTimeInterval ) {
+        
+        for quest in self.quests {
+            quest.update(time)
         }
         
     }

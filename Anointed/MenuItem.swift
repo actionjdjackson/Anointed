@@ -119,7 +119,18 @@ class MenuItem : SKNode {
             
             backgroundBox.fillColor = SKColor.redColor()   //makes the box red
             self.runAction(fade)    //start fading out trade menu box
-
+            
+        } else if name!.hasPrefix("Quest: ") {
+            
+            for quest in par.quests {
+                if quest.title == name {
+                    quest.startQuest( UNIVERSE.currentTimeGlobal )
+                    let fade = SKAction.fadeOutWithDuration(NSTimeInterval(3))
+                    backgroundBox.fillColor = SKColor.redColor()
+                    self.runAction(fade)
+                }
+            }
+            
         } else if name == "END_CONVERSATION" {  //if we're saying goodbye
           
             par.removeAllChildren() //close out all the convo menus

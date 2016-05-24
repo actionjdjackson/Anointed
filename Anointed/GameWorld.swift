@@ -297,7 +297,7 @@ class GameWorld {
         
         /* SETS UP ALL NPCS */
         var allNPCs : [NonPlayingCharacter] = []
-        let Timothy = NonPlayingCharacter( convo: Conversation(knowledge: ["Do you know what God's name is?" : yahwehIsGod], understanding: [:], wisdom: [:], items: ["What will you take for that skin of water you're holding?" : water], info: ["Have you heard anything about Jesus of Nazareth?" : "I know that Jesus has been made Lord of all, and we saw Him resurrected a few days ago.", "What is your name?" : "My name is Timothy, servant of the Most High God."] ) )
+        let Timothy = NonPlayingCharacter( convo: Conversation(knowledge: ["Do you know what God's name is?" : yahwehIsGod], understanding: [:], wisdom: [:], items: ["What will you take for that skin of water you're holding?" : water], info: ["Have you heard anything about Jesus of Nazareth?" : "I know that Jesus has been made Lord of all, and we saw Him resurrected a few days ago.", "What is your name?" : "My name is Timothy, servant of the Most High God."] ), theQuests: [Quest(questTitle: "Go On An Adventure", desc: "A basic quest", items: [psalm139Scroll], knowledge: [], understanding: [iShouldFearGod], wisdom: [], rewards: [], limit: -1.0)] )
         allNPCs.append( Timothy )
         
         /* SETS UP ALL ANIMALS */

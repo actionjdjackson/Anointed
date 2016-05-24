@@ -23,19 +23,19 @@ class BlindingLight : Skill {
     /* USE BLINDING LIGHT SKILL ON ENTIRE VIEWABLE AREA */
     override func use() {
         
-        //if you have all the raw materials necessary,
-        if canUse() {
+        if canUse() {   //if we can use blinding light
             
+            /** make a big white box over the whole screen **/
             let light : SKShapeNode
             light = SKShapeNode(rectOfSize: CGSize(width: 4096*2, height: 4096*2))
             light.fillColor = SKColor.whiteColor()
             light.position = CGPoint(x: 0.5, y: 0.5)
             light.zPosition = 1000
-            UNIVERSE.theScene.world.addChild(light)
-            playSound("BlindingLight.mp3")
+            UNIVERSE.theScene.world.addChild(light) //add to world
+            playSound("BlindingLight.mp3")  //play the sound
             light.runAction(SKAction.fadeOutWithDuration(3), completion: {
                 light.removeFromParent()
-                })
+                })  //fade out immediately, then remove from world
             //level up
             level++
             //update tooltip info
@@ -46,9 +46,9 @@ class BlindingLight : Skill {
             UNIVERSE.alertText("Whoa! Totally miraculous, dude!")
             UNIVERSE.alertText("Blinding Light +1")
             
-        } else {    //if we don't
+        } else {    //if we can't
             
-            UNIVERSE.alertText("Not enough resources to make wine. Sorry.")    //it's a no-go
+            UNIVERSE.alertText("Can't use blinding light for some impossible reason.")    //it's a no-go
             
         }
         

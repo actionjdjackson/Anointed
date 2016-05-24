@@ -25,6 +25,7 @@ class MakeBench : Subskill {
             
             UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Bench...", completion: {
                 
+                playSound("tentmaking.mp3")
                 //make a bench
                 self.user.inventory.append(self.makeBench())
                 //level up carpentry skill
@@ -50,6 +51,7 @@ class MakeBench : Subskill {
             
             UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Bench...", completion: {
                 
+                playSound("tentmaking.mp3")
                 //make a bench
                 npc.inventory.append(self.makeBench())
                 //level up carpentry skill

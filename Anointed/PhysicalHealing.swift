@@ -23,6 +23,7 @@ class PhysicalHealing: Skill {
     /* FOR NORMAL USE (ON SELF, USUALLY) */
     override func use() {
         
+        playSound("PhysicalHealing.aiff")   //play healing sound
         user.physicalHealth = 100   //heal self
         level++ //level up skill
         self.toolTipSN.itemInfoA = "Level " + String( level )   //update tooltip info
@@ -36,6 +37,7 @@ class PhysicalHealing: Skill {
     /* FOR USE ON AN NPC */
     override func useOnNPC(npc: NonPlayingCharacter) {
         
+        playSound("PhysicalHealing.aiff")   //play healing sound
         //heal the target
         npc.physicalHealth = 100
         //level up the skill
@@ -52,6 +54,7 @@ class PhysicalHealing: Skill {
     /* FOR USE ON AN ANIMAL */
     override func useOnAnimal(animal: Animal) {
         
+        playSound("PhysicalHealing.aiff")   //play healing sound
         //heal the target
         animal.physicalHealth = 100
         //level up the skill

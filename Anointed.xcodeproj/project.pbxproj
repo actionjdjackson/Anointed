@@ -63,6 +63,7 @@
 		E21DA0D21BC0C21100D43484 /* UnderstandingElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21DA0D11BC0C21100D43484 /* UnderstandingElement.swift */; };
 		E21DA0D41BC0C21800D43484 /* WisdomElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21DA0D31BC0C21800D43484 /* WisdomElement.swift */; };
 		E22424081B03E399002BE6EB /* BackgroundMusicA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */; };
+		E226018D1CEE121100906A24 /* PhysicalHealing.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E226018C1CEE121100906A24 /* PhysicalHealing.aiff */; };
 		E227B30E1BFB969D00D534AC /* MakeSash.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227B30D1BFB969D00D534AC /* MakeSash.swift */; };
 		E227B3101BFB982700D534AC /* MakeTunic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227B30F1BFB982700D534AC /* MakeTunic.swift */; };
 		E227B3121BFB994B00D534AC /* MakeToga.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227B3111BFB994B00D534AC /* MakeToga.swift */; };
@@ -140,6 +141,7 @@
 		E27036841BFE1FCB00FB6D97 /* MakeSplint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27036831BFE1FCB00FB6D97 /* MakeSplint.swift */; };
 		E27230CE1BEFE23300FE3C08 /* Scribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27230CD1BEFE23200FE3C08 /* Scribe.swift */; };
 		E2790D4F1B8117A900702F50 /* Psalm 139ENG.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */; };
+		E27B39801CF49AAE00FCA5D3 /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27B397F1CF49AAE00FCA5D3 /* Quest.swift */; };
 		E28589661BBEF9170004F3C6 /* MeditationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28589651BBEF9170004F3C6 /* MeditationButton.swift */; };
 		E28C4A511B4D7FC4001CD4A7 /* Tentmaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */; };
 		E29307D51BAE61B9009F8B6A /* StudySectionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29307D41BAE61B9009F8B6A /* StudySectionLabel.swift */; };
@@ -238,6 +240,7 @@
 		E21DA0D11BC0C21100D43484 /* UnderstandingElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderstandingElement.swift; sourceTree = "<group>"; };
 		E21DA0D31BC0C21800D43484 /* WisdomElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WisdomElement.swift; sourceTree = "<group>"; };
 		E22424071B03E399002BE6EB /* BackgroundMusicA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusicA.mp3; sourceTree = "<group>"; };
+		E226018C1CEE121100906A24 /* PhysicalHealing.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = PhysicalHealing.aiff; sourceTree = "<group>"; };
 		E227B30D1BFB969D00D534AC /* MakeSash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeSash.swift; sourceTree = "<group>"; };
 		E227B30F1BFB982700D534AC /* MakeTunic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeTunic.swift; sourceTree = "<group>"; };
 		E227B3111BFB994B00D534AC /* MakeToga.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeToga.swift; sourceTree = "<group>"; };
@@ -315,6 +318,7 @@
 		E27036831BFE1FCB00FB6D97 /* MakeSplint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeSplint.swift; sourceTree = "<group>"; };
 		E27230CD1BEFE23200FE3C08 /* Scribe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scribe.swift; sourceTree = "<group>"; };
 		E2790D4E1B8117A900702F50 /* Psalm 139ENG.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Psalm 139ENG.mp3"; sourceTree = "<group>"; };
+		E27B397F1CF49AAE00FCA5D3 /* Quest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		E28589651BBEF9170004F3C6 /* MeditationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationButton.swift; sourceTree = "<group>"; };
 		E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tentmaking.swift; sourceTree = "<group>"; };
 		E29307D41BAE61B9009F8B6A /* StudySectionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySectionLabel.swift; sourceTree = "<group>"; };
@@ -555,6 +559,7 @@
 				E2E0DF4F1CE21A320097C4FC /* Winemaking.mp3 */,
 				E203F2891CE229F6000478E4 /* waves.aiff */,
 				E203F28B1CE22CED000478E4 /* tentmaking.mp3 */,
+				E226018C1CEE121100906A24 /* PhysicalHealing.aiff */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -596,6 +601,7 @@
 				E21B45B01AE04EF6007F10C5 /* Conversation.swift */,
 				E21B45B11AE04EF6007F10C5 /* GameCharacter.swift */,
 				E2522A901AE07ABA00EDD89A /* GridSquare.swift */,
+				E27B397F1CF49AAE00FCA5D3 /* Quest.swift */,
 				E21B45B41AE04EF6007F10C5 /* Item.swift */,
 				E21B45B51AE04EF6007F10C5 /* Knowledge.swift */,
 				E21DA0CF1BC0B39900D43484 /* KnowledgeElement.swift */,
@@ -742,6 +748,7 @@
 				E2522A8D1AE06B4D00EDD89A /* Psalm 139Hebrew.txt in Resources */,
 				E2790D4F1B8117A900702F50 /* Psalm 139ENG.mp3 in Resources */,
 				E22A5C901CDBA7AB009BA96D /* BackgroundMusicB.mp3 in Resources */,
+				E226018D1CEE121100906A24 /* PhysicalHealing.aiff in Resources */,
 				E203F28C1CE22CED000478E4 /* tentmaking.mp3 in Resources */,
 				E2D7D6071CE216180081BB55 /* BlindingLight.mp3 in Resources */,
 				E21B45911AE04E8F007F10C5 /* GameScene.sks in Resources */,
@@ -768,6 +775,7 @@
 				E270367A1BFE1A2C00FB6D97 /* MakeNecklace.swift in Sources */,
 				E2686E201BF10C45002E37B3 /* MiraculousCommunion.swift in Sources */,
 				E2686DF41BF10B53002E37B3 /* MentalHealing.swift in Sources */,
+				E27B39801CF49AAE00FCA5D3 /* Quest.swift in Sources */,
 				E2686E241BF10C62002E37B3 /* GiftedMentor.swift in Sources */,
 				E2686DFC1BF10B79002E37B3 /* CorporalAssurance.swift in Sources */,
 				E203093B1B6FB0A500BF658F /* WordOfKnowledge.swift in Sources */,

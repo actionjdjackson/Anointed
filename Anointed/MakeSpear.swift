@@ -22,9 +22,11 @@ class MakeSpear : Subskill {
         
         //if you have all the raw materials necessary,
         if canUse() {
+
+            playSound("tentmaking.mp3")
             
             UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Spear...", completion: {
-                
+
                 //make a spear
                 self.user.inventory.append(self.makeSpear())
                 //level up spearmaking skill
@@ -48,12 +50,18 @@ class MakeSpear : Subskill {
         //if you have all the raw materials necessary,
         if canUse() {
             
+            playSound("tentmaking.mp3")
+            
+            UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Spear...", completion: {
+            
             //make a spear
             npc.inventory.append(self.makeSpear())
             //level up spearmaking skill
             self.levelUp()
             //report to screen
             UNIVERSE.alertText("Made a spear for " + npc.name!)
+                
+            })
             
         } else {    //if we don't have enough raw materials,
             

@@ -23,6 +23,7 @@ class MakeChair : Subskill {
         //if you have all the raw materials necessary,
         if canUse() {
             
+            playSound("tentmaking.mp3")
             UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Chair...", completion: {
                 
                 //make a tent
@@ -48,6 +49,7 @@ class MakeChair : Subskill {
         //if you have all the raw materials necessary,
         if canUse() {
             
+            playSound("tentmaking.mp3")
             UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Chair...", completion: {
                 
                 //make a chair

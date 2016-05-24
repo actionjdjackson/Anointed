@@ -49,13 +49,18 @@ class MakeSmallTent : Subskill {
         //if you have all the raw materials necessary,
         if canUse() {
             
+            playSound("tentmaking.mp3")
+            UNIVERSE.theScene.makeProgressBarFor(self.hoursToComplete, caption: "Making Small Tent...", completion: {
+            
             //make a tent
             npc.inventory.append(self.makeSmallTent())
             //level up tentmaking skill
             self.levelUp()
             //report to screen
             UNIVERSE.alertText("Made a basic cloth tent for " + npc.name!)
-            
+                
+            })
+        
         } else {    //if we don't have enough raw materials,
             
             UNIVERSE.alertText("Not enough resources to make a tent. Sorry.")  //UNIVERSE.alertText no can do
