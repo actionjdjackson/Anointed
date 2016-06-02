@@ -24,7 +24,7 @@ class Quest {
     var failed : Bool   //failed quest
     var succeeded : Bool    //succeeded in quest
     
-    let title : String  //title of quest
+    var title : String  //title of quest
     let description : String    //quest description
     
     init( questTitle : String, desc : String, items : [Item], knowledge : [Knowledge], understanding : [Understanding], wisdom : [Wisdom], rewards : [Item], limit : Double ) {
@@ -129,6 +129,7 @@ class Quest {
         
             if succeeded == true {
             
+                completed = true
                 UNIVERSE.alertText("You completed the quest " + title)  //yay! we've completed the quest so make an alert for it
             
             }
@@ -137,13 +138,13 @@ class Quest {
         
     }
     
-    func startQuest( time : CFTimeInterval ) {
+    func startQuest( time : CFTimeInterval ) {  //start quest timer
        
         timeStarted = time
         
     }
     
-    func isCompleted() -> Bool {
+    func isCompleted() -> Bool {    //returns true if quest completed
         
         return completed
         

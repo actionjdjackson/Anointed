@@ -120,16 +120,34 @@ class MenuItem : SKNode {
             backgroundBox.fillColor = SKColor.redColor()   //makes the box red
             self.runAction(fade)    //start fading out trade menu box
             
-        } else if name!.hasPrefix("Quest: ") {
+        } else if name!.hasPrefix("Quest: ") {  //if it's a quest
             
-            for quest in par.quests {
+            for quest in par.quests {   //search quests for this quest in npc
                 if quest.title == name {
-                    quest.startQuest( UNIVERSE.currentTimeGlobal )
-                    let fade = SKAction.fadeOutWithDuration(NSTimeInterval(3))
-                    backgroundBox.fillColor = SKColor.redColor()
-                    self.runAction(fade)
+                    quest.startQuest( UNIVERSE.currentTimeGlobal )  //start quest (timer)
+                    let fade = SKAction.fadeOutWithDuration(NSTimeInterval(3))  //make fadeout action for menu item
+                    backgroundBox.fillColor = SKColor.redColor()    //make it red
+                    self.runAction(fade)    //fade out menu item
                 }
             }
+            
+        } else if name!.hasPrefix("Complete Quest: ") {     //if it's possible to complete a quest
+            for quest in par.quests {   //find the quest in npc
+                if quest.title == name {
+                    for item in quest.rewardItems { //for all reward items
+                        UNIVERSE.theGame.player.inventory.append(item)  //add them to the player's inventory
+                    }
+                    let fade = SKAction.fadeOutWithDuration(NSTimeInterval(3))  //make fadeout action
+                    backgroundBox.fillColor = SKColor.redColor()    //make it red
+                    self.runAction(fade)    //fade out menu item
+                    for n in 0...par.quests.count-1 {   //run thru quests
+                        if par.quests[n].title == quest.title { //if it's the right quest
+                            par.quests.removeAtIndex(n) //remove it
+                        }
+                    }
+                }
+            }
+            
             
         } else if name == "END_CONVERSATION" {  //if we're saying goodbye
           

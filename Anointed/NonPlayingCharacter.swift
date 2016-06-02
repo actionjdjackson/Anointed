@@ -21,7 +21,7 @@ class NonPlayingCharacter : GameCharacter {
     init( convo: Conversation, theQuests : [Quest] ) {
         
         conversation = convo    //stores the conversation
-        quests = theQuests
+     quests = theQuests
         super.init( )   //super initializer
         if conversation.itemsToBeTraded.count > 0 {
             for (_, item) in conversation.itemsToBeTraded {
@@ -45,16 +45,16 @@ class NonPlayingCharacter : GameCharacter {
         } else if talking == true {
             //do nothing
         } else {    //if not already selected
-            for npc in UNIVERSE.theGame.currentLocation.people {
-                if npc.selected {
-                    npc.removeAllChildren()
-                    npc.selected = false
+            for npc in UNIVERSE.theGame.currentLocation.people {    //run thru npcs
+                if npc.selected {   //if selected
+                    npc.removeAllChildren() //remove selection halo
+                    npc.selected = false    //deselect
                 }
             }
-            for animal in UNIVERSE.theGame.currentLocation.animals {
-                if animal.selected {
-                    animal.removeAllChildren()
-                    animal.selected = false
+            for animal in UNIVERSE.theGame.currentLocation.animals {    //run thru animals
+                if animal.selected {    //if selected
+                    animal.removeAllChildren()  //remove selection halo
+                    animal.selected = false //deselect
                 }
             }
             selected = true //we are now selected
@@ -117,12 +117,21 @@ class NonPlayingCharacter : GameCharacter {
                 i++
             }
             
-            for quest in quests {
-                let menuItem = MenuItem(theText: quest.title)
-                menuItem.position.y = CGFloat(i * -32)
-                menuItem.name = quest.title
-                self.addChild(menuItem)
-                i++
+            for quest in quests {   //run thru quests
+                if quest.isCompleted() {    //if quest requirements are met
+                    let menuItem = MenuItem(theText: "Complete " + quest.title) //change title to have "Complete " at the beginning
+                    menuItem.position.y = CGFloat(i * -32)  //same as above, but for quests
+                    menuItem.name = "Complete " + quest.title   //make menu item name same as it's text
+                    quest.title = menuItem.name! //make
+                    self.addChild(menuItem) //add to NPC
+                    i++
+                } else if quest.timeStarted == 0.0 {    //if quest requirements are not met and the quest hasn't been started yet
+                    let menuItem = MenuItem(theText: quest.title)   //add menu item for quest
+                    menuItem.position.y = CGFloat(i * -32)  //same as above, but for quests
+                    menuItem.name = quest.title
+                    self.addChild(menuItem)
+                    i++
+                }
             }
             
             let menuItem = MenuItem(theText: "Bye!")    //add a bye menu item
