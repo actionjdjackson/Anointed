@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-/* THE GAME WORLD CLASS KEEPS TRACK OF ALL THE CITIES, LOCATIONS, BUILDINGS, ROOMS, THE PLAYER (GAME CHARACTER), THE IN-GAME DATE AND TIME, AND ALL BIBLE EVENTS. IT WILL CONTAIN ALL "LEVEL" DATA AS DEFINED IN TEXT FILES OR JUST HARD-CODED INTO THIS FILE, DEPENDING ON WETHER OR NOT I WANT TO MAKE A LEVEL EDITOR, WHICH I PROBABLY WILL. ***IN PROGRESS*** */
+/* THE GAME WORLD CLASS KEEPS TRACK OF ALL THE CITIES, LOCATIONS, BUILDINGS, ROOMS, THE PLAYER (GAME CHARACTER), THEIR GIFTS AND SKILLS, THE IN-GAME DATE AND TIME, AND ALL BIBLE EVENTS. IT WILL CONTAIN ALL "LEVEL" DATA AS DEFINED IN TEXT FILES OR JUST HARD-CODED INTO THIS FILE, DEPENDING ON WETHER OR NOT I WANT TO MAKE A LEVEL EDITOR, WHICH I PROBABLY WILL. ***IN PROGRESS*** */
 class GameWorld {
     
     //var bibleEvents : [BibleEvent]
@@ -291,13 +291,14 @@ class GameWorld {
         /* MAKES ALL THE ITEMS IN THE GAME */
         let psalm139Scroll = Scroll( ttl: "Psalm 139 Scroll", desc: "A copy of the 139th Psalm, in Hebrew, originally written by King David. In fairly good condition, and fully readable. Must know how to read Hebrew to use this scroll.", textFile: "Psalm 139", lang: "Hebrew", scrollSize: 1, knowl: [godsOmniscience, godsOmnipresence, godsOmnipotence, sinnersAreGodsEnemies], under: [iShouldFearGod], wisd: [] )
         let wood1 = Item(ttl: "Wood", desc: "1 Unit of Wood", sx: 1, sy: 1, spriteName: "wood")
+        let wood6 = Item(ttl: "Wood", desc: "1 Unit of Wood", sx: 1, sy: 1, spriteName: "wood")
         let cord1 = Item(ttl: "Cord", desc: "1 Unit of Cord", sx: 1, sy: 1, spriteName: "cord")
         let cloth1 = Item(ttl: "Cloth", desc: "1 Unit of Cloth", sx: 1, sy: 1, spriteName: "cloth")
         let cloth6 = Item(ttl: "Cloth", desc: "1 Unit of Cloth", sx: 1, sy: 1, spriteName: "cloth")
         
         /* SETS UP ALL NPCS */
         var allNPCs : [NonPlayingCharacter] = []
-        let Timothy = NonPlayingCharacter( convo: Conversation(knowledge: ["Do you know what God's name is?" : yahwehIsGod], understanding: [:], wisdom: [:], items: ["What will you take for that skin of water you're holding?" : water], info: ["Have you heard anything about Jesus of Nazareth?" : "I know that Jesus has been made Lord of all, and we saw Him resurrected a few days ago.", "What is your name?" : "My name is Timothy, servant of the Most High God."] ), theQuests: [Quest(questTitle: "Go On An Adventure", desc: "A basic quest, find the Psalm 139 Scroll and study it thoroughly.", items: [psalm139Scroll], knowledge: [], understanding: [iShouldFearGod], wisdom: [], rewards: [], limit: -1.0)] )
+        let Timothy = NonPlayingCharacter( convo: Conversation(knowledge: ["Do you know what God's name is?" : yahwehIsGod], understanding: [:], wisdom: [:], items: ["What will you take for that skin of water you're holding?" : water], info: ["Have you heard anything about Jesus of Nazareth?" : "I know that Jesus has been made Lord of all, and we saw Him resurrected a few days ago.", "What is your name?" : "My name is Timothy, servant of the Most High God."] ), theQuests: [Quest(questTitle: "Go On An Adventure", desc: "A basic quest, find the Psalm 139 Scroll and study it thoroughly.", items: [psalm139Scroll], knowledge: [], understanding: [iShouldFearGod], wisdom: [], rewards: [wood6], exp: 1000, limit: -1)] )
         allNPCs.append( Timothy )
         
         /* SETS UP ALL ANIMALS */
@@ -432,7 +433,7 @@ class GameWorld {
                     tempGrid[i][j] = genericGridSquares[random() % genericGridSquares.count]
                 } else if r <= 95 {
                     tempGrid[i][j] = specialGridSquares[random() % specialGridSquares.count]
-                } else if r <= 100 && uniqueGridSquares.count > 0 {
+                } else if r <= 99 && uniqueGridSquares.count > 0 {
                     let randomUnique = random() % uniqueGridSquares.count
                     tempGrid[i][j] = uniqueGridSquares[randomUnique]
                     uniqueGridSquares.removeAtIndex(randomUnique)

@@ -17,6 +17,9 @@ class GameScene : SKScene {
     var bibleEventDescription = SKMultiLineLabel(theText: "", theWidth: 40, fontsize: 12)
     var lowerBanner = SKSpriteNode(imageNamed:"LowerBannerBASE")    //load button bar into memory
     var experienceBars = SKSpriteNode(imageNamed:"ExperienceBarsBASE")  //load experience bar into memory
+    var hgexpbar = SKShapeNode()    //make HG Experience Bar
+    var expbar = SKShapeNode()  //make exp bar
+    var combatexpbar = SKShapeNode()    //make combat exp bar
     var theOpenMenu = SKSpriteNode(imageNamed:"INVENTORYmenu")  //load inventory menu as default menu to open
     var menuUp = "NONE" //no menu up for starters
     let hebrew = NSCalendar(calendarIdentifier: NSCalendarIdentifierHebrew) //defines hebrew calendar
@@ -148,6 +151,26 @@ class GameScene : SKScene {
         
     }
     
+    func updateExperienceBars() {
+        
+        hgexpbar.removeFromParent()
+        hgexpbar = SKShapeNode(rectOfSize: CGSize(width: Int((Double(UNIVERSE.theGame.player.historyWithGodExperience) / Double(UNIVERSE.theGame.player.levelExp[UNIVERSE.theGame.player.level + 1]!)) * 200) + 3, height: 8), cornerRadius: 3)
+        hgexpbar.fillColor = SKColor.yellowColor()
+        hgexpbar.strokeColor = SKColor.clearColor()
+        hgexpbar.position = CGPoint(x: 0, y: 64/2 - 4)
+        experienceBars.addChild(hgexpbar)
+        
+        expbar.removeFromParent()
+        expbar = SKShapeNode(rectOfSize: CGSize(width: Int((Double(UNIVERSE.theGame.player.experience) / Double(UNIVERSE.theGame.player.levelExp[UNIVERSE.theGame.player.level + 1]!)) * 200) + 3, height: 8), cornerRadius: 3)
+        expbar.fillColor = SKColor.greenColor()
+        expbar.strokeColor = SKColor.clearColor()
+        expbar.position = CGPoint(x: 0, y: 64/2 - 32 + 5)
+        experienceBars.addChild(expbar)
+        
+        //print(UNIVERSE.theGame.player.experience, UNIVERSE.theGame.player.historyWithGodExperience, UNIVERSE.theGame.player.levelExp[UNIVERSE.theGame.player.level + 1]!) //print experience levels and next level up exp level
+        
+    }
+    
     /* CREATES THE LOWER BANNER WITH GAME BUTTONS, SKILLS, AND EXPERIENCE BARS */
     func setupLowerBanner() {
         
@@ -161,6 +184,7 @@ class GameScene : SKScene {
         experienceBars.position = CGPoint(x: CONSTANTS.EXPERIENCE_BARS_X, y: CONSTANTS.EXPERIENCE_BARS_Y) //put experience bars at the correct location
         experienceBars.zPosition = CONSTANTS.EXPERIENCE_BARS_Z
         self.addChild(experienceBars)   //add the experience bars (to the right of the button bar, as above)
+        updateExperienceBars()
         
         
         if UNIVERSE.theGame.player.skills.count > 0 {    //if the player has any skills
@@ -1015,7 +1039,7 @@ class GameScene : SKScene {
         
         if UNIVERSE.theGame.player.currentPrayerFocus.contains("Pray For Experience") {
                 
-            UNIVERSE.theGame.player.experience += Double(100 / UNIVERSE.theGame.player.currentPrayerFocus.count)
+            UNIVERSE.theGame.player.experience += Int(100 / UNIVERSE.theGame.player.currentPrayerFocus.count)
             
         }
         
@@ -1036,6 +1060,8 @@ class GameScene : SKScene {
             skill.applyPassiveTraits()
             
         }
+        
+        updateExperienceBars()
         
         //orderCorrectly()
         

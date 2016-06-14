@@ -16,6 +16,7 @@ class Quest {
     var wisdomRequired : [Wisdom]   //wisdom required to complete quest
     
     var rewardItems : [Item]    //reward item(s)
+    var rewardExperience : Int
     
     var timeLimit : Double  //time limit on quest (< 0 means no time limit)
     var timeStarted : CFTimeInterval    //time started timestamp
@@ -27,7 +28,7 @@ class Quest {
     var title : String  //title of quest
     let description : String    //quest description
     
-    init( questTitle : String, desc : String, items : [Item], knowledge : [Knowledge], understanding : [Understanding], wisdom : [Wisdom], rewards : [Item], limit : Double ) {
+    init( questTitle : String, desc : String, items : [Item], knowledge : [Knowledge], understanding : [Understanding], wisdom : [Wisdom], rewards : [Item], exp: Int, limit : Double ) {
         
         title = "Quest: " + questTitle  //add a prefix "Quest: " to quest title so we can parse it out of menu items
         description = desc
@@ -36,6 +37,7 @@ class Quest {
         understandingRequired = understanding
         wisdomRequired = wisdom
         rewardItems = rewards
+        rewardExperience = exp
         timeLimit = limit
         completed = false
         failed = false      //neither succeeded nor failed == either in progress or not attempted yet
@@ -130,8 +132,8 @@ class Quest {
             if succeeded == true {
             
                 completed = true
-                UNIVERSE.alertText("You completed the quest " + title)  //yay! we've completed the quest so make an alert for it
-            
+                UNIVERSE.alertText("You completed the quest " + title + ", return for a reward.")  //yay! we've completed the quest so make an alert for it
+        
             }
         
         }
@@ -141,6 +143,7 @@ class Quest {
     func startQuest( time : CFTimeInterval ) {  //start quest timer
        
         timeStarted = time
+        UNIVERSE.alertText(description)
         
     }
     

@@ -23,6 +23,8 @@ class Interpretation : Skill {
     override func useOnNPC(npc: NonPlayingCharacter) {
         //interpretation
         UNIVERSE.alertText("Interpreting...")
+        //play garbled speech sound
+        playSound("GarbledSpeech.mp3")
         //level up
         level++
         //update tooltip info

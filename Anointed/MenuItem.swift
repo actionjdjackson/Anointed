@@ -134,9 +134,11 @@ class MenuItem : SKNode {
         } else if name!.hasPrefix("Complete Quest: ") {     //if it's possible to complete a quest
             for quest in par.quests {   //find the quest in npc
                 if quest.title == name {
+                    UNIVERSE.alertText("Your reward is: " + quest.rewardItems[0].descr + " and " + String(quest.rewardExperience) + " HGExp.")
                     for item in quest.rewardItems { //for all reward items
                         UNIVERSE.theGame.player.inventory.append(item)  //add them to the player's inventory
                     }
+                    UNIVERSE.theGame.player.historyWithGodExperience += quest.rewardExperience
                     let fade = SKAction.fadeOutWithDuration(NSTimeInterval(3))  //make fadeout action
                     backgroundBox.fillColor = SKColor.redColor()    //make it red
                     self.runAction(fade)    //fade out menu item

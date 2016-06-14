@@ -149,10 +149,10 @@ class NonPlayingCharacter : GameCharacter {
         
     }
     
-    func update( time : NSTimeInterval ) {
+    func update( time : NSTimeInterval ) {  //update the quest timer for all quests
         
-        for quest in self.quests {
-            quest.update(time)
+        for quest in self.quests {  //for each quest
+            quest.update(time)  //update the quest timer
         }
         
     }

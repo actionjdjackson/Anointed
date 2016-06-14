@@ -34,14 +34,16 @@ class GameCharacter : SKSpriteNode {
     var intelligence:  Int
     var strength: Int
     var dexterity: Int
-    var experience: Double
-    var historyWithGodExperience : Double
+    var experience: Int
+    var historyWithGodExperience : Int
     var faith : Double
     var hope : Double
     var love : Double
     var languagesKnown: [String]
     var currentGridLocation: CGPoint
     var currentPrayerFocus : [String]
+    var level : Int
+    var levelExp : [Int : Int] = [:]
     
     /* FOR NOW, JUST DEFAULT TO ME AND DEFINE THINGS AS WE NEED TO FOR DEBUGGING. CHARS WILL BE DEFINABLE/CREATABLE LATER IN GAME DEV - ***IN PROGRESS*** */
     
@@ -69,8 +71,12 @@ class GameCharacter : SKSpriteNode {
         intelligence = 10
         strength = 10
         dexterity = 10
-        experience = Double(age) * 1000.0
-        historyWithGodExperience = 0.0
+        experience = 0
+        historyWithGodExperience = 0
+        level = 1
+        levelExp[1] = 0
+        levelExp[2] = 2000
+        levelExp[3] = 6000
         faith = 1.0
         hope = 1.0
         love = 1.0

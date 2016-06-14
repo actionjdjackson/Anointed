@@ -145,6 +145,7 @@
 		E28589661BBEF9170004F3C6 /* MeditationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28589651BBEF9170004F3C6 /* MeditationButton.swift */; };
 		E28C4A511B4D7FC4001CD4A7 /* Tentmaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */; };
 		E29307D51BAE61B9009F8B6A /* StudySectionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29307D41BAE61B9009F8B6A /* StudySectionLabel.swift */; };
+		E2A351421D09AEC100AAA1D8 /* GarbledSpeech.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E2A351411D09AEC100AAA1D8 /* GarbledSpeech.mp3 */; };
 		E2BB7AB01BFA275E00711442 /* MakeLargeTent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB7AAF1BFA275E00711442 /* MakeLargeTent.swift */; };
 		E2BB7AB21BFA2ECC00711442 /* MakeChair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB7AB11BFA2ECC00711442 /* MakeChair.swift */; };
 		E2BB7AB41BFA38F000711442 /* MakeBench.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB7AB31BFA38F000711442 /* MakeBench.swift */; };
@@ -322,6 +323,7 @@
 		E28589651BBEF9170004F3C6 /* MeditationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationButton.swift; sourceTree = "<group>"; };
 		E28C4A501B4D7FC4001CD4A7 /* Tentmaking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tentmaking.swift; sourceTree = "<group>"; };
 		E29307D41BAE61B9009F8B6A /* StudySectionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySectionLabel.swift; sourceTree = "<group>"; };
+		E2A351411D09AEC100AAA1D8 /* GarbledSpeech.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GarbledSpeech.mp3; sourceTree = "<group>"; };
 		E2BB7AAF1BFA275E00711442 /* MakeLargeTent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeLargeTent.swift; sourceTree = "<group>"; };
 		E2BB7AB11BFA2ECC00711442 /* MakeChair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeChair.swift; sourceTree = "<group>"; };
 		E2BB7AB31BFA38F000711442 /* MakeBench.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeBench.swift; sourceTree = "<group>"; };
@@ -560,6 +562,7 @@
 				E203F2891CE229F6000478E4 /* waves.aiff */,
 				E203F28B1CE22CED000478E4 /* tentmaking.mp3 */,
 				E226018C1CEE121100906A24 /* PhysicalHealing.aiff */,
+				E2A351411D09AEC100AAA1D8 /* GarbledSpeech.mp3 */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -601,12 +604,12 @@
 				E21B45B01AE04EF6007F10C5 /* Conversation.swift */,
 				E21B45B11AE04EF6007F10C5 /* GameCharacter.swift */,
 				E2522A901AE07ABA00EDD89A /* GridSquare.swift */,
-				E27B397F1CF49AAE00FCA5D3 /* Quest.swift */,
 				E21B45B41AE04EF6007F10C5 /* Item.swift */,
 				E21B45B51AE04EF6007F10C5 /* Knowledge.swift */,
 				E21DA0CF1BC0B39900D43484 /* KnowledgeElement.swift */,
 				E21B45B61AE04EF6007F10C5 /* Location.swift */,
 				E21B45B81AE04EF6007F10C5 /* NonPlayingCharacter.swift */,
+				E27B397F1CF49AAE00FCA5D3 /* Quest.swift */,
 				E21B45B91AE04EF6007F10C5 /* Room.swift */,
 				E2522A8A1AE0631900EDD89A /* Scroll.swift */,
 				E21B45BC1AE04EF6007F10C5 /* Understanding.swift */,
@@ -746,6 +749,7 @@
 				E2D7D6051CE213FC0081BB55 /* WalkCycle.aiff in Resources */,
 				E22424081B03E399002BE6EB /* BackgroundMusicA.mp3 in Resources */,
 				E2522A8D1AE06B4D00EDD89A /* Psalm 139Hebrew.txt in Resources */,
+				E2A351421D09AEC100AAA1D8 /* GarbledSpeech.mp3 in Resources */,
 				E2790D4F1B8117A900702F50 /* Psalm 139ENG.mp3 in Resources */,
 				E22A5C901CDBA7AB009BA96D /* BackgroundMusicB.mp3 in Resources */,
 				E226018D1CEE121100906A24 /* PhysicalHealing.aiff in Resources */,
